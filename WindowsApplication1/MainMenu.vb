@@ -109,7 +109,7 @@ Public Class MainMenu
             FormStatus = True
             SettingsMenuStrip1.Visible = False
             ReportMenuStrip.Visible = False
-            Dim NewMDIChild As New 
+            Dim NewMDIChild As New AnnualinspectorDashBoard()
             NewMDIChild.MdiParent = Me
             NewMDIChild.Show()
             'Panel3.Visible = False

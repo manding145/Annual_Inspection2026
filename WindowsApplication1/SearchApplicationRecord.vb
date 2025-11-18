@@ -2,7 +2,7 @@
 Public Class SearchApplicationRecord
 
     Private Sub BtnSearchRecord_Click(sender As Object, e As EventArgs) Handles BtnSearchRecord.Click
-        Dim BPLO As Inspector_DashBoard = CType(Application.OpenForms("ConstructionOnline"), Inspector_DashBoard)
+        Dim BPLO As AnnualinspectorDashBoard = CType(Application.OpenForms("ConstructionOnline"), AnnualinspectorDashBoard)
         Try
             BPLO.DataGrid.Rows.Clear()
             conn = "SELECT * " _
