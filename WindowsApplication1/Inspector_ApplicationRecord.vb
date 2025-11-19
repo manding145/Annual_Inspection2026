@@ -103,17 +103,17 @@ Public Class Inspector_ApplicationRecord
             File.Copy(sourcePath2, filePath, True)
         End If
 
-        Dim Construction_ApplicationRecord As Inspector_ApplicationRecord = CType(Application.OpenForms("Construction_ApplicationRecord"), Inspector_ApplicationRecord)
+        Dim Inspector_ApplicationRecord As Inspector_ApplicationRecord = CType(Application.OpenForms("Inspector_ApplicationRecord"), Inspector_ApplicationRecord)
 
         Con_ms = New SqlConnection(mcs)
         Con_ms.Open()
-        conn_ms = "UPDATE ONLINE.annual_inspection_application set assessmentfile = @assessmentfile, remark='" & txt_remarks.Text & "' , app_status = 'A', assess_date = @date, user_assess ='" & fullname.Text & "', assessmentamount = @amount WHERE id='" & txt_applicationno.Text & "'"
+        conn_ms = "UPDATE ONLINE.annual_inspection_application set file_assessment = @file_assessment, remarks='" & txt_remarks.Text & "' , app_status = 'A', assess_date = @date, userId ='" & useraccountid.Text & "', payment_amount = @amount WHERE id='" & txt_applicationno.Text & "'"
         Try
 
             cmd_ms = New SqlCommand(conn_ms, Con_ms)
             cmd_ms.Parameters.Add("@date", SqlDbType.DateTime).Value = Date.Now
-            cmd_ms.Parameters.Add("@assessmentfile", SqlDbType.VarChar).Value = filename
-            cmd_ms.Parameters.Add("@amount", SqlDbType.VarChar).Value = TxtBusinessAddress.Text
+            cmd_ms.Parameters.Add("@file_assessment", SqlDbType.VarChar).Value = filename
+            cmd_ms.Parameters.Add("@amount", SqlDbType.VarChar).Value = TxtAmount.Text
             cmd_ms.ExecuteNonQuery()
             Con_ms.Close()
             FormStatus = False
@@ -121,10 +121,10 @@ Public Class Inspector_ApplicationRecord
             Con_ms1 = New SqlConnection(mcs)
             Con_ms1.Open()
             conn = "INSERT INTO ONLINE.email_outbox (userid, accountno, Remarks, email, Subject, fullname, referencecode, datesend, assessment_path) " _
-               & "VALUES (@userid, @TDN,  @Remarks, '" & txt_email.Text & "', 'Construction Assessment' ,@Project_title, @TxtRefenceNo, @Date, @assessment_path)"
+               & "VALUES (@userid, @TxtAccountNo,  @Remarks, '" & txt_email.Text & "', 'Annual Inspection Assessment' ,@ownerName, @TxtRefenceNo, @Date, @assessment_path)"
             cmd_ms1 = New SqlCommand(conn, Con_ms1)
-            'cmd_ms1.Parameters.Add("@TDN", SqlDbType.VarChar).Value = lbl_AccountNo.Text & " - " & typeofapplication.Text
-            cmd_ms1.Parameters.Add("@Project_title", SqlDbType.VarChar).Value = fullname.Text
+            cmd_ms1.Parameters.Add("@TxtAccountNo", SqlDbType.VarChar).Value = TxtAccountNo.Text & "_" & TxtBusinessName.Text
+            cmd_ms1.Parameters.Add("@ownerName", SqlDbType.VarChar).Value = TxtBusinessOwner.Text
             cmd_ms1.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
             cmd_ms1.Parameters.Add("@TxtRefenceNo", SqlDbType.VarChar).Value = TxtRefenceNo.Text
             cmd_ms1.Parameters.Add("@assessment_path", SqlDbType.VarChar).Value = filePath
@@ -176,14 +176,7 @@ Public Class Inspector_ApplicationRecord
         rdr_ms1 = cmd_ms1.ExecuteReader(CommandBehavior.CloseConnection)
         If rdr_ms1.Read() Then
             If rdr_ms1("app_status").ToString() = "P" Then
-
-                'Con_ms = New SqlConnection(mcs)
-                'Con_ms.Open()
-                'conn_ms = "UPDATE ONLINE.annual_inspection_application set  , app_status = 'R' WHERE id='" & txt_applicationno.Text & "'"
-                'cmd_ms = New SqlCommand(conn_ms, Con_ms)
-                'Con_ms.Close()
                 ReUpload.ShowDialog()
-
             Else
                 MessageBox.Show("No application to Re-Upload")
             End If

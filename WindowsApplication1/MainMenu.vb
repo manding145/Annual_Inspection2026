@@ -25,45 +25,41 @@ Public Class MainMenu
     End Sub
 
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+
         For Each ctl As Control In Me.Controls
             If TypeOf ctl Is MdiClient Then
                 ctl.BackColor = Me.BackColor
             End If
         Next ctl
         lblfname.Text = lblfname1
-        'lbluserrole.Text = lbluserrole1
+        lbluserrole.Text = lbluserrole1
 
+        'Dim sql_update As String =
+        '        "UPDATE bsd " & vbCrLf &
+        '        "SET bsd.payment_status = 'E' " & vbCrLf &
+        '        "FROM ONLINE.business_applicationstatus_dtl AS bsd " & vbCrLf &
+        '        "INNER JOIN ONLINE.business_assessment_dtl AS bad " & vbCrLf &
+        '        "  ON bad.ApplicationID = bsd.ApplicationID " & vbCrLf &
+        '        "WHERE bad.payment_status = 'P' " & vbCrLf &
+        '        "  AND CONVERT(date, bsd.Validity) < CONVERT(date, GETDATE());"
 
+        'Dim Con_ms As SqlConnection = Nothing
+        'Dim cmd_ms As SqlCommand = Nothing
 
+        'Try
+        '    Con_ms = New SqlConnection(mcs)
+        '    Con_ms.Open()
 
-
-
-        Dim sql_update As String =
-                "UPDATE bsd " & vbCrLf &
-                "SET bsd.payment_status = 'E' " & vbCrLf &
-                "FROM ONLINE.business_applicationstatus_dtl AS bsd " & vbCrLf &
-                "INNER JOIN ONLINE.business_assessment_dtl AS bad " & vbCrLf &
-                "  ON bad.ApplicationID = bsd.ApplicationID " & vbCrLf &
-                "WHERE bad.payment_status = 'P' " & vbCrLf &
-                "  AND CONVERT(date, bsd.Validity) < CONVERT(date, GETDATE());"
-
-        Dim Con_ms As SqlConnection = Nothing
-        Dim cmd_ms As SqlCommand = Nothing
-
-        Try
-            Con_ms = New SqlConnection(mcs)
-            Con_ms.Open()
-
-            cmd_ms = New SqlCommand(sql_update, Con_ms)
-            Dim rowsAffected As Integer = cmd_ms.ExecuteNonQuery()
-            ' (Optional) You can log rowsAffected if you want
-        Catch ex As Exception
-            ' handle/log error
-        Finally
-            If Con_ms IsNot Nothing Then Con_ms.Close()
-        End Try
-
-
+        '    cmd_ms = New SqlCommand(sql_update, Con_ms)
+        '    Dim rowsAffected As Integer = cmd_ms.ExecuteNonQuery()
+        '    ' (Optional) You can log rowsAffected if you want
+        'Catch ex As Exception
+        '    ' handle/log error
+        'Finally
+        '    If Con_ms IsNot Nothing Then Con_ms.Close()
+        'End Try
 
 
 

@@ -13,7 +13,7 @@ Module Connection
 
     Public link_UnifiedForm, link_BrgyClearance, link_OldPermit, link_OldPlate, link_Fire, link_OldITR, link_MarketClearance
 
-    Public folder_directory = "CONSTRUCTION_APPLICATION\"
+    Public folder_directory = "ANNUAL_INSPECTION_APPLICATION\"
 
 
 

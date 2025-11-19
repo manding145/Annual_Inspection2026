@@ -40,7 +40,7 @@ Public Class InspectorDashBoard
                         .TxtBusinessAddress.Text = rdr_ms("bussAddress").ToString
                         .TxtBusinessOwner.Text = rdr_ms("ownerName").ToString
                         .txt_applicationno.Text = rdr_ms("id").ToString
-                        .txt_email.Text = rdr_ms("email").ToString
+                        .txt_email.Text = rdr_ms("Email").ToString
                         .txt_contactno.Text = rdr_ms("ContactNo").ToString
                         .fullname.Text = rdr_ms("Firstname").ToString() + " " + rdr_ms("Middlename").ToString() + " " + rdr_ms("Lastname").ToString()
                         .useraccountid.Text = rdr_ms("userid").ToString()
@@ -87,7 +87,7 @@ Public Class InspectorDashBoard
                             .TxtAccountNo.Enabled = False
                             .TxtAmount.Enabled = False
 
-                            .TxtBusinessAddress.Text = rdr_ms("payment_amount").ToString()
+                            .TxtAmount.Text = rdr_ms("payment_amount").ToString()
                             .assessment_file.Text = rdr_ms("file_assessment").ToString()
 
                             If Not String.IsNullOrEmpty("file_assessment") Then
