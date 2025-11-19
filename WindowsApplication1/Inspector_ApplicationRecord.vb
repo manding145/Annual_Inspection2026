@@ -76,12 +76,12 @@ Public Class Inspector_ApplicationRecord
 
 
         If String.IsNullOrWhiteSpace(assessment_file.Text) Then
-            MsgBox("Please attach Assessment", vbOKOnly & vbCritical, "Construction Permit Online")
+            MsgBox("Please attach Assessment", vbOKOnly & vbCritical, "Annual Inspection Online")
             Exit Sub
         End If
 
-        If String.IsNullOrWhiteSpace(TxtBusinessAddress.Text) Then
-            MsgBox("Please input the Amount", vbOKOnly & vbCritical, "Construction Permit Online")
+        If String.IsNullOrWhiteSpace(TxtAmount.Text) Then
+            MsgBox("Please input the Amount", vbOKOnly & vbCritical, "Annual Inspection Online")
             Exit Sub
         End If
 
@@ -131,7 +131,7 @@ Public Class Inspector_ApplicationRecord
             cmd_ms1.Parameters.Add("@Remarks", SqlDbType.VarChar).Value = txt_remarks.Text
             cmd_ms1.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
             cmd_ms1.ExecuteNonQuery()
-            MsgBox("Construction Permit application successfully Verified", vbOKOnly & vbInformation, "Construction Permit Online")
+            MsgBox("Annual Inspection Application successfully Verified", vbOKOnly & vbInformation, "Annual Inspection Online")
             Con_ms1.Close()
 
 
@@ -198,4 +198,9 @@ Public Class Inspector_ApplicationRecord
     Private Sub Construction_ApplicationRecord_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
+    Private Sub TxtAmount_LostFocus(sender As Object, e As EventArgs) Handles TxtAmount.LostFocus
+        TxtAmount.Text = Val(TxtAmount.Text).ToString("N2")
+    End Sub
+
 End Class

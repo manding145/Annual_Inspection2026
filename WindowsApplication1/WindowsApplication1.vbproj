@@ -309,10 +309,10 @@
     <Compile Include="BarangayClearanceControl.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AnnualinspectorDashBoard.Designer.vb">
-      <DependentUpon>AnnualinspectorDashBoard.vb</DependentUpon>
+    <Compile Include="InspectorDashBoard.Designer.vb">
+      <DependentUpon>InspectorDashBoard.vb</DependentUpon>
     </Compile>
-    <Compile Include="AnnualinspectorDashBoard.vb">
+    <Compile Include="InspectorDashBoard.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inspector_ApplicationRecord.Designer.vb">
@@ -535,8 +535,8 @@
     <EmbeddedResource Include="BarangayClearanceControl.resx">
       <DependentUpon>BarangayClearanceControl.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AnnualinspectorDashBoard.resx">
-      <DependentUpon>AnnualinspectorDashBoard.vb</DependentUpon>
+    <EmbeddedResource Include="InspectorDashBoard.resx">
+      <DependentUpon>InspectorDashBoard.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inspector_ApplicationRecord.resx">
       <DependentUpon>Inspector_ApplicationRecord.vb</DependentUpon>

@@ -83,7 +83,7 @@ Public Class Deny
             cmd_ms.ExecuteNonQuery()
             Con_ms.Close()
 
-            MsgBox("Application successully denied. This client will received notification to his email.", vbOKOnly & vbInformation, " Construction Permit Online")
+            MsgBox("Application successully denied. This client will received notification to his email.", vbOKOnly & vbInformation, "Annual Inspection Online")
             Me.Close()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

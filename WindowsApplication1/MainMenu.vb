@@ -20,7 +20,7 @@ Public Class MainMenu
 
         Else
 
-            MsgBox("Please close your current form to continue.", vbOKOnly & vbExclamation, "Construction Permit Online")
+            MsgBox("Please close your current form to continue.", vbOKOnly & vbExclamation, "Annual Inspection Online")
         End If
     End Sub
 
@@ -82,8 +82,8 @@ Public Class MainMenu
                     Dim popup = New PopupNotifier
                     popup.TitleColor = Color.Blue
                     popup.TitleFont = New Font("Segoe UI", 14, FontStyle.Bold)
-                    popup.TitleText = "Construction Permit Online"
-                    popup.Image = My.Resources.blogo
+                    popup.TitleText = "Annual Inspection Online"
+                    popup.Image = My.Resources.inspection
                     popup.ContentFont = New Font("Segoe UI", 11, FontStyle.Bold)
                     popup.ContentText = "Hello " & lblfname.Text & "," & vbCrLf & "You have " & rdr_ms("no_pending") & " pending application!"
                     popup.Popup()
@@ -109,7 +109,7 @@ Public Class MainMenu
             FormStatus = True
             SettingsMenuStrip1.Visible = False
             ReportMenuStrip.Visible = False
-            Dim NewMDIChild As New AnnualinspectorDashBoard()
+            Dim NewMDIChild As New InspectorDashBoard()
             NewMDIChild.MdiParent = Me
             NewMDIChild.Show()
             'Panel3.Visible = False
