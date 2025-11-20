@@ -343,7 +343,6 @@ C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\De
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.BarangayClearanceControl.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.InspectorDashBoard.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.Inspector_ApplicationRecord.resources
-C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.bplomain.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.ConnectionConfiguration.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.Deny.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.FrmNotificationControl.resources

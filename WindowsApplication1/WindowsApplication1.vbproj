@@ -63,7 +63,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>letter-b %285%29.ico</ApplicationIcon>
+    <ApplicationIcon>inspection %281%29.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -321,12 +321,6 @@
     <Compile Include="Inspector_ApplicationRecord.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="bplomain.Designer.vb">
-      <DependentUpon>bplomain.vb</DependentUpon>
-    </Compile>
-    <Compile Include="bplomain.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Connection.vb" />
     <Compile Include="ConnectionConfiguration.Designer.vb">
       <DependentUpon>ConnectionConfiguration.vb</DependentUpon>
@@ -540,9 +534,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inspector_ApplicationRecord.resx">
       <DependentUpon>Inspector_ApplicationRecord.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="bplomain.resx">
-      <DependentUpon>bplomain.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConnectionConfiguration.resx">
       <DependentUpon>ConnectionConfiguration.vb</DependentUpon>
@@ -917,6 +908,7 @@
     <None Include="Resources\document %281%29.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="inspection %281%29.ico" />
     <Content Include="letter-b %283%29.ico" />
     <Content Include="letter-b %285%29.ico" />
     <None Include="Resources\inspection.png" />

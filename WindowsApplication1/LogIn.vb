@@ -52,7 +52,7 @@ Public Class LogIn
                 'get prefix
                 Con_ms = New SqlConnection(mcs)
                 Con_ms.Open()
-                conn_ms = "SELECT * FROM ONLINE.m_prefix_attachments where Status='1'"
+                conn_ms = "SELECT * FROM ONLINE.m_prefix_attachments_ceo where Status='1'"
 
                 cmd_ms = New SqlCommand(conn_ms, Con_ms)
                 rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
