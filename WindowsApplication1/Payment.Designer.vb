@@ -29,7 +29,7 @@ Partial Class Payment
         Me.BtnSearchRecord = New System.Windows.Forms.Button()
         Me.UploadScannedReceipt = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TxtProjectName = New System.Windows.Forms.TextBox()
+        Me.TxtBusinessName = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TxtAmountPaid = New System.Windows.Forms.TextBox()
         Me.TxtTransaction = New System.Windows.Forms.TextBox()
@@ -48,7 +48,7 @@ Partial Class Payment
         Me.Label8 = New System.Windows.Forms.Label()
         Me.useraccountid = New System.Windows.Forms.TextBox()
         Me.typeofapplication = New System.Windows.Forms.Panel()
-        Me.Txtapplicant_name = New System.Windows.Forms.TextBox()
+        Me.TxtOwnerName = New System.Windows.Forms.TextBox()
         Me.txt_email = New System.Windows.Forms.TextBox()
         Me.Type_App = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -127,23 +127,23 @@ Partial Class Payment
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(13, 164)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(74, 13)
+        Me.Label3.Size = New System.Drawing.Size(83, 13)
         Me.Label3.TabIndex = 161
-        Me.Label3.Text = "Project Name:"
+        Me.Label3.Text = "Business Name:"
         '
-        'TxtProjectName
+        'TxtBusinessName
         '
-        Me.TxtProjectName.BackColor = System.Drawing.Color.AliceBlue
-        Me.TxtProjectName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtProjectName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TxtProjectName.Enabled = False
-        Me.TxtProjectName.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtProjectName.Location = New System.Drawing.Point(17, 181)
-        Me.TxtProjectName.Multiline = True
-        Me.TxtProjectName.Name = "TxtProjectName"
-        Me.TxtProjectName.ReadOnly = True
-        Me.TxtProjectName.Size = New System.Drawing.Size(493, 26)
-        Me.TxtProjectName.TabIndex = 162
+        Me.TxtBusinessName.BackColor = System.Drawing.Color.AliceBlue
+        Me.TxtBusinessName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtBusinessName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtBusinessName.Enabled = False
+        Me.TxtBusinessName.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtBusinessName.Location = New System.Drawing.Point(17, 181)
+        Me.TxtBusinessName.Multiline = True
+        Me.TxtBusinessName.Name = "TxtBusinessName"
+        Me.TxtBusinessName.ReadOnly = True
+        Me.TxtBusinessName.Size = New System.Drawing.Size(493, 26)
+        Me.TxtBusinessName.TabIndex = 162
         '
         'Label5
         '
@@ -204,7 +204,7 @@ Partial Class Payment
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(15, 67)
+        Me.Label9.Location = New System.Drawing.Point(15, 64)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(67, 13)
         Me.Label9.TabIndex = 174
@@ -217,7 +217,7 @@ Partial Class Payment
         Me.TxtAccountNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtAccountNo.Enabled = False
         Me.TxtAccountNo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtAccountNo.Location = New System.Drawing.Point(16, 81)
+        Me.TxtAccountNo.Location = New System.Drawing.Point(16, 78)
         Me.TxtAccountNo.Multiline = True
         Me.TxtAccountNo.Name = "TxtAccountNo"
         Me.TxtAccountNo.ReadOnly = True
@@ -229,9 +229,9 @@ Partial Class Payment
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(15, 110)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(85, 13)
+        Me.Label2.Size = New System.Drawing.Size(72, 13)
         Me.Label2.TabIndex = 174
-        Me.Label2.Text = "Applicant Name:"
+        Me.Label2.Text = "Owner Name:"
         '
         'GroupBox1
         '
@@ -336,7 +336,7 @@ Partial Class Payment
         '
         Me.typeofapplication.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.typeofapplication.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.typeofapplication.Controls.Add(Me.Txtapplicant_name)
+        Me.typeofapplication.Controls.Add(Me.TxtOwnerName)
         Me.typeofapplication.Controls.Add(Me.txt_email)
         Me.typeofapplication.Controls.Add(Me.useraccountid)
         Me.typeofapplication.Controls.Add(Me.GroupBox2)
@@ -352,23 +352,23 @@ Partial Class Payment
         Me.typeofapplication.Controls.Add(Me.TxtTransaction)
         Me.typeofapplication.Controls.Add(Me.TxtAmountPaid)
         Me.typeofapplication.Controls.Add(Me.Label5)
-        Me.typeofapplication.Controls.Add(Me.TxtProjectName)
+        Me.typeofapplication.Controls.Add(Me.TxtBusinessName)
         Me.typeofapplication.Controls.Add(Me.Label3)
         Me.typeofapplication.Location = New System.Drawing.Point(22, 83)
         Me.typeofapplication.Name = "typeofapplication"
         Me.typeofapplication.Size = New System.Drawing.Size(1084, 430)
         Me.typeofapplication.TabIndex = 159
         '
-        'Txtapplicant_name
+        'TxtOwnerName
         '
-        Me.Txtapplicant_name.BackColor = System.Drawing.Color.AliceBlue
-        Me.Txtapplicant_name.Enabled = False
-        Me.Txtapplicant_name.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Txtapplicant_name.Location = New System.Drawing.Point(16, 126)
-        Me.Txtapplicant_name.Multiline = True
-        Me.Txtapplicant_name.Name = "Txtapplicant_name"
-        Me.Txtapplicant_name.Size = New System.Drawing.Size(242, 26)
-        Me.Txtapplicant_name.TabIndex = 188
+        Me.TxtOwnerName.BackColor = System.Drawing.Color.AliceBlue
+        Me.TxtOwnerName.Enabled = False
+        Me.TxtOwnerName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.TxtOwnerName.Location = New System.Drawing.Point(16, 124)
+        Me.TxtOwnerName.Multiline = True
+        Me.TxtOwnerName.Name = "TxtOwnerName"
+        Me.TxtOwnerName.Size = New System.Drawing.Size(242, 26)
+        Me.TxtOwnerName.TabIndex = 188
         '
         'txt_email
         '
@@ -448,7 +448,7 @@ Partial Class Payment
     Friend WithEvents BtnSearchRecord As System.Windows.Forms.Button
     Friend WithEvents UploadScannedReceipt As System.Windows.Forms.Button
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Public WithEvents TxtProjectName As System.Windows.Forms.TextBox
+    Public WithEvents TxtBusinessName As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Public WithEvents TxtAmountPaid As System.Windows.Forms.TextBox
     Public WithEvents TxtTransaction As System.Windows.Forms.TextBox
@@ -470,6 +470,6 @@ Partial Class Payment
     Public WithEvents TxtApplicationID As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents txt_email As System.Windows.Forms.TextBox
-    Friend WithEvents Txtapplicant_name As System.Windows.Forms.TextBox
+    Friend WithEvents TxtOwnerName As System.Windows.Forms.TextBox
     Friend WithEvents Type_App As System.Windows.Forms.Label
 End Class

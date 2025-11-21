@@ -397,10 +397,10 @@
     <Compile Include="Payment.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConstructionPermit.Designer.vb">
-      <DependentUpon>ConstructionPermit.vb</DependentUpon>
+    <Compile Include="InspectionPermit_DashBoard.Designer.vb">
+      <DependentUpon>InspectionPermit_DashBoard.vb</DependentUpon>
     </Compile>
-    <Compile Include="ConstructionPermit.vb">
+    <Compile Include="InspectionPermit_DashBoard.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PaymentDashboard.Designer.vb">
@@ -571,8 +571,8 @@
     <EmbeddedResource Include="Payment.resx">
       <DependentUpon>Payment.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConstructionPermit.resx">
-      <DependentUpon>ConstructionPermit.vb</DependentUpon>
+    <EmbeddedResource Include="InspectionPermit_DashBoard.resx">
+      <DependentUpon>InspectionPermit_DashBoard.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PaymentDashboard.resx">
       <DependentUpon>PaymentDashboard.vb</DependentUpon>

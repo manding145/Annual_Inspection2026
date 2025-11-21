@@ -105,7 +105,7 @@ Public Class Payment
                & "VALUES (@userid, @TDN, '" & txt_email.Text & "', 'Construction Payment' ,@applicant, '" & referencono.Text & "', @Date, @filePath)"
             cmd_ms = New SqlCommand(conn, Con_ms)
             cmd_ms.Parameters.Add("@TDN", SqlDbType.VarChar).Value = TxtAccountNo.Text & "-" & Type_App.Text
-            cmd_ms.Parameters.Add("@applicant", SqlDbType.VarChar).Value = Txtapplicant_name.Text
+            cmd_ms.Parameters.Add("@applicant", SqlDbType.VarChar).Value = TxtOwnerName.Text
             cmd_ms.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
             cmd_ms.Parameters.Add("@filePath", SqlDbType.VarChar).Value = filePath
             cmd_ms.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()

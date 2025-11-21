@@ -95,13 +95,13 @@ Public Class PaymentDashboard
                         .TxtApplicationID.Text = rdr_ms("id").ToString
                         .TxtAccountNo.Text = rdr_ms("accountNo").ToString
                         .referencono.Text = rdr_ms("refno").ToString
-                        .TxtProjectName.Text = rdr_ms("project_title").ToString
-                        .tax_amount.Text = rdr_ms("payment_").ToString
-                        .Txtapplicant_name.Text = rdr_ms("applicant").ToString
+                        .TxtBusinessName.Text = rdr_ms("bussName").ToString
+                        .tasx_amount.Text = rdr_ms("payment_amount").ToString
+                        .TxtOwnerName.Text = rdr_ms("ownerName").ToString
                         .useraccountid.Text = rdr_ms("UserID").ToString
                         .txt_email.Text = rdr_ms("email").ToString
                         .TxtTransaction.Text = rdr_ms("Transaction_no").ToString
-                        .ORattachment.Text = rdr_ms("file_assessment").ToString
+                        .ORattachment.Text = rdr_ms("file_or").ToString
                         .Type_App.Text = rdr_ms("permit_type").ToString
 
 
@@ -115,7 +115,7 @@ Public Class PaymentDashboard
                             .TxtTransaction.Enabled = False
 
 
-                            If Not String.IsNullOrEmpty("file_assessment") Then
+                            If Not String.IsNullOrEmpty("file_or") Then
                                 If System.IO.File.Exists(folderpath) Then
 
                                     .AxAcroPDF2.src = "file:///" & folderpath.Replace("\", "/")
@@ -145,8 +145,8 @@ Public Class PaymentDashboard
         DataGrid.Rows.Clear()
 
         lblCount.Visible = False
-        Dim Pending As Integer = 0
-        conn_ms = "SELECT id, refNo, tdn, project_title, payment_date, app_status " & _
+
+        conn_ms = "SELECT * " & _
                      "FROM ONLINE.annual_inspection_application " & _
                      "WHERE app_status = 'PAID' "
         Con_ms = New SqlConnection(mcs)
@@ -155,23 +155,7 @@ Public Class PaymentDashboard
         rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
         Do While rdr_ms.Read()
 
-            Dim applicationDate As DateTime = rdr_ms("payment_date")
-            Dim currentDate As DateTime = DateTime.Now
-
-            Dim duration As TimeSpan = currentDate - applicationDate
-            Dim daysPending As Integer = duration.Days
-            Dim hoursPending As Integer = duration.Hours
-            Dim minutesPending As Integer = duration.Minutes
-
-            Dim parts As New List(Of String)
-            If daysPending > 0 Then parts.Add(daysPending.ToString() & " day" & If(daysPending > 1, "s", ""))
-            If hoursPending > 0 Then parts.Add(hoursPending.ToString() & " hr" & If(hoursPending > 1, "s", ""))
-            If minutesPending > 0 Then parts.Add(minutesPending.ToString() & " min" & If(minutesPending > 1, "s", ""))
-
-            Dim pendingText As String = If(parts.Count > 0, String.Join(", ", parts), "Just now")
-
-            DataGrid.Rows.Add(rdr_ms("id"), rdr_ms("refNo"), rdr_ms("payment_date"), rdr_ms("tdn"), rdr_ms("project_title"), pendingText, rdr_ms("app_status"), "VIEW")
-
+            DataGrid.Rows.Add(rdr_ms("id"), rdr_ms("refno"), rdr_ms("paid_date"), rdr_ms("accountno"), rdr_ms("bussname"), rdr_ms("app_status"), "VIEW")
         Loop
         rdr_ms.Close()
         Con_ms.Close()
@@ -188,74 +172,43 @@ Public Class PaymentDashboard
         Try
             If cmb_appointmentstatus.Text = "ASSESSED" Then
 
-                conn_ms = "SELECT id, tdn, refNo, project_title, assess_date, app_status FROM ONLINE.annual_inspection_application WHERE app_status = 'A' AND Convert(date, application_date) BETWEEN '" & Format((dt_Appoinment.Value), "yyyy-MM-dd") & "' AND '" & Format((dt_Appoinment1.Value), "yyyy-MM-dd") & "' ORDER BY application_date ASC;"
+                conn_ms = "SELECT * FROM ONLINE.annual_inspection_application WHERE app_status = 'A' AND Convert(date, assess_date) BETWEEN '" & Format((dt_Appoinment.Value), "yyyy-MM-dd") & "' AND '" & Format((dt_Appoinment1.Value), "yyyy-MM-dd") & "' ORDER BY assess_date ASC;"
                 Con_ms = New SqlConnection(mcs)
                 Con_ms.Open()
                 cmd_ms = New SqlCommand(conn_ms, Con_ms)
                 rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
                 Do While rdr_ms.Read = True
 
-                    Dim applicationDate As DateTime = rdr_ms("assess_date")
-                    Dim currentDate As DateTime = DateTime.Now
-
-                    Dim duration As TimeSpan = currentDate - applicationDate
-                    Dim daysPending As Integer = duration.Days
-                    Dim hoursPending As Integer = duration.Hours
-                    Dim minutesPending As Integer = duration.Minutes
-
-                    Dim parts As New List(Of String)
-                    If daysPending > 0 Then parts.Add(daysPending.ToString() & " day" & If(daysPending > 1, "s", ""))
-                    If hoursPending > 0 Then parts.Add(hoursPending.ToString() & " hr" & If(hoursPending > 1, "s", ""))
-                    If minutesPending > 0 Then parts.Add(minutesPending.ToString() & " min" & If(minutesPending > 1, "s", ""))
-
-                    Dim pendingText As String = If(parts.Count > 0, String.Join(", ", parts), "Just now")
-
-                    DataGrid.Rows.Add(rdr_ms("id"), rdr_ms("refNo"), rdr_ms("assess_date"), rdr_ms("tdn"), rdr_ms("project_title"), pendingText, rdr_ms("app_status"), "VIEW")
-
-
+                    DataGrid.Rows.Add(rdr_ms("id"), rdr_ms("refno"), rdr_ms("assess_date"), rdr_ms("accountno"), rdr_ms("bussname"), rdr_ms("app_status"), "VIEW")
                 Loop
                 rdr_ms.Close()
                 Con_ms.Close()
 
             ElseIf cmb_appointmentstatus.Text = "PAID" Then
 
-                conn_ms = "SELECT id, tdn, refNo, project_title, payment_date, app_status " & _
+                conn_ms = "SELECT * " & _
                           "FROM ONLINE.annual_inspection_application " & _
-                          "WHERE app_status ='PAID' AND Convert(date, application_date) BETWEEN '" & Format((dt_Appoinment.Value), "yyyy-MM-dd") & "' AND '" & Format((dt_Appoinment1.Value), "yyyy-MM-dd") & "' ORDER BY application_date ASC; "
+                          "WHERE app_status ='PAID' AND Convert(date, paid_date) BETWEEN '" & Format((dt_Appoinment.Value), "yyyy-MM-dd") & "' AND '" & Format((dt_Appoinment1.Value), "yyyy-MM-dd") & "' ORDER BY paid_date ASC; "
                 Con_ms = New SqlConnection(mcs)
                 Con_ms.Open()
                 cmd_ms = New SqlCommand(conn_ms, Con_ms)
                 rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
                 Do While rdr_ms.Read = True
 
-                    Dim applicationDate As DateTime = rdr_ms("payment_date")
-                    Dim currentDate As DateTime = DateTime.Now
 
-                    Dim duration As TimeSpan = currentDate - applicationDate
-                    Dim daysPending As Integer = duration.Days
-                    Dim hoursPending As Integer = duration.Hours
-                    Dim minutesPending As Integer = duration.Minutes
-
-                    Dim parts As New List(Of String)
-                    If daysPending > 0 Then parts.Add(daysPending.ToString() & " day" & If(daysPending > 1, "s", ""))
-                    If hoursPending > 0 Then parts.Add(hoursPending.ToString() & " hr" & If(hoursPending > 1, "s", ""))
-                    If minutesPending > 0 Then parts.Add(minutesPending.ToString() & " min" & If(minutesPending > 1, "s", ""))
-
-                    Dim pendingText As String = If(parts.Count > 0, String.Join(", ", parts), "Just now")
-
-                    DataGrid.Rows.Add(rdr_ms("id"), rdr_ms("refNo"), rdr_ms("payment_date"), rdr_ms("tdn"), rdr_ms("project_title"), pendingText, rdr_ms("app_status"), "VIEW")
+                    DataGrid.Rows.Add(rdr_ms("id"), rdr_ms("refno"), rdr_ms("paid_date"), rdr_ms("accountno"), rdr_ms("bussname"), rdr_ms("app_status"), "VIEW")
 
                 Loop
                 rdr_ms.Close()
                 Con_ms.Close()
             ElseIf cmb_appointmentstatus.Text = "ALL" Then
 
-                conn_ms = "SELECT id, tdn, refNo, project_title, payment_date, assess_date, app_status " &
+                conn_ms = "SELECT * " &
                           "FROM ONLINE.annual_inspection_application " &
                           "WHERE app_status IN ('A', 'PAID') AND " &
                           "((app_status = 'A' AND CONVERT(date, assess_date) BETWEEN '" & Format(dt_Appoinment.Value, "yyyy-MM-dd") & "' AND '" & Format(dt_Appoinment1.Value, "yyyy-MM-dd") & "') " &
-                          "OR (app_status = 'PAID' AND CONVERT(date, payment_date) BETWEEN '" & Format(dt_Appoinment.Value, "yyyy-MM-dd") & "' AND '" & Format(dt_Appoinment1.Value, "yyyy-MM-dd") & "')) " &
-                          "ORDER BY payment_date ASC;"
+                          "OR (app_status = 'PAID' AND CONVERT(date, paid_date) BETWEEN '" & Format(dt_Appoinment.Value, "yyyy-MM-dd") & "' AND '" & Format(dt_Appoinment1.Value, "yyyy-MM-dd") & "')) " &
+                          "ORDER BY assess_date ASC;"
                 Con_ms = New SqlConnection(mcs)
                 Con_ms.Open()
                 cmd_ms = New SqlCommand(conn_ms, Con_ms)
@@ -267,22 +220,10 @@ Public Class PaymentDashboard
                         Case "A"
                             selectedDate = Convert.ToDateTime(rdr_ms("assess_date"))
                         Case "PAID"
-                            selectedDate = Convert.ToDateTime(rdr_ms("payment_date"))
+                            selectedDate = Convert.ToDateTime(rdr_ms("paid_date"))
                     End Select
 
-                    Dim currentDate As DateTime = DateTime.Now
-                    Dim duration As TimeSpan = currentDate - selectedDate
-                    Dim daysPending As Integer = duration.Days
-                    Dim hoursPending As Integer = duration.Hours
-                    Dim minutesPending As Integer = duration.Minutes
-
-                    Dim parts As New List(Of String)
-                    If daysPending > 0 Then parts.Add(daysPending.ToString() & " day" & If(daysPending > 1, "s", ""))
-                    If hoursPending > 0 Then parts.Add(hoursPending.ToString() & " hr" & If(hoursPending > 1, "s", ""))
-                    If minutesPending > 0 Then parts.Add(minutesPending.ToString() & " min" & If(minutesPending > 1, "s", ""))
-
-                    Dim pendingText As String = If(parts.Count > 0, String.Join(", ", parts), "Just now")
-                    DataGrid.Rows.Add(rdr_ms("id"), rdr_ms("refNo"), selectedDate, rdr_ms("tdn"), rdr_ms("project_title"), pendingText, rdr_ms("app_status"), "VIEW")
+                    DataGrid.Rows.Add(rdr_ms("id"), rdr_ms("refno"), selectedDate, rdr_ms("accountno"), rdr_ms("bussname"), rdr_ms("app_status"), "VIEW")
 
                 Loop
                 rdr_ms.Close()

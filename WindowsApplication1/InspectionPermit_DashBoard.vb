@@ -1,7 +1,7 @@
 ﻿
 Imports System.Data.SqlClient
 
-Public Class ConstructionPermit
+Public Class InspectionPermit_DashBoard
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
 
@@ -86,9 +86,9 @@ Public Class ConstructionPermit
 
             Try
                 conn = "SELECT * " & _
-                       "FROM ONLINE.annual_inspection_application AS cpa " & _
-                       "INNER JOIN ONLINE.SysMngr AS sm ON cpa.UserID = sm.UserID " & _
-                       "INNER JOIN ONLINE.email_outbox AS EO ON cpa.UserID = EO.userid " & _
+                       "FROM ONLINE.annual_inspection_application AS ais " & _
+                       "INNER JOIN ONLINE.SysMngr AS sm ON ais.UserID = sm.UserID " & _
+                       "INNER JOIN ONLINE.email_outbox AS EO ON ais.userId = EO.userid " & _
                        "WHERE cpa.id = '" & DataGrid.Item(0, DataGrid.CurrentRow.Index).Value & "'"
 
                 Con_ms = New SqlConnection(mcs)
@@ -105,21 +105,36 @@ Public Class ConstructionPermit
                     With IssuedPermit
 
                         IssuedPermit.TxtApplicationID.Text = rdr_ms("id").ToString
-                        IssuedPermit.TxtTDN.Text = rdr_ms("tdn").ToString
-                        IssuedPermit.referencono.Text = rdr_ms("refNo").ToString
+                        IssuedPermit.TxtTDN.Text = rdr_ms("accountNo").ToString
+                        IssuedPermit.referencono.Text = rdr_ms("refno").ToString
                         IssuedPermit.TxtProjectName.Text = rdr_ms("project_title").ToString
                         IssuedPermit.Txtapplicant_name.Text = rdr_ms("applicant").ToString
                         IssuedPermit.useraccountid.Text = rdr_ms("UserID").ToString
                         IssuedPermit.txt_email.Text = rdr_ms("email").ToString
-                        IssuedPermit.Type_App.Text = rdr_ms("permit_type").ToString
+                        IssuedPermit.Type_App.Text = rdr_ms("app_type").ToString
                         IssuedPermit.Issued_attachment.Text = rdr_ms("permitfileissuance").ToString
+
+
+
+                        .TxtApplicationID.Text = rdr_ms("id").ToString
+                        .TxtAccountNo.Text = rdr_ms("accountNo").ToString
+                        .referencono.Text = rdr_ms("refno").ToString
+                        .TxtProjectName.Text = rdr_ms("bussAddress").ToString
+                        .tax_amount.Text = rdr_ms("payment_").ToString
+                        .Txtapplicant_name.Text = rdr_ms("applicant").ToString
+                        .useraccountid.Text = rdr_ms("UserID").ToString
+                        .txt_email.Text = rdr_ms("email").ToString
+                        .TxtTransaction.Text = rdr_ms("Transaction_no").ToString
+                        .ORattachment.Text = rdr_ms("file_assessment").ToString
+                        .Type_App.Text = rdr_ms("permit_type").ToString
+
 
                         Dim folderpath = link_prefix & folder_directory & IssuedPermit.referencono.Text & "\" & IssuedPermit.referencono.Text & "_OR.pdf"
 
 
                         If rdr_ms("app_status") = "I" Then
 
-                            If Not String.IsNullOrEmpty("orfile") Then
+                            If Not String.IsNullOrEmpty("file_assessment") Then
                                 If System.IO.File.Exists(folderpath) Then
                                     IssuedPermit.Issued_attachment.Enabled = False
                                     IssuedPermit.B_upload.Enabled = False
@@ -310,5 +325,5 @@ Public Class ConstructionPermit
 
     End Sub
 
-   
+
 End Class
