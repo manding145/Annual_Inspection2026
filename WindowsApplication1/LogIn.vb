@@ -50,7 +50,7 @@ Public Class LogIn
         If e.KeyChar = Microsoft.VisualBasic.ChrW(Keys.Return) Then
             Try
                 'get prefix
-                Con_ms = New SqlConnection(attachment)
+                Con_ms = New SqlConnection(mcs)
                 Con_ms.Open()
                 conn_ms = "SELECT * FROM ONLINE.m_prefix_attachments_ceo where Status='1'"
 
@@ -84,9 +84,12 @@ Public Class LogIn
                     'lbluserrole1 = rdr_ms("user_position")
                     'link_prefix = rdr("link_prefix")
                     'myemail = rdr("email")
+                    Userlevel = rdr_ms("Userlevel")
+                    Dim mm As New MainMenu
+                    mm.lbluserrole.Text = Userlevel
 
-                    'MainForm.lbluserrole.Text = rdr("Userlevel")
                     userid = rdr_ms("AdminUserID")
+                    MainMenu.lbluserrole.Text = Userlevel
                     Con_ms.Close()
                     Me.Hide()
                     Splash.ShowDialog()
@@ -123,7 +126,7 @@ Public Class LogIn
 
         Try
             'get prefix
-            Con_ms = New SqlConnection(attachment)
+            Con_ms = New SqlConnection(mcs)
             Con_ms.Open()
             conn_ms = "SELECT * FROM ONLINE.m_prefix_attachments_ceo where Status='1'"
 
@@ -134,13 +137,14 @@ Public Class LogIn
             End If
             Con_ms.Close()
 
+           
 
-            Con_ms = New SqlConnection(mcs)
-            Con_ms.Open()
-            conn_ms = "SELECT  * FROM ONLINE.constr_Sysmngr where Username='" & txt_username.Text & "' and Password='" & txt_password.Text & "'"
-            cmd_ms = New SqlCommand(conn_ms, Con_ms)
-            rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
-            If rdr_ms.Read = True Then
+            Con_ms1 = New SqlConnection(mcs)
+            Con_ms1.Open()
+            conn_ms1 = "SELECT  * FROM ONLINE.constr_Sysmngr where Username='" & txt_username.Text & "' and Password='" & txt_password.Text & "'"
+            cmd_ms1 = New SqlCommand(conn_ms1, Con_ms1)
+            rdr_ms1 = cmd_ms1.ExecuteReader(CommandBehavior.CloseConnection)
+            If rdr_ms1.Read = True Then
                 If chckRemMe.Checked = True Then
                     My.Settings.setusername = txt_username.Text
                     My.Settings.setpassword = txt_password.Text
@@ -153,21 +157,24 @@ Public Class LogIn
                 'userid = rdr("UserID")
                 ''MainMenu.lbl_UserFirstname.Text = rdr("Fullname")
                 'userfullname = rdr("Fullname")
-                lblfname1 = rdr_ms("Fullname")
+                lblfname1 = rdr_ms1("Fullname")
                 'lbluserrole1 = rdr_ms("user_position")
                 'link_prefix = rdr("link_prefix")
                 'myemail = rdr("email")
-
+                Userlevel = rdr_ms1("userlevel")
                 'MainForm.lbluserrole.Text = rdr("Userlevel")
-                userid = rdr_ms("AdminUserID")
-                Con_ms.Close()
+                Dim mm As New MainMenu
+                mm.lbluserrole.Text = Userlevel
+
+                userid = rdr_ms1("AdminUserID")
+                Con_ms1.Close()
                 Me.Hide()
                 Splash.ShowDialog()
             Else
                 MsgBox("Invalid Username or Password", vbOKOnly & vbExclamation, "Annual Inspection Online")
             End If
 
-            Con_ms.Close()
+            Con_ms1.Close()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try

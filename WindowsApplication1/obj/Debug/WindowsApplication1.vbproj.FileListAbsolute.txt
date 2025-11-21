@@ -250,11 +250,6 @@ C:\Users\ADMIN\Desktop\Annual Inspection Clearance\WindowsApplication1\obj\Debug
 C:\Users\ADMIN\Desktop\Annual Inspection Clearance\WindowsApplication1\obj\Debug\WindowsApplication1.xml
 C:\Users\ADMIN\Desktop\Annual Inspection Clearance\WindowsApplication1\obj\Debug\WindowsApplication1.pdb
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\bin\Debug\WindowsApplication1.exe.config
-C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\Interop.AcroPDFLib.dll
-C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\Interop.WMPLib.dll
-C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\AxInterop.AcroPDFLib.dll
-C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\AxInterop.WMPLib.dll
-C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.vbproj.ResolveComReference.cache
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\bin\Debug\WindowsApplication1.exe.manifest
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\bin\Debug\WindowsApplication1.application
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\bin\Debug\WindowsApplication1.exe
@@ -336,6 +331,11 @@ C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\bin\De
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\bin\Debug\AxInterop.AcroPDFLib.dll
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\bin\Debug\AxInterop.WMPLib.dll
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.vbprojResolveAssemblyReference.cache
+C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\Interop.AcroPDFLib.dll
+C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\Interop.WMPLib.dll
+C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\AxInterop.AcroPDFLib.dll
+C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.vbproj.ResolveComReference.cache
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.b2report.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.BarangayClearanceControl.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.InspectorDashBoard.resources

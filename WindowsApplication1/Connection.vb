@@ -7,7 +7,7 @@ Module Connection
     Public appointmentID_search, recordid_search As Integer
     Public namefile, myemail, mypassword, link_prefix, lblfname1, lbluserrole1 As String
     Public FormStatus As Boolean
-    Public username, password, userfullname, userid1, userid, userlevelid, TypeCard As String
+    Public username, password, userfullname, userid1, userid, Userlevel, TypeCard As String
     Public formid As Integer
 
     Public link_UnifiedForm, link_BrgyClearance, link_OldPermit, link_OldPlate, link_Fire, link_OldITR, link_MarketClearance
@@ -121,10 +121,10 @@ Module Connection
     ''Public cs4 As String = "Server=10.0.0.2;Database=GeoRecords;User ID=sa;Password=@dm1n1str@t0r;"
 
 
-    Public mcs As String = "Server=58.59.249.245;Database=BPLS;User ID=sa;Password=@dm1n1str@t0r;"
-    Public mcs1 As String = "Server=58.59.249.245;Database=CORE_PATAS;User ID=sa;Password=@dm1n1str@t0r;"
+    Public mcs As String = "Server=58.69.249.245;Database=BPLS;User ID=sa;Password=@dm1n1str@t0r;"
+    Public mcs1 As String = "Server=58.69.249.245;Database=CORE_PATAS;User ID=sa;Password=@dm1n1str@t0r;"
 
-    Public attachment As String = "Server=124.106.16.141;Database=BPLS;User ID=sa;Password=@dm1n1str@t0r;"
+    'Public attachment As String = "Server=.106.11246.141;Database=BPLS;User ID=sa;Password=@dm1n1str@t0r;"
 
     'Public mcs As String = "Server=10.0.3.174;Database=BPLSWEBREC;User ID=sa;Password=@dm1n1str@t0r;"
 
@@ -132,8 +132,8 @@ Module Connection
     Public cs As String = "Server=" & My.Settings.Server & ";Database=businessportal;User ID=" & My.Settings.username & ";Password=" & My.Settings.password & ";Connect Timeout=200; pooling='true';Max Pool Size=10000"
 
     'MSSQL
-    Public cs1 As String = "Server=58.59.249.245;Database=GeoRecords;User ID=sa;Password=@dm1n1str@t0r;"
-    Public cs3 As String = "Server=58.59.249.245;database=GeoTos;User ID=sa;Password=@dm1n1str@t0r;"
+    Public cs1 As String = "Server=58.69.249.245;Database=GeoRecords;User ID=sa;Password=@dm1n1str@t0r;"
+    Public cs3 As String = "Server=58.69.249.245;database=GeoTos;User ID=sa;Password=@dm1n1str@t0r;"
 
 
     'mymsq
