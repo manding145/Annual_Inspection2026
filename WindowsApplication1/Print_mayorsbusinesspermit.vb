@@ -142,98 +142,100 @@ Public Class Print_mayorsbusinesspermit
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        'Dim report As RptMayorsPermit = New RptMayorsPermit
-        'report.PrintToPrinter(1, True, 0, 0)
 
 
-        Try
+        ''Dim report As RptMayorsPermit = New RptMayorsPermit
+        ''report.PrintToPrinter(1, True, 0, 0)
 
 
-            'Dim NewMDIChild As New Loading
-            'NewMDIChild.MdiParent = MainMenu
-            'NewMDIChild.Show()
-
-            'save to deny_table c/o josie
-            Dim MayorsPermitControl As MayorsPermitControl = CType(Application.OpenForms("MayorsPermitControl"), MayorsPermitControl)
+        'Try
 
 
-            If MayorsPermitControl.txt_email.Text = "" Then
-                MsgBox("No Email address set to this business account, please update email in BPLS")
-                Exit Sub
-            Else
+        '    'Dim NewMDIChild As New Loading
+        '    'NewMDIChild.MdiParent = MainMenu
+        '    'NewMDIChild.Show()
 
-            End If
-            Loading.Show()
-            Dim fullname As String
-            With MayorsPermitControl
+        '    'save to deny_table c/o josie
+        '    Dim MayorsPermitControl As MayorsPermitControl = CType(Application.OpenForms("MayorsPermitControl"), MayorsPermitControl)
 
 
+        '    If MayorsPermitControl.txt_email.Text = "" Then
+        '        MsgBox("No Email address set to this business account, please update email in BPLS")
+        '        Exit Sub
+        '    Else
 
-                fullname = .mAccountNo
-                Con = New MySqlConnection(cs)
-                Con.Open()
-                Dim filename, ORFileName, CTCFileName As String
-                ORFileName = .mAccountNo & "_OR.png"
-                CTCFileName = .mAccountNo & "_CTC.png"
-                filename = .mAccountNo & "_MP.pdf"
-                conn = "INSERT INTO email_send (ApplicationID, datesend, email, fullname, attachment_type, FileDirectory, status, FileDirectoryOR, FileDirectoryCTC, phonenumber) " _
-                   & "VALUES ('" & .mAccountNo & "', '" & Format((Date.Now), "yyyy-MM-dd") & "', '" & .txt_email.Text & "', '" & fullname & "', 'business_mp', @filename, '0', @ORFileName, @CTCFileName, '" & .mPhone & "')"
-                cmd = New MySqlCommand(conn, Con)
-
-                cmd.Parameters.Add("@filename", MySqlDbType.VarChar).Value = filename
-                cmd.Parameters.Add("@ORFileName", MySqlDbType.VarChar).Value = ORFileName
-                cmd.Parameters.Add("@CTCFileName", MySqlDbType.VarChar).Value = CTCFileName
-                cmd.ExecuteNonQuery()
-                Con.Close()
+        '    End If
+        '    Loading.Show()
+        '    Dim fullname As String
+        '    With MayorsPermitControl
 
 
 
+        '        fullname = .mAccountNo
+        '        Con = New MySqlConnection(cs)
+        '        Con.Open()
+        '        Dim filename, ORFileName, CTCFileName As String
+        '        ORFileName = .mAccountNo & "_OR.png"
+        '        CTCFileName = .mAccountNo & "_CTC.png"
+        '        filename = .mAccountNo & "_MP.pdf"
+        '        conn = "INSERT INTO email_send (ApplicationID, datesend, email, fullname, attachment_type, FileDirectory, status, FileDirectoryOR, FileDirectoryCTC, phonenumber) " _
+        '           & "VALUES ('" & .mAccountNo & "', '" & Format((Date.Now), "yyyy-MM-dd") & "', '" & .txt_email.Text & "', '" & fullname & "', 'business_mp', @filename, '0', @ORFileName, @CTCFileName, '" & .mPhone & "')"
+        '        cmd = New MySqlCommand(conn, Con)
 
-                '  MsgBox("Health Card successfully sent!", vbOKOnly & vbInformation, "Tacloban Health Office Management System")
+        '        cmd.Parameters.Add("@filename", MySqlDbType.VarChar).Value = filename
+        '        cmd.Parameters.Add("@ORFileName", MySqlDbType.VarChar).Value = ORFileName
+        '        cmd.Parameters.Add("@CTCFileName", MySqlDbType.VarChar).Value = CTCFileName
+        '        cmd.ExecuteNonQuery()
+        '        Con.Close()
 
 
 
 
-
-                'link_string = link_prefix & folderdirectory & DewormingResultLink
-
-
-                '\\10.0.27.194\FileAttachment\BUSINESS\5-00001
-
-
-                ' CrDiskFileDestinationOptions.DiskFileName = _
-                '                     link_prefix & folder_directory & fullname & "business_mp.pdf"
+        '        '  MsgBox("Health Card successfully sent!", vbOKOnly & vbInformation, "Tacloban Health Office Management System")
 
 
 
 
 
+        '        'link_string = link_prefix & folderdirectory & DewormingResultLink
 
 
-                Try
-                    Dim CrExportOptions As ExportOptions
-                    Dim CrDiskFileDestinationOptions As New  _
-                    DiskFileDestinationOptions()
-                    Dim CrFormatTypeOptions As New PdfRtfWordFormatOptions()
-                    CrDiskFileDestinationOptions.DiskFileName = _
-                                                link_prefix & folder_directory & fullname & "_MP.pdf"
-                    CrExportOptions = rpt.ExportOptions
-                    With CrExportOptions
-                        .ExportDestinationType = ExportDestinationType.DiskFile
-                        .ExportFormatType = ExportFormatType.PortableDocFormat
-                        .DestinationOptions = CrDiskFileDestinationOptions
-                        .FormatOptions = CrFormatTypeOptions
-                    End With
-                    rpt.Export()
-                Catch ex As Exception
-                    MsgBox(ex.ToString)
-                End Try
+        '        '\\10.0.27.194\FileAttachment\BUSINESS\5-00001
 
-            End With
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Con.Close()
-        End Try
+
+        '        ' CrDiskFileDestinationOptions.DiskFileName = _
+        '        '                     link_prefix & folder_directory & fullname & "business_mp.pdf"
+
+
+
+
+
+
+
+        '        Try
+        '            Dim CrExportOptions As ExportOptions
+        '            Dim CrDiskFileDestinationOptions As New  _
+        '            DiskFileDestinationOptions()
+        '            Dim CrFormatTypeOptions As New PdfRtfWordFormatOptions()
+        '            CrDiskFileDestinationOptions.DiskFileName = _
+        '                                        link_prefix & folder_directory & fullname & "_MP.pdf"
+        '            CrExportOptions = rpt.ExportOptions
+        '            With CrExportOptions
+        '                .ExportDestinationType = ExportDestinationType.DiskFile
+        '                .ExportFormatType = ExportFormatType.PortableDocFormat
+        '                .DestinationOptions = CrDiskFileDestinationOptions
+        '                .FormatOptions = CrFormatTypeOptions
+        '            End With
+        '            rpt.Export()
+        '        Catch ex As Exception
+        '            MsgBox(ex.ToString)
+        '        End Try
+
+        '    End With
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        '    Con.Close()
+        'End Try
 
 
 

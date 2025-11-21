@@ -70,7 +70,6 @@ Partial Class PaymentDashboard
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewLinkColumn()
         Me.Panel6.SuspendLayout()
@@ -417,7 +416,7 @@ Partial Class PaymentDashboard
         Me.DataGrid.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGrid.ColumnHeadersHeight = 35
         Me.DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.DataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column9, Me.Column2, Me.Column3, Me.Column1, Me.Column4, Me.column7, Me.Column5, Me.Column6})
+        Me.DataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column9, Me.Column2, Me.Column3, Me.Column1, Me.Column4, Me.Column5, Me.Column6})
         DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle9.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -478,27 +477,23 @@ Partial Class PaymentDashboard
         Me.Column3.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column3.HeaderText = "DATE TIME"
         Me.Column3.Name = "Column3"
+        Me.Column3.Width = 130
         '
         'Column1
         '
         DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         Me.Column1.DefaultCellStyle = DataGridViewCellStyle5
-        Me.Column1.HeaderText = "TDN No."
+        Me.Column1.HeaderText = "ACCOUNT NO."
         Me.Column1.Name = "Column1"
-        Me.Column1.Width = 120
+        Me.Column1.Width = 130
         '
         'Column4
         '
         DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         Me.Column4.DefaultCellStyle = DataGridViewCellStyle6
-        Me.Column4.HeaderText = "PROJECT NAME"
+        Me.Column4.HeaderText = "BUSINESS NAME"
         Me.Column4.Name = "Column4"
-        Me.Column4.Width = 250
-        '
-        'column7
-        '
-        Me.column7.HeaderText = "DURATION"
-        Me.column7.Name = "column7"
+        Me.Column4.Width = 290
         '
         'Column5
         '
@@ -516,7 +511,6 @@ Partial Class PaymentDashboard
         Me.Column6.Name = "Column6"
         Me.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Column6.Width = 90
         '
         'PaymentDashboard
         '
@@ -580,7 +574,6 @@ Partial Class PaymentDashboard
     Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column4 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents column7 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column6 As System.Windows.Forms.DataGridViewLinkColumn
 End Class

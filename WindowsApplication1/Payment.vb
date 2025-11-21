@@ -9,32 +9,34 @@ Public Class Payment
     End Sub
 
     Private Sub BtnSearchRecord_Click(sender As Object, e As EventArgs) Handles BtnSearchRecord.Click
-        Try
-            InspectorDashBoard.DataGrid.Rows.Clear()
-            conn = "SELECT ONLINE.business_application_tbl.applicationID as applicationID , ONLINE.business_application_tbl.accountno AS act, ONLINE.business_record_hdr.b_name as bname, ONLINE.business_assessment_dtl.Total_amt as amt " _
-            & "FROM " _
-            & "ONLINE.business_application_tbl INNER JOIN ONLINE.business_assessment_dtl ON ONLINE.business_assessment_dtl.applicationID= ONLINE.business_application_tbl.applicationID INNER JOIN ONLINE.business_applicationstatus_dtl ON ONLINE.business_applicationstatus_dtl.ApplicationID = ONLINE.business_application_tbl.applicationID INNER JOIN ONLINE.business_record_hdr ON ONLINE.business_record_hdr.recordID =  ONLINE.business_application_tbl.recordID " & _
-            "where ONLINE.business_application_tbl.accountno LIKE '%" & referencono.Text & "' and YEAR(ONLINE.business_application_tbl.application_date)='" & Date.Now.Year & "' AND ONLINE.business_applicationstatus_dtl.payment_status='P'"
-            Con_ms = New SqlConnection(mcs)
-            Con_ms.Open()
-            cmd_ms = New SqlCommand(conn, Con_ms)
-            rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
-            If rdr_ms.Read = True Then
 
-                TxtProjectName.Text = rdr_ms("bname").ToString
-                'TotalAssessmentAmount.Text = rdr_ms("amt").ToString
-                TxtTDN.Text = rdr_ms("id").ToString
+        'Try
+        '    InspectorDashBoard.DataGrid.Rows.Clear()
+        '    conn = "SELECT ONLINE.business_application_tbl.applicationID as applicationID , ONLINE.business_application_tbl.accountno AS act, ONLINE.business_record_hdr.b_name as bname, ONLINE.business_assessment_dtl.Total_amt as amt " _
+        '    & "FROM " _
+        '    & "ONLINE.business_application_tbl INNER JOIN ONLINE.business_assessment_dtl ON ONLINE.business_assessment_dtl.applicationID= ONLINE.business_application_tbl.applicationID INNER JOIN ONLINE.business_applicationstatus_dtl ON ONLINE.business_applicationstatus_dtl.ApplicationID = ONLINE.business_application_tbl.applicationID INNER JOIN ONLINE.business_record_hdr ON ONLINE.business_record_hdr.recordID =  ONLINE.business_application_tbl.recordID " & _
+        '    "where ONLINE.business_application_tbl.accountno LIKE '%" & referencono.Text & "' and YEAR(ONLINE.business_application_tbl.application_date)='" & Date.Now.Year & "' AND ONLINE.business_applicationstatus_dtl.payment_status='P'"
+        '    Con_ms = New SqlConnection(mcs)
+        '    Con_ms.Open()
+        '    cmd_ms = New SqlCommand(conn, Con_ms)
+        '    rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
+        '    If rdr_ms.Read = True Then
 
-            Else
+        '        TxtProjectName.Text = rdr_ms("bname").ToString
+        '        'TotalAssessmentAmount.Text = rdr_ms("amt").ToString
+        '        TxtAccountNo.Text = rdr_ms("id").ToString
 
-                MsgBox("Business Record Not Found!")
-            End If
+        '    Else
+
+        '        MsgBox("Business Record Not Found!")
+        '    End If
 
 
-            Con_ms.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+        '    Con_ms.Close()
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        'End Try
+
     End Sub
 
     Private Sub UploadScannedReceipt_Click(sender As Object, e As EventArgs) Handles UploadScannedReceipt.Click
@@ -58,13 +60,6 @@ Public Class Payment
     Private Sub SaveNow_Click(sender As Object, e As EventArgs) Handles SaveNow.Click
 
         Try
-
-            'If TxtTransaction.Text = "" Then
-
-            '    MsgBox("Transaction cannot be empty!")
-            '    Exit Sub
-            'End If
-
 
             If ORattachment.Text = "" Then
 
@@ -95,10 +90,10 @@ Public Class Payment
 
             Con_ms1 = New SqlConnection(mcs)
             Con_ms1.Open()
-            conn_ms1 = "UPDATE ONLINE.annual_inspection_application SET app_status = 'PAID', orfile =@Orfile, Transaction_no = @transaction, payment_date = @date where id='" & TxtApplicationID.Text & "'"
+            conn_ms1 = "UPDATE ONLINE.annual_inspection_application SET app_status = 'PAID', file_assessment = @file_assessment, Transaction_no = @transaction, payment_date = @date where id='" & TxtApplicationID.Text & "'"
             cmd_ms1 = New SqlCommand(conn_ms1, Con_ms1)
             cmd_ms1.Parameters.Add("@date", SqlDbType.DateTime).Value = DateAndTime.Now()
-            cmd_ms1.Parameters.Add("@orfile", SqlDbType.VarChar).Value = filename
+            cmd_ms1.Parameters.Add("@file_assessment", SqlDbType.VarChar).Value = filename
             cmd_ms1.Parameters.Add("@transaction", SqlDbType.VarChar).Value = TxtTransaction.Text
             cmd_ms1.ExecuteNonQuery()
             Con_ms1.Close()
@@ -109,7 +104,7 @@ Public Class Payment
             conn = "INSERT INTO ONLINE.email_outbox (userid, accountno, email, Subject, fullname, referencecode, datesend, officialreceipt_path) " _
                & "VALUES (@userid, @TDN, '" & txt_email.Text & "', 'Construction Payment' ,@applicant, '" & referencono.Text & "', @Date, @filePath)"
             cmd_ms = New SqlCommand(conn, Con_ms)
-            cmd_ms.Parameters.Add("@TDN", SqlDbType.VarChar).Value = TxtTDN.Text & "-" & Type_App.Text
+            cmd_ms.Parameters.Add("@TDN", SqlDbType.VarChar).Value = TxtAccountNo.Text & "-" & Type_App.Text
             cmd_ms.Parameters.Add("@applicant", SqlDbType.VarChar).Value = Txtapplicant_name.Text
             cmd_ms.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
             cmd_ms.Parameters.Add("@filePath", SqlDbType.VarChar).Value = filePath

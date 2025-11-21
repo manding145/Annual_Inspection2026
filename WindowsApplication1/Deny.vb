@@ -37,7 +37,7 @@ Public Class Deny
                 Me.Close()
             Catch ex As Exception
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Con.Close()
+                Con_ms.Close()
             End Try
 
 

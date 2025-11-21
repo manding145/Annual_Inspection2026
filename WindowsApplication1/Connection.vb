@@ -1,6 +1,5 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
-Imports MySql.Data.MySqlClient
 
 Module Connection
 
@@ -19,23 +18,23 @@ Module Connection
 
 
     'mysql string
-    Public Con As MySqlConnection
-    Public cmd As MySqlCommand
-    Public rdr As MySqlDataReader = Nothing
-    Public adp As MySqlDataAdapter
-    Public sbuldr As MySqlCommandBuilder
+    'Public Con As MySqlConnection
+    'Public cmd As MySqlCommand
+    'Public rdr As MySqlDataReader = Nothing
+    'Public adp As MySqlDataAdapter
+    'Public sbuldr As MySqlCommandBuilder
 
-    Public Con2 As MySqlConnection
-    Public cmd2 As MySqlCommand
-    Public rdr2 As MySqlDataReader = Nothing
-    Public adp2 As MySqlDataAdapter
-    Public sbuldr2 As MySqlCommandBuilder
+    'Public Con2 As MySqlConnection
+    'Public cmd2 As MySqlCommand
+    'Public rdr2 As MySqlDataReader = Nothing
+    'Public adp2 As MySqlDataAdapter
+    'Public sbuldr2 As MySqlCommandBuilder
 
-    Public Con6 As MySqlConnection
-    Public cmd6 As MySqlCommand
-    Public rdr6 As MySqlDataReader = Nothing
-    Public adp6 As MySqlDataAdapter
-    Public sbuldr6 As MySqlCommandBuilder
+    'Public Con6 As MySqlConnection
+    'Public cmd6 As MySqlCommand
+    'Public rdr6 As MySqlDataReader = Nothing
+    'Public adp6 As MySqlDataAdapter
+    'Public sbuldr6 As MySqlCommandBuilder
 
     Public conn, conn2, PhoneNumber As String
     Public type_transaction As Integer
@@ -133,8 +132,8 @@ Module Connection
     Public cs As String = "Server=" & My.Settings.Server & ";Database=businessportal;User ID=" & My.Settings.username & ";Password=" & My.Settings.password & ";Connect Timeout=200; pooling='true';Max Pool Size=10000"
 
     'MSSQL
-    Public cs1 As String = "Server=10.0.0.2;Database=GeoRecords;User ID=sa;Password=@dm1n1str@t0r;"
-    Public cs3 As String = "Server=10.0.0.2;Database=GeoTos;User ID=sa;Password=@dm1n1str@t0r;"
+    Public cs1 As String = "Server=58.59.249.245;Database=GeoRecords;User ID=sa;Password=@dm1n1str@t0r;"
+    Public cs3 As String = "Server=58.59.249.245;database=GeoTos;User ID=sa;Password=@dm1n1str@t0r;"
 
 
     'mymsq

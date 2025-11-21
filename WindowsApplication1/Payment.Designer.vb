@@ -36,7 +36,7 @@ Partial Class Payment
         Me.Label7 = New System.Windows.Forms.Label()
         Me.SaveNow = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.TxtTDN = New System.Windows.Forms.TextBox()
+        Me.TxtAccountNo = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -206,23 +206,23 @@ Partial Class Payment
         Me.Label9.AutoSize = True
         Me.Label9.Location = New System.Drawing.Point(15, 67)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(48, 13)
+        Me.Label9.Size = New System.Drawing.Size(67, 13)
         Me.Label9.TabIndex = 174
-        Me.Label9.Text = "TDN no."
+        Me.Label9.Text = "Account No."
         '
-        'TxtTDN
+        'TxtAccountNo
         '
-        Me.TxtTDN.BackColor = System.Drawing.Color.AliceBlue
-        Me.TxtTDN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtTDN.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TxtTDN.Enabled = False
-        Me.TxtTDN.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtTDN.Location = New System.Drawing.Point(16, 81)
-        Me.TxtTDN.Multiline = True
-        Me.TxtTDN.Name = "TxtTDN"
-        Me.TxtTDN.ReadOnly = True
-        Me.TxtTDN.Size = New System.Drawing.Size(242, 26)
-        Me.TxtTDN.TabIndex = 175
+        Me.TxtAccountNo.BackColor = System.Drawing.Color.AliceBlue
+        Me.TxtAccountNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtAccountNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtAccountNo.Enabled = False
+        Me.TxtAccountNo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtAccountNo.Location = New System.Drawing.Point(16, 81)
+        Me.TxtAccountNo.Multiline = True
+        Me.TxtAccountNo.Name = "TxtAccountNo"
+        Me.TxtAccountNo.ReadOnly = True
+        Me.TxtAccountNo.Size = New System.Drawing.Size(242, 26)
+        Me.TxtAccountNo.TabIndex = 175
         '
         'Label2
         '
@@ -249,9 +249,9 @@ Partial Class Payment
         Me.Label10.AutoSize = True
         Me.Label10.Location = New System.Drawing.Point(3, 26)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(185, 13)
+        Me.Label10.Size = New System.Drawing.Size(123, 13)
         Me.Label10.TabIndex = 176
-        Me.Label10.Text = "Construction Tax Assessment Amount"
+        Me.Label10.Text = "Tax Assessment Amount"
         '
         'tax_amount
         '
@@ -345,7 +345,7 @@ Partial Class Payment
         Me.typeofapplication.Controls.Add(Me.Type_App)
         Me.typeofapplication.Controls.Add(Me.Label4)
         Me.typeofapplication.Controls.Add(Me.Label2)
-        Me.typeofapplication.Controls.Add(Me.TxtTDN)
+        Me.typeofapplication.Controls.Add(Me.TxtAccountNo)
         Me.typeofapplication.Controls.Add(Me.Label9)
         Me.typeofapplication.Controls.Add(Me.SaveNow)
         Me.typeofapplication.Controls.Add(Me.Label7)
@@ -455,7 +455,7 @@ Partial Class Payment
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Public WithEvents SaveNow As System.Windows.Forms.Button
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Public WithEvents TxtTDN As System.Windows.Forms.TextBox
+    Public WithEvents TxtAccountNo As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label10 As System.Windows.Forms.Label

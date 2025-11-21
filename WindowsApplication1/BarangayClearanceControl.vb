@@ -12,27 +12,27 @@ Public Class BarangayClearanceControl
     End Sub
 
     Private Sub BarangayClearanceControl_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        DateTimePicker1.Value = Date.Now
-        'cmb_signatories.Text = "GEMAFIEL R. GASPAY"
-        txt_position.Text = "PUNONG BARANGAY"
-        'Call LoadMe()
-        Try
+        'DateTimePicker1.Value = Date.Now
+        ''cmb_signatories.Text = "GEMAFIEL R. GASPAY"
+        'txt_position.Text = "PUNONG BARANGAY"
+        ''Call LoadMe()
+        'Try
 
 
-            conn = "SELECT * from business_barangay WHERE BarangayId='" & mBarangayID & "'"
-            Con = New MySqlConnection(cs)
-            Con.Open()
-            cmd = New MySqlCommand(conn, Con)
-            rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection)
-            Do While rdr.Read = True
-                cmb_signatories.Items.Add(rdr("PunongBarangay")).ToString()
-            Loop
-            Con.Close()
+        '    conn = "SELECT * from business_barangay WHERE BarangayId='" & mBarangayID & "'"
+        '    Con = New MySqlConnection(cs)
+        '    Con.Open()
+        '    cmd = New MySqlCommand(conn, Con)
+        '    rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection)
+        '    Do While rdr.Read = True
+        '        cmb_signatories.Items.Add(rdr("PunongBarangay")).ToString()
+        '    Loop
+        '    Con.Close()
 
 
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        'End Try
 
     End Sub
 
@@ -42,169 +42,169 @@ Public Class BarangayClearanceControl
 
     Private Sub BtnPreview_Click(sender As Object, e As EventArgs) Handles BtnPreview.Click
 
-        Try
+        'Try
 
-            Dim mytimestamp = DateTime.Now.ToString("yyyy-MM-dd")
-            'SAVE TO BPLS DATABASE FOR BACK UP
-            'get this year last permit no
-            Dim permit_no As String
+        '    Dim mytimestamp = DateTime.Now.ToString("yyyy-MM-dd")
+        '    'SAVE TO BPLS DATABASE FOR BACK UP
+        '    'get this year last permit no
+        '    Dim permit_no As String
 
-            '//check current year
-            conn = "Select * from business_brgyclearance_status where Year= '" & Date.Now.Year & "' order by  Year DESC, PermitNo DESC"
-            Con = New MySqlConnection(cs)
-            Con.Open()
-            cmd = New MySqlCommand(conn, Con)
-            rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection)
-            If rdr.Read = True Then
-
-
-                conn = "Select * from business_brgyclearance_status where Year = '" & Date.Now.Year & "' and BusinessID= '" & mbusinessID & "' "
-                Con2 = New MySqlConnection(cs)
-                Con2.Open()
-                cmd2 = New MySqlCommand(conn, Con2)
-                rdr2 = cmd2.ExecuteReader(CommandBehavior.CloseConnection)
-                If rdr2.Read = True Then
-
-                    MsgBox("This Business has an existing barangay clearance for this year!")
-                    Con2.Close()
-                    Con.Close()
-                    Exit Sub
-                Else
-
-                    permit_no = rdr("PermitNo") + 1
-
-                    conn = "Select * from business_brgyclearance_status where Year = '" & Date.Now.Year & "' and PermitNo='" & permit_no & "'"
-                    Con6 = New MySqlConnection(cs)
-                    Con6.Open()
-                    cmd6 = New MySqlCommand(conn, Con6)
-                    rdr6 = cmd6.ExecuteReader(CommandBehavior.CloseConnection)
-                    If rdr6.Read = True Then
-
-                        MsgBox("This application has already taken in Database!, Contact your system administrator.")
-
-                        Con6.Close()
-                        Con.Close()
-                        Con2.Close()
-                        Exit Sub
-
-                    End If
-                    Con6.Close()
-
-                    Dim img As Image = PictureBox1.Image
-                    Dim ms As New MemoryStream()
-                    img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg) ' Adjust format as needed
-                    Dim imgBytes As Byte() = ms.ToArray()
+        '    '//check current year
+        '    conn = "Select * from business_brgyclearance_status where Year= '" & Date.Now.Year & "' order by  Year DESC, PermitNo DESC"
+        '    Con = New MySqlConnection(cs)
+        '    Con.Open()
+        '    cmd = New MySqlCommand(conn, Con)
+        '    rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection)
+        '    If rdr.Read = True Then
 
 
-                    'insert to business_permit_status as new
-                    Con2 = New MySqlConnection(cs)
-                    Con2.Open()
-                    conn = "INSERT INTO business_brgyclearance_status (OwnerName, BusinessLine, BusinessName, BusinessAddress, Signatory, BarangayCaptainName, Barangay, AccountNo, BusinessID, DatePending, Status, DatePrinted, PermitNo, UserID, Year) " _
-                    & "VALUES ('" & mOwnerName & "', '" & mBusinessLineDescription & "','" & mBusinessname & "','" & mBusinessAddress & "',  @Signatory,'" & cmb_signatories.Text & "', '" & mBarangayName & "', '" & txt_AccountNo.Text & "', '" & mbusinessID & "', '" & mytimestamp & "', 'D' , '" & mytimestamp & "', '" & permit_no & "', '" & userid & "', '" & Date.Now.Year & "')"
-                    cmd2 = New MySqlCommand(conn, Con2)
-                    cmd2.Parameters.AddWithValue("@Signatory", imgBytes)
-                    cmd2.ExecuteNonQuery()
-                    Con2.Close()
-                    txt_permitNumber.Text = permit_no
+        '        conn = "Select * from business_brgyclearance_status where Year = '" & Date.Now.Year & "' and BusinessID= '" & mbusinessID & "' "
+        '        Con2 = New MySqlConnection(cs)
+        '        Con2.Open()
+        '        cmd2 = New MySqlCommand(conn, Con2)
+        '        rdr2 = cmd2.ExecuteReader(CommandBehavior.CloseConnection)
+        '        If rdr2.Read = True Then
 
-                    'get lasst applicationid
-                    Con2 = New MySqlConnection(cs)
-                    Con2.Open()
-                    conn = "SELECT * FROM business_brgyclearance_status ORDER BY permitappid DESC LIMIT 1"
-                    cmd2 = New MySqlCommand(conn, Con2)
-                    rdr2 = cmd2.ExecuteReader(CommandBehavior.CloseConnection)
-                    If rdr2.Read = True Then
+        '            MsgBox("This Business has an existing barangay clearance for this year!")
+        '            Con2.Close()
+        '            Con.Close()
+        '            Exit Sub
+        '        Else
 
-                        temp_applicationid = rdr2("permitappid")
+        '            permit_no = rdr("PermitNo") + 1
 
-                    End If
-                    Con2.Close()
+        '            conn = "Select * from business_brgyclearance_status where Year = '" & Date.Now.Year & "' and PermitNo='" & permit_no & "'"
+        '            Con6 = New MySqlConnection(cs)
+        '            Con6.Open()
+        '            cmd6 = New MySqlCommand(conn, Con6)
+        '            rdr6 = cmd6.ExecuteReader(CommandBehavior.CloseConnection)
+        '            If rdr6.Read = True Then
 
-                    txt_permitNumber.Text = permit_no
-                    MsgBox("Barangay Clearance successfully generated!", vbOKOnly & vbInformation, "Business Renewal")
+        '                MsgBox("This application has already taken in Database!, Contact your system administrator.")
 
-                End If
+        '                Con6.Close()
+        '                Con.Close()
+        '                Con2.Close()
+        '                Exit Sub
 
-            Else
-                'if not exist then reset to 1
+        '            End If
+        '            Con6.Close()
 
-                permit_no = "1"
-
-                conn = "Select * from business_brgyclearance_status where Year = '" & Date.Now.Year & "' and PermitNo='" & permit_no & "'"
-                Con6 = New MySqlConnection(cs)
-                Con6.Open()
-                cmd6 = New MySqlCommand(conn, Con6)
-                rdr6 = cmd6.ExecuteReader(CommandBehavior.CloseConnection)
-                If rdr6.Read = True Then
-
-                    MsgBox("This application has already taken in Database!, Contact your system administrator.")
-
-                    Con6.Close()
-                    Con.Close()
-                    Con2.Close()
-                    Exit Sub
-
-                End If
-                Con6.Close()
-
-                Dim img As Image = PictureBox1.Image
-                Dim ms As New MemoryStream()
-                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg) ' Adjust format as needed
-                Dim imgBytes As Byte() = ms.ToArray()
+        '            Dim img As Image = PictureBox1.Image
+        '            Dim ms As New MemoryStream()
+        '            img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg) ' Adjust format as needed
+        '            Dim imgBytes As Byte() = ms.ToArray()
 
 
-                'insert to business_permit_status as new
-                Con2 = New MySqlConnection(cs)
-                Con2.Open()
-                conn = "INSERT INTO business_brgyclearance_status (Signatory, BarangayCaptainName, Barangay, AccountNo, BusinessID, DatePending, Status, DatePrinted, PermitNo, UserID, Year) " _
-                & "VALUES (@Signatory,'" & cmb_signatories.Text & "', '" & mBarangayName & "', '" & txt_AccountNo.Text & "', '" & mbusinessID & "', '" & mytimestamp & "', 'D' , '" & mytimestamp & "', '" & permit_no & "', '" & userid & "', '" & Date.Now.Year & "')"
-                cmd2 = New MySqlCommand(conn, Con2)
-                cmd2.Parameters.AddWithValue("@Signatory", imgBytes)
-                cmd2.ExecuteNonQuery()
-                Con2.Close()
-                txt_permitNumber.Text = permit_no
+        '            'insert to business_permit_status as new
+        '            Con2 = New MySqlConnection(cs)
+        '            Con2.Open()
+        '            conn = "INSERT INTO business_brgyclearance_status (OwnerName, BusinessLine, BusinessName, BusinessAddress, Signatory, BarangayCaptainName, Barangay, AccountNo, BusinessID, DatePending, Status, DatePrinted, PermitNo, UserID, Year) " _
+        '            & "VALUES ('" & mOwnerName & "', '" & mBusinessLineDescription & "','" & mBusinessname & "','" & mBusinessAddress & "',  @Signatory,'" & cmb_signatories.Text & "', '" & mBarangayName & "', '" & txt_AccountNo.Text & "', '" & mbusinessID & "', '" & mytimestamp & "', 'D' , '" & mytimestamp & "', '" & permit_no & "', '" & userid & "', '" & Date.Now.Year & "')"
+        '            cmd2 = New MySqlCommand(conn, Con2)
+        '            cmd2.Parameters.AddWithValue("@Signatory", imgBytes)
+        '            cmd2.ExecuteNonQuery()
+        '            Con2.Close()
+        '            txt_permitNumber.Text = permit_no
 
-                'get lasst applicationid
-                Con2 = New MySqlConnection(cs)
-                Con2.Open()
-                conn = "SELECT * FROM business_brgyclearance_status ORDER BY permitappid DESC LIMIT 1"
-                cmd2 = New MySqlCommand(conn, Con2)
-                rdr2 = cmd2.ExecuteReader(CommandBehavior.CloseConnection)
-                If rdr2.Read = True Then
+        '            'get lasst applicationid
+        '            Con2 = New MySqlConnection(cs)
+        '            Con2.Open()
+        '            conn = "SELECT * FROM business_brgyclearance_status ORDER BY permitappid DESC LIMIT 1"
+        '            cmd2 = New MySqlCommand(conn, Con2)
+        '            rdr2 = cmd2.ExecuteReader(CommandBehavior.CloseConnection)
+        '            If rdr2.Read = True Then
 
-                    temp_applicationid = rdr2("permitappid")
+        '                temp_applicationid = rdr2("permitappid")
 
-                End If
-                Con2.Close()
+        '            End If
+        '            Con2.Close()
 
-                txt_permitNumber.Text = permit_no
-                MsgBox("Barangay Clearance successfully generated!", vbOKOnly & vbInformation, "Business Renewal")
+        '            txt_permitNumber.Text = permit_no
+        '            MsgBox("Barangay Clearance successfully generated!", vbOKOnly & vbInformation, "Business Renewal")
+
+        '        End If
+
+        '    Else
+        '        'if not exist then reset to 1
+
+        '        permit_no = "1"
+
+        '        conn = "Select * from business_brgyclearance_status where Year = '" & Date.Now.Year & "' and PermitNo='" & permit_no & "'"
+        '        Con6 = New MySqlConnection(cs)
+        '        Con6.Open()
+        '        cmd6 = New MySqlCommand(conn, Con6)
+        '        rdr6 = cmd6.ExecuteReader(CommandBehavior.CloseConnection)
+        '        If rdr6.Read = True Then
+
+        '            MsgBox("This application has already taken in Database!, Contact your system administrator.")
+
+        '            Con6.Close()
+        '            Con.Close()
+        '            Con2.Close()
+        '            Exit Sub
+
+        '        End If
+        '        Con6.Close()
+
+        '        Dim img As Image = PictureBox1.Image
+        '        Dim ms As New MemoryStream()
+        '        img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg) ' Adjust format as needed
+        '        Dim imgBytes As Byte() = ms.ToArray()
 
 
-            End If
+        '        'insert to business_permit_status as new
+        '        Con2 = New MySqlConnection(cs)
+        '        Con2.Open()
+        '        conn = "INSERT INTO business_brgyclearance_status (Signatory, BarangayCaptainName, Barangay, AccountNo, BusinessID, DatePending, Status, DatePrinted, PermitNo, UserID, Year) " _
+        '        & "VALUES (@Signatory,'" & cmb_signatories.Text & "', '" & mBarangayName & "', '" & txt_AccountNo.Text & "', '" & mbusinessID & "', '" & mytimestamp & "', 'D' , '" & mytimestamp & "', '" & permit_no & "', '" & userid & "', '" & Date.Now.Year & "')"
+        '        cmd2 = New MySqlCommand(conn, Con2)
+        '        cmd2.Parameters.AddWithValue("@Signatory", imgBytes)
+        '        cmd2.ExecuteNonQuery()
+        '        Con2.Close()
+        '        txt_permitNumber.Text = permit_no
+
+        '        'get lasst applicationid
+        '        Con2 = New MySqlConnection(cs)
+        '        Con2.Open()
+        '        conn = "SELECT * FROM business_brgyclearance_status ORDER BY permitappid DESC LIMIT 1"
+        '        cmd2 = New MySqlCommand(conn, Con2)
+        '        rdr2 = cmd2.ExecuteReader(CommandBehavior.CloseConnection)
+        '        If rdr2.Read = True Then
+
+        '            temp_applicationid = rdr2("permitappid")
+
+        '        End If
+        '        Con2.Close()
+
+        '        txt_permitNumber.Text = permit_no
+        '        MsgBox("Barangay Clearance successfully generated!", vbOKOnly & vbInformation, "Business Renewal")
 
 
-            If permit_stat = "WalkIn" Then
-
-            ElseIf permit_stat = "Online" Then
-
-                Con_ms1 = New SqlConnection(mcs)
-                Con_ms1.Open()
-                conn = "UPDATE business_applicationstatus_dtl set IsPrinted_BrgyClearance = '1', Printed_dttime_BrgyClearance = '" & mytimestamp & "' WHERE applicationID='" & applicationID_search & "'"
-                cmd_ms1 = New SqlCommand(conn, Con_ms1)
-                cmd_ms1.ExecuteNonQuery()
-                Con_ms1.Close()
-
-            End If
+        '    End If
 
 
+        '    If permit_stat = "WalkIn" Then
 
-            ''PrintBarangayClearance
-            PrintBarangayPermit.ShowDialog()
+        '    ElseIf permit_stat = "Online" Then
 
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+        '        Con_ms1 = New SqlConnection(mcs)
+        '        Con_ms1.Open()
+        '        conn = "UPDATE business_applicationstatus_dtl set IsPrinted_BrgyClearance = '1', Printed_dttime_BrgyClearance = '" & mytimestamp & "' WHERE applicationID='" & applicationID_search & "'"
+        '        cmd_ms1 = New SqlCommand(conn, Con_ms1)
+        '        cmd_ms1.ExecuteNonQuery()
+        '        Con_ms1.Close()
+
+        '    End If
+
+
+
+        '    ''PrintBarangayClearance
+        '    PrintBarangayPermit.ShowDialog()
+
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        'End Try
 
 
     End Sub

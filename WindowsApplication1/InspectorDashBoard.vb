@@ -65,10 +65,12 @@ Public Class InspectorDashBoard
                             End If
                         Loop
                         Con_ms2.Close()
+
                         'track application_Status
                         Dim folderpath = link_prefix & folder_directory & .TxtRefenceNo.Text & "\" & .TxtRefenceNo.Text & "_Tax_Assessment.pdf"
 
                         If rdr_ms("app_status") = "P" Then
+
                             .Panel_pending.Visible = True
                             .panel_verified.Visible = False
                             .panel_denied.Visible = False
@@ -100,21 +102,25 @@ Public Class InspectorDashBoard
                                 MessageBox.Show("No file path found in the database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             End If
 
-
                         ElseIf rdr_ms("app_status") = "D" Then
+
                             .Panel_pending.Visible = False
                             .panel_verified.Visible = False
                             .panel_denied.Visible = True
                             .B_Reupload.Visible = False
                             .BtnAddNewRecord.Enabled = False
                             .btnDeny.Visible = False
+
                         ElseIf rdr_ms("app_status") = "R" Then
+
                             .panel_denied.Visible = False
                             .Panel_pending.Visible = False
                             .panel_verified.Visible = False
                             .B_Reupload.Visible = True
                             .BtnAddNewRecord.Enabled = False
                             .btnDeny.Visible = False
+
+
                         End If
 
 

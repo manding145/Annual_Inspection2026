@@ -1,19 +1,22 @@
 ﻿Imports System.Data.SqlClient
-Imports MySql.Data.MySqlClient
 Public Class ConnectionConfiguration
 
     Private Sub BtnTest_Click(sender As Object, e As EventArgs) Handles BtnTest.Click
-        Con = New MySqlConnection(cs)
+
+        Con_ms = New SqlConnection(mcs)
         Try
-            Con.Open()
+            Con_ms.Open()
             MsgBox("Successfully connected to database! ")
-            Con.Close()
+            Con_ms.Close()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+
     End Sub
 
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
+
+
         If TxtServer.Text = "" Or TxtUsername.Text = "" Or TxtPassword.Text = "" Then
             MsgBox("Please fill up neccessary fields!")
         Else
@@ -28,6 +31,7 @@ Public Class ConnectionConfiguration
             TxtPassword.Text = My.Settings.password
             cs = "Server=" & My.Settings.Server & ";Database=business_renewal;User ID=" & My.Settings.username & ";Password=" & My.Settings.password & ";"
         End If
+
     End Sub
 
     Private Sub ConnectionConfiguration_Load(sender As Object, e As EventArgs) Handles MyBase.Load

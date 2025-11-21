@@ -23,27 +23,27 @@ Public Class MayorsPermitControl
 
 
 
-        DateTimePicker1.Value = Date.Now
-        cmb_signatories.Text = "GEMAFIEL R. GASPAY"
-        txt_position.Text = "LICENSING OFFICER IV"
-        dt_issued.Text = Format(Date.Now, "MM-dd-yyyy")
-        'Call LoadMe()
-        Try
+        'DateTimePicker1.Value = Date.Now
+        'cmb_signatories.Text = "GEMAFIEL R. GASPAY"
+        'txt_position.Text = "LICENSING OFFICER IV"
+        'dt_issued.Text = Format(Date.Now, "MM-dd-yyyy")
+        ''Call LoadMe()
+        'Try
 
-            conn = "SELECT * from business_signatory"
-            Con = New MySqlConnection(cs)
-            Con.Open()
-            cmd = New MySqlCommand(conn, Con)
-            rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection)
-            Do While rdr.Read = True
-                cmb_signatories.Items.Add(rdr("SignatoryName")).ToString()
-            Loop
-            Con.Close()
+        '    conn = "SELECT * from business_signatory"
+        '    Con = New MySqlConnection(cs)
+        '    Con.Open()
+        '    cmd = New MySqlCommand(conn, Con)
+        '    rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection)
+        '    Do While rdr.Read = True
+        '        cmb_signatories.Items.Add(rdr("SignatoryName")).ToString()
+        '    Loop
+        '    Con.Close()
 
 
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        'End Try
 
 
     End Sub
@@ -145,519 +145,467 @@ Public Class MayorsPermitControl
     End Sub
 
     Private Sub cmb_signatories_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmb_signatories.SelectedIndexChanged
-        Try
+        'Try
 
-            conn = "SELECT * from business_signatory where SignatoryName = '" & cmb_signatories.Text & "'"
-            Con = New MySqlConnection(cs)
-            Con.Open()
-            cmd = New MySqlCommand(conn, Con)
-            rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection)
-            If rdr.Read = True Then
-                txt_position.Text = rdr("Position")
-            End If
-            Con.Close()
+        '    conn = "SELECT * from business_signatory where SignatoryName = '" & cmb_signatories.Text & "'"
+        '    Con = New MySqlConnection(cs)
+        '    Con.Open()
+        '    cmd = New MySqlCommand(conn, Con)
+        '    rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection)
+        '    If rdr.Read = True Then
+        '        txt_position.Text = rdr("Position")
+        '    End If
+        '    Con.Close()
 
 
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        'End Try
 
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-        Try
-            If permit_stat = "WalkIn" Then
+        'Try
+        '    If permit_stat = "WalkIn" Then
 
-                Dim mytimestamp = DateTime.Now.ToString("yyyy-MM-dd")
-                'SAVE TO BPLS DATABASE FOR BACK UP
-                'get this year last permit no
-                Dim permit_no As String
+        '        Dim mytimestamp = DateTime.Now.ToString("yyyy-MM-dd")
+        '        'SAVE TO BPLS DATABASE FOR BACK UP
+        '        'get this year last permit no
+        '        Dim permit_no As String
 
-                '//check current year
-                conn = "Select * from BPLS.Permit where BPLS.Permit.Year = '" & Date.Now.Year & "' order by  BPLS.Permit.Year DESC, BPLS.Permit.PermitNumber DESC"
-                Con1 = New SqlConnection(cs1)
-                Con1.Open()
-                cmd1 = New SqlCommand(conn, Con1)
-                rdr1 = cmd1.ExecuteReader(CommandBehavior.CloseConnection)
-                If rdr1.Read = True Then
+        '        '//check current year
+        '        conn = "Select * from BPLS.Permit where BPLS.Permit.Year = '" & Date.Now.Year & "' order by  BPLS.Permit.Year DESC, BPLS.Permit.PermitNumber DESC"
+        '        Con1 = New SqlConnection(cs1)
+        '        Con1.Open()
+        '        cmd1 = New SqlCommand(conn, Con1)
+        '        rdr1 = cmd1.ExecuteReader(CommandBehavior.CloseConnection)
+        '        If rdr1.Read = True Then
 
 
-                    conn = "Select * from BPLS.Permit where BPLS.Permit.Year = '" & Date.Now.Year & "' and BusinessID= '" & mbusinessID & "' "
-                    Con4 = New SqlConnection(cs1)
-                    Con4.Open()
-                    cmd4 = New SqlCommand(conn, Con4)
-                    rdr4 = cmd4.ExecuteReader(CommandBehavior.CloseConnection)
-                    If rdr4.Read = True Then
+        '            conn = "Select * from BPLS.Permit where BPLS.Permit.Year = '" & Date.Now.Year & "' and BusinessID= '" & mbusinessID & "' "
+        '            Con4 = New SqlConnection(cs1)
+        '            Con4.Open()
+        '            cmd4 = New SqlCommand(conn, Con4)
+        '            rdr4 = cmd4.ExecuteReader(CommandBehavior.CloseConnection)
+        '            If rdr4.Read = True Then
 
-                        MsgBox("This application has already assigned for business permit number!")
-                        Con4.Close()
-                        Con1.Close()
-                        Exit Sub
-                      
+        '                MsgBox("This application has already assigned for business permit number!")
+        '                Con4.Close()
+        '                Con1.Close()
+        '                Exit Sub
 
 
 
-                      
-                    Else
-                        'increment 1
-                        ''MsgBox(rdr1("Year") & rdr1("PermitNumber"))
-                        'insert to bpls
+        '            Else
+        '                'increment 1
+        '                ''MsgBox(rdr1("Year") & rdr1("PermitNumber"))
+        '                'insert to bpls
 
-                        permit_no = rdr1("PermitNumber") + 1
+        '                permit_no = rdr1("PermitNumber") + 1
 
 
 
-                        'check if existing permit in BPLS
-                        conn3 = "Select * from BPLS.Permit where BPLS.Permit.Year = '" & Date.Now.Year & "' and BPLS.Permit.PermitNumber='" & permit_no & "'"
-                        Con3 = New SqlConnection(cs1)
-                        Con3.Open()
-                        cmd3 = New SqlCommand(conn3, Con3)
-                        rdr3 = cmd3.ExecuteReader(CommandBehavior.CloseConnection)
-                        If rdr3.Read = True Then
+        '                'check if existing permit in BPLS
+        '                conn3 = "Select * from BPLS.Permit where BPLS.Permit.Year = '" & Date.Now.Year & "' and BPLS.Permit.PermitNumber='" & permit_no & "'"
+        '                Con3 = New SqlConnection(cs1)
+        '                Con3.Open()
+        '                cmd3 = New SqlCommand(conn3, Con3)
+        '                rdr3 = cmd3.ExecuteReader(CommandBehavior.CloseConnection)
+        '                If rdr3.Read = True Then
 
-                            MsgBox("This application has already taken in BPLS Database!, Contact your system administrator.")
+        '                    MsgBox("This application has already taken in BPLS Database!, Contact your system administrator.")
 
-                            Con4.Close()
-                            Con1.Close()
-                            Con3.Close()
-                            Exit Sub
-                          
-                        End If
-                        Con3.Close()
+        '                    Con4.Close()
+        '                    Con1.Close()
+        '                    Con3.Close()
+        '                    Exit Sub
 
+        '                End If
+        '                Con3.Close()
 
-                      
-                        'check if existing permit in Business Portal
-                        conn2 = "Select * from  business_permit_status where Year= '" & Date.Now.Year & "' and PermitNo='" & permit_no & "'"
-                        Con2 = New MySqlConnection(cs)
-                        Con2.Open()
-                        cmd2 = New MySqlCommand(conn2, Con2)
-                        rdr2 = cmd2.ExecuteReader(CommandBehavior.CloseConnection)
-                        If rdr2.Read = True Then
-                            MsgBox("This application has already taken in Business Portal Database!, Contact your system administrator.")
-                            Con4.Close()
-                            Con1.Close()
-                            Con2.Close()
-                            Exit Sub
-                        End If
-                        Con2.Close()
 
 
+        '                'check if existing permit in Business Portal
+        '                conn2 = "Select * from  business_permit_status where Year= '" & Date.Now.Year & "' and PermitNo='" & permit_no & "'"
+        '                Con2 = New MySqlConnection(cs)
+        '                Con2.Open()
+        '                cmd2 = New MySqlCommand(conn2, Con2)
+        '                rdr2 = cmd2.ExecuteReader(CommandBehavior.CloseConnection)
+        '                If rdr2.Read = True Then
+        '                    MsgBox("This application has already taken in Business Portal Database!, Contact your system administrator.")
+        '                    Con4.Close()
+        '                    Con1.Close()
+        '                    Con2.Close()
+        '                    Exit Sub
+        '                End If
+        '                Con2.Close()
 
 
 
+        '                Con3 = New SqlConnection(cs1)
+        '                Con3.Open()
+        '                conn = "INSERT INTO BPLS.Permit (Year, PermitNumber, DateIssued, UserID, BusinessID, AmountPaid, Remarks ) " _
+        '                   & "VALUES ('" & Date.Now.Year & "', '" & permit_no & "', '" & mytimestamp & "', '" & userid & "', '" & mbusinessID & "' , '" & txt_AmountPaid.Text & "', '" & txt_remarks.Text & "')"
+        '                cmd3 = New SqlCommand(conn, Con3)
+        '                cmd3.ExecuteNonQuery()
+        '                Con3.Close()
 
 
+        '                'insert to business_permit_status as new
 
+        '                Con2 = New MySqlConnection(cs)
+        '                Con2.Open()
 
-                        Con3 = New SqlConnection(cs1)
-                        Con3.Open()
-                        conn = "INSERT INTO BPLS.Permit (Year, PermitNumber, DateIssued, UserID, BusinessID, AmountPaid, Remarks ) " _
-                           & "VALUES ('" & Date.Now.Year & "', '" & permit_no & "', '" & mytimestamp & "', '" & userid & "', '" & mbusinessID & "' , '" & txt_AmountPaid.Text & "', '" & txt_remarks.Text & "')"
-                        cmd3 = New SqlCommand(conn, Con3)
-                        cmd3.ExecuteNonQuery()
-                        Con3.Close()
 
+        '                conn = "INSERT INTO business_permit_status (AccountNo, BusinessID, DatePending, Status, DatePrinted, PermitNo, UserID, Remarks, Year) " _
+        '                 & "VALUES ('" & txt_AccountNo.Text & "', '" & mbusinessID & "', '" & mytimestamp & "', 'D' , '" & mytimestamp & "', '" & permit_no & "', '" & userid & "', '" & txt_remarks.Text & "', '" & Date.Now.Year & "')"
+        '                cmd2 = New MySqlCommand(conn, Con2)
+        '                cmd2.ExecuteNonQuery()
+        '                Con2.Close()
+        '                txt_permitNumber.Text = permit_no
 
-                        'insert to business_permit_status as new
 
-                        Con2 = New MySqlConnection(cs)
-                        Con2.Open()
+        '                'MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
 
 
-                        conn = "INSERT INTO business_permit_status (AccountNo, BusinessID, DatePending, Status, DatePrinted, PermitNo, UserID, Remarks, Year) " _
-                         & "VALUES ('" & txt_AccountNo.Text & "', '" & mbusinessID & "', '" & mytimestamp & "', 'D' , '" & mytimestamp & "', '" & permit_no & "', '" & userid & "', '" & txt_remarks.Text & "', '" & Date.Now.Year & "')"
-                        cmd2 = New MySqlCommand(conn, Con2)
-                        cmd2.ExecuteNonQuery()
-                        Con2.Close()
-                        txt_permitNumber.Text = permit_no
+        '                'get lasst applicationid
+        '                Con2 = New MySqlConnection(cs)
+        '                Con2.Open()
 
+        '                conn = "SELECT * FROM business_permit_status ORDER BY permitappid DESC LIMIT 1"
+        '                cmd2 = New MySqlCommand(conn, Con2)
+        '                rdr2 = cmd2.ExecuteReader(CommandBehavior.CloseConnection)
+        '                If rdr2.Read = True Then
 
-                        'MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
+        '                    temp_applicationid = rdr2("permitappid")
 
+        '                End If
+        '                Con2.Close()
 
-                        'get lasst applicationid
-                        Con2 = New MySqlConnection(cs)
-                        Con2.Open()
+        '                'Con2 = New MySqlConnection(cs)
+        '                'Con2.Open()
+        '                'conn = "UPDATE business_applicationstatus_dtl set IsPrinted = '1', Printed_dttime = '" & mytimestamp & "' WHERE applicationID='" & applicationID_search & "'"
+        '                'cmd2 = New MySqlCommand(conn, Con2)
+        '                'cmd2.ExecuteNonQuery()
+        '                'Con2.Close()
 
-                        conn = "SELECT * FROM business_permit_status ORDER BY permitappid DESC LIMIT 1"
-                        cmd2 = New MySqlCommand(conn, Con2)
-                        rdr2 = cmd2.ExecuteReader(CommandBehavior.CloseConnection)
-                        If rdr2.Read = True Then
 
-                            temp_applicationid = rdr2("permitappid")
+        '                txt_permitNumber.Text = permit_no
+        '                MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
 
-                        End If
-                        Con2.Close()
 
-                        'Con2 = New MySqlConnection(cs)
-                        'Con2.Open()
-                        'conn = "UPDATE business_applicationstatus_dtl set IsPrinted = '1', Printed_dttime = '" & mytimestamp & "' WHERE applicationID='" & applicationID_search & "'"
-                        'cmd2 = New MySqlCommand(conn, Con2)
-                        'cmd2.ExecuteNonQuery()
-                        'Con2.Close()
 
+        '                Dim mydate As String
+        '                mydate = "12-31-" & Now.Year
+        '                Con2.Open()
+        '                Dim qrcodestr As String
+        '                qrcodestr = mydate & " " & mAccountNo & " TC "
+        '                conn = "INSERT INTO cho_qrcode_dummy (descriptiontext, forwardedID, Type) " _
+        '                  & "VALUES ('" & qrcodestr & "', '" & temp_applicationid & "', 'MP_WALKIN')"
+        '                cmd2 = New MySqlCommand(conn, Con2)
+        '                cmd2.ExecuteNonQuery()
+        '                'MsgBox("Health Certificate Record Successfully Saved", vbOKOnly & vbInformation, "Tacloban Health Office Management System")
+        '                Con2.Close()
+        '            End If
 
-                        txt_permitNumber.Text = permit_no
-                        MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
+        '        Else
+        '            'if not exist then reset to 1
 
+        '            permit_no = "1"
 
+        '            Con3 = New SqlConnection(cs1)
+        '            Con3.Open()
+        '            conn = "INSERT INTO BPLS.Permit (Year, PermitNumber, DateIssued, UserID, BusinessID, AmountPaid, Remarks ) " _
+        '               & "VALUES ('" & Date.Now.Year & "', '" & permit_no & "', '" & mytimestamp & "', '" & userid & "', '" & mbusinessID & "' , '" & txt_AmountPaid.Text & "', '" & txt_remarks.Text & "')"
+        '            cmd3 = New SqlCommand(conn, Con3)
+        '            cmd3.ExecuteNonQuery()
+        '            Con3.Close()
 
-                        Dim mydate As String
-                        mydate = "12-31-" & Now.Year
-                        Con2.Open()
-                        Dim qrcodestr As String
-                        qrcodestr = mydate & " " & mAccountNo & " TC "
-                        conn = "INSERT INTO cho_qrcode_dummy (descriptiontext, forwardedID, Type) " _
-                          & "VALUES ('" & qrcodestr & "', '" & temp_applicationid & "', 'MP_WALKIN')"
-                        cmd2 = New MySqlCommand(conn, Con2)
-                        cmd2.ExecuteNonQuery()
-                        'MsgBox("Health Certificate Record Successfully Saved", vbOKOnly & vbInformation, "Tacloban Health Office Management System")
-                        Con2.Close()
-                    End If
 
-                Else
-                    'if not exist then reset to 1
+        '            MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
+        '            txt_permitNumber.Text = permit_no
 
-                    permit_no = "1"
 
-                    Con3 = New SqlConnection(cs1)
-                    Con3.Open()
-                    conn = "INSERT INTO BPLS.Permit (Year, PermitNumber, DateIssued, UserID, BusinessID, AmountPaid, Remarks ) " _
-                       & "VALUES ('" & Date.Now.Year & "', '" & permit_no & "', '" & mytimestamp & "', '" & userid & "', '" & mbusinessID & "' , '" & txt_AmountPaid.Text & "', '" & txt_remarks.Text & "')"
-                    cmd3 = New SqlCommand(conn, Con3)
-                    cmd3.ExecuteNonQuery()
-                    Con3.Close()
+        '            'insert to business_permit_status as new
 
+        '            Con2 = New MySqlConnection(cs)
+        '            Con2.Open()
 
-                    MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
-                    txt_permitNumber.Text = permit_no
 
+        '            conn = "INSERT INTO business_permit_status (AccountNo, BusinessID, DatePending, Status, DatePrinted, PermitNo, UserID, Remarks, Year) " _
+        '             & "VALUES ('" & txt_AccountNo.Text & "', '" & mbusinessID & "', '" & mytimestamp & "', 'D' , '" & mytimestamp & "', '" & permit_no & "', '" & userid & "', '" & txt_remarks.Text & "', '" & Date.Now.Year & "')"
+        '            cmd2 = New MySqlCommand(conn, Con2)
+        '            cmd2.ExecuteNonQuery()
+        '            Con2.Close()
+        '            txt_permitNumber.Text = permit_no
+        '            'MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
 
-                    'insert to business_permit_status as new
 
-                    Con2 = New MySqlConnection(cs)
-                    Con2.Open()
+        '            'get lasst applicationid
+        '            Con2 = New MySqlConnection(cs)
+        '            Con2.Open()
 
 
-                    conn = "INSERT INTO business_permit_status (AccountNo, BusinessID, DatePending, Status, DatePrinted, PermitNo, UserID, Remarks, Year) " _
-                     & "VALUES ('" & txt_AccountNo.Text & "', '" & mbusinessID & "', '" & mytimestamp & "', 'D' , '" & mytimestamp & "', '" & permit_no & "', '" & userid & "', '" & txt_remarks.Text & "', '" & Date.Now.Year & "')"
-                    cmd2 = New MySqlCommand(conn, Con2)
-                    cmd2.ExecuteNonQuery()
-                    Con2.Close()
-                    txt_permitNumber.Text = permit_no
-                    'MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
+        '            conn = "SELECT * FROM business_permit_status ORDER BY permitappid DESC LIMIT 1"
+        '            cmd2 = New MySqlCommand(conn, Con2)
+        '            rdr2 = cmd2.ExecuteReader(CommandBehavior.CloseConnection)
+        '            If rdr2.Read = True Then
 
+        '                temp_applicationid = rdr2("permitappid")
 
-                    'get lasst applicationid
-                    Con2 = New MySqlConnection(cs)
-                    Con2.Open()
+        '            End If
+        '            Con2.Close()
 
 
+        '            Dim mydate As String
+        '            mydate = "12-31-" & Now.Year
+        '            Con2.Open()
+        '            Dim qrcodestr As String
+        '            qrcodestr = mydate & " " & mAccountNo & " TC "
+        '            conn = "INSERT INTO cho_qrcode_dummy (descriptiontext, forwardedID, Type) " _
+        '              & "VALUES ('" & qrcodestr & "', '" & temp_applicationid & "', 'MP_WALKIN')"
+        '            cmd2 = New MySqlCommand(conn, Con2)
+        '            cmd2.ExecuteNonQuery()
+        '            'MsgBox("Health Certificate Record Successfully Saved", vbOKOnly & vbInformation, "Tacloban Health Office Management System")
+        '            Con2.Close()
 
 
+        '        End If
 
-                    conn = "SELECT * FROM business_permit_status ORDER BY permitappid DESC LIMIT 1"
-                    cmd2 = New MySqlCommand(conn, Con2)
-                    rdr2 = cmd2.ExecuteReader(CommandBehavior.CloseConnection)
-                    If rdr2.Read = True Then
 
-                        temp_applicationid = rdr2("permitappid")
 
-                    End If
-                    Con2.Close()
 
+        '        ElseIf permit_stat = "Online" Then
 
-                    Dim mydate As String
-                    mydate = "12-31-" & Now.Year
-                    Con2.Open()
-                    Dim qrcodestr As String
-                    qrcodestr = mydate & " " & mAccountNo & " TC "
-                    conn = "INSERT INTO cho_qrcode_dummy (descriptiontext, forwardedID, Type) " _
-                      & "VALUES ('" & qrcodestr & "', '" & temp_applicationid & "', 'MP_WALKIN')"
-                    cmd2 = New MySqlCommand(conn, Con2)
-                    cmd2.ExecuteNonQuery()
-                    'MsgBox("Health Certificate Record Successfully Saved", vbOKOnly & vbInformation, "Tacloban Health Office Management System")
-                    Con2.Close()
 
+        '            Dim mytimestamp = DateTime.Now.ToString("yyyy-MM-dd")
+        '            'SAVE TO BPLS DATABASE FOR BACK UP
+        '            'get this year last permit no
+        '            Dim permit_no As String
 
-                End If
+        '        conn = "Select * from BPLS.Permit where BPLS.Permit.Year = '" & Date.Now.Year & "' order by BPLS.Permit.PermitNumber DESC"
+        '            Con1 = New SqlConnection(cs1)
+        '            Con1.Open()
+        '            cmd1 = New SqlCommand(conn, Con1)
+        '            rdr1 = cmd1.ExecuteReader(CommandBehavior.CloseConnection)
+        '            If rdr1.Read = True Then
+        '            '
 
 
+        '            conn = "Select * from BPLS.Permit where BPLS.Permit.Year = '" & Date.Now.Year & "' and BusinessID= '" & mbusinessID & "' "
+        '            Con4 = New SqlConnection(cs1)
+        '            Con4.Open()
+        '            cmd4 = New SqlCommand(conn, Con4)
+        '            rdr4 = cmd4.ExecuteReader(CommandBehavior.CloseConnection)
+        '            If rdr4.Read = True Then
 
+        '                MsgBox("This application has already assigned for business permit number!")
 
 
 
+        '            Else
 
 
+        '                'increment 1
+        '                'MsgBox(rdr1("Year") & rdr1("PermitNumber"))
 
+        '                permit_no = rdr1("PermitNumber") + 1
 
+        '                Con3 = New SqlConnection(cs1)
+        '                Con3.Open()
+        '                conn = "INSERT INTO BPLS.Permit (Year, PermitNumber, DateIssued, UserID, BusinessID, AmountPaid, Remarks ) " _
+        '                   & "VALUES ('" & Date.Now.Year & "', '" & permit_no & "', '" & mytimestamp & "', '" & userid & "', '" & mbusinessID & "' , '" & txt_AmountPaid.Text & "', '" & txt_remarks.Text & "')"
+        '                cmd3 = New SqlCommand(conn, Con3)
+        '                cmd3.ExecuteNonQuery()
+        '                Con3.Close()
 
 
 
+        '                Con2 = New MySqlConnection(cs)
+        '                Con2.Open()
 
 
+        '                conn = "INSERT INTO business_permit_status (TypeApplication, ApplicationID, AccountNo, BusinessID, DatePending, Status, DatePrinted, PermitNo, UserID, Remarks, Year) " _
+        '                 & "VALUES ('ONLINE', '" & applicationID_search & "', '" & txt_AccountNo.Text & "', '" & mbusinessID & "', '" & mytimestamp & "', 'D' , '" & mytimestamp & "', '" & permit_no & "', '" & userid & "', '" & txt_remarks.Text & "', '" & Date.Now.Year & "')"
+        '                cmd2 = New MySqlCommand(conn, Con2)
+        '                cmd2.ExecuteNonQuery()
+        '                Con2.Close()
+        '                txt_permitNumber.Text = permit_no
+        '                'MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
 
 
 
+        '                Con2 = New MySqlConnection(cs)
+        '                Con2.Open()
+        '                conn = "SELECT * FROM business_permit_status ORDER BY permitappid DESC LIMIT 1"
+        '                cmd2 = New MySqlCommand(conn, Con2)
+        '                rdr2 = cmd2.ExecuteReader(CommandBehavior.CloseConnection)
+        '                If rdr2.Read = True Then
 
+        '                    temp_applicationid = rdr2("permitappid")
 
+        '                End If
+        '                Con2.Close()
 
-                ElseIf permit_stat = "Online" Then
+        '                'get lasst applicationid
+        '                'Con2 = New MySqlConnection(cs)
+        '                'Con2.Open()
 
 
+        '                'Con2 = New MySqlConnection(cs)
+        '                'Con2.Open()
+        '                'conn = "UPDATE business_permit_status set Status = 'D', DatePrinted = '" & mytimestamp & "', PermitNo = '" & permit_no & "', UserID ='" & userid & "', Remarks = '" & txt_remarks.Text & "', Year ='" & Date.Now.Year & "' WHERE applicationID='" & applicationID_search & "'"
+        '                'cmd2 = New MySqlCommand(conn, Con2)
+        '                'cmd2.ExecuteNonQuery()
+        '                'Con2.Close()
+        '                'txt_permitNumber.Text = permit_no
+        '                'MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
 
 
-                    Dim mytimestamp = DateTime.Now.ToString("yyyy-MM-dd")
-                    'SAVE TO BPLS DATABASE FOR BACK UP
-                    'get this year last permit no
-                    Dim permit_no As String
 
-                conn = "Select * from BPLS.Permit where BPLS.Permit.Year = '" & Date.Now.Year & "' order by BPLS.Permit.PermitNumber DESC"
-                    Con1 = New SqlConnection(cs1)
-                    Con1.Open()
-                    cmd1 = New SqlCommand(conn, Con1)
-                    rdr1 = cmd1.ExecuteReader(CommandBehavior.CloseConnection)
-                    If rdr1.Read = True Then
-                    '
+        '                Con_ms = New SqlConnection(mcs)
+        '                Con_ms.Open()
+        '                conn_ms = "UPDATE ONLINE.business_applicationstatus_dtl set IsPrinted = '1', Printed_dttime = '" & mytimestamp & "' WHERE applicationID='" & applicationID_search & "'"
+        '                cmd_ms = New SqlCommand(conn_ms, Con_ms)
+        '                cmd_ms.ExecuteNonQuery()
+        '                Con_ms.Close()
 
 
-                    conn = "Select * from BPLS.Permit where BPLS.Permit.Year = '" & Date.Now.Year & "' and BusinessID= '" & mbusinessID & "' "
-                    Con4 = New SqlConnection(cs1)
-                    Con4.Open()
-                    cmd4 = New SqlCommand(conn, Con4)
-                    rdr4 = cmd4.ExecuteReader(CommandBehavior.CloseConnection)
-                    If rdr4.Read = True Then
+        '                txt_permitNumber.Text = permit_no
 
-                        MsgBox("This application has already assigned for business permit number!")
+        '                MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
 
 
 
+        '                Dim MAYORSPERMIT As String = txt_AccountNo.Text & "_MP.pdf"
 
+        '                Con_ms = New SqlConnection(mcs)
+        '                Con_ms.Open()
+        '                conn_ms = "UPDATE ONLINE.business_assessment_dtl set MayorsPermit ='" & MAYORSPERMIT & "' WHERE applicationID='" & applicationID_search & "'"
+        '                cmd_ms = New SqlCommand(conn_ms, Con_ms)
+        '                cmd_ms.ExecuteNonQuery()
+        '                Con_ms.Close()
 
-                    Else
 
 
-                        'increment 1
-                        'MsgBox(rdr1("Year") & rdr1("PermitNumber"))
+        '                Dim mydate As String
+        '                mydate = "12-31-" & Now.Year
+        '                Con2.Open()
+        '                Dim qrcodestr As String
+        '                qrcodestr = mydate & " " & mAccountNo & " TC "
+        '                conn = "INSERT INTO cho_qrcode_dummy (descriptiontext, forwardedID, Type) " _
+        '                  & "VALUES ('" & qrcodestr & "', '" & temp_applicationid & "', 'MP_ONLINE')"
+        '                cmd2 = New MySqlCommand(conn, Con2)
+        '                cmd2.ExecuteNonQuery()
+        '                'MsgBox("Health Certificate Record Successfully Saved", vbOKOnly & vbInformation, "Tacloban Health Office Management System")
+        '                Con2.Close()
+        '            End If
 
-                        permit_no = rdr1("PermitNumber") + 1
+        '        Else
+        '            'if not exist then reset to 1
 
-                        Con3 = New SqlConnection(cs1)
-                        Con3.Open()
-                        conn = "INSERT INTO BPLS.Permit (Year, PermitNumber, DateIssued, UserID, BusinessID, AmountPaid, Remarks ) " _
-                           & "VALUES ('" & Date.Now.Year & "', '" & permit_no & "', '" & mytimestamp & "', '" & userid & "', '" & mbusinessID & "' , '" & txt_AmountPaid.Text & "', '" & txt_remarks.Text & "')"
-                        cmd3 = New SqlCommand(conn, Con3)
-                        cmd3.ExecuteNonQuery()
-                        Con3.Close()
+        '            permit_no = "1"
 
 
+        '            Con3 = New SqlConnection(cs1)
+        '            Con3.Open()
+        '            conn = "INSERT INTO BPLS.Permit (Year, PermitNumber, DateIssued, UserID, BusinessID, AmountPaid, Remarks ) " _
+        '               & "VALUES ('" & Date.Now.Year & "', '" & permit_no & "', '" & mytimestamp & "', '" & userid & "', '" & mbusinessID & "' , '" & txt_AmountPaid.Text & "', '" & txt_remarks.Text & "')"
+        '            cmd3 = New SqlCommand(conn, Con3)
+        '            cmd3.ExecuteNonQuery()
+        '            Con3.Close()
+        '            MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
+        '            txt_permitNumber.Text = permit_no
 
 
+        '            Con2 = New MySqlConnection(cs)
+        '            Con2.Open()
 
 
+        '            conn = "INSERT INTO business_permit_status (TypeApplication, ApplicationID, AccountNo, BusinessID, DatePending, Status, DatePrinted, PermitNo, UserID, Remarks, Year) " _
+        '             & "VALUES ('ONLINE, ''" & applicationID_search & "', '" & txt_AccountNo.Text & "', '" & mbusinessID & "', '" & mytimestamp & "', 'D' , '" & mytimestamp & "', '" & permit_no & "', '" & userid & "', '" & txt_remarks.Text & "', '" & Date.Now.Year & "')"
+        '            cmd2 = New MySqlCommand(conn, Con2)
+        '            cmd2.ExecuteNonQuery()
+        '            Con2.Close()
+        '            txt_permitNumber.Text = permit_no
+        '            'MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
 
 
 
-                        Con2 = New MySqlConnection(cs)
-                        Con2.Open()
+        '            Con2 = New MySqlConnection(cs)
+        '            Con2.Open()
+        '            conn = "SELECT * FROM business_permit_status ORDER BY permitappid DESC LIMIT 1"
+        '            cmd2 = New MySqlCommand(conn, Con2)
+        '            rdr2 = cmd2.ExecuteReader(CommandBehavior.CloseConnection)
+        '            If rdr2.Read = True Then
 
+        '                temp_applicationid = rdr2("permitappid")
 
-                        conn = "INSERT INTO business_permit_status (TypeApplication, ApplicationID, AccountNo, BusinessID, DatePending, Status, DatePrinted, PermitNo, UserID, Remarks, Year) " _
-                         & "VALUES ('ONLINE', '" & applicationID_search & "', '" & txt_AccountNo.Text & "', '" & mbusinessID & "', '" & mytimestamp & "', 'D' , '" & mytimestamp & "', '" & permit_no & "', '" & userid & "', '" & txt_remarks.Text & "', '" & Date.Now.Year & "')"
-                        cmd2 = New MySqlCommand(conn, Con2)
-                        cmd2.ExecuteNonQuery()
-                        Con2.Close()
-                        txt_permitNumber.Text = permit_no
-                        'MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
+        '            End If
+        '            Con2.Close()
 
+        '            'get lasst applicationid
+        '            'Con2 = New MySqlConnection(cs)
+        '            'Con2.Open()
 
+        '            'Con2 = New MySqlConnection(cs)
+        '            'Con2.Open()
+        '            'conn = "UPDATE business_permit_status set Status = 'D', DatePrinted = '" & mytimestamp & "', PermitNo = '" & permit_no & "', UserID ='" & userid & "', Remarks = '" & txt_remarks.Text & "', Year ='" & Date.Now.Year & "' WHERE applicationID='" & applicationID_search & "'"
+        '            'cmd2 = New MySqlCommand(conn, Con2)
+        '            'cmd2.ExecuteNonQuery()
+        '            'Con2.Close()
+        '            'txt_permitNumber.Text = permit_no
+        '            'MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
 
-                        Con2 = New MySqlConnection(cs)
-                        Con2.Open()
-                        conn = "SELECT * FROM business_permit_status ORDER BY permitappid DESC LIMIT 1"
-                        cmd2 = New MySqlCommand(conn, Con2)
-                        rdr2 = cmd2.ExecuteReader(CommandBehavior.CloseConnection)
-                        If rdr2.Read = True Then
 
-                            temp_applicationid = rdr2("permitappid")
 
-                        End If
-                        Con2.Close()
+        '            Con_ms = New SqlConnection(mcs)
+        '            Con_ms.Open()
+        '            conn_ms = "UPDATE ONLINE.business_applicationstatus_dtl set IsPrinted = '1', Printed_dttime = '" & mytimestamp & "' WHERE applicationID='" & applicationID_search & "'"
+        '            cmd_ms = New SqlCommand(conn_ms, Con_ms)
+        '            cmd_ms.ExecuteNonQuery()
+        '            Con_ms.Close()
 
-                        'get lasst applicationid
-                        'Con2 = New MySqlConnection(cs)
-                        'Con2.Open()
 
+        '            txt_permitNumber.Text = permit_no
 
+        '            MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
 
 
+        '            Dim MAYORSPERMIT As String = txt_AccountNo.Text & "_MP.pdf"
 
-                        'Con2 = New MySqlConnection(cs)
-                        'Con2.Open()
-                        'conn = "UPDATE business_permit_status set Status = 'D', DatePrinted = '" & mytimestamp & "', PermitNo = '" & permit_no & "', UserID ='" & userid & "', Remarks = '" & txt_remarks.Text & "', Year ='" & Date.Now.Year & "' WHERE applicationID='" & applicationID_search & "'"
-                        'cmd2 = New MySqlCommand(conn, Con2)
-                        'cmd2.ExecuteNonQuery()
-                        'Con2.Close()
-                        'txt_permitNumber.Text = permit_no
-                        'MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
+        '            Con_ms = New SqlConnection(mcs)
+        '            Con_ms.Open()
+        '            conn_ms = "UPDATE ONLINE.business_assessment_dtl set MayorsPermit ='" & MAYORSPERMIT & "' WHERE applicationID='" & applicationID_search & "'"
+        '            cmd_ms = New SqlCommand(conn_ms, Con_ms)
+        '            cmd_ms.ExecuteNonQuery()
+        '            Con_ms.Close()
 
 
 
-                        Con_ms = New SqlConnection(mcs)
-                        Con_ms.Open()
-                        conn_ms = "UPDATE ONLINE.business_applicationstatus_dtl set IsPrinted = '1', Printed_dttime = '" & mytimestamp & "' WHERE applicationID='" & applicationID_search & "'"
-                        cmd_ms = New SqlCommand(conn_ms, Con_ms)
-                        cmd_ms.ExecuteNonQuery()
-                        Con_ms.Close()
 
+        '            Dim mydate As String
+        '            mydate = "12-31-" & Now.Year
+        '            Con2.Open()
+        '            Dim qrcodestr As String
+        '            qrcodestr = mydate & " " & mAccountNo & " TC "
+        '            conn = "INSERT INTO cho_qrcode_dummy (descriptiontext, forwardedID, Type) " _
+        '              & "VALUES ('" & qrcodestr & "', '" & temp_applicationid & "', 'MP_ONLINE')"
+        '            cmd2 = New MySqlCommand(conn, Con2)
+        '            cmd2.ExecuteNonQuery()
+        '            'MsgBox("Health Certificate Record Successfully Saved", vbOKOnly & vbInformation, "Tacloban Health Office Management System")
+        '            Con2.Close()
 
-                        txt_permitNumber.Text = permit_no
 
-                        MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
+        '        End If
 
+        '        End If
 
 
-                        Dim MAYORSPERMIT As String = txt_AccountNo.Text & "_MP.pdf"
-
-                        Con_ms = New SqlConnection(mcs)
-                        Con_ms.Open()
-                        conn_ms = "UPDATE ONLINE.business_assessment_dtl set MayorsPermit ='" & MAYORSPERMIT & "' WHERE applicationID='" & applicationID_search & "'"
-                        cmd_ms = New SqlCommand(conn_ms, Con_ms)
-                        cmd_ms.ExecuteNonQuery()
-                        Con_ms.Close()
-
-
-
-
-
-                        Dim mydate As String
-                        mydate = "12-31-" & Now.Year
-                        Con2.Open()
-                        Dim qrcodestr As String
-                        qrcodestr = mydate & " " & mAccountNo & " TC "
-                        conn = "INSERT INTO cho_qrcode_dummy (descriptiontext, forwardedID, Type) " _
-                          & "VALUES ('" & qrcodestr & "', '" & temp_applicationid & "', 'MP_ONLINE')"
-                        cmd2 = New MySqlCommand(conn, Con2)
-                        cmd2.ExecuteNonQuery()
-                        'MsgBox("Health Certificate Record Successfully Saved", vbOKOnly & vbInformation, "Tacloban Health Office Management System")
-                        Con2.Close()
-                    End If
-
-                Else
-                    'if not exist then reset to 1
-
-                    permit_no = "1"
-
-
-                    Con3 = New SqlConnection(cs1)
-                    Con3.Open()
-                    conn = "INSERT INTO BPLS.Permit (Year, PermitNumber, DateIssued, UserID, BusinessID, AmountPaid, Remarks ) " _
-                       & "VALUES ('" & Date.Now.Year & "', '" & permit_no & "', '" & mytimestamp & "', '" & userid & "', '" & mbusinessID & "' , '" & txt_AmountPaid.Text & "', '" & txt_remarks.Text & "')"
-                    cmd3 = New SqlCommand(conn, Con3)
-                    cmd3.ExecuteNonQuery()
-                    Con3.Close()
-                    MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
-                    txt_permitNumber.Text = permit_no
-
-
-                    Con2 = New MySqlConnection(cs)
-                    Con2.Open()
-
-
-                    conn = "INSERT INTO business_permit_status (TypeApplication, ApplicationID, AccountNo, BusinessID, DatePending, Status, DatePrinted, PermitNo, UserID, Remarks, Year) " _
-                     & "VALUES ('ONLINE, ''" & applicationID_search & "', '" & txt_AccountNo.Text & "', '" & mbusinessID & "', '" & mytimestamp & "', 'D' , '" & mytimestamp & "', '" & permit_no & "', '" & userid & "', '" & txt_remarks.Text & "', '" & Date.Now.Year & "')"
-                    cmd2 = New MySqlCommand(conn, Con2)
-                    cmd2.ExecuteNonQuery()
-                    Con2.Close()
-                    txt_permitNumber.Text = permit_no
-                    'MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
-
-
-
-                    Con2 = New MySqlConnection(cs)
-                    Con2.Open()
-                    conn = "SELECT * FROM business_permit_status ORDER BY permitappid DESC LIMIT 1"
-                    cmd2 = New MySqlCommand(conn, Con2)
-                    rdr2 = cmd2.ExecuteReader(CommandBehavior.CloseConnection)
-                    If rdr2.Read = True Then
-
-                        temp_applicationid = rdr2("permitappid")
-
-                    End If
-                    Con2.Close()
-
-                    'get lasst applicationid
-                    'Con2 = New MySqlConnection(cs)
-                    'Con2.Open()
-
-
-
-
-
-                    'Con2 = New MySqlConnection(cs)
-                    'Con2.Open()
-                    'conn = "UPDATE business_permit_status set Status = 'D', DatePrinted = '" & mytimestamp & "', PermitNo = '" & permit_no & "', UserID ='" & userid & "', Remarks = '" & txt_remarks.Text & "', Year ='" & Date.Now.Year & "' WHERE applicationID='" & applicationID_search & "'"
-                    'cmd2 = New MySqlCommand(conn, Con2)
-                    'cmd2.ExecuteNonQuery()
-                    'Con2.Close()
-                    'txt_permitNumber.Text = permit_no
-                    'MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
-
-
-
-                    Con_ms = New SqlConnection(mcs)
-                    Con_ms.Open()
-                    conn_ms = "UPDATE ONLINE.business_applicationstatus_dtl set IsPrinted = '1', Printed_dttime = '" & mytimestamp & "' WHERE applicationID='" & applicationID_search & "'"
-                    cmd_ms = New SqlCommand(conn_ms, Con_ms)
-                    cmd_ms.ExecuteNonQuery()
-                    Con_ms.Close()
-
-
-                    txt_permitNumber.Text = permit_no
-
-                    MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
-
-
-                    Dim MAYORSPERMIT As String = txt_AccountNo.Text & "_MP.pdf"
-
-                    Con_ms = New SqlConnection(mcs)
-                    Con_ms.Open()
-                    conn_ms = "UPDATE ONLINE.business_assessment_dtl set MayorsPermit ='" & MAYORSPERMIT & "' WHERE applicationID='" & applicationID_search & "'"
-                    cmd_ms = New SqlCommand(conn_ms, Con_ms)
-                    cmd_ms.ExecuteNonQuery()
-                    Con_ms.Close()
-
-
-
-
-                    Dim mydate As String
-                    mydate = "12-31-" & Now.Year
-                    Con2.Open()
-                    Dim qrcodestr As String
-                    qrcodestr = mydate & " " & mAccountNo & " TC "
-                    conn = "INSERT INTO cho_qrcode_dummy (descriptiontext, forwardedID, Type) " _
-                      & "VALUES ('" & qrcodestr & "', '" & temp_applicationid & "', 'MP_ONLINE')"
-                    cmd2 = New MySqlCommand(conn, Con2)
-                    cmd2.ExecuteNonQuery()
-                    'MsgBox("Health Certificate Record Successfully Saved", vbOKOnly & vbInformation, "Tacloban Health Office Management System")
-                    Con2.Close()
-
-
-                End If
-
-
-
-
-
-                End If
-
-
-
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        'End Try
 
 
 
@@ -674,86 +622,88 @@ Public Class MayorsPermitControl
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        Dim permit_no As Integer
-        permit_no = txt_permitNumber.Text
-
-        conn = "Select * from BPLS.Permit where BPLS.Permit.Year = '" & Date.Now.Year & "' and PermitNumber= '" & permit_no & "' "
-        Con4 = New SqlConnection(cs1)
-        Con4.Open()
-        cmd4 = New SqlCommand(conn, Con4)
-        rdr4 = cmd4.ExecuteReader(CommandBehavior.CloseConnection)
-        If rdr4.Read = True Then
-
-            MsgBox("permit number taken!")
-
-        Else
-            Dim mytimestamp = DateTimePicker1.Value.ToString("yyyy-MM-dd")
-
-            Con3 = New SqlConnection(cs1)
-            Con3.Open()
-            conn = "INSERT INTO BPLS.Permit (Year, PermitNumber, DateIssued, UserID, BusinessID, AmountPaid, Remarks ) " _
-               & "VALUES ('" & Date.Now.Year & "', '" & permit_no & "', '" & mytimestamp & "', '" & userid & "', '" & mbusinessID & "' , '" & txt_AmountPaid.Text & "', '" & txt_remarks.Text & "')"
-            cmd3 = New SqlCommand(conn, Con3)
-            cmd3.ExecuteNonQuery()
-            Con3.Close()
 
 
-            'insert to business_permit_status as new
+        'Dim permit_no As Integer
+        'permit_no = txt_permitNumber.Text
 
-            Con2 = New MySqlConnection(cs)
-            Con2.Open()
+        'conn = "Select * from BPLS.Permit where BPLS.Permit.Year = '" & Date.Now.Year & "' and PermitNumber= '" & permit_no & "' "
+        'Con4 = New SqlConnection(cs1)
+        'Con4.Open()
+        'cmd4 = New SqlCommand(conn, Con4)
+        'rdr4 = cmd4.ExecuteReader(CommandBehavior.CloseConnection)
+        'If rdr4.Read = True Then
 
+        '    MsgBox("permit number taken!")
 
-            conn = "INSERT INTO business_permit_status (AccountNo, BusinessID, DatePending, Status, DatePrinted, PermitNo, UserID, Remarks, Year) " _
-             & "VALUES ('" & txt_AccountNo.Text & "', '" & mbusinessID & "', '" & mytimestamp & "', 'D' , '" & mytimestamp & "', '" & permit_no & "', '" & userid & "', '" & txt_remarks.Text & "', '" & Date.Now.Year & "')"
-            cmd2 = New MySqlCommand(conn, Con2)
-            cmd2.ExecuteNonQuery()
-            Con2.Close()
-            txt_permitNumber.Text = permit_no
-            'MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
+        'Else
+        '    Dim mytimestamp = DateTimePicker1.Value.ToString("yyyy-MM-dd")
 
-
-            'get lasst applicationid
-            Con2 = New MySqlConnection(cs)
-            Con2.Open()
-
-
-            conn = "SELECT * FROM business_permit_status ORDER BY permitappid DESC LIMIT 1"
-            cmd2 = New MySqlCommand(conn, Con2)
-            rdr2 = cmd2.ExecuteReader(CommandBehavior.CloseConnection)
-            If rdr2.Read = True Then
-
-                temp_applicationid = rdr2("permitappid")
-
-            End If
-            Con2.Close()
-
-            'Con2 = New MySqlConnection(cs)
-            'Con2.Open()
-            'conn = "UPDATE business_applicationstatus_dtl set IsPrinted = '1', Printed_dttime = '" & mytimestamp & "' WHERE applicationID='" & applicationID_search & "'"
-            'cmd2 = New MySqlCommand(conn, Con2)
-            'cmd2.ExecuteNonQuery()
-            'Con2.Close()
+        '    Con3 = New SqlConnection(cs1)
+        '    Con3.Open()
+        '    conn = "INSERT INTO BPLS.Permit (Year, PermitNumber, DateIssued, UserID, BusinessID, AmountPaid, Remarks ) " _
+        '       & "VALUES ('" & Date.Now.Year & "', '" & permit_no & "', '" & mytimestamp & "', '" & userid & "', '" & mbusinessID & "' , '" & txt_AmountPaid.Text & "', '" & txt_remarks.Text & "')"
+        '    cmd3 = New SqlCommand(conn, Con3)
+        '    cmd3.ExecuteNonQuery()
+        '    Con3.Close()
 
 
-            txt_permitNumber.Text = permit_no
-            MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
+        '    'insert to business_permit_status as new
+
+        '    Con2 = New MySqlConnection(cs)
+        '    Con2.Open()
+
+
+        '    conn = "INSERT INTO business_permit_status (AccountNo, BusinessID, DatePending, Status, DatePrinted, PermitNo, UserID, Remarks, Year) " _
+        '     & "VALUES ('" & txt_AccountNo.Text & "', '" & mbusinessID & "', '" & mytimestamp & "', 'D' , '" & mytimestamp & "', '" & permit_no & "', '" & userid & "', '" & txt_remarks.Text & "', '" & Date.Now.Year & "')"
+        '    cmd2 = New MySqlCommand(conn, Con2)
+        '    cmd2.ExecuteNonQuery()
+        '    Con2.Close()
+        '    txt_permitNumber.Text = permit_no
+        '    'MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
+
+
+        '    'get lasst applicationid
+        '    Con2 = New MySqlConnection(cs)
+        '    Con2.Open()
+
+
+        '    conn = "SELECT * FROM business_permit_status ORDER BY permitappid DESC LIMIT 1"
+        '    cmd2 = New MySqlCommand(conn, Con2)
+        '    rdr2 = cmd2.ExecuteReader(CommandBehavior.CloseConnection)
+        '    If rdr2.Read = True Then
+
+        '        temp_applicationid = rdr2("permitappid")
+
+        '    End If
+        '    Con2.Close()
+
+        '    'Con2 = New MySqlConnection(cs)
+        '    'Con2.Open()
+        '    'conn = "UPDATE business_applicationstatus_dtl set IsPrinted = '1', Printed_dttime = '" & mytimestamp & "' WHERE applicationID='" & applicationID_search & "'"
+        '    'cmd2 = New MySqlCommand(conn, Con2)
+        '    'cmd2.ExecuteNonQuery()
+        '    'Con2.Close()
+
+
+        '    txt_permitNumber.Text = permit_no
+        '    MsgBox("Confirmed!", vbOKOnly & vbInformation, "Business Renewal")
 
 
 
-            Dim mydate As String
-            mydate = "12-31-" & Now.Year
-            Con2.Open()
-            Dim qrcodestr As String
-            qrcodestr = mydate & " " & mAccountNo & " TC "
-            conn = "INSERT INTO cho_qrcode_dummy (descriptiontext, forwardedID, Type) " _
-              & "VALUES ('" & qrcodestr & "', '" & temp_applicationid & "', 'MP_WALKIN')"
-            cmd2 = New MySqlCommand(conn, Con2)
-            cmd2.ExecuteNonQuery()
-            'MsgBox("Health Certificate Record Successfully Saved", vbOKOnly & vbInformation, "Tacloban Health Office Management System")
-            Con2.Close()
-        End If
-        Con4.Close()
+        '    Dim mydate As String
+        '    mydate = "12-31-" & Now.Year
+        '    Con2.Open()
+        '    Dim qrcodestr As String
+        '    qrcodestr = mydate & " " & mAccountNo & " TC "
+        '    conn = "INSERT INTO cho_qrcode_dummy (descriptiontext, forwardedID, Type) " _
+        '      & "VALUES ('" & qrcodestr & "', '" & temp_applicationid & "', 'MP_WALKIN')"
+        '    cmd2 = New MySqlCommand(conn, Con2)
+        '    cmd2.ExecuteNonQuery()
+        '    'MsgBox("Health Certificate Record Successfully Saved", vbOKOnly & vbInformation, "Tacloban Health Office Management System")
+        '    Con2.Close()
+        'End If
+        'Con4.Close()
 
     End Sub
 End Class
