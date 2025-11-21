@@ -50,7 +50,7 @@ Public Class LogIn
         If e.KeyChar = Microsoft.VisualBasic.ChrW(Keys.Return) Then
             Try
                 'get prefix
-                Con_ms = New SqlConnection(mcs)
+                Con_ms = New SqlConnection(attachment)
                 Con_ms.Open()
                 conn_ms = "SELECT * FROM ONLINE.m_prefix_attachments_ceo where Status='1'"
 
@@ -91,7 +91,7 @@ Public Class LogIn
                     Me.Hide()
                     Splash.ShowDialog()
                 Else
-                    MsgBox("Invalid Username or Password", vbOKOnly & vbExclamation, "Construction Online")
+                    MsgBox("Invalid Username or Password", vbOKOnly & vbExclamation, "Annual Inspection Online")
                 End If
 
                 Con_ms.Close()
@@ -123,9 +123,9 @@ Public Class LogIn
 
         Try
             'get prefix
-            Con_ms = New SqlConnection(mcs)
+            Con_ms = New SqlConnection(attachment)
             Con_ms.Open()
-            conn_ms = "SELECT * FROM ONLINE.m_prefix_attachments where Status='1'"
+            conn_ms = "SELECT * FROM ONLINE.m_prefix_attachments_ceo where Status='1'"
 
             cmd_ms = New SqlCommand(conn_ms, Con_ms)
             rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
@@ -164,7 +164,7 @@ Public Class LogIn
                 Me.Hide()
                 Splash.ShowDialog()
             Else
-                MsgBox("Invalid Username or Password", vbOKOnly & vbExclamation, "Construction Online")
+                MsgBox("Invalid Username or Password", vbOKOnly & vbExclamation, "Annual Inspection Online")
             End If
 
             Con_ms.Close()

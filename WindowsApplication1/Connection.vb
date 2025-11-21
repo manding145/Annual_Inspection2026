@@ -124,7 +124,7 @@ Module Connection
     Public mcs As String = "Server=58.59.249.245;Database=BPLS;User ID=sa;Password=@dm1n1str@t0r;"
     Public mcs1 As String = "Server=58.59.249.245;Database=CORE_PATAS;User ID=sa;Password=@dm1n1str@t0r;"
 
-
+    Public attachment As String = "Server=124.106.16.141;Database=BPLS;User ID=sa;Password=@dm1n1str@t0r;"
 
     'Public mcs As String = "Server=10.0.3.174;Database=BPLSWEBREC;User ID=sa;Password=@dm1n1str@t0r;"
 
