@@ -28,6 +28,7 @@ Partial Class MainMenu
         Me.Splitter1 = New System.Windows.Forms.Splitter()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -54,14 +55,13 @@ Partial Class MainMenu
         Me.MaintenanceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotificationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ReportMenuStrip.SuspendLayout()
         Me.SettingsMenuStrip1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Splitter2
@@ -108,6 +108,16 @@ Partial Class MainMenu
         Me.Panel1.Size = New System.Drawing.Size(212, 702)
         Me.Panel1.TabIndex = 51
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.WindowsApplication1.My.Resources.Resources.inspection
+        Me.PictureBox1.Location = New System.Drawing.Point(75, 17)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(77, 73)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 145
+        Me.PictureBox1.TabStop = False
+        '
         'Button7
         '
         Me.Button7.BackColor = System.Drawing.Color.White
@@ -117,7 +127,7 @@ Partial Class MainMenu
         Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Button7.Image = Global.WindowsApplication1.My.Resources.Resources.document__1_
+        Me.Button7.Image = CType(resources.GetObject("Button7.Image"), System.Drawing.Image)
         Me.Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button7.Location = New System.Drawing.Point(27, 207)
         Me.Button7.Name = "Button7"
@@ -135,7 +145,7 @@ Partial Class MainMenu
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Button3.Image = Global.WindowsApplication1.My.Resources.Resources.portable_document_format
+        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button3.Location = New System.Drawing.Point(27, 154)
         Me.Button3.Name = "Button3"
@@ -166,7 +176,7 @@ Partial Class MainMenu
         Me.Button5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Button5.Image = Global.WindowsApplication1.My.Resources.Resources._exit
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button5.Location = New System.Drawing.Point(27, 378)
+        Me.Button5.Location = New System.Drawing.Point(27, 366)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(172, 47)
         Me.Button5.TabIndex = 114
@@ -182,13 +192,13 @@ Partial Class MainMenu
         Me.B_issued.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.B_issued.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.B_issued.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.B_issued.Image = Global.WindowsApplication1.My.Resources.Resources.portable_document_format
+        Me.B_issued.Image = CType(resources.GetObject("B_issued.Image"), System.Drawing.Image)
         Me.B_issued.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.B_issued.Location = New System.Drawing.Point(26, 260)
         Me.B_issued.Name = "B_issued"
-        Me.B_issued.Size = New System.Drawing.Size(185, 47)
+        Me.B_issued.Size = New System.Drawing.Size(172, 47)
         Me.B_issued.TabIndex = 110
-        Me.B_issued.Text = "       Construction Permit"
+        Me.B_issued.Text = "       Annual Inspection  Permit"
         Me.B_issued.UseVisualStyleBackColor = False
         '
         'Button4
@@ -200,9 +210,9 @@ Partial Class MainMenu
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Button4.Image = Global.WindowsApplication1.My.Resources.Resources.gear
+        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
         Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button4.Location = New System.Drawing.Point(26, 325)
+        Me.Button4.Location = New System.Drawing.Point(27, 313)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(172, 47)
         Me.Button4.TabIndex = 112
@@ -369,16 +379,6 @@ Partial Class MainMenu
         Me.Button2.UseVisualStyleBackColor = False
         Me.Button2.Visible = False
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.WindowsApplication1.My.Resources.Resources.inspection
-        Me.PictureBox1.Location = New System.Drawing.Point(75, 17)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(77, 73)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 145
-        Me.PictureBox1.TabStop = False
-        '
         'MainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -400,6 +400,7 @@ Partial Class MainMenu
         Me.Text = "MainMenun"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
@@ -408,7 +409,6 @@ Partial Class MainMenu
         Me.ReportMenuStrip.PerformLayout()
         Me.SettingsMenuStrip1.ResumeLayout(False)
         Me.SettingsMenuStrip1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

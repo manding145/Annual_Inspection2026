@@ -101,14 +101,32 @@ Public Class MainMenu
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
 
+
+
         If FormStatus = False Then
-            FormStatus = True
-            SettingsMenuStrip1.Visible = False
-            ReportMenuStrip.Visible = False
-            Dim NewMDIChild As New InspectorDashBoard()
-            NewMDIChild.MdiParent = Me
-            NewMDIChild.Show()
-            'Panel3.Visible = False
+
+
+            Con_ms = New SqlConnection(mcs)
+            Con_ms.Open()
+            conn = "SELECT * FROM ONLINE.constr_Sysmngr WHERE Userlevel = '" & lbluserrole.Text & "'"
+            cmd_ms = New SqlCommand(conn, Con_ms)
+            rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
+            If rdr_ms.Read() Then
+
+            End If
+
+
+            If rdr_ms("Userlevel").ToString() = "Super Admin" Then
+
+                FormStatus = True
+                SettingsMenuStrip1.Visible = False
+                ReportMenuStrip.Visible = False
+                Dim NewMDIChild As New InspectorDashBoard()
+                NewMDIChild.MdiParent = Me
+                NewMDIChild.Show()
+                'Panel3.Visible = False
+            End If
+          
         Else
 
             MsgBox("Please close your current form to continue.", vbOKOnly & vbExclamation, "Construction Permit Online")
@@ -128,7 +146,7 @@ Public Class MainMenu
             ReportMenuStrip.Visible = False
         Else
 
-            MsgBox("Please close your current form to continue.", vbOKOnly & vbExclamation, "BPLO Online")
+            MsgBox("Please close your current form to continue.", vbOKOnly & vbExclamation, "Annual Inspection Online")
         End If
     End Sub
 
@@ -210,17 +228,36 @@ Public Class MainMenu
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
 
         If FormStatus = False Then
-            FormStatus = True
-            SettingsMenuStrip1.Visible = False
-            ReportMenuStrip.Visible = False
-            Dim NewMDIChild As New PaymentDashboard()
-            NewMDIChild.MdiParent = Me
-            NewMDIChild.Show()
-            'Panel3.Visible = False
-        Else
 
-            MsgBox("Please close your current form to continue.", vbOKOnly & vbExclamation, "Construction Permit Online")
+
+            Con_ms = New SqlConnection(mcs)
+            Con_ms.Open()
+            conn = "SELECT * FROM ONLINE.constr_Sysmngr WHERE Userlevel = '" & lbluserrole.Text & "'"
+            cmd_ms = New SqlCommand(conn, Con_ms)
+            rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
+            If rdr_ms.Read() Then
+
+
+                If rdr_ms("Userlevel").ToString() = "Super Admin" Then
+
+                    FormStatus = True
+                    SettingsMenuStrip1.Visible = False
+                    ReportMenuStrip.Visible = False
+                    Dim NewMDIChild As New PaymentDashboard()
+                    NewMDIChild.MdiParent = Me
+                    NewMDIChild.Show()
+
+                Else
+                    MsgBox("Authorize person can open this dashbaord.", vbOKOnly & vbExclamation, "Annual Inspection Online")
+
+                End If
+            End If
+            Con_ms.Close()
+        Else
+            MsgBox("Please close your current form to continue.", vbOKOnly & vbExclamation, "Annual Inspection Online")
         End If
+
+
 
 
 

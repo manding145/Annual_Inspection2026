@@ -191,7 +191,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>TKiKVZzbQ6TBjwVxdTMwo41ItDgCVxvYZ7Uudj3BI6s=</dsig:DigestValue>
+        <dsig:DigestValue>QkukwKuObMp1Kx4HjC8oZcG+kZ/hv7f+sHhBOhiK12E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -203,7 +203,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>LGMdsvT2BXvG5QC8J0D8xwuOSk5POInvNyMvGDFlM8Y=</dsig:DigestValue>
+        <dsig:DigestValue>xedBfqRI/8Cl1QSdrPpmid11OMWrPn2O0Ifk8sfoDvs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -623,7 +623,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>vaS06o9rkG7l0FSd1QEFV1dZwoWQJ7YX3vD5atvCXSI=</dsig:DigestValue>
+        <dsig:DigestValue>DPKO0JcYpsGlP540/Yqjym04SbrvMEnbI9oAomCmy4g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -635,7 +635,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>l/w0Psqhx8+iVB6PWIqU7N46xRAOeyUBw6YzdeT4Xtc=</dsig:DigestValue>
+        <dsig:DigestValue>ABER+P4oQXqpjpngMfYlulc/gnz1y8CtgQxxrU9zlIo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -676,14 +676,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WindowsApplication1.exe" size="5705728">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WindowsApplication1.exe" size="5711360">
       <assemblyIdentity name="WindowsApplication1" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>kpRBdUwTYqmBnY4MoTj7YzsMFBmelbp1HwnRQFq23tM=</dsig:DigestValue>
+        <dsig:DigestValue>rq4NxVeyVLndC2DgHJ0hRN5fGov+Fce7gDLbWLKXRPc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -706,24 +706,6 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>NcIpfLbpXU6YH2MeRKIf1Qa3zvsiloJ7oP/R2kSaFtM=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="letter-b (3).ico" size="4286">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Gim1pCDwndjF1sHQSxyAkMekPvBQLofymWRyg+uCvGk=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="letter-b (5).ico" size="4286">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>9jgW4ee3cRbN3dqUj//ZRH+jmAsOMs4bXd/NvEEXl44=</dsig:DigestValue>
     </hash>
   </file>
   <file name="WindowsApplication1.exe.config" size="1370">
