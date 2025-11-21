@@ -909,8 +909,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="inspection %281%29.ico" />
-    <Content Include="letter-b %283%29.ico" />
-    <Content Include="letter-b %285%29.ico" />
     <None Include="Resources\inspection.png" />
     <None Include="Resources\Construction Permit Icon1.png" />
     <None Include="Resources\Construction Permit Icon.png" />

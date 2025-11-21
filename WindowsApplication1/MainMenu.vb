@@ -208,8 +208,6 @@ Public Class MainMenu
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        'Payment.ShowDialog()
-
 
         If FormStatus = False Then
             FormStatus = True
