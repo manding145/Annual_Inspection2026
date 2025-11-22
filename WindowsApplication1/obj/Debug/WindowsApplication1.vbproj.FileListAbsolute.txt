@@ -374,3 +374,4 @@ C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\De
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.exe
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.xml
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.pdb
+C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.InspectionPermit_DashBoard.resources

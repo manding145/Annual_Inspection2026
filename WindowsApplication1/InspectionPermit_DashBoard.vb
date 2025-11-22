@@ -104,49 +104,18 @@ Public Class InspectionPermit_DashBoard
                     Dim IssuedPermit As IssuedPermit = CType(Application.OpenForms("IssuedPermit"), IssuedPermit)
                     With IssuedPermit
 
-                        IssuedPermit.TxtApplicationID.Text = rdr_ms("id").ToString
-                        IssuedPermit.TxtTDN.Text = rdr_ms("accountNo").ToString
-                        IssuedPermit.referencono.Text = rdr_ms("refno").ToString
-                        IssuedPermit.TxtProjectName.Text = rdr_ms("project_title").ToString
-                        IssuedPermit.Txtapplicant_name.Text = rdr_ms("applicant").ToString
-                        IssuedPermit.useraccountid.Text = rdr_ms("UserID").ToString
-                        IssuedPermit.txt_email.Text = rdr_ms("email").ToString
-                        IssuedPermit.Type_App.Text = rdr_ms("app_type").ToString
-                        IssuedPermit.Issued_attachment.Text = rdr_ms("permitfileissuance").ToString
-
-
-
                         .TxtApplicationID.Text = rdr_ms("id").ToString
                         .TxtAccountNo.Text = rdr_ms("accountNo").ToString
                         .referencono.Text = rdr_ms("refno").ToString
-                        .TxtProjectName.Text = rdr_ms("bussAddress").ToString
-                        .tax_amount.Text = rdr_ms("payment_").ToString
-                        .Txtapplicant_name.Text = rdr_ms("applicant").ToString
+                        .TxtBusinessName.Text = rdr_ms("bussName").ToString
+                        .TxtOwnerName.Text = rdr_ms("ownerName").ToString
                         .useraccountid.Text = rdr_ms("UserID").ToString
-                        .txt_email.Text = rdr_ms("email").ToString
-                        .TxtTransaction.Text = rdr_ms("Transaction_no").ToString
-                        .ORattachment.Text = rdr_ms("file_assessment").ToString
+
                         .Type_App.Text = rdr_ms("permit_type").ToString
+                        .fullname.Text = rdr_ms("fullname").ToString
+                        .txt_email.Text = rdr_ms("email").ToString
+                        .txt_contactno.Text = rdr_ms("ContactNo").ToString
 
-
-                        Dim folderpath = link_prefix & folder_directory & IssuedPermit.referencono.Text & "\" & IssuedPermit.referencono.Text & "_OR.pdf"
-
-
-                        If rdr_ms("app_status") = "I" Then
-
-                            If Not String.IsNullOrEmpty("file_assessment") Then
-                                If System.IO.File.Exists(folderpath) Then
-                                    IssuedPermit.Issued_attachment.Enabled = False
-                                    IssuedPermit.B_upload.Enabled = False
-                                    IssuedPermit.AxAcroPDF2.src = "file:///" & folderpath.Replace("\", "/")
-
-                                Else
-                                    MessageBox.Show("Please Contact Management Informantion System Office to Track this Reference: " & IssuedPermit.referencono.Text, "Management Informantion System Office", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                                End If
-                            Else
-                                MessageBox.Show("No file path found in the database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                            End If
-                        End If
 
                     End With
                 End If

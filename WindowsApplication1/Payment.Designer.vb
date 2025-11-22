@@ -31,7 +31,6 @@ Partial Class Payment
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TxtBusinessName = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.TxtAmountPaid = New System.Windows.Forms.TextBox()
         Me.TxtTransaction = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.SaveNow = New System.Windows.Forms.Button()
@@ -154,18 +153,6 @@ Partial Class Payment
         Me.Label5.Size = New System.Drawing.Size(76, 13)
         Me.Label5.TabIndex = 165
         Me.Label5.Text = "Amount Paid"
-        '
-        'TxtAmountPaid
-        '
-        Me.TxtAmountPaid.BackColor = System.Drawing.Color.AliceBlue
-        Me.TxtAmountPaid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtAmountPaid.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TxtAmountPaid.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtAmountPaid.Location = New System.Drawing.Point(159, 553)
-        Me.TxtAmountPaid.Multiline = True
-        Me.TxtAmountPaid.Name = "TxtAmountPaid"
-        Me.TxtAmountPaid.Size = New System.Drawing.Size(242, 26)
-        Me.TxtAmountPaid.TabIndex = 166
         '
         'TxtTransaction
         '
@@ -350,7 +337,6 @@ Partial Class Payment
         Me.typeofapplication.Controls.Add(Me.SaveNow)
         Me.typeofapplication.Controls.Add(Me.Label7)
         Me.typeofapplication.Controls.Add(Me.TxtTransaction)
-        Me.typeofapplication.Controls.Add(Me.TxtAmountPaid)
         Me.typeofapplication.Controls.Add(Me.Label5)
         Me.typeofapplication.Controls.Add(Me.TxtBusinessName)
         Me.typeofapplication.Controls.Add(Me.Label3)
@@ -450,7 +436,6 @@ Partial Class Payment
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Public WithEvents TxtBusinessName As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Public WithEvents TxtAmountPaid As System.Windows.Forms.TextBox
     Public WithEvents TxtTransaction As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Public WithEvents SaveNow As System.Windows.Forms.Button

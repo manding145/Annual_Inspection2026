@@ -74,6 +74,7 @@ Partial Class Inspector_ApplicationRecord
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.AxAcroPDF2 = New AxAcroPDFLib.AxAcroPDF()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnDeny = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -92,7 +93,6 @@ Partial Class Inspector_ApplicationRecord
         Me.Panel_ReUpload = New System.Windows.Forms.Panel()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.AxAcroPDF2 = New AxAcroPDFLib.AxAcroPDF()
         Me.Age.SuspendLayout()
         Me.cmbAttachment.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -101,6 +101,7 @@ Partial Class Inspector_ApplicationRecord
         Me.GroupBox3.SuspendLayout()
         Me.Tab.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        CType(Me.AxAcroPDF2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.panel_verified.SuspendLayout()
@@ -111,7 +112,6 @@ Partial Class Inspector_ApplicationRecord
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel_ReUpload.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AxAcroPDF2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lbl_AccountNo
@@ -443,7 +443,7 @@ Partial Class Inspector_ApplicationRecord
         Me.GroupBox3.Controls.Add(Me.Label4)
         Me.GroupBox3.Controls.Add(Me.txt_contactno)
         Me.GroupBox3.Controls.Add(Me.Label5)
-        Me.GroupBox3.Location = New System.Drawing.Point(416, 166)
+        Me.GroupBox3.Location = New System.Drawing.Point(417, 166)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(319, 126)
         Me.GroupBox3.TabIndex = 190
@@ -702,6 +702,16 @@ Partial Class Inspector_ApplicationRecord
         Me.Label7.TabIndex = 2
         Me.Label7.Text = "Application Record"
         '
+        'AxAcroPDF2
+        '
+        Me.AxAcroPDF2.Enabled = True
+        Me.AxAcroPDF2.Location = New System.Drawing.Point(223, -53)
+        Me.AxAcroPDF2.Name = "AxAcroPDF2"
+        Me.AxAcroPDF2.OcxState = CType(resources.GetObject("AxAcroPDF2.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.AxAcroPDF2.Size = New System.Drawing.Size(192, 192)
+        Me.AxAcroPDF2.TabIndex = 193
+        Me.AxAcroPDF2.Visible = False
+        '
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.White
@@ -905,16 +915,6 @@ Partial Class Inspector_ApplicationRecord
         Me.PictureBox1.TabIndex = 106
         Me.PictureBox1.TabStop = False
         '
-        'AxAcroPDF2
-        '
-        Me.AxAcroPDF2.Enabled = True
-        Me.AxAcroPDF2.Location = New System.Drawing.Point(223, -53)
-        Me.AxAcroPDF2.Name = "AxAcroPDF2"
-        Me.AxAcroPDF2.OcxState = CType(resources.GetObject("AxAcroPDF2.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxAcroPDF2.Size = New System.Drawing.Size(192, 192)
-        Me.AxAcroPDF2.TabIndex = 193
-        Me.AxAcroPDF2.Visible = False
-        '
         'Inspector_ApplicationRecord
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -939,6 +939,7 @@ Partial Class Inspector_ApplicationRecord
         Me.Tab.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.AxAcroPDF2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
@@ -954,7 +955,6 @@ Partial Class Inspector_ApplicationRecord
         Me.Panel_ReUpload.ResumeLayout(False)
         Me.Panel_ReUpload.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AxAcroPDF2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
