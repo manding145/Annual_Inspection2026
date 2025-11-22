@@ -419,6 +419,7 @@ Partial Class IssuedPermit
         Me.Controls.Add(Me.referencono)
         Me.Controls.Add(Me.BtnSearchRecord)
         Me.Controls.Add(Me.UploadScannedReceipt)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "IssuedPermit"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Issuance Permit"

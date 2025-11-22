@@ -34,6 +34,7 @@ Partial Class InspectorDashBoard
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(InspectorDashBoard))
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.PanelAppoinment = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -602,6 +603,7 @@ Partial Class InspectorDashBoard
         Me.ClientSize = New System.Drawing.Size(903, 589)
         Me.Controls.Add(Me.Panel3)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "InspectorDashBoard"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "BPLO"

@@ -351,7 +351,6 @@ C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\De
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.IssuedPermit.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.ORviewer.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.Payment.resources
-C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.ConstructionPermit.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.PaymentDashboard.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.ReUpload.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.PendingToPrint.resources

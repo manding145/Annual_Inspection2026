@@ -43,7 +43,7 @@ Public Class MainMenu
             End If
         Next ctl
         lblfname.Text = lblfname1
-        lbluserrole.Text = lbluserrole1
+        lbluserrole.Text = Userlevel
 
         'Dim sql_update As String =
         '        "UPDATE bsd " & vbCrLf &
@@ -278,4 +278,6 @@ Public Class MainMenu
     Private Sub PictureBox4_Click(sender As Object, e As EventArgs) Handles PictureBox4.Click
         Me.Close()
     End Sub
+
+    
 End Class

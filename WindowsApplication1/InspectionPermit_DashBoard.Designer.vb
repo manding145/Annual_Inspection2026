@@ -23,17 +23,18 @@ Partial Class InspectionPermit_DashBoard
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(InspectionPermit_DashBoard))
         Me.Label13 = New System.Windows.Forms.Label()
         Me.dt_Appoinment = New System.Windows.Forms.DateTimePicker()
         Me.Panel6 = New System.Windows.Forms.Panel()
@@ -69,7 +70,6 @@ Partial Class InspectionPermit_DashBoard
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewLinkColumn()
         Me.Panel6.SuspendLayout()
@@ -400,34 +400,34 @@ Partial Class InspectionPermit_DashBoard
         '
         Me.DataGrid.AllowUserToAddRows = False
         Me.DataGrid.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro
-        Me.DataGrid.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle12.BackColor = System.Drawing.Color.Gainsboro
+        Me.DataGrid.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle12
         Me.DataGrid.BackgroundColor = System.Drawing.Color.White
         Me.DataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.DataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkCyan
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold)
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Info
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGrid.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle13.BackColor = System.Drawing.Color.DarkCyan
+        DataGridViewCellStyle13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold)
+        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.Info
+        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGrid.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle13
         Me.DataGrid.ColumnHeadersHeight = 35
         Me.DataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.DataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column9, Me.Column2, Me.Column3, Me.Column1, Me.Column4, Me.Column7, Me.Column5, Me.Column6})
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle9.Format = "N2"
-        DataGridViewCellStyle9.NullValue = "0.00"
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGrid.DefaultCellStyle = DataGridViewCellStyle9
+        Me.DataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column9, Me.Column2, Me.Column3, Me.Column1, Me.Column4, Me.Column5, Me.Column6})
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle20.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle20.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle20.Format = "N2"
+        DataGridViewCellStyle20.NullValue = "0.00"
+        DataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGrid.DefaultCellStyle = DataGridViewCellStyle20
         Me.DataGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.DataGrid.EnableHeadersVisualStyles = False
         Me.DataGrid.Location = New System.Drawing.Point(13, 63)
@@ -435,17 +435,17 @@ Partial Class InspectionPermit_DashBoard
         Me.DataGrid.MultiSelect = False
         Me.DataGrid.Name = "DataGrid"
         Me.DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle10.BackColor = System.Drawing.Color.DarkCyan
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.Info
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGrid.RowHeadersDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle21.BackColor = System.Drawing.Color.DarkCyan
+        DataGridViewCellStyle21.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.Info
+        DataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGrid.RowHeadersDefaultCellStyle = DataGridViewCellStyle21
         Me.DataGrid.RowHeadersVisible = False
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGrid.RowsDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGrid.RowsDefaultCellStyle = DataGridViewCellStyle22
         Me.DataGrid.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         Me.DataGrid.RowTemplate.Height = 25
         Me.DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -460,68 +460,65 @@ Partial Class InspectionPermit_DashBoard
         '
         'Column2
         '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column2.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column2.DefaultCellStyle = DataGridViewCellStyle14
         Me.Column2.HeaderText = "REFFERENCE CODE"
         Me.Column2.Name = "Column2"
+        Me.Column2.Width = 120
         '
         'Column3
         '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.Format = "d"
-        DataGridViewCellStyle4.NullValue = Nothing
-        Me.Column3.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle15.Format = "d"
+        DataGridViewCellStyle15.NullValue = Nothing
+        Me.Column3.DefaultCellStyle = DataGridViewCellStyle15
         Me.Column3.HeaderText = "DATE TIME"
         Me.Column3.Name = "Column3"
-        Me.Column3.Width = 110
+        Me.Column3.Width = 120
         '
         'Column1
         '
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column1.DefaultCellStyle = DataGridViewCellStyle5
-        Me.Column1.HeaderText = "TDN No."
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column1.DefaultCellStyle = DataGridViewCellStyle16
+        Me.Column1.HeaderText = "ACCOUNT NO"
         Me.Column1.Name = "Column1"
-        Me.Column1.Width = 110
+        Me.Column1.Width = 130
         '
         'Column4
         '
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle6
-        Me.Column4.HeaderText = "PROJECT NAME"
+        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column4.DefaultCellStyle = DataGridViewCellStyle17
+        Me.Column4.HeaderText = "BUSINESS NAME"
         Me.Column4.Name = "Column4"
-        Me.Column4.Width = 250
-        '
-        'Column7
-        '
-        Me.Column7.HeaderText = "DURATION"
-        Me.Column7.Name = "Column7"
+        Me.Column4.Width = 290
         '
         'Column5
         '
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle7.Format = "#"
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle18.Format = "#"
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle18
         Me.Column5.HeaderText = "STATUS"
         Me.Column5.Name = "Column5"
         '
         'Column6
         '
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column6.DefaultCellStyle = DataGridViewCellStyle19
         Me.Column6.HeaderText = "ACTION"
         Me.Column6.Name = "Column6"
         Me.Column6.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.Column6.Width = 90
         '
-        'ConstructionPermit
+        'InspectionPermit_DashBoard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(927, 635)
         Me.Controls.Add(Me.Panel3)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "ConstructionPermit"
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Name = "InspectionPermit_DashBoard"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Construction Permit"
         Me.Panel6.ResumeLayout(False)
@@ -575,7 +572,6 @@ Partial Class InspectionPermit_DashBoard
     Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column4 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column6 As System.Windows.Forms.DataGridViewLinkColumn
 End Class
