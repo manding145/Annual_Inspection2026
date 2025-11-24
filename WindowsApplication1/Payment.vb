@@ -90,10 +90,10 @@ Public Class Payment
 
             Con_ms1 = New SqlConnection(mcs)
             Con_ms1.Open()
-            conn_ms1 = "UPDATE ONLINE.annual_inspection_application SET app_status = 'PAID', file_assessment = @file_assessment, Transaction_no = @transaction, payment_date = @date where id='" & TxtApplicationID.Text & "'"
+            conn_ms1 = "UPDATE ONLINE.annual_inspection_application SET app_status = 'PAID', file_or = @file_or, Transaction_no = @transaction, paid_date = @date where id='" & TxtApplicationID.Text & "'"
             cmd_ms1 = New SqlCommand(conn_ms1, Con_ms1)
             cmd_ms1.Parameters.Add("@date", SqlDbType.DateTime).Value = DateAndTime.Now()
-            cmd_ms1.Parameters.Add("@file_assessment", SqlDbType.VarChar).Value = filename
+            cmd_ms1.Parameters.Add("@file_or", SqlDbType.VarChar).Value = filename
             cmd_ms1.Parameters.Add("@transaction", SqlDbType.VarChar).Value = TxtTransaction.Text
             cmd_ms1.ExecuteNonQuery()
             Con_ms1.Close()
@@ -102,13 +102,15 @@ Public Class Payment
             Con_ms = New SqlConnection(mcs)
             Con_ms.Open()
             conn = "INSERT INTO ONLINE.email_outbox (userid, accountno, email, Subject, fullname, referencecode, datesend, officialreceipt_path) " _
-               & "VALUES (@userid, @TDN, '" & txt_email.Text & "', 'Construction Payment' ,@applicant, '" & referencono.Text & "', @Date, @filePath)"
+               & "VALUES (@userid, @TxtAccountNo, '" & txt_email.Text & "', 'Annual Inspection Payment' ,@fullanme, '" & referencono.Text & "', @Date, @filePath)"
             cmd_ms = New SqlCommand(conn, Con_ms)
-            cmd_ms.Parameters.Add("@TDN", SqlDbType.VarChar).Value = TxtAccountNo.Text & "-" & Type_App.Text
-            cmd_ms.Parameters.Add("@applicant", SqlDbType.VarChar).Value = TxtOwnerName.Text
+            cmd_ms.Parameters.Add("@TxtAccountNo", SqlDbType.VarChar).Value = TxtAccountNo.Text & "_" & TxtBusinessName.Text
+            cmd_ms.Parameters.Add("@fullanme", SqlDbType.VarChar).Value = fullname.Text
             cmd_ms.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
             cmd_ms.Parameters.Add("@filePath", SqlDbType.VarChar).Value = filePath
             cmd_ms.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
+
+
             cmd_ms.ExecuteNonQuery()
             Con_ms.Close()
 

@@ -30,9 +30,37 @@ Public Class InspectionPermit_DashBoard
         rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
         If rdr_ms.Read = True Then
 
-            lblcountPaid.Text = rdr_ms("no_issued")
+            lblcountIssued.Text = rdr_ms("no_issued")
         Else
-            lblcountPaid.Text = "0"
+            lblcountIssued.Text = "0"
+        End If
+        Con_ms.Close()
+
+        conn_ms = "SELECT COUNT(id) AS no_signing FROM ONLINE.annual_inspection_application " &
+                  "WHERE app_status = 'S' "
+        Con_ms = New SqlConnection(mcs)
+        Con_ms.Open()
+        cmd_ms = New SqlCommand(conn_ms, Con_ms)
+        rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
+        If rdr_ms.Read = True Then
+
+            lblcountForSigning.Text = rdr_ms("no_signing")
+        Else
+            lblcountForSigning.Text = "0"
+        End If
+        Con_ms.Close()
+
+        conn_ms = "SELECT COUNT(id) AS no_sgined FROM ONLINE.annual_inspection_application " &
+                     "WHERE app_status = 'SD' "
+        Con_ms = New SqlConnection(mcs)
+        Con_ms.Open()
+        cmd_ms = New SqlCommand(conn_ms, Con_ms)
+        rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
+        If rdr_ms.Read = True Then
+
+            lblcountSigned.Text = rdr_ms("no_sgined")
+        Else
+            lblcountSigned.Text = "0"
         End If
         Con_ms.Close()
 
@@ -44,7 +72,7 @@ Public Class InspectionPermit_DashBoard
         DataGrid.Rows.Clear()
         lblCount.Visible = False
         Dim Pending As Integer = 0
-        conn_ms = "SELECT id, refNo, tdn, project_title, payment_date, app_status " & _
+        conn_ms = "SELECT * " & _
                      "FROM ONLINE.annual_inspection_application " & _
                      "WHERE app_status = 'PAID' "
         Con_ms = New SqlConnection(mcs)
@@ -53,22 +81,7 @@ Public Class InspectionPermit_DashBoard
         rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
         Do While rdr_ms.Read()
 
-            Dim payment_date As DateTime = rdr_ms("payment_date")
-            Dim currentDate As DateTime = DateTime.Now
-
-            Dim duration As TimeSpan = currentDate - payment_date
-            Dim daysPending As Integer = duration.Days
-            Dim hoursPending As Integer = duration.Hours
-            Dim minutesPending As Integer = duration.Minutes
-
-            Dim parts As New List(Of String)
-            If daysPending > 0 Then parts.Add(daysPending.ToString() & " day" & If(daysPending > 1, "s", ""))
-            If hoursPending > 0 Then parts.Add(hoursPending.ToString() & " hr" & If(hoursPending > 1, "s", ""))
-            If minutesPending > 0 Then parts.Add(minutesPending.ToString() & " min" & If(minutesPending > 1, "s", ""))
-
-            Dim pendingText As String = If(parts.Count > 0, String.Join(", ", parts), "Just now")
-
-            DataGrid.Rows.Add(rdr_ms("id"), rdr_ms("refNo"), rdr_ms("payment_date"), rdr_ms("tdn"), rdr_ms("project_title"), pendingText, rdr_ms("app_status"), "VIEW")
+            DataGrid.Rows.Add(rdr_ms("id"), rdr_ms("refno"), rdr_ms("paid_date"), rdr_ms("accountno"), rdr_ms("bussname"), rdr_ms("app_status"), "VIEW")
 
         Loop
         rdr_ms.Close()
@@ -82,14 +95,14 @@ Public Class InspectionPermit_DashBoard
             Exit Sub
         End If
 
-        If e.ColumnIndex = 7 Then
+        If e.ColumnIndex = 6 Then
 
             Try
                 conn = "SELECT * " & _
                        "FROM ONLINE.annual_inspection_application AS ais " & _
-                       "INNER JOIN ONLINE.SysMngr AS sm ON ais.UserID = sm.UserID " & _
+                       "INNER JOIN ONLINE.SysMngr AS sm ON ais.userId = sm.UserID " & _
                        "INNER JOIN ONLINE.email_outbox AS EO ON ais.userId = EO.userid " & _
-                       "WHERE cpa.id = '" & DataGrid.Item(0, DataGrid.CurrentRow.Index).Value & "'"
+                       "WHERE ais.id = '" & DataGrid.Item(0, DataGrid.CurrentRow.Index).Value & "'"
 
                 Con_ms = New SqlConnection(mcs)
                 Con_ms.Open()
@@ -110,13 +123,43 @@ Public Class InspectionPermit_DashBoard
                         .TxtBusinessName.Text = rdr_ms("bussName").ToString
                         .TxtOwnerName.Text = rdr_ms("ownerName").ToString
                         .useraccountid.Text = rdr_ms("UserID").ToString
-
-                        .Type_App.Text = rdr_ms("permit_type").ToString
+                        .txtBuildingAge.Text = rdr_ms("bldg_age").ToString
+                        .TxtBusinessAddress.Text = rdr_ms("bussAddress").ToString
+                        .Type_App.Text = rdr_ms("app_type").ToString
                         .fullname.Text = rdr_ms("fullname").ToString
                         .txt_email.Text = rdr_ms("email").ToString
                         .txt_contactno.Text = rdr_ms("ContactNo").ToString
 
+                        If rdr_ms("app_status") = "PAID" Then
 
+                            .B_Issued.Visible = False
+                            .B_SentNotification.Visible = True
+                            .B_Signed.Visible = False
+
+                        ElseIf rdr_ms("app_status") = "S" Then
+
+                            .B_Issued.Visible = False
+                            .B_SentNotification.Visible = False
+                            .B_Signed.Visible = True
+
+                        ElseIf rdr_ms("app_status") = "SD" Then
+
+                            .B_Issued.Visible = True
+                            .B_SentNotification.Visible = False
+                            .B_Signed.Visible = False
+                            .B_IssuedAttach.Enabled = True
+
+                        ElseIf rdr_ms("app_status") = "I" Then
+
+                            .B_Issued.Enabled = False
+                            .B_SentNotification.Enabled = False
+                            .B_Signed.Enabled = False
+
+                            .B_Issued.Visible = False
+                            .B_SentNotification.Visible = False
+                            .B_Signed.Visible = False
+
+                        End If
                     End With
                 End If
 
@@ -162,7 +205,7 @@ Public Class InspectionPermit_DashBoard
         Try
             If cmb_appointmentstatus.Text = "ISSUED" Then
 
-                conn_ms = "SELECT * FROM ONLINE.annual_inspection_application WHERE app_status = 'I' Convert(date, issuance_date) BETWEEN '" & Format((dt_Appoinment.Value), "yyyy-MM-dd") & "' AND '" & Format((dt_Appoinment1.Value), "yyyy-MM-dd") & "' ORDER BY application_date ASC;"
+                conn_ms = "SELECT * FROM ONLINE.annual_inspection_application WHERE app_status = 'I' Convert(date, issuance_date) BETWEEN '" & Format((dt_Appoinment.Value), "yyyy-MM-dd") & "' AND '" & Format((dt_Appoinment1.Value), "yyyy-MM-dd") & "' ORDER BY issuance_date ASC;"
                 Con_ms = New SqlConnection(mcs)
                 Con_ms.Open()
                 cmd_ms = New SqlCommand(conn_ms, Con_ms)
@@ -187,14 +230,48 @@ Public Class InspectionPermit_DashBoard
                 Loop
                 rdr_ms.Close()
                 Con_ms.Close()
+              
+            ElseIf cmb_appointmentstatus.Text = "SIGNING" Then
+
+                conn_ms = "SELECT * " & _
+                          "FROM ONLINE.annual_inspection_application " & _
+                          "WHERE app_status ='S' Convert(date, signing_date) BETWEEN '" & Format((dt_Appoinment.Value), "yyyy-MM-dd") & "' AND '" & Format((dt_Appoinment1.Value), "yyyy-MM-dd") & "' ORDER BY signing_date ASC;"
+                Con_ms = New SqlConnection(mcs)
+                Con_ms.Open()
+                cmd_ms = New SqlCommand(conn_ms, Con_ms)
+                rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
+                Do While rdr_ms.Read = True
+                    DataGrid.Rows.Add(rdr_ms("id"), rdr_ms("refno"), rdr_ms("signing_date"), rdr_ms("accountno"), rdr_ms("bussname"), rdr_ms("app_status"), "VIEW")
+                Loop
+                rdr_ms.Close()
+                Con_ms.Close()
+
+            ElseIf cmb_appointmentstatus.Text = "SIGNED" Then
+
+                conn_ms = "SELECT * " & _
+                          "FROM ONLINE.annual_inspection_application " & _
+                          "WHERE app_status ='SD' Convert(date, Signed_date) BETWEEN '" & Format((dt_Appoinment.Value), "yyyy-MM-dd") & "' AND '" & Format((dt_Appoinment1.Value), "yyyy-MM-dd") & "' ORDER BY Signed_date ASC;"
+                Con_ms = New SqlConnection(mcs)
+                Con_ms.Open()
+                cmd_ms = New SqlCommand(conn_ms, Con_ms)
+                rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
+                Do While rdr_ms.Read = True
+                    DataGrid.Rows.Add(rdr_ms("id"), rdr_ms("refno"), rdr_ms("Signed_date"), rdr_ms("accountno"), rdr_ms("bussname"), rdr_ms("app_status"), "VIEW")
+                Loop
+                rdr_ms.Close()
+                Con_ms.Close()
+
+
             ElseIf cmb_appointmentstatus.Text = "ALL" Then
 
                 conn_ms = "SELECT * " &
                           "FROM ONLINE.annual_inspection_application " &
-                          "WHERE app_status IN ('PAID', 'I') AND " &
+                          "WHERE app_status IN ('PAID', 'I', 'S', 'SD') AND " &
                           "((app_status = 'I' AND CONVERT(date, issuance_date) BETWEEN '" & Format(dt_Appoinment.Value, "yyyy-MM-dd") & "' AND '" & Format(dt_Appoinment1.Value, "yyyy-MM-dd") & "') " &
-                          "OR (app_status = 'PAID' AND CONVERT(date, paid_date) BETWEEN '" & Format(dt_Appoinment.Value, "yyyy-MM-dd") & "' AND '" & Format(dt_Appoinment1.Value, "yyyy-MM-dd") & "')) " &
-                          "ORDER BY payment_date ASC"
+                          "OR (app_status = 'PAID' AND CONVERT(date, paid_date) BETWEEN '" & Format(dt_Appoinment.Value, "yyyy-MM-dd") & "' AND '" & Format(dt_Appoinment1.Value, "yyyy-MM-dd") & "') " &
+                           "OR (app_status = 'S' AND CONVERT(date, signing_date) BETWEEN '" & Format(dt_Appoinment.Value, "yyyy-MM-dd") & "' AND '" & Format(dt_Appoinment1.Value, "yyyy-MM-dd") & "') " &
+                            "OR (app_status = 'SD' AND CONVERT(date, Signed_date) BETWEEN '" & Format(dt_Appoinment.Value, "yyyy-MM-dd") & "' AND '" & Format(dt_Appoinment1.Value, "yyyy-MM-dd") & "')) " &
+                          "ORDER BY paid_date ASC"
                 Con_ms = New SqlConnection(mcs)
                 Con_ms.Open()
                 cmd_ms = New SqlCommand(conn_ms, Con_ms)
@@ -205,6 +282,10 @@ Public Class InspectionPermit_DashBoard
                     Select Case rdr_ms("app_status").ToString().Trim().ToUpper()
                         Case "I"
                             selectedDate = Convert.ToDateTime(rdr_ms("issuance_date"))
+                        Case "S"
+                            selectedDate = Convert.ToDateTime(rdr_ms("signing_date"))
+                        Case "SD"
+                            selectedDate = Convert.ToDateTime(rdr_ms("Signed_date"))
                         Case "PAID"
                             selectedDate = Convert.ToDateTime(rdr_ms("paid_date"))
                     End Select
@@ -224,4 +305,45 @@ Public Class InspectionPermit_DashBoard
         lblCount.Text = DataGrid.RowCount
     End Sub
 
+    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
+
+        DataGrid.Rows.Clear()
+
+        lblCount.Visible = False
+        Dim Pending As Integer = 0
+        conn_ms = "SELECT * " & _
+                     "FROM ONLINE.annual_inspection_application " & _
+                     "WHERE app_status = 'S'  "
+        Con_ms = New SqlConnection(mcs)
+        Con_ms.Open()
+        cmd_ms = New SqlCommand(conn_ms, Con_ms)
+        rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
+        Do While rdr_ms.Read()
+            DataGrid.Rows.Add(rdr_ms("id"), rdr_ms("refno"), rdr_ms("Signing_date"), rdr_ms("accountno"), rdr_ms("bussname"), rdr_ms("app_status"), "VIEW")
+        Loop
+        rdr_ms.Close()
+        Con_ms.Close()
+    End Sub
+
+ 
+    Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
+
+
+        DataGrid.Rows.Clear()
+
+        lblCount.Visible = False
+        Dim Pending As Integer = 0
+        conn_ms = "SELECT * " & _
+                     "FROM ONLINE.annual_inspection_application " & _
+                     "WHERE app_status = 'SD'  "
+        Con_ms = New SqlConnection(mcs)
+        Con_ms.Open()
+        cmd_ms = New SqlCommand(conn_ms, Con_ms)
+        rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
+        Do While rdr_ms.Read()
+            DataGrid.Rows.Add(rdr_ms("id"), rdr_ms("refno"), rdr_ms("Signed_date"), rdr_ms("accountno"), rdr_ms("bussname"), rdr_ms("app_status"), "VIEW")
+        Loop
+        rdr_ms.Close()
+        Con_ms.Close()
+    End Sub
 End Class

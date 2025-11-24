@@ -108,8 +108,10 @@ Public Class ReUpload
 
                 Dim mytimestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
              
+                Dim inspector_ApplicationRecord As Inspector_ApplicationRecord = CType(Application.OpenForms("Inspector_ApplicationRecord"), Inspector_ApplicationRecord)
 
-                conn_ms = "SELECT * FROM ONLINE.annual_inspection_attachment WHERE id = '" + Inspector_ApplicationRecord.txt_applicationno.Text + "'"
+
+                conn_ms = "SELECT * FROM ONLINE.annual_inspection_reupload WHERE id = '" + inspector_ApplicationRecord.txt_applicationno.Text + "'"
                 Con_ms = New SqlConnection(mcs)
                 Con_ms.Open()
                 cmd_ms = New SqlCommand(conn_ms, Con_ms)
@@ -124,12 +126,12 @@ Public Class ReUpload
                     Con_ms1 = New SqlConnection(mcs)
 
                     Con_ms1.Open()
-                    conn_ms1 = "INSERT INTO ONLINE.annual_inspection_attachment " &
-                      "(id) " &
-                      "VALUES( @id)"
+                    conn_ms1 = "INSERT INTO ONLINE.annual_inspection_reupload " &
+                      "(app_id, file_ocupancy_permit, file_as_built_plans, file_latest_picture_stbmt_inc_sidewalk, file_fire_safety_ins_cert_bfp, file_annual_ins_cert, file_cog_struct_sound_stab_struct_engr, file_cog_mech_inst, file_cog_elec_inst, file_cog_san_plumb_inst) " &
+                      "VALUES(@id, @file_ocupancy_permit, @file_as_built_plans, @file_latest_picture_stbmt_inc_sidewalk, @file_fire_safety_ins_cert_bfp, @file_cog_struct_sound_stab_struct_engr, @file_prev_assess_annual_ins, @file_cog_mech_inst, @file_cog_elec_inst, @file_cog_san_plumb_inst)"
 
                     cmd_ms1 = New SqlCommand(conn_ms1, Con_ms1)
-                    cmd_ms1.Parameters.AddWithValue("@id", Convert.ToInt32(Inspector_ApplicationRecord.txt_applicationno.Text))
+                    cmd_ms1.Parameters.AddWithValue("@id", Convert.ToInt32(inspector_ApplicationRecord.txt_applicationno.Text))
 
                     'REQUIREMENTS
                     cmd_ms1.Parameters.AddWithValue("@file_ocupancy_permit", file_ocupancy_permit)
@@ -140,8 +142,8 @@ Public Class ReUpload
                     cmd_ms1.Parameters.AddWithValue("@file_cog_struct_sound_stab_struct_engr", file_cog_struct_sound_stab_struct_engr)
                     cmd_ms1.Parameters.AddWithValue("@file_prev_assess_annual_ins", file_prev_assess_annual_ins)
                     cmd_ms1.Parameters.AddWithValue("@file_cog_mech_inst", file_cog_mech_inst)
-                    cmd_ms1.Parameters.AddWithValue("@ck_file_cog_elec_inst", ck_file_cog_elec_inst)
-                    cmd_ms1.Parameters.AddWithValue("@ck_file_cog_san_plumb_inst", ck_file_cog_san_plumb_inst)
+                    cmd_ms1.Parameters.AddWithValue("@file_cog_elec_inst", file_cog_elec_inst)
+                    cmd_ms1.Parameters.AddWithValue("@file_cog_san_plumb_inst", file_cog_san_plumb_inst)
                     'end here for requirements
 
                     cmd_ms1.ExecuteNonQuery()
@@ -154,7 +156,7 @@ Public Class ReUpload
                 'Update status
                 Con_ms = New SqlConnection(mcs)
                 Con_ms.Open()
-                conn_ms = "UPDATE ONLINE.annual_inspection_application set app_status = 'R', remark = @remarks, deny_date = @deny_date WHERE id = '" + Inspector_ApplicationRecord.txt_applicationno.Text + "'"
+                conn_ms = "UPDATE ONLINE.annual_inspection_application set app_status = 'R', remarks = @remarks, denied_Date = @deny_date WHERE id = '" + inspector_ApplicationRecord.txt_applicationno.Text + "'"
                 cmd_ms = New SqlCommand(conn_ms, Con_ms)
                 cmd_ms.Parameters.Add("@Remarks", SqlDbType.VarChar).Value = txt_remarks.Text
                 cmd_ms.Parameters.AddWithValue("@deny_date", DateTime.Now)
@@ -165,9 +167,11 @@ Public Class ReUpload
                 Con_ms = New SqlConnection(mcs)
                 Con_ms.Open()
                 conn = "INSERT INTO ONLINE.email_outbox (userid, accountno, Remarks, email, Subject, fullname, referencecode, datesend) " _
-                   & "VALUES (@userid, @fullname,  @Remarks, '" & Inspector_ApplicationRecord.txt_email.Text & "', 'Annual Inspection Re-Upload' ,@fullname, '" & Inspector_ApplicationRecord.TxtRefenceNo.Text & "', @Date)"
+                   & "VALUES (@userid, @fullname,  @Remarks, '" & inspector_ApplicationRecord.txt_email.Text & "', 'Annual Inspection Re-Upload' ,@fullname, '" & inspector_ApplicationRecord.TxtRefenceNo.Text & "', @Date)"
                 cmd_ms = New SqlCommand(conn, Con_ms)
-                cmd_ms.Parameters.Add("@userid", SqlDbType.VarChar).Value = Inspector_ApplicationRecord.useraccountid.Text
+                cmd_ms.Parameters.Add("@userid", SqlDbType.VarChar).Value = inspector_ApplicationRecord.useraccountid.Text
+                cmd_ms.Parameters.Add("@fullname", SqlDbType.VarChar).Value = inspector_ApplicationRecord.fullname.Text
+                cmd_ms.Parameters.Add("@email", SqlDbType.VarChar).Value = inspector_ApplicationRecord.txt_email.Text
                 cmd_ms.Parameters.Add("@Remarks", SqlDbType.VarChar).Value = Txt_remarks.Text
                 cmd_ms.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
                 cmd_ms.ExecuteNonQuery()

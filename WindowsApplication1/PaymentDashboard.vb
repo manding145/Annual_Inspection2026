@@ -69,15 +69,15 @@ Public Class PaymentDashboard
             Exit Sub
         End If
 
-        If e.ColumnIndex = 7 Then
+        If e.ColumnIndex = 6 Then
 
             Try
 
                 conn = "SELECT * " & _
-                       "FROM ONLINE.annual_inspection_application AS cpa " & _
-                       "INNER JOIN ONLINE.SysMngr AS sm ON cpa.UserID = sm.UserID " & _
-                       "INNER JOIN ONLINE.email_outbox AS EO ON cpa.UserID = EO.userid " & _
-                       "WHERE cpa.id = '" & DataGrid.Item(0, DataGrid.CurrentRow.Index).Value & "'"
+                       "FROM ONLINE.annual_inspection_application AS ias " & _
+                       "INNER JOIN ONLINE.SysMngr AS sm ON ias.userId = sm.UserID " & _
+                       "INNER JOIN ONLINE.email_outbox AS EO ON ias.userId = EO.userid " & _
+                       "WHERE ias.id = '" & DataGrid.Item(0, DataGrid.CurrentRow.Index).Value & "'"
 
                 Con_ms = New SqlConnection(mcs)
                 Con_ms.Open()
@@ -100,10 +100,10 @@ Public Class PaymentDashboard
                         .TxtOwnerName.Text = rdr_ms("ownerName").ToString
                         .useraccountid.Text = rdr_ms("UserID").ToString
                         .txt_email.Text = rdr_ms("email").ToString
-                        .TxtTransaction.Text = rdr_ms("Transaction_no").ToString
-                        .ORattachment.Text = rdr_ms("file_or").ToString
-                        .Type_App.Text = rdr_ms("permit_type").ToString
 
+                        .Type_App.Text = rdr_ms("app_type").ToString
+                        .fullname.Text = rdr_ms("fullname").ToString
+                        .txt_contactno.Text = rdr_ms("ContactNo").ToString
 
                         Dim folderpath = link_prefix & folder_directory & .referencono.Text & "\" & .referencono.Text & "_OR.pdf"
 
@@ -113,7 +113,10 @@ Public Class PaymentDashboard
                             .ORattachment.Enabled = False
                             .Button1.Enabled = False
                             .TxtTransaction.Enabled = False
+                            .SaveNow.Enabled = False
 
+                            .ORattachment.Text = rdr_ms("file_or").ToString
+                            .TxtTransaction.Text = rdr_ms("Transaction_no").ToString
 
                             If Not String.IsNullOrEmpty("file_or") Then
                                 If System.IO.File.Exists(folderpath) Then

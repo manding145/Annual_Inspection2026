@@ -105,10 +105,10 @@ Public Class Inspector_ApplicationRecord
             Con_ms1 = New SqlConnection(mcs)
             Con_ms1.Open()
             conn = "INSERT INTO ONLINE.email_outbox (userid, accountno, Remarks, email, Subject, fullname, referencecode, datesend, assessment_path) " _
-               & "VALUES (@userid, @TxtAccountNo,  @Remarks, '" & txt_email.Text & "', 'Annual Inspection Assessment' ,@ownerName, @TxtRefenceNo, @Date, @assessment_path)"
+               & "VALUES (@userid, @TxtAccountNo,  @Remarks, '" & txt_email.Text & "', 'Annual Inspection Assessment' ,@fullname, @TxtRefenceNo, @Date, @assessment_path)"
             cmd_ms1 = New SqlCommand(conn, Con_ms1)
             cmd_ms1.Parameters.Add("@TxtAccountNo", SqlDbType.VarChar).Value = TxtAccountNo.Text & "_" & TxtBusinessName.Text
-            cmd_ms1.Parameters.Add("@ownerName", SqlDbType.VarChar).Value = TxtBusinessOwner.Text
+            cmd_ms1.Parameters.Add("@fullname", SqlDbType.VarChar).Value = fullname.Text
             cmd_ms1.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
             cmd_ms1.Parameters.Add("@TxtRefenceNo", SqlDbType.VarChar).Value = TxtRefenceNo.Text
             cmd_ms1.Parameters.Add("@assessment_path", SqlDbType.VarChar).Value = filePath

@@ -116,8 +116,78 @@ Public Class IssuedPermit
         End Try
     End Sub
 
-    Private Sub B_Signed_Click(sender As Object, e As EventArgs) Handles B_Signed.Click
+    Private Sub B_Signed_Click(sender As Object, e As EventArgs)
 
+
+    End Sub
+
+    Private Sub B_Issued_Click(sender As Object, e As EventArgs) Handles B_Issued.Click
+
+        'attachment here
+        If String.IsNullOrWhiteSpace(Issued_file.Text) Then
+            MsgBox("Please attach your Issuance", vbOKOnly & vbCritical, "Annual Inspection Online")
+            Exit Sub
+        End If
+
+
+        Dim rawPath2 As String = AxAcroPDF2.src
+        Dim sourcePath2 As String = rawPath2.Replace("file://", "").Trim()
+
+        Dim folderpath = link_prefix & folder_directory & referencono.Text & "\"
+        Dim filename = referencono.Text & "_Certificate.pdf"
+        Dim filePath As String = Path.Combine(folderpath, filename)
+
+        If Not Directory.Exists(folderpath) Then
+            Directory.CreateDirectory(folderpath)
+        End If
+
+        If String.IsNullOrWhiteSpace(sourcePath2) OrElse Not File.Exists(sourcePath2) Then
+            filePath = ""
+        Else
+
+            File.Copy(sourcePath2, filePath, True)
+        End If
+
+        Try
+            Con_ms1 = New SqlConnection(mcs)
+            Con_ms1.Open()
+            conn_ms1 = "UPDATE ONLINE.annual_inspection_application SET app_status = 'I', issuance_date = @issuance_date, file_certificate = @file_certificate where id='" & TxtApplicationID.Text & "'"
+            cmd_ms1 = New SqlCommand(conn_ms1, Con_ms1)
+            cmd_ms1.Parameters.Add("@issuance_date", SqlDbType.DateTime).Value = DateAndTime.Now()
+            cmd_ms1.Parameters.Add("@file_certificate", SqlDbType.VarChar).Value = filename
+            cmd_ms1.ExecuteNonQuery()
+            Con_ms1.Close()
+
+
+            Con_ms = New SqlConnection(mcs)
+            Con_ms.Open()
+            conn = "INSERT INTO ONLINE.email_outbox (userid, accountno, email, Subject, fullname, referencecode, datesend, assessment_path) " _
+               & "VALUES (@userid, @accountno, @txt_email, 'Annual Inspection Issuance' ,@fullname, @referencono, @Date, @assessment_path)"
+            cmd_ms = New SqlCommand(conn, Con_ms)
+            cmd_ms.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
+            cmd_ms.Parameters.Add("@accountno", SqlDbType.VarChar).Value = TxtAccountNo.Text & "-" & TxtBusinessName.Text
+            cmd_ms.Parameters.Add("@txt_email", SqlDbType.VarChar).Value = txt_email.Text
+            cmd_ms.Parameters.Add("@fullname", SqlDbType.VarChar).Value = fullname.Text
+            cmd_ms.Parameters.Add("@referencono", SqlDbType.VarChar).Value = referencono.Text
+            cmd_ms.Parameters.Add("@assessment_path", SqlDbType.VarChar).Value = filePath
+            cmd_ms.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
+            cmd_ms.ExecuteNonQuery()
+            Con_ms.Close()
+
+            MsgBox("Annual Inspection Issued successfully", vbOKOnly & vbInformation, "Annual Inspection Online")
+            Me.Close()
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Con_ms.Close()
+        End Try
+
+
+    End Sub
+
+    
+
+    Private Sub B_SentNotification_Click(sender As Object, e As EventArgs) Handles B_SentNotification.Click
         Try
             Con_ms1 = New SqlConnection(mcs)
             Con_ms1.Open()
@@ -133,16 +203,16 @@ Public Class IssuedPermit
                & "VALUES (@userid, @accountno, @txt_email, 'Annual Inspection Signed' ,@fullname, @referencono, @Date)"
             cmd_ms = New SqlCommand(conn, Con_ms)
             cmd_ms.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
-            cmd_ms.Parameters.Add("@accountno", SqlDbType.VarChar).Value = TxtAccountNo.Text & "-" & TxtOwnerName.Text
+            cmd_ms.Parameters.Add("@accountno", SqlDbType.VarChar).Value = TxtAccountNo.Text & "-" & TxtBusinessName.Text
             cmd_ms.Parameters.Add("@txt_email", SqlDbType.VarChar).Value = txt_email.Text
-            cmd_ms.Parameters.Add("@applicant", SqlDbType.VarChar).Value = fullname.Text
-            cmd_ms.Parameters.Add("@applicant", SqlDbType.VarChar).Value = referencono.Text
+            cmd_ms.Parameters.Add("@fullname", SqlDbType.VarChar).Value = fullname.Text
+            cmd_ms.Parameters.Add("@referencono", SqlDbType.VarChar).Value = referencono.Text
             cmd_ms.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
             cmd_ms.ExecuteNonQuery()
             Con_ms.Close()
 
             MsgBox("Annual Inspection Signed successfully", vbOKOnly & vbInformation, "Annual Inspection Online")
-       
+
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Con_ms.Close()
@@ -150,41 +220,35 @@ Public Class IssuedPermit
 
     End Sub
 
-    Private Sub B_Issued_Click(sender As Object, e As EventArgs) Handles B_Issued.Click
+    Private Sub B_Signed_Click_1(sender As Object, e As EventArgs) Handles B_Signed.Click
 
-
-        Try
-            Con_ms1 = New SqlConnection(mcs)
-            Con_ms1.Open()
-            conn_ms1 = "UPDATE ONLINE.annual_inspection_application SET app_status = 'I', issuance_date = @issuance_date where id='" & TxtApplicationID.Text & "'"
-            cmd_ms1 = New SqlCommand(conn_ms1, Con_ms1)
-            cmd_ms1.Parameters.Add("@issuance_date", SqlDbType.DateTime).Value = DateAndTime.Now()
-            cmd_ms1.ExecuteNonQuery()
-            Con_ms1.Close()
-
-
-            Con_ms = New SqlConnection(mcs)
-            Con_ms.Open()
-            conn = "INSERT INTO ONLINE.email_outbox (userid, accountno, email, Subject, fullname, referencecode, datesend) " _
-               & "VALUES (@userid, @accountno, @txt_email, 'Annual Inspection Issuance' ,@fullname, @referencono, @Date)"
-            cmd_ms = New SqlCommand(conn, Con_ms)
-            cmd_ms.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
-            cmd_ms.Parameters.Add("@accountno", SqlDbType.VarChar).Value = TxtAccountNo.Text & "-" & TxtOwnerName.Text
-            cmd_ms.Parameters.Add("@txt_email", SqlDbType.VarChar).Value = txt_email.Text
-            cmd_ms.Parameters.Add("@applicant", SqlDbType.VarChar).Value = fullname.Text
-            cmd_ms.Parameters.Add("@applicant", SqlDbType.VarChar).Value = referencono.Text
-            cmd_ms.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
-            cmd_ms.ExecuteNonQuery()
-            Con_ms.Close()
-
-            MsgBox("Annual Inspection Issued successfully", vbOKOnly & vbInformation, "Annual Inspection Online")
-            Me.Close()
-
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Con_ms.Close()
-        End Try
-
+        Con_ms1 = New SqlConnection(mcs)
+        Con_ms1.Open()
+        conn_ms1 = "UPDATE ONLINE.annual_inspection_application SET app_status = 'SD', Signed_date = @Date where id='" & TxtApplicationID.Text & "'"
+        cmd_ms1 = New SqlCommand(conn_ms1, Con_ms1)
+        cmd_ms1.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
+        cmd_ms1.ExecuteNonQuery()
+        Con_ms1.Close()
+        MsgBox("Annual Inspection Already Signed", vbOKOnly & vbInformation, "Annual Inspection Online")
 
     End Sub
+
+
+    Private Sub B_IssuedAttach_Click(sender As Object, e As EventArgs) Handles B_IssuedAttach.Click
+
+        Dim openFileDialog As New OpenFileDialog()
+        openFileDialog.Filter = "PDF Files|*.pdf"
+
+        If openFileDialog.ShowDialog() = DialogResult.OK Then
+            Try
+                Issued_file.Text = openFileDialog.FileName
+                ' Optionally preview it in the PDF viewer:
+                AxAcroPDF2.src = openFileDialog.FileName
+            Catch ex As Exception
+                MessageBox.Show("Error loading file: " & ex.Message)
+            End Try
+        End If
+
+    End Sub
+
 End Class
