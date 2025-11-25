@@ -68,9 +68,10 @@ Partial Class MainMenu
         '
         Me.Splitter2.BackColor = System.Drawing.Color.WhiteSmoke
         Me.Splitter2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Splitter2.Location = New System.Drawing.Point(212, 0)
+        Me.Splitter2.Location = New System.Drawing.Point(318, 0)
+        Me.Splitter2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Splitter2.Name = "Splitter2"
-        Me.Splitter2.Size = New System.Drawing.Size(924, 50)
+        Me.Splitter2.Size = New System.Drawing.Size(1386, 77)
         Me.Splitter2.TabIndex = 52
         Me.Splitter2.TabStop = False
         '
@@ -78,17 +79,19 @@ Partial Class MainMenu
         '
         Me.Splitter1.BackColor = System.Drawing.Color.White
         Me.Splitter1.Location = New System.Drawing.Point(0, 0)
+        Me.Splitter1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Splitter1.Name = "Splitter1"
-        Me.Splitter1.Size = New System.Drawing.Size(212, 667)
+        Me.Splitter1.Size = New System.Drawing.Size(318, 1026)
         Me.Splitter1.TabIndex = 50
         Me.Splitter1.TabStop = False
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(12, 628)
+        Me.Label9.Location = New System.Drawing.Point(18, 966)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(195, 26)
+        Me.Label9.Size = New System.Drawing.Size(295, 40)
         Me.Label9.TabIndex = 115
         Me.Label9.Text = "Powered By: " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " Management Information System Office"
         '
@@ -103,17 +106,19 @@ Partial Class MainMenu
         Me.Panel1.Controls.Add(Me.Button5)
         Me.Panel1.Controls.Add(Me.B_issued)
         Me.Panel1.Controls.Add(Me.Button4)
-        Me.Panel1.Location = New System.Drawing.Point(0, 2)
+        Me.Panel1.Location = New System.Drawing.Point(0, 3)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(212, 702)
+        Me.Panel1.Size = New System.Drawing.Size(318, 1080)
         Me.Panel1.TabIndex = 51
         '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.WindowsApplication1.My.Resources.Resources.inspection
-        Me.PictureBox1.Location = New System.Drawing.Point(75, 17)
+        Me.PictureBox1.Location = New System.Drawing.Point(112, 26)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(77, 73)
+        Me.PictureBox1.Size = New System.Drawing.Size(116, 112)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 145
         Me.PictureBox1.TabStop = False
@@ -129,9 +134,10 @@ Partial Class MainMenu
         Me.Button7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Button7.Image = CType(resources.GetObject("Button7.Image"), System.Drawing.Image)
         Me.Button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button7.Location = New System.Drawing.Point(27, 207)
+        Me.Button7.Location = New System.Drawing.Point(40, 318)
+        Me.Button7.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(172, 47)
+        Me.Button7.Size = New System.Drawing.Size(258, 72)
         Me.Button7.TabIndex = 118
         Me.Button7.Text = "     Payment"
         Me.Button7.UseVisualStyleBackColor = False
@@ -147,9 +153,10 @@ Partial Class MainMenu
         Me.Button3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(27, 154)
+        Me.Button3.Location = New System.Drawing.Point(40, 237)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(172, 47)
+        Me.Button3.Size = New System.Drawing.Size(258, 72)
         Me.Button3.TabIndex = 116
         Me.Button3.Text = "        Online Application"
         Me.Button3.UseVisualStyleBackColor = False
@@ -159,9 +166,10 @@ Partial Class MainMenu
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(12, 110)
+        Me.Label1.Location = New System.Drawing.Point(18, 169)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(194, 17)
+        Me.Label1.Size = New System.Drawing.Size(263, 25)
         Me.Label1.TabIndex = 109
         Me.Label1.Text = "Annual Inspection System"
         '
@@ -176,9 +184,10 @@ Partial Class MainMenu
         Me.Button5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Button5.Image = Global.WindowsApplication1.My.Resources.Resources._exit
         Me.Button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button5.Location = New System.Drawing.Point(27, 366)
+        Me.Button5.Location = New System.Drawing.Point(40, 563)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(172, 47)
+        Me.Button5.Size = New System.Drawing.Size(258, 72)
         Me.Button5.TabIndex = 114
         Me.Button5.Text = "      Log Out"
         Me.Button5.UseVisualStyleBackColor = False
@@ -194,9 +203,10 @@ Partial Class MainMenu
         Me.B_issued.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.B_issued.Image = CType(resources.GetObject("B_issued.Image"), System.Drawing.Image)
         Me.B_issued.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.B_issued.Location = New System.Drawing.Point(26, 260)
+        Me.B_issued.Location = New System.Drawing.Point(40, 400)
+        Me.B_issued.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.B_issued.Name = "B_issued"
-        Me.B_issued.Size = New System.Drawing.Size(172, 47)
+        Me.B_issued.Size = New System.Drawing.Size(258, 72)
         Me.B_issued.TabIndex = 110
         Me.B_issued.Text = "       Annual Inspection  Permit"
         Me.B_issued.UseVisualStyleBackColor = False
@@ -212,9 +222,10 @@ Partial Class MainMenu
         Me.Button4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
         Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button4.Location = New System.Drawing.Point(27, 313)
+        Me.Button4.Location = New System.Drawing.Point(40, 482)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(172, 47)
+        Me.Button4.Size = New System.Drawing.Size(258, 72)
         Me.Button4.TabIndex = 112
         Me.Button4.Text = "      Settings"
         Me.Button4.UseVisualStyleBackColor = False
@@ -223,9 +234,10 @@ Partial Class MainMenu
         '
         Me.lbluserrole.AutoSize = True
         Me.lbluserrole.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.lbluserrole.Location = New System.Drawing.Point(59, 26)
+        Me.lbluserrole.Location = New System.Drawing.Point(88, 40)
+        Me.lbluserrole.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbluserrole.Name = "lbluserrole"
-        Me.lbluserrole.Size = New System.Drawing.Size(36, 13)
+        Me.lbluserrole.Size = New System.Drawing.Size(54, 20)
         Me.lbluserrole.TabIndex = 114
         Me.lbluserrole.Text = "Admin"
         '
@@ -234,9 +246,10 @@ Partial Class MainMenu
         Me.lblfname.AutoSize = True
         Me.lblfname.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblfname.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.lblfname.Location = New System.Drawing.Point(59, 7)
+        Me.lblfname.Location = New System.Drawing.Point(88, 11)
+        Me.lblfname.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblfname.Name = "lblfname"
-        Me.lblfname.Size = New System.Drawing.Size(58, 13)
+        Me.lblfname.Size = New System.Drawing.Size(86, 20)
         Me.lblfname.TabIndex = 110
         Me.lblfname.Text = "RONALD"
         '
@@ -255,35 +268,40 @@ Partial Class MainMenu
         Me.Panel2.Controls.Add(Me.lbluserrole)
         Me.Panel2.Controls.Add(Me.PictureBox3)
         Me.Panel2.Controls.Add(Me.lblfname)
-        Me.Panel2.Location = New System.Drawing.Point(212, 2)
+        Me.Panel2.Location = New System.Drawing.Point(318, 3)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(931, 48)
+        Me.Panel2.Size = New System.Drawing.Size(1396, 74)
         Me.Panel2.TabIndex = 53
         '
         'PictureBox4
         '
         Me.PictureBox4.Image = Global.WindowsApplication1.My.Resources.Resources.down_arrow__1_
-        Me.PictureBox4.Location = New System.Drawing.Point(891, 17)
+        Me.PictureBox4.Location = New System.Drawing.Point(1336, 26)
+        Me.PictureBox4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(21, 19)
+        Me.PictureBox4.Size = New System.Drawing.Size(32, 29)
         Me.PictureBox4.TabIndex = 115
         Me.PictureBox4.TabStop = False
         '
         'PictureBox3
         '
         Me.PictureBox3.Image = Global.WindowsApplication1.My.Resources.Resources.user__2_
-        Me.PictureBox3.Location = New System.Drawing.Point(11, 7)
+        Me.PictureBox3.Location = New System.Drawing.Point(16, 11)
+        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(42, 32)
+        Me.PictureBox3.Size = New System.Drawing.Size(63, 49)
         Me.PictureBox3.TabIndex = 113
         Me.PictureBox3.TabStop = False
         '
         'ReportMenuStrip
         '
+        Me.ReportMenuStrip.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.ReportMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RecordsToolStripMenuItem})
-        Me.ReportMenuStrip.Location = New System.Drawing.Point(212, 50)
+        Me.ReportMenuStrip.Location = New System.Drawing.Point(318, 77)
         Me.ReportMenuStrip.Name = "ReportMenuStrip"
-        Me.ReportMenuStrip.Size = New System.Drawing.Size(924, 24)
+        Me.ReportMenuStrip.Padding = New System.Windows.Forms.Padding(9, 3, 0, 3)
+        Me.ReportMenuStrip.Size = New System.Drawing.Size(1386, 37)
         Me.ReportMenuStrip.TabIndex = 55
         Me.ReportMenuStrip.Text = "MenuStrip1"
         Me.ReportMenuStrip.Visible = False
@@ -292,19 +310,19 @@ Partial Class MainMenu
         '
         Me.RecordsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.msBusinessRecord, Me.B2NoOfAssessedPaidBusinessesToolStripMenuItem})
         Me.RecordsToolStripMenuItem.Name = "RecordsToolStripMenuItem"
-        Me.RecordsToolStripMenuItem.Size = New System.Drawing.Size(91, 20)
+        Me.RecordsToolStripMenuItem.Size = New System.Drawing.Size(131, 31)
         Me.RecordsToolStripMenuItem.Text = "BPLO Reports"
         '
         'msBusinessRecord
         '
         Me.msBusinessRecord.Name = "msBusinessRecord"
-        Me.msBusinessRecord.Size = New System.Drawing.Size(268, 22)
+        Me.msBusinessRecord.Size = New System.Drawing.Size(390, 30)
         Me.msBusinessRecord.Text = "B-1 Listed of Printed Mayor's Permit"
         '
         'B2NoOfAssessedPaidBusinessesToolStripMenuItem
         '
         Me.B2NoOfAssessedPaidBusinessesToolStripMenuItem.Name = "B2NoOfAssessedPaidBusinessesToolStripMenuItem"
-        Me.B2NoOfAssessedPaidBusinessesToolStripMenuItem.Size = New System.Drawing.Size(268, 22)
+        Me.B2NoOfAssessedPaidBusinessesToolStripMenuItem.Size = New System.Drawing.Size(390, 30)
         Me.B2NoOfAssessedPaidBusinessesToolStripMenuItem.Text = "B -2 No. of Assessed/Paid Businesses"
         '
         'Timer2
@@ -314,10 +332,12 @@ Partial Class MainMenu
         '
         'SettingsMenuStrip1
         '
+        Me.SettingsMenuStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.SettingsMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.MaintenanceToolStripMenuItem, Me.NotificationToolStripMenuItem})
-        Me.SettingsMenuStrip1.Location = New System.Drawing.Point(212, 50)
+        Me.SettingsMenuStrip1.Location = New System.Drawing.Point(318, 77)
         Me.SettingsMenuStrip1.Name = "SettingsMenuStrip1"
-        Me.SettingsMenuStrip1.Size = New System.Drawing.Size(924, 24)
+        Me.SettingsMenuStrip1.Padding = New System.Windows.Forms.Padding(9, 3, 0, 3)
+        Me.SettingsMenuStrip1.Size = New System.Drawing.Size(1386, 37)
         Me.SettingsMenuStrip1.TabIndex = 57
         Me.SettingsMenuStrip1.Text = "MenuStrip1"
         Me.SettingsMenuStrip1.Visible = False
@@ -326,37 +346,37 @@ Partial Class MainMenu
         '
         Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2, Me.UserlevelToolStripMenuItem, Me.AuditTrailToolStripMenuItem})
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(116, 20)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(169, 31)
         Me.ToolStripMenuItem1.Text = "User Management"
         '
         'ToolStripMenuItem2
         '
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(127, 22)
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(174, 30)
         Me.ToolStripMenuItem2.Text = "Users"
         '
         'UserlevelToolStripMenuItem
         '
         Me.UserlevelToolStripMenuItem.Name = "UserlevelToolStripMenuItem"
-        Me.UserlevelToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.UserlevelToolStripMenuItem.Size = New System.Drawing.Size(174, 30)
         Me.UserlevelToolStripMenuItem.Text = "Userlevel"
         '
         'AuditTrailToolStripMenuItem
         '
         Me.AuditTrailToolStripMenuItem.Name = "AuditTrailToolStripMenuItem"
-        Me.AuditTrailToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.AuditTrailToolStripMenuItem.Size = New System.Drawing.Size(174, 30)
         Me.AuditTrailToolStripMenuItem.Text = "Audit Trail"
         '
         'MaintenanceToolStripMenuItem
         '
         Me.MaintenanceToolStripMenuItem.Name = "MaintenanceToolStripMenuItem"
-        Me.MaintenanceToolStripMenuItem.Size = New System.Drawing.Size(88, 20)
+        Me.MaintenanceToolStripMenuItem.Size = New System.Drawing.Size(124, 31)
         Me.MaintenanceToolStripMenuItem.Text = "Maintenance"
         '
         'NotificationToolStripMenuItem
         '
         Me.NotificationToolStripMenuItem.Name = "NotificationToolStripMenuItem"
-        Me.NotificationToolStripMenuItem.Size = New System.Drawing.Size(82, 20)
+        Me.NotificationToolStripMenuItem.Size = New System.Drawing.Size(116, 31)
         Me.NotificationToolStripMenuItem.Text = "Notification"
         '
         'Button2
@@ -371,9 +391,10 @@ Partial Class MainMenu
         Me.Button2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Button2.Image = Global.WindowsApplication1.My.Resources.Resources.growth1
         Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(717, 456)
+        Me.Button2.Location = New System.Drawing.Point(1076, 702)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(172, 47)
+        Me.Button2.Size = New System.Drawing.Size(258, 72)
         Me.Button2.TabIndex = 111
         Me.Button2.Text = "     Pending Deny"
         Me.Button2.UseVisualStyleBackColor = False
@@ -381,10 +402,10 @@ Partial Class MainMenu
         '
         'MainMenu
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.ClientSize = New System.Drawing.Size(1136, 667)
+        Me.ClientSize = New System.Drawing.Size(1704, 1026)
         Me.Controls.Add(Me.ReportMenuStrip)
         Me.Controls.Add(Me.SettingsMenuStrip1)
         Me.Controls.Add(Me.Panel1)
@@ -395,6 +416,7 @@ Partial Class MainMenu
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "MainMenu"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "MainMenun"
