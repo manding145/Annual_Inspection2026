@@ -188,6 +188,10 @@ Public Class MainMenu
     End Sub
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+
+        lblfname.Text = lblfname1
+        lbluserrole.Text = Userlevel
+
         Try
             conn_ms = "SELECT " _
             & " COUNT(id) as no_pending " _

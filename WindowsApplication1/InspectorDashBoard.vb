@@ -116,6 +116,7 @@ Public Class InspectorDashBoard
                             .panel_denied.Visible = False
                             .Panel_pending.Visible = False
                             .panel_verified.Visible = False
+                            .Panel_ReUpload.Visible = True
                             .B_Reupload.Visible = True
                             .BtnAddNewRecord.Enabled = False
                             .btnDeny.Visible = False
