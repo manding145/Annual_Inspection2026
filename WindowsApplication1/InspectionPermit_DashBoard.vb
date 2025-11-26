@@ -130,6 +130,7 @@ Public Class InspectionPermit_DashBoard
                         .txt_email.Text = rdr_ms("email").ToString
                         .txt_contactno.Text = rdr_ms("ContactNo").ToString
 
+
                         Dim folderpath = link_prefix & folder_directory & .referencono.Text & "\" & .referencono.Text & "_Certificate.pdf"
 
                         If rdr_ms("app_status") = "PAID" Then

@@ -116,7 +116,7 @@ Public Class PaymentDashboard
                             .SaveNow.Enabled = False
 
                             .ORattachment.Text = rdr_ms("file_or").ToString
-                            .TxtTransaction.Text = rdr_ms("Transaction_no").ToString
+                            .TxtTransaction.Text = rdr_ms("OR_No").ToString
 
                             If Not String.IsNullOrEmpty("file_or") Then
                                 If System.IO.File.Exists(folderpath) Then

@@ -14,21 +14,13 @@ Public Class PrintInspectionRecord
 
     Private Sub GetReport()
 
-        Dim BarangayClearanceControl As BarangayClearanceControl = CType(Application.OpenForms("BarangayClearanceControl"), BarangayClearanceControl)
+        Dim inspector_ApplicationRecord As Inspector_ApplicationRecord = CType(Application.OpenForms("Inspector_ApplicationRecord"), Inspector_ApplicationRecord)
 
-        rpt.Load(Application.StartupPath & "\BarangayClearance.rpt")
+        rpt.Load(Application.StartupPath & "\InspectionRecord.rpt")
         Dim pfields As New ParameterFields
 
 
-        Dim pfieldEmployeeRecordID As New ParameterField
-        Dim pdiscreteEmployeeRecordID As New ParameterDiscreteValue
-        pfieldEmployeeRecordID.Name = "permitAppID"
-        pdiscreteEmployeeRecordID.Value = BarangayClearanceControl.temp_applicationid
-        pfieldEmployeeRecordID.CurrentValues.Add(pdiscreteEmployeeRecordID)
-        pfields.Add(pfieldEmployeeRecordID)
-
-
-
+      
         'Dim TxtBusinessName As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtBusinessName")
         'Dim TxtAccountNo As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtAccountNo")
         'Dim TxtBarangayName As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtBarangayName")
@@ -74,6 +66,7 @@ Public Class PrintInspectionRecord
 
 
         With MayorsPermitControl
+
             'Dim NUMBERKO As Integer
             'NUMBERKO = .txt_permitNumber.Text
             'txt_businessid1.Text = .mBIN
@@ -132,143 +125,8 @@ Public Class PrintInspectionRecord
 
     End Sub
 
-    Private Sub Print_mayorsbusinesspermit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Call GetReport()
-    End Sub
-
-
-    Private Sub CrystalReportViewer1_Load(sender As Object, e As EventArgs) Handles CrystalReportViewer1.Load
-        'GetReport()
-    End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
-
-        ''Dim report As RptMayorsPermit = New RptMayorsPermit
-        ''report.PrintToPrinter(1, True, 0, 0)
-
-
-        'Try
-
-
-        '    'Dim NewMDIChild As New Loading
-        '    'NewMDIChild.MdiParent = MainMenu
-        '    'NewMDIChild.Show()
-
-        '    'save to deny_table c/o josie
-        '    Dim MayorsPermitControl As MayorsPermitControl = CType(Application.OpenForms("MayorsPermitControl"), MayorsPermitControl)
-
-
-        '    If MayorsPermitControl.txt_email.Text = "" Then
-        '        MsgBox("No Email address set to this business account, please update email in BPLS")
-        '        Exit Sub
-        '    Else
-
-        '    End If
-        '    Loading.Show()
-        '    Dim fullname As String
-        '    With MayorsPermitControl
-        '        fullname = .mAccountNo
-        '        Con = New MySqlConnection(cs)
-        '        Con.Open()
-        '        Dim filename As String
-        '        filename = folder_directory & .mAccountNo & "_BarangayClearance.pdf"
-        '        conn = "INSERT INTO email_send (ApplicationID, datesend, email, fullname, attachment_type, FileDirectory, status) " _
-        '           & "VALUES ('" & .mAccountNo & "', '" & Format((Date.Now), "yyyy-MM-dd") & "', '" & .txt_email.Text & "', '" & fullname & "', 'business_brgyclearance', @filename, '2')"
-        '        cmd = New MySqlCommand(conn, Con)
-
-        '        cmd.Parameters.Add("@filename", MySqlDbType.VarChar).Value = filename
-
-        '        cmd.ExecuteNonQuery()
-        '        Con.Close()
-
-
-
-
-        '        '  MsgBox("Health Card successfully sent!", vbOKOnly & vbInformation, "Tacloban Health Office Management System")
-
-
-
-
-
-        '        'link_string = link_prefix & folderdirectory & DewormingResultLink
-
-
-        '        '\\10.0.27.194\FileAttachment\BUSINESS\5-00001
-
-
-        '        ' CrDiskFileDestinationOptions.DiskFileName = _
-        '        '                     link_prefix & folder_directory & fullname & "business_mp.pdf"
-        '        Try
-        '            Dim CrExportOptions As ExportOptions
-        '            Dim CrDiskFileDestinationOptions As New  _
-        '            DiskFileDestinationOptions()
-        '            Dim CrFormatTypeOptions As New PdfRtfWordFormatOptions()
-        '            CrDiskFileDestinationOptions.DiskFileName = _
-        '                                        link_prefix & folder_directory & fullname & "_MP.pdf"
-        '            CrExportOptions = rpt.ExportOptions
-        '            With CrExportOptions
-        '                .ExportDestinationType = ExportDestinationType.DiskFile
-        '                .ExportFormatType = ExportFormatType.PortableDocFormat
-        '                .DestinationOptions = CrDiskFileDestinationOptions
-        '                .FormatOptions = CrFormatTypeOptions
-        '            End With
-        '            rpt.Export()
-        '        Catch ex As Exception
-        '            MsgBox(ex.ToString)
-        '        End Try
-
-
-
-
-
-        '    End With
-        'Catch ex As Exception
-        '    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        '    Con.Close()
-        'End Try
-
-
-
-    End Sub
-
-    Private Sub SampleMayorsPermit1_InitReport(sender As Object, e As EventArgs) Handles SampleMayorsPermit1.InitReport
-
-    End Sub
-
-    Private Sub SampleMayorsPermit2_InitReport(sender As Object, e As EventArgs) Handles SampleMayorsPermit2.InitReport
-
-    End Sub
-
-    Private Sub SampleMayorsPermit3_InitReport(sender As Object, e As EventArgs) Handles SampleMayorsPermit3.InitReport
-
-    End Sub
-
-    Private Sub SampleMayorsPermit4_InitReport(sender As Object, e As EventArgs) Handles SampleMayorsPermit4.InitReport
-
-    End Sub
-
-    Private Sub SampleMayorsPermit5_InitReport(sender As Object, e As EventArgs) Handles SampleMayorsPermit5.InitReport
-
-    End Sub
-
-    Private Sub SampleMayorsPermit6_InitReport(sender As Object, e As EventArgs) Handles SampleMayorsPermit6.InitReport
-
-    End Sub
-
-    Private Sub RptMayorsPermit4_InitReport(sender As Object, e As EventArgs) Handles RptMayorsPermit4.InitReport
-
-    End Sub
-
-    Private Sub RptMayorsPermit3_InitReport(sender As Object, e As EventArgs) Handles RptMayorsPermit3.InitReport
-
-    End Sub
-
-    Private Sub RptMayorsPermit2_InitReport(sender As Object, e As EventArgs) Handles RptMayorsPermit2.InitReport
-
-    End Sub
-
-    Private Sub RptMayorsPermit1_InitReport(sender As Object, e As EventArgs) Handles RptMayorsPermit1.InitReport
-
+        Call GetReport()
     End Sub
 End Class

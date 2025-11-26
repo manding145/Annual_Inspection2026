@@ -70,8 +70,6 @@ Public Class MainMenu
         '    If Con_ms IsNot Nothing Then Con_ms.Close()
         'End Try
 
-
-
         Try
             conn_ms = "SELECT " _
             & " COUNT(id) as no_pending " _

@@ -52,7 +52,7 @@ Partial Class PrintInspectionRecord
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(99, 23)
         Me.Button1.TabIndex = 5
-        Me.Button1.Text = "&Send To Email"
+        Me.Button1.Text = "&Print Record"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'CrystalReportViewer1
@@ -67,37 +67,7 @@ Partial Class PrintInspectionRecord
         Me.CrystalReportViewer1.TabIndex = 4
         Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
         '
-        'RptMayorsPermit1
-        '
-        '
-        'RptMayorsPermit2
-        '
-        '
-        'RptMayorsPermit3
-        '
-        '
-        'RptMayorsPermit4
-        '
-        '
-        'SampleMayorsPermit6
-        '
-        '
-        'SampleMayorsPermit5
-        '
-        '
-        'SampleMayorsPermit4
-        '
-        '
-        'SampleMayorsPermit3
-        '
-        '
-        'SampleMayorsPermit2
-        '
-        '
-        'SampleMayorsPermit1
-        '
-        '
-        'PrintBarangayPermit
+        'PrintInspectionRecord
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -106,9 +76,9 @@ Partial Class PrintInspectionRecord
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.CrystalReportViewer1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "PrintBarangayPermit"
+        Me.Name = "PrintInspectionRecord"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "PrintBarangayPermit"
+        Me.Text = "Print Inspection Record"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 

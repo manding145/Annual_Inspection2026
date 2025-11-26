@@ -90,11 +90,11 @@ Public Class Payment
 
             Con_ms1 = New SqlConnection(mcs)
             Con_ms1.Open()
-            conn_ms1 = "UPDATE ONLINE.annual_inspection_application SET app_status = 'PAID', file_or = @file_or, Transaction_no = @transaction, paid_date = @date where id='" & TxtApplicationID.Text & "'"
+            conn_ms1 = "UPDATE ONLINE.annual_inspection_application SET app_status = 'PAID', file_or = @file_or, OR_No = @OR_No, paid_date = @date where id='" & TxtApplicationID.Text & "'"
             cmd_ms1 = New SqlCommand(conn_ms1, Con_ms1)
             cmd_ms1.Parameters.Add("@date", SqlDbType.DateTime).Value = DateAndTime.Now()
             cmd_ms1.Parameters.Add("@file_or", SqlDbType.VarChar).Value = filename
-            cmd_ms1.Parameters.Add("@transaction", SqlDbType.VarChar).Value = TxtTransaction.Text
+            cmd_ms1.Parameters.Add("@OR_No", SqlDbType.VarChar).Value = TxtTransaction.Text
             cmd_ms1.ExecuteNonQuery()
             Con_ms1.Close()
 

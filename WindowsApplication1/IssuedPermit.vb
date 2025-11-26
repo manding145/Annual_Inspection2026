@@ -55,48 +55,9 @@ Public Class IssuedPermit
     End Sub
 
 
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
-
-        'Dim openFileDialog As New OpenFileDialog()
-
-        'openFileDialog.Filter = "PDF Files|*.pdf"
-
-
-        'If openFileDialog.ShowDialog() = DialogResult.OK Then
-
-        '    Try
-        '        AxAcroPDF2.src = openFileDialog.FileName
-        '        Issued_attachment.Text = openFileDialog.FileName
-        '    Catch ex As Exception
-
-        '        MessageBox.Show("Error loading files: " & ex.Message)
-        '    End Try
-        'End If
-
-
     End Sub
 
-    Private Sub B_upload_Click(sender As Object, e As EventArgs)
-
-        'Dim openFileDialog As New OpenFileDialog()
-        'openFileDialog.Filter = "PDF Files|*.pdf"
-
-        'If openFileDialog.ShowDialog() = DialogResult.OK Then
-        '    Try
-        '        Issued_attachment.Text = openFileDialog.FileName
-        '        ' Optionally preview it in the PDF viewer:
-        '        AxAcroPDF2.src = openFileDialog.FileName
-        '    Catch ex As Exception
-        '        MessageBox.Show("Error loading file: " & ex.Message)
-        '    End Try
-        'End If
-
-    End Sub
-
-    Private Sub IssuedPermit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
+  
 
     Private Sub ORlink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
 
@@ -221,9 +182,6 @@ Public Class IssuedPermit
         End Try
 
     End Sub
-
-   
-
 
     Private Sub B_IssuedAttach_Click(sender As Object, e As EventArgs) Handles B_IssuedAttach.Click
 

@@ -297,17 +297,11 @@
     <Compile Include="b2report.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BarangayClearance.vb">
+    <Compile Include="InspectionRecord.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BarangayClearance.rpt</DependentUpon>
+      <DependentUpon>InspectionRecord.rpt</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="BarangayClearanceControl.Designer.vb">
-      <DependentUpon>BarangayClearanceControl.vb</DependentUpon>
-    </Compile>
-    <Compile Include="BarangayClearanceControl.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="InspectorDashBoard.Designer.vb">
       <DependentUpon>InspectorDashBoard.vb</DependentUpon>
@@ -421,10 +415,10 @@
     <Compile Include="PendingToPrint.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PrintBarangayPermit.Designer.vb">
-      <DependentUpon>PrintBarangayPermit.vb</DependentUpon>
+    <Compile Include="PrintInspectionRecord.Designer.vb">
+      <DependentUpon>PrintInspectionRecord.vb</DependentUpon>
     </Compile>
-    <Compile Include="PrintBarangayPermit.vb">
+    <Compile Include="PrintInspectionRecord.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Print_mayorsbusinesspermit.Designer.vb">
@@ -528,12 +522,9 @@
     <EmbeddedResource Include="b2report.resx">
       <DependentUpon>b2report.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BarangayClearance.rpt">
+    <EmbeddedResource Include="InspectionRecord.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>BarangayClearance.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BarangayClearanceControl.resx">
-      <DependentUpon>BarangayClearanceControl.vb</DependentUpon>
+      <LastGenOutput>InspectionRecord.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="InspectorDashBoard.resx">
       <DependentUpon>InspectorDashBoard.vb</DependentUpon>
@@ -589,8 +580,8 @@
     <EmbeddedResource Include="PendingToPrint.resx">
       <DependentUpon>PendingToPrint.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PrintBarangayPermit.resx">
-      <DependentUpon>PrintBarangayPermit.vb</DependentUpon>
+    <EmbeddedResource Include="PrintInspectionRecord.resx">
+      <DependentUpon>PrintInspectionRecord.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Print_mayorsbusinesspermit.resx">
       <DependentUpon>Print_mayorsbusinesspermit.vb</DependentUpon>
