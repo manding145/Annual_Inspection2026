@@ -1,13 +1,13 @@
 ﻿Imports CrystalDecisions.Shared
-Imports MySql.Data.MySqlClient
+Imports System.Data.SqlClient
 Imports CrystalDecisions.CrystalReports.Engine
 Imports CrystalDecisions.ReportSource
 Imports CrystalDecisions.Web
 
 
 
-Public Class PrintBarangayPermit
-    Dim rpt As New BarangayClearance
+Public Class PrintInspectionRecord
+    Dim rpt As New InspectionRecord
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Close()
     End Sub

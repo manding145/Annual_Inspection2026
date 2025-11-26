@@ -1,56 +1,43 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Data.SqlClient
 Public Class SearchApplicationRecord
 
     Private Sub BtnSearchRecord_Click(sender As Object, e As EventArgs) Handles BtnSearchRecord.Click
-        'Dim BPLO As InspectorDashBoard = CType(Application.OpenForms("ConstructionOnline"), InspectorDashBoard)
-        'Try
-        '    BPLO.DataGrid.Rows.Clear()
-        '    conn = "SELECT * " _
-        '     & "FROM " _
-        '     & "business_application_tbl INNER JOIN business_record_hdr ON business_record_hdr.recordID =  business_application_tbl.recordID INNER JOIN business_applicationstatus_dtl ON business_application_tbl.applicationID = business_applicationstatus_dtl.applicationID " & _
-        '    "where business_application_tbl.accountno LIKE '%" & txt_accountno.Text & "' and business_record_hdr.b_name LIKE '%" & txt_businessName.Text & "' ORDER BY application_date, application_time ASC "
 
-        '    Con = New MySqlConnection(cs)
-        '    Con.Open()
-        '    cmd = New MySqlCommand(conn, Con)
-        '    rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection)
-        '    Do While rdr.Read = True
-        '        BPLO.DataGrid.Rows.Add(rdr("ApplicationID"), rdr("RecordID"), rdr("application_date"), rdr("application_time"), rdr("accountno"), rdr("b_name"), rdr("verify_status"), "VIEW")
+        Dim InspectorDashBoard As InspectorDashBoard = CType(Application.OpenForms("InspectorDashBoard"), InspectorDashBoard)
+        Try
+            InspectorDashBoard.DataGrid.Rows.Clear()
+            conn = "SELECT * FROM ONLINE.annual_inspection_application where accountNo LIKE '%" & txt_accountno.Text & "%' AND app_status IN ( 'P', 'R', 'A' ) ORDER BY application_date ASC;"
+            Con_ms = New SqlConnection(mcs)
+            Con_ms.Open()
+            cmd_ms = New SqlCommand(conn, Con_ms)
+            rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
+            Do While rdr_ms.Read = True
+                InspectorDashBoard.DataGrid.Rows.Add(rdr_ms("id"), rdr_ms("refno"), rdr_ms("application_date"), rdr_ms("accountno"), rdr_ms("bussname"), rdr_ms("app_status"), "VIEW")
+            Loop
 
+            Con_ms.Close()
+            Dim aa As String
+            aa = InspectorDashBoard.DataGrid.RowCount
+            If InspectorDashBoard.DataGrid.RowCount = 0 Then
+                MsgBox("No Record Found!", vbOKOnly & vbCritical, "Annual Inspection Online")
+                Me.Close()
+            Else
+                MsgBox(aa + " Record Found!", vbOKOnly & vbInformation, "Annual Inspection Online")
 
-        '    Loop
-
-        '    Con.Close()
-        '    Dim aa As String
-        '    aa = BPLO.DataGrid.RowCount
-        '    If BPLO.DataGrid.RowCount = 0 Then
-        '        MsgBox("No Record Found!", vbOKOnly & vbCritical, "Tacloban Health Office Management System")
-        '        Me.Close()
-        '    Else
-        '        MsgBox(aa + " Record Found!", vbOKOnly & vbInformation, "Tacloban Health Office Management System")
-
-        '        Me.Close()
-        '    End If
-        'Catch ex As Exception
-        '    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        'End Try
+                Me.Close()
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
-    Private Sub txt_seachfirstname_TextChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub check_lastaname_CheckedChanged(sender As Object, e As EventArgs) Handles check_lastaname.CheckedChanged
-
-    End Sub
-
-    Private Sub check_controlno_CheckedChanged(sender As Object, e As EventArgs) Handles check_controlno.CheckedChanged
-        If check_controlno.Checked = False Then
-            txt_businessName.Enabled = False
-            txt_businessName.Text = ""
+    Private Sub check_controlno_CheckedChanged(sender As Object, e As EventArgs)
+        If check_Accuntno.Checked = False Then
+            txt_accountno.Enabled = False
+            txt_accountno.Text = ""
         Else
-            txt_businessName.Enabled = True
-            txt_businessName.Text = ""
+            txt_accountno.Enabled = True
+            txt_accountno.Text = ""
         End If
     End Sub
 

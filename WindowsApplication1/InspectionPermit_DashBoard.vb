@@ -130,24 +130,33 @@ Public Class InspectionPermit_DashBoard
                         .txt_email.Text = rdr_ms("email").ToString
                         .txt_contactno.Text = rdr_ms("ContactNo").ToString
 
+                        Dim folderpath = link_prefix & folder_directory & .referencono.Text & "\" & .referencono.Text & "_Certificate.pdf"
+
                         If rdr_ms("app_status") = "PAID" Then
 
                             .B_Issued.Visible = False
                             .B_SentNotification.Visible = True
                             .B_Signed.Visible = False
+                            .B_IssuedAttach.Visible = False
+                            .Issued_file.Visible = False
+                            .Lbl_Upload.Visible = False
 
                         ElseIf rdr_ms("app_status") = "S" Then
 
                             .B_Issued.Visible = False
                             .B_SentNotification.Visible = False
                             .B_Signed.Visible = True
+                            .B_IssuedAttach.Visible = False
+                            .Issued_file.Visible = False
+                            .Lbl_Upload.Visible = False
 
                         ElseIf rdr_ms("app_status") = "SD" Then
 
-                            .B_Issued.Visible = True
                             .B_SentNotification.Visible = False
                             .B_Signed.Visible = False
                             .B_IssuedAttach.Enabled = True
+                            .Issued_file.Visible = True
+                            .B_Issued.Visible = True
 
                         ElseIf rdr_ms("app_status") = "I" Then
 
@@ -158,6 +167,21 @@ Public Class InspectionPermit_DashBoard
                             .B_Issued.Visible = False
                             .B_SentNotification.Visible = False
                             .B_Signed.Visible = False
+                            .B_Issued.Enabled = False
+
+
+                            .Issued_file.Text = rdr_ms("file_clearance").ToString()
+
+                            If Not String.IsNullOrEmpty("file_clearance") Then
+                                If System.IO.File.Exists(folderpath) Then
+                                    .AxAcroPDF2.src = "file:///" & folderpath.Replace("\", "/")
+                                Else
+                                    MessageBox.Show("File not found: " & folderpath, "Missing File", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                                End If
+                            Else
+                                MessageBox.Show("No file path found in the database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            End If
+
 
                         End If
                     End With
@@ -346,4 +370,6 @@ Public Class InspectionPermit_DashBoard
         rdr_ms.Close()
         Con_ms.Close()
     End Sub
+
+   
 End Class

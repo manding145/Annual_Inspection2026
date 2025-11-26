@@ -72,16 +72,17 @@ Public Class InspectorDashBoard
                         If rdr_ms("app_status") = "P" Then
 
                             .Panel_pending.Visible = True
-                            .panel_verified.Visible = False
+                            .panel_Approved.Visible = False
                             .panel_denied.Visible = False
 
                         ElseIf rdr_ms("app_status") = "A" Then
 
                             .Panel_pending.Visible = False
-                            .panel_verified.Visible = True
+                            .panel_Approved.Visible = True
                             .panel_denied.Visible = False
                             .BtnAddNewRecord.Enabled = False
                             .btnDeny.Visible = False
+                            .B_Signing.Visible = False
                             .assessment_file.Enabled = False
                             .B_assessAttach.Enabled = False
                             .B_Reupload.Enabled = False
@@ -105,22 +106,23 @@ Public Class InspectorDashBoard
                         ElseIf rdr_ms("app_status") = "D" Then
 
                             .Panel_pending.Visible = False
-                            .panel_verified.Visible = False
+                            .panel_Approved.Visible = False
                             .panel_denied.Visible = True
                             .B_Reupload.Visible = False
                             .BtnAddNewRecord.Enabled = False
                             .btnDeny.Visible = False
+                            .B_Signing.Enabled = False
 
                         ElseIf rdr_ms("app_status") = "R" Then
 
                             .panel_denied.Visible = False
                             .Panel_pending.Visible = False
-                            .panel_verified.Visible = False
+                            .panel_Approved.Visible = False
                             .Panel_ReUpload.Visible = True
                             .B_Reupload.Visible = True
                             .BtnAddNewRecord.Enabled = False
                             .btnDeny.Visible = False
-
+                            .B_Signing.Enabled = False
 
                         End If
 
@@ -156,10 +158,7 @@ Public Class InspectorDashBoard
         Con_ms2.Close()
     End Sub
     Private Sub BtnSearchRecord_Click(sender As Object, e As EventArgs) Handles BtnSearchRecord.Click
-        SearchApplicationRecord.ShowDialog()
-        'Dim FrmHealthCertificate As MayorsPermitControl = CType(Application.OpenForms("MayorsPermitControl"), MayorsPermitControl)
-        'MayorsPermitControl.txt_AccountNo.Text = "T-01289"
-        'MayorsPermitControl.ShowDialog()
+        SearchPermitRecord.ShowDialog()
     End Sub
 
 

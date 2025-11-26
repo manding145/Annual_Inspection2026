@@ -487,7 +487,7 @@ Partial Class InspectorDashBoard
         '
         'PictureBox2
         '
-        Me.PictureBox2.Image = Global.WindowsApplication1.My.Resources.Resources.seo
+        Me.PictureBox2.Image = Global.WindowsApplication1.My.Resources.Resources.portable_document_format
         Me.PictureBox2.Location = New System.Drawing.Point(13, 5)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(76, 60)

@@ -463,6 +463,12 @@
       <DependentUpon>SampleMayorsPermit.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="SearchPermitRecord.Designer.vb">
+      <DependentUpon>SearchPermitRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SearchPermitRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SearchApplicationRecord.Designer.vb">
       <DependentUpon>SearchApplicationRecord.vb</DependentUpon>
     </Compile>
@@ -606,6 +612,9 @@
     <EmbeddedResource Include="SampleMayorsPermit.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SampleMayorsPermit.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchPermitRecord.resx">
+      <DependentUpon>SearchPermitRecord.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchApplicationRecord.resx">
       <DependentUpon>SearchApplicationRecord.vb</DependentUpon>

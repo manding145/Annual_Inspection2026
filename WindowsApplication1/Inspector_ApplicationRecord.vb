@@ -7,16 +7,13 @@ Public Class Inspector_ApplicationRecord
         FormStatus = False
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
 
         Me.Close()
         FormStatus = False
 
     End Sub
 
-    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
-
-    End Sub
 
     Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
 
@@ -24,17 +21,6 @@ Public Class Inspector_ApplicationRecord
       
     End Sub
 
-    Private Sub btnDeny_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub BtnPrintHealthCard_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub BtnAddNewRecord_Click(sender As Object, e As EventArgs)
-
-    End Sub
 
     Private Sub Grid_attachments_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles Grid_attachments.CellContentClick
 
@@ -58,6 +44,7 @@ Public Class Inspector_ApplicationRecord
 
     Private Sub BtnAddNewRecord_Click_1(sender As Object, e As EventArgs) Handles BtnAddNewRecord.Click
 
+     
 
         If String.IsNullOrWhiteSpace(assessment_file.Text) Then
             MsgBox("Please attach Assessment", vbOKOnly & vbCritical, "Annual Inspection Online")
@@ -75,57 +62,71 @@ Public Class Inspector_ApplicationRecord
         Dim folderpath = link_prefix & folder_directory & TxtRefenceNo.Text & "\"
         Dim filename = TxtRefenceNo.Text & "_Tax_Assessment.pdf"
         Dim filePath As String = Path.Combine(folderpath, filename)
+        Dim ask As DialogResult
 
-        If Not Directory.Exists(folderpath) Then
-            Directory.CreateDirectory(folderpath)
-        End If
 
-        If String.IsNullOrWhiteSpace(sourcePath2) OrElse Not File.Exists(sourcePath2) Then
-            filePath = ""
+        ask = MessageBox.Show("Are you sure this is exact amount: " & TxtAmount.Text & " ?",
+                              "Annual Inspection Online",
+                              MessageBoxButtons.YesNo,
+                              MessageBoxIcon.Question)
+
+        If ask = DialogResult.Yes Then
+
+            If Not Directory.Exists(folderpath) Then
+                Directory.CreateDirectory(folderpath)
+            End If
+
+            If String.IsNullOrWhiteSpace(sourcePath2) OrElse Not File.Exists(sourcePath2) Then
+                filePath = ""
+            Else
+
+                File.Copy(sourcePath2, filePath, True)
+            End If
+
+            Dim Inspector_ApplicationRecord As Inspector_ApplicationRecord = CType(Application.OpenForms("Inspector_ApplicationRecord"), Inspector_ApplicationRecord)
+
+            Con_ms = New SqlConnection(mcs)
+            Con_ms.Open()
+            conn_ms = "UPDATE ONLINE.annual_inspection_application set file_assessment = @file_assessment, remarks='" & txt_remarks.Text & "' , app_status = 'A', assess_date = @date, userId ='" & useraccountid.Text & "', payment_amount = @amount WHERE id='" & txt_applicationno.Text & "'"
+            Try
+
+                cmd_ms = New SqlCommand(conn_ms, Con_ms)
+                cmd_ms.Parameters.Add("@date", SqlDbType.DateTime).Value = Date.Now
+                cmd_ms.Parameters.Add("@file_assessment", SqlDbType.VarChar).Value = filename
+                cmd_ms.Parameters.Add("@amount", SqlDbType.VarChar).Value = TxtAmount.Text
+                cmd_ms.ExecuteNonQuery()
+                Con_ms.Close()
+                FormStatus = False
+
+                Con_ms1 = New SqlConnection(mcs)
+                Con_ms1.Open()
+                conn = "INSERT INTO ONLINE.email_outbox (userid, accountno, Remarks, email, Subject, fullname, referencecode, datesend, assessment_path) " _
+                   & "VALUES (@userid, @TxtAccountNo,  @Remarks, '" & txt_email.Text & "', 'Annual Inspection Assessment' ,@fullname, @TxtRefenceNo, @Date, @assessment_path)"
+                cmd_ms1 = New SqlCommand(conn, Con_ms1)
+                cmd_ms1.Parameters.Add("@TxtAccountNo", SqlDbType.VarChar).Value = TxtAccountNo.Text & "_" & TxtBusinessName.Text
+                cmd_ms1.Parameters.Add("@fullname", SqlDbType.VarChar).Value = fullname.Text
+                cmd_ms1.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
+                cmd_ms1.Parameters.Add("@TxtRefenceNo", SqlDbType.VarChar).Value = TxtRefenceNo.Text
+                cmd_ms1.Parameters.Add("@assessment_path", SqlDbType.VarChar).Value = filePath
+                cmd_ms1.Parameters.Add("@Remarks", SqlDbType.VarChar).Value = txt_remarks.Text
+                cmd_ms1.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
+                cmd_ms1.ExecuteNonQuery()
+
+
+                MsgBox("Annual Inspection Application successfully Verified", vbOKOnly & vbInformation, "Annual Inspection Online")
+                Con_ms1.Close()
+
+
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Con_ms.Close()
+                Con_ms1.Close()
+            End Try
+            Me.Close()
         Else
 
-            File.Copy(sourcePath2, filePath, True)
+            Exit Sub
         End If
-
-        Dim Inspector_ApplicationRecord As Inspector_ApplicationRecord = CType(Application.OpenForms("Inspector_ApplicationRecord"), Inspector_ApplicationRecord)
-
-        Con_ms = New SqlConnection(mcs)
-        Con_ms.Open()
-        conn_ms = "UPDATE ONLINE.annual_inspection_application set file_assessment = @file_assessment, remarks='" & txt_remarks.Text & "' , app_status = 'A', assess_date = @date, userId ='" & useraccountid.Text & "', payment_amount = @amount WHERE id='" & txt_applicationno.Text & "'"
-        Try
-
-            cmd_ms = New SqlCommand(conn_ms, Con_ms)
-            cmd_ms.Parameters.Add("@date", SqlDbType.DateTime).Value = Date.Now
-            cmd_ms.Parameters.Add("@file_assessment", SqlDbType.VarChar).Value = filename
-            cmd_ms.Parameters.Add("@amount", SqlDbType.VarChar).Value = TxtAmount.Text
-            cmd_ms.ExecuteNonQuery()
-            Con_ms.Close()
-            FormStatus = False
-
-            Con_ms1 = New SqlConnection(mcs)
-            Con_ms1.Open()
-            conn = "INSERT INTO ONLINE.email_outbox (userid, accountno, Remarks, email, Subject, fullname, referencecode, datesend, assessment_path) " _
-               & "VALUES (@userid, @TxtAccountNo,  @Remarks, '" & txt_email.Text & "', 'Annual Inspection Assessment' ,@fullname, @TxtRefenceNo, @Date, @assessment_path)"
-            cmd_ms1 = New SqlCommand(conn, Con_ms1)
-            cmd_ms1.Parameters.Add("@TxtAccountNo", SqlDbType.VarChar).Value = TxtAccountNo.Text & "_" & TxtBusinessName.Text
-            cmd_ms1.Parameters.Add("@fullname", SqlDbType.VarChar).Value = fullname.Text
-            cmd_ms1.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
-            cmd_ms1.Parameters.Add("@TxtRefenceNo", SqlDbType.VarChar).Value = TxtRefenceNo.Text
-            cmd_ms1.Parameters.Add("@assessment_path", SqlDbType.VarChar).Value = filePath
-            cmd_ms1.Parameters.Add("@Remarks", SqlDbType.VarChar).Value = txt_remarks.Text
-            cmd_ms1.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
-            cmd_ms1.ExecuteNonQuery()
-            MsgBox("Annual Inspection Application successfully Verified", vbOKOnly & vbInformation, "Annual Inspection Online")
-            Con_ms1.Close()
-
-
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Con_ms.Close()
-            Con_ms1.Close()
-        End Try
-        Me.Close()
-
     End Sub
 
     Private Sub btnDeny_Click_1(sender As Object, e As EventArgs) Handles btnDeny.Click
@@ -172,12 +173,38 @@ Public Class Inspector_ApplicationRecord
     End Sub
 
 
-    Private Sub Construction_ApplicationRecord_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-    Private Sub TxtAmount_LostFocus(sender As Object, e As EventArgs) Handles TxtAmount.LostFocus
+    Private Sub TxtAmount_LostFocus(sender As Object, e As EventArgs) Handles TxtAmount.LostFocus, TextBox8.LostFocus
         TxtAmount.Text = Val(TxtAmount.Text).ToString("N2")
     End Sub
 
+    Private Sub B_Signed_Click(sender As Object, e As EventArgs) Handles B_Signing.Click
+
+        Dim YearEnd As DateTime = New DateTime(DateTime.Now.Year, 12, 31, 0, 0, 0)
+
+        Con_ms1 = New SqlConnection(mcs)
+        Con_ms1.Open()
+        conn_ms1 = "UPDATE ONLINE.annual_inspection_application SET app_status = 'S', Signed_date = @Date where id='" & txt_applicationno.Text & "'"
+        cmd_ms1 = New SqlCommand(conn_ms1, Con_ms1)
+        cmd_ms1.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
+        cmd_ms1.ExecuteNonQuery()
+        Con_ms1.Close()
+
+        Con_ms = New SqlConnection(mcs)
+        Con_ms.Open()
+        conn = "INSERT INTO ONLINE.blocklistedBusiness (user_created, accountno, businessname, businessowner, businessaddress, regulatory, status, dateblocked, remarks, user_update, Expirationdate) " _
+           & "VALUES (@userid, @accountno, @businessname, @businessowner ,@businessaddress, 'BUSINESS', 'U', @Date, 'ISSUANCE', @user_update, @Expirationdate)"
+        cmd_ms = New SqlCommand(conn, Con_ms)
+        cmd_ms.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
+        cmd_ms.Parameters.Add("@accountno", SqlDbType.VarChar).Value = TxtAccountNo.Text
+        cmd_ms.Parameters.Add("@businessname", SqlDbType.VarChar).Value = TxtBusinessName.Text
+        cmd_ms.Parameters.Add("@businessowner", SqlDbType.VarChar).Value = TxtBusinessOwner.Text
+        cmd_ms.Parameters.Add("@businessaddress", SqlDbType.VarChar).Value = TxtBusinessAddress.Text
+        cmd_ms.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
+        cmd_ms.Parameters.Add("@user_update", SqlDbType.VarChar).Value = useraccountid.Text
+        cmd_ms.Parameters.Add("@Date", SqlDbType.DateTime).Value = YearEnd
+        cmd_ms.ExecuteNonQuery()
+        Con_ms.Close()
+
+        MsgBox("Annual Inspection Already Signed", vbOKOnly & vbInformation, "Annual Inspection Online")
+    End Sub
 End Class

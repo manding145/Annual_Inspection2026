@@ -100,10 +100,9 @@ Partial Class InspectionPermit_DashBoard
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(496, 48)
-        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label13.Location = New System.Drawing.Point(314, 31)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(54, 25)
+        Me.Label13.Size = New System.Drawing.Size(35, 15)
         Me.Label13.TabIndex = 113
         Me.Label13.Text = "From"
         '
@@ -111,10 +110,9 @@ Partial Class InspectionPermit_DashBoard
         '
         Me.dt_Appoinment.CustomFormat = "mm/dd/yyyy"
         Me.dt_Appoinment.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dt_Appoinment.Location = New System.Drawing.Point(558, 45)
-        Me.dt_Appoinment.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.dt_Appoinment.Location = New System.Drawing.Point(355, 29)
         Me.dt_Appoinment.Name = "dt_Appoinment"
-        Me.dt_Appoinment.Size = New System.Drawing.Size(121, 26)
+        Me.dt_Appoinment.Size = New System.Drawing.Size(82, 20)
         Me.dt_Appoinment.TabIndex = 112
         '
         'Panel6
@@ -124,10 +122,9 @@ Partial Class InspectionPermit_DashBoard
         Me.Panel6.Controls.Add(Me.Label7)
         Me.Panel6.Controls.Add(Me.PictureBox6)
         Me.Panel6.Controls.Add(Me.Label6)
-        Me.Panel6.Location = New System.Drawing.Point(1023, 17)
-        Me.Panel6.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Panel6.Location = New System.Drawing.Point(648, 11)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(314, 115)
+        Me.Panel6.Size = New System.Drawing.Size(211, 75)
         Me.Panel6.TabIndex = 87
         '
         'lblcountIssued
@@ -136,10 +133,9 @@ Partial Class InspectionPermit_DashBoard
         Me.lblcountIssued.BackColor = System.Drawing.Color.Transparent
         Me.lblcountIssued.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblcountIssued.ForeColor = System.Drawing.Color.Red
-        Me.lblcountIssued.Location = New System.Drawing.Point(214, 12)
-        Me.lblcountIssued.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblcountIssued.Location = New System.Drawing.Point(145, 8)
         Me.lblcountIssued.Name = "lblcountIssued"
-        Me.lblcountIssued.Size = New System.Drawing.Size(38, 45)
+        Me.lblcountIssued.Size = New System.Drawing.Size(26, 30)
         Me.lblcountIssued.TabIndex = 88
         Me.lblcountIssued.Text = "0"
         '
@@ -147,20 +143,18 @@ Partial Class InspectionPermit_DashBoard
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(141, 62)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Location = New System.Drawing.Point(97, 40)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(170, 32)
+        Me.Label7.Size = New System.Drawing.Size(113, 21)
         Me.Label7.TabIndex = 87
         Me.Label7.Text = "Issued Permit"
         '
         'PictureBox6
         '
         Me.PictureBox6.Image = Global.WindowsApplication1.My.Resources.Resources.register
-        Me.PictureBox6.Location = New System.Drawing.Point(14, 5)
-        Me.PictureBox6.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PictureBox6.Location = New System.Drawing.Point(9, 3)
         Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(118, 105)
+        Me.PictureBox6.Size = New System.Drawing.Size(79, 68)
         Me.PictureBox6.TabIndex = 0
         Me.PictureBox6.TabStop = False
         '
@@ -168,10 +162,9 @@ Partial Class InspectionPermit_DashBoard
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(148, 29)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Location = New System.Drawing.Point(99, 19)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(0, 32)
+        Me.Label6.Size = New System.Drawing.Size(0, 21)
         Me.Label6.TabIndex = 86
         '
         'Panel4
@@ -180,10 +173,9 @@ Partial Class InspectionPermit_DashBoard
         Me.Panel4.Controls.Add(Me.lbl_countpending)
         Me.Panel4.Controls.Add(Me.Label4)
         Me.Panel4.Controls.Add(Me.PictureBox5)
-        Me.Panel4.Location = New System.Drawing.Point(18, 17)
-        Me.Panel4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Panel4.Location = New System.Drawing.Point(12, 11)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(330, 115)
+        Me.Panel4.Size = New System.Drawing.Size(207, 75)
         Me.Panel4.TabIndex = 0
         '
         'lbl_countpending
@@ -192,10 +184,9 @@ Partial Class InspectionPermit_DashBoard
         Me.lbl_countpending.BackColor = System.Drawing.Color.Transparent
         Me.lbl_countpending.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_countpending.ForeColor = System.Drawing.Color.Red
-        Me.lbl_countpending.Location = New System.Drawing.Point(198, 15)
-        Me.lbl_countpending.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbl_countpending.Location = New System.Drawing.Point(132, 10)
         Me.lbl_countpending.Name = "lbl_countpending"
-        Me.lbl_countpending.Size = New System.Drawing.Size(56, 45)
+        Me.lbl_countpending.Size = New System.Drawing.Size(39, 30)
         Me.lbl_countpending.TabIndex = 87
         Me.lbl_countpending.Text = "00"
         '
@@ -204,20 +195,18 @@ Partial Class InspectionPermit_DashBoard
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(138, 62)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Location = New System.Drawing.Point(92, 40)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(166, 32)
+        Me.Label4.Size = New System.Drawing.Size(112, 21)
         Me.Label4.TabIndex = 86
         Me.Label4.Text = "Pending Sign"
         '
         'PictureBox5
         '
         Me.PictureBox5.Image = Global.WindowsApplication1.My.Resources.Resources.pending__2_
-        Me.PictureBox5.Location = New System.Drawing.Point(10, 6)
-        Me.PictureBox5.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PictureBox5.Location = New System.Drawing.Point(7, 4)
         Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(118, 92)
+        Me.PictureBox5.Size = New System.Drawing.Size(79, 60)
         Me.PictureBox5.TabIndex = 0
         Me.PictureBox5.TabStop = False
         '
@@ -234,10 +223,9 @@ Partial Class InspectionPermit_DashBoard
         Me.Panel3.Controls.Add(Me.Panel2)
         Me.Panel3.Controls.Add(Me.Panel6)
         Me.Panel3.Controls.Add(Me.Panel4)
-        Me.Panel3.Location = New System.Drawing.Point(3, 2)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Panel3.Location = New System.Drawing.Point(2, 1)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1354, 875)
+        Me.Panel3.Size = New System.Drawing.Size(876, 569)
         Me.Panel3.TabIndex = 56
         '
         'PanelAppoinment
@@ -260,20 +248,18 @@ Partial Class InspectionPermit_DashBoard
         Me.PanelAppoinment.Controls.Add(Me.DataGrid)
         Me.PanelAppoinment.Controls.Add(Me.Label13)
         Me.PanelAppoinment.Controls.Add(Me.dt_Appoinment)
-        Me.PanelAppoinment.Location = New System.Drawing.Point(18, 158)
-        Me.PanelAppoinment.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PanelAppoinment.Location = New System.Drawing.Point(12, 103)
         Me.PanelAppoinment.Name = "PanelAppoinment"
-        Me.PanelAppoinment.Size = New System.Drawing.Size(1318, 689)
+        Me.PanelAppoinment.Size = New System.Drawing.Size(852, 448)
         Me.PanelAppoinment.TabIndex = 88
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(686, 49)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(440, 32)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(30, 25)
+        Me.Label2.Size = New System.Drawing.Size(19, 15)
         Me.Label2.TabIndex = 161
         Me.Label2.Text = "To"
         '
@@ -281,10 +267,9 @@ Partial Class InspectionPermit_DashBoard
         '
         Me.dt_Appoinment1.CustomFormat = "mm/dd/yyyy"
         Me.dt_Appoinment1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dt_Appoinment1.Location = New System.Drawing.Point(726, 43)
-        Me.dt_Appoinment1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.dt_Appoinment1.Location = New System.Drawing.Point(467, 28)
         Me.dt_Appoinment1.Name = "dt_Appoinment1"
-        Me.dt_Appoinment1.Size = New System.Drawing.Size(121, 26)
+        Me.dt_Appoinment1.Size = New System.Drawing.Size(82, 20)
         Me.dt_Appoinment1.TabIndex = 160
         '
         'Label1
@@ -292,29 +277,26 @@ Partial Class InspectionPermit_DashBoard
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(75, 626)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(50, 407)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(57, 28)
+        Me.Label1.Size = New System.Drawing.Size(36, 17)
         Me.Label1.TabIndex = 159
         Me.Label1.Text = "Back"
         '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.WindowsApplication1.My.Resources.Resources.back_button1
-        Me.PictureBox1.Location = New System.Drawing.Point(16, 620)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PictureBox1.Location = New System.Drawing.Point(11, 403)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(160, 52)
+        Me.PictureBox1.Size = New System.Drawing.Size(107, 34)
         Me.PictureBox1.TabIndex = 158
         Me.PictureBox1.TabStop = False
         '
         'Button8
         '
-        Me.Button8.Location = New System.Drawing.Point(1198, 42)
-        Me.Button8.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Button8.Location = New System.Drawing.Point(782, 27)
         Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(72, 38)
+        Me.Button8.Size = New System.Drawing.Size(48, 25)
         Me.Button8.TabIndex = 156
         Me.Button8.Text = "&Go"
         Me.Button8.UseVisualStyleBackColor = True
@@ -325,10 +307,9 @@ Partial Class InspectionPermit_DashBoard
         Me.BtnSearchRecord.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnSearchRecord.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSearchRecord.ForeColor = System.Drawing.Color.White
-        Me.BtnSearchRecord.Location = New System.Drawing.Point(16, 37)
-        Me.BtnSearchRecord.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.BtnSearchRecord.Location = New System.Drawing.Point(11, 24)
         Me.BtnSearchRecord.Name = "BtnSearchRecord"
-        Me.BtnSearchRecord.Size = New System.Drawing.Size(276, 48)
+        Me.BtnSearchRecord.Size = New System.Drawing.Size(184, 31)
         Me.BtnSearchRecord.TabIndex = 155
         Me.BtnSearchRecord.Text = "&Search Record"
         Me.BtnSearchRecord.UseVisualStyleBackColor = False
@@ -337,10 +318,9 @@ Partial Class InspectionPermit_DashBoard
         'Button7
         '
         Me.Button7.Image = Global.WindowsApplication1.My.Resources.Resources.enable
-        Me.Button7.Location = New System.Drawing.Point(186, 620)
-        Me.Button7.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Button7.Location = New System.Drawing.Point(124, 403)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(50, 55)
+        Me.Button7.Size = New System.Drawing.Size(33, 36)
         Me.Button7.TabIndex = 139
         Me.Button7.UseVisualStyleBackColor = True
         Me.Button7.Visible = False
@@ -349,20 +329,18 @@ Partial Class InspectionPermit_DashBoard
         '
         Me.lblCount.AutoSize = True
         Me.lblCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCount.Location = New System.Drawing.Point(1242, 620)
-        Me.lblCount.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblCount.Location = New System.Drawing.Point(777, 390)
         Me.lblCount.Name = "lblCount"
-        Me.lblCount.Size = New System.Drawing.Size(27, 29)
+        Me.lblCount.Size = New System.Drawing.Size(19, 20)
         Me.lblCount.TabIndex = 138
         Me.lblCount.Text = "0"
         '
         'Button6
         '
         Me.Button6.Image = Global.WindowsApplication1.My.Resources.Resources.delete
-        Me.Button6.Location = New System.Drawing.Point(244, 620)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Button6.Location = New System.Drawing.Point(163, 403)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(50, 55)
+        Me.Button6.Size = New System.Drawing.Size(33, 36)
         Me.Button6.TabIndex = 89
         Me.Button6.UseVisualStyleBackColor = True
         Me.Button6.Visible = False
@@ -371,21 +349,20 @@ Partial Class InspectionPermit_DashBoard
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(818, 654)
-        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label11.Location = New System.Drawing.Point(534, 417)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(445, 20)
+        Me.Label11.Size = New System.Drawing.Size(305, 26)
         Me.Label11.TabIndex = 136
-        Me.Label11.Text = "*Status - P for Pending, V for Verified, D for Denied"
+        Me.Label11.Text = "*Status - PAID forPAID, S for Signing, SD for Signed" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                I for Issue" & _
+    "d"
         Me.Label11.Visible = False
         '
         'PictureBox8
         '
         Me.PictureBox8.Image = Global.WindowsApplication1.My.Resources.Resources.search
-        Me.PictureBox8.Location = New System.Drawing.Point(33, 45)
-        Me.PictureBox8.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PictureBox8.Location = New System.Drawing.Point(22, 29)
         Me.PictureBox8.Name = "PictureBox8"
-        Me.PictureBox8.Size = New System.Drawing.Size(38, 38)
+        Me.PictureBox8.Size = New System.Drawing.Size(25, 25)
         Me.PictureBox8.TabIndex = 116
         Me.PictureBox8.TabStop = False
         '
@@ -395,11 +372,10 @@ Partial Class InspectionPermit_DashBoard
         Me.txt_name.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txt_name.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txt_name.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txt_name.Location = New System.Drawing.Point(80, 46)
-        Me.txt_name.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txt_name.Location = New System.Drawing.Point(53, 30)
         Me.txt_name.Name = "txt_name"
         Me.txt_name.ShortcutsEnabled = False
-        Me.txt_name.Size = New System.Drawing.Size(274, 27)
+        Me.txt_name.Size = New System.Drawing.Size(183, 18)
         Me.txt_name.TabIndex = 135
         Me.txt_name.Text = "Type Last Name"
         '
@@ -409,10 +385,9 @@ Partial Class InspectionPermit_DashBoard
         Me.cmb_appointmentstatus.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmb_appointmentstatus.FormattingEnabled = True
         Me.cmb_appointmentstatus.Items.AddRange(New Object() {"ALL", "PAID", "SIGNING", "SIGNED", "ISSUED"})
-        Me.cmb_appointmentstatus.Location = New System.Drawing.Point(1036, 45)
-        Me.cmb_appointmentstatus.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.cmb_appointmentstatus.Location = New System.Drawing.Point(674, 29)
         Me.cmb_appointmentstatus.Name = "cmb_appointmentstatus"
-        Me.cmb_appointmentstatus.Size = New System.Drawing.Size(148, 33)
+        Me.cmb_appointmentstatus.Size = New System.Drawing.Size(100, 23)
         Me.cmb_appointmentstatus.TabIndex = 134
         Me.cmb_appointmentstatus.Text = "ALL"
         '
@@ -420,10 +395,9 @@ Partial Class InspectionPermit_DashBoard
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(862, 49)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label8.Location = New System.Drawing.Point(558, 32)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(155, 25)
+        Me.Label8.Size = New System.Drawing.Size(103, 15)
         Me.Label8.TabIndex = 133
         Me.Label8.Text = "Application Status"
         '
@@ -461,8 +435,8 @@ Partial Class InspectionPermit_DashBoard
         Me.DataGrid.DefaultCellStyle = DataGridViewCellStyle9
         Me.DataGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.DataGrid.EnableHeadersVisualStyles = False
-        Me.DataGrid.Location = New System.Drawing.Point(20, 97)
-        Me.DataGrid.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
+        Me.DataGrid.Location = New System.Drawing.Point(9, 63)
+        Me.DataGrid.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.DataGrid.MultiSelect = False
         Me.DataGrid.Name = "DataGrid"
         Me.DataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
@@ -480,7 +454,7 @@ Partial Class InspectionPermit_DashBoard
         Me.DataGrid.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         Me.DataGrid.RowTemplate.Height = 25
         Me.DataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGrid.Size = New System.Drawing.Size(1280, 514)
+        Me.DataGrid.Size = New System.Drawing.Size(830, 317)
         Me.DataGrid.TabIndex = 132
         '
         'Column9
@@ -548,10 +522,9 @@ Partial Class InspectionPermit_DashBoard
         Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.PictureBox2)
         Me.Panel1.Controls.Add(Me.Label9)
-        Me.Panel1.Location = New System.Drawing.Point(356, 17)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Panel1.Location = New System.Drawing.Point(225, 11)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(322, 115)
+        Me.Panel1.Size = New System.Drawing.Size(206, 75)
         Me.Panel1.TabIndex = 87
         '
         'lblcountForSigning
@@ -560,10 +533,9 @@ Partial Class InspectionPermit_DashBoard
         Me.lblcountForSigning.BackColor = System.Drawing.Color.Transparent
         Me.lblcountForSigning.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblcountForSigning.ForeColor = System.Drawing.Color.Red
-        Me.lblcountForSigning.Location = New System.Drawing.Point(210, 8)
-        Me.lblcountForSigning.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblcountForSigning.Location = New System.Drawing.Point(136, 5)
         Me.lblcountForSigning.Name = "lblcountForSigning"
-        Me.lblcountForSigning.Size = New System.Drawing.Size(38, 45)
+        Me.lblcountForSigning.Size = New System.Drawing.Size(26, 30)
         Me.lblcountForSigning.TabIndex = 88
         Me.lblcountForSigning.Text = "0"
         '
@@ -571,20 +543,18 @@ Partial Class InspectionPermit_DashBoard
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(148, 45)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Location = New System.Drawing.Point(95, 29)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(159, 64)
+        Me.Label5.Size = New System.Drawing.Size(107, 42)
         Me.Label5.TabIndex = 87
         Me.Label5.Text = "Notification " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "For Signing"
         '
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.WindowsApplication1.My.Resources.Resources.send
-        Me.PictureBox2.Location = New System.Drawing.Point(14, 5)
-        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PictureBox2.Location = New System.Drawing.Point(9, 3)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(118, 105)
+        Me.PictureBox2.Size = New System.Drawing.Size(79, 68)
         Me.PictureBox2.TabIndex = 0
         Me.PictureBox2.TabStop = False
         '
@@ -592,10 +562,9 @@ Partial Class InspectionPermit_DashBoard
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(148, 29)
-        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label9.Location = New System.Drawing.Point(99, 19)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(0, 32)
+        Me.Label9.Size = New System.Drawing.Size(0, 21)
         Me.Label9.TabIndex = 86
         '
         'Panel2
@@ -605,10 +574,9 @@ Partial Class InspectionPermit_DashBoard
         Me.Panel2.Controls.Add(Me.Label10)
         Me.Panel2.Controls.Add(Me.PictureBox3)
         Me.Panel2.Controls.Add(Me.Label12)
-        Me.Panel2.Location = New System.Drawing.Point(692, 17)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.Panel2.Location = New System.Drawing.Point(437, 11)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(314, 115)
+        Me.Panel2.Size = New System.Drawing.Size(205, 75)
         Me.Panel2.TabIndex = 87
         '
         'lblcountSigned
@@ -617,10 +585,9 @@ Partial Class InspectionPermit_DashBoard
         Me.lblcountSigned.BackColor = System.Drawing.Color.Transparent
         Me.lblcountSigned.Font = New System.Drawing.Font("Segoe UI", 16.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblcountSigned.ForeColor = System.Drawing.Color.Red
-        Me.lblcountSigned.Location = New System.Drawing.Point(207, 12)
-        Me.lblcountSigned.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblcountSigned.Location = New System.Drawing.Point(127, 8)
         Me.lblcountSigned.Name = "lblcountSigned"
-        Me.lblcountSigned.Size = New System.Drawing.Size(38, 45)
+        Me.lblcountSigned.Size = New System.Drawing.Size(26, 30)
         Me.lblcountSigned.TabIndex = 88
         Me.lblcountSigned.Text = "0"
         '
@@ -628,20 +595,18 @@ Partial Class InspectionPermit_DashBoard
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(169, 62)
-        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label10.Location = New System.Drawing.Point(107, 40)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(93, 32)
+        Me.Label10.Size = New System.Drawing.Size(63, 21)
         Me.Label10.TabIndex = 87
         Me.Label10.Text = "Signed"
         '
         'PictureBox3
         '
         Me.PictureBox3.Image = Global.WindowsApplication1.My.Resources.Resources.report__1_
-        Me.PictureBox3.Location = New System.Drawing.Point(14, 5)
-        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.PictureBox3.Location = New System.Drawing.Point(9, 3)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(118, 105)
+        Me.PictureBox3.Size = New System.Drawing.Size(79, 68)
         Me.PictureBox3.TabIndex = 0
         Me.PictureBox3.TabStop = False
         '
@@ -649,21 +614,19 @@ Partial Class InspectionPermit_DashBoard
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(148, 29)
-        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label12.Location = New System.Drawing.Point(99, 19)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(0, 32)
+        Me.Label12.Size = New System.Drawing.Size(0, 21)
         Me.Label12.TabIndex = 86
         '
         'InspectionPermit_DashBoard
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1365, 883)
+        Me.ClientSize = New System.Drawing.Size(884, 574)
         Me.Controls.Add(Me.Panel3)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "InspectionPermit_DashBoard"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Construction Permit"

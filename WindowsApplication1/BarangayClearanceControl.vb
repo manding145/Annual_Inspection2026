@@ -211,7 +211,7 @@ Public Class BarangayClearanceControl
 
     Private Sub BtnPreview1_Click(sender As Object, e As EventArgs) Handles BtnPreview1.Click
 
-        PrintBarangayPermit.ShowDialog()
+        PrintInspectionRecord.ShowDialog()
 
     End Sub
 End Class

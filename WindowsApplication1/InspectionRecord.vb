@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class BarangayClearance
+Public Class InspectionRecord
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class BarangayClearance
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "BarangayClearance.rpt"
+            Return "InspectionRecord.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class BarangayClearance
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "WindowsApplication1.BarangayClearance.rpt"
+            Return "WindowsApplication1.InspectionRecord.rpt"
         End Get
         Set
             'Do nothing
@@ -102,7 +102,7 @@ Public Class BarangayClearance
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedBarangayClearance
+Public Class CachedInspectionRecord
     Inherits Component
     Implements ICachedReport
     
@@ -144,7 +144,7 @@ Public Class CachedBarangayClearance
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As BarangayClearance = New BarangayClearance()
+        Dim rpt As InspectionRecord = New InspectionRecord()
         rpt.Site = Me.Site
         Return rpt
     End Function

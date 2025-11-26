@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class SearchApplicationRecord
+Partial Class SearchPermitRecord
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class SearchApplicationRecord
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SearchApplicationRecord))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SearchPermitRecord))
         Me.txtquery = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.check_Accuntno = New System.Windows.Forms.CheckBox()
@@ -89,7 +89,7 @@ Partial Class SearchApplicationRecord
         Me.BtnSearchRecord.Text = "&Search"
         Me.BtnSearchRecord.UseVisualStyleBackColor = False
         '
-        'SearchApplicationRecord
+        'SearchPermitRecord
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -101,7 +101,7 @@ Partial Class SearchApplicationRecord
         Me.Controls.Add(Me.BtnSearchRecord)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "SearchApplicationRecord"
+        Me.Name = "SearchPermitRecord"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Search Application Record"
         Me.ResumeLayout(False)
