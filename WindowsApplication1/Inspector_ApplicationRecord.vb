@@ -179,36 +179,42 @@ Public Class Inspector_ApplicationRecord
 
     Private Sub B_Signed_Click(sender As Object, e As EventArgs) Handles B_Signing.Click
 
-        Dim YearEnd As DateTime = New DateTime(DateTime.Now.Year, 12, 31, 0, 0, 0)
+        Dim ask As DialogResult
+        ask = MessageBox.Show("Are you going to notify the applicant to signing?",
+                             "Annual Inspection Online",
+                             MessageBoxButtons.YesNo,
+                             MessageBoxIcon.Question)
 
-        Con_ms1 = New SqlConnection(mcs)
-        Con_ms1.Open()
-        conn_ms1 = "UPDATE ONLINE.annual_inspection_application SET app_status = 'S', Signed_date = @Date where id='" & txt_applicationno.Text & "'"
-        cmd_ms1 = New SqlCommand(conn_ms1, Con_ms1)
-        cmd_ms1.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
-        cmd_ms1.ExecuteNonQuery()
-        Con_ms1.Close()
+        If ask = DialogResult.Yes Then
+            Dim YearEnd As DateTime = New DateTime(DateTime.Now.Year, 12, 31, 0, 0, 0)
 
-        Con_ms = New SqlConnection(mcs)
-        Con_ms.Open()
-        conn = "INSERT INTO ONLINE.blocklistedBusiness (user_created, accountno, businessname, businessowner, businessaddress, regulatory, status, dateblocked, remarks, user_update, Expirationdate) " _
-           & "VALUES (@userid, @accountno, @businessname, @businessowner ,@businessaddress, 'BUSINESS', 'U', @Date, 'ISSUANCE', @user_update, @Expirationdate)"
-        cmd_ms = New SqlCommand(conn, Con_ms)
-        cmd_ms.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
-        cmd_ms.Parameters.Add("@accountno", SqlDbType.VarChar).Value = TxtAccountNo.Text
-        cmd_ms.Parameters.Add("@businessname", SqlDbType.VarChar).Value = TxtBusinessName.Text
-        cmd_ms.Parameters.Add("@businessowner", SqlDbType.VarChar).Value = TxtBusinessOwner.Text
-        cmd_ms.Parameters.Add("@businessaddress", SqlDbType.VarChar).Value = TxtBusinessAddress.Text
-        cmd_ms.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
-        cmd_ms.Parameters.Add("@user_update", SqlDbType.VarChar).Value = useraccountid.Text
-        cmd_ms.Parameters.Add("@Date", SqlDbType.DateTime).Value = YearEnd
-        cmd_ms.ExecuteNonQuery()
-        Con_ms.Close()
+            Con_ms1 = New SqlConnection(mcs)
+            Con_ms1.Open()
+            conn_ms1 = "UPDATE ONLINE.annual_inspection_application SET app_status = 'S', Signed_date = @Date where id='" & txt_applicationno.Text & "'"
+            cmd_ms1 = New SqlCommand(conn_ms1, Con_ms1)
+            cmd_ms1.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
+            cmd_ms1.ExecuteNonQuery()
+            Con_ms1.Close()
 
-        MsgBox("Annual Inspection Already Signed", vbOKOnly & vbInformation, "Annual Inspection Online")
+            Con_ms = New SqlConnection(mcs)
+            Con_ms.Open()
+            conn = "INSERT INTO ONLINE.blocklistedBusiness (user_created, accountno, businessname, businessowner, businessaddress, regulatory, status, dateblocked, remarks, user_updated, Expirationdate) " _
+               & "VALUES (@userid, @accountno, @businessname, @businessowner ,@businessaddress, 'BUSINESS', 'U', @Date, 'ISSUANCE', @user_update, @Expirationdate)"
+            cmd_ms = New SqlCommand(conn, Con_ms)
+            cmd_ms.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
+            cmd_ms.Parameters.Add("@accountno", SqlDbType.VarChar).Value = TxtAccountNo.Text
+            cmd_ms.Parameters.Add("@businessname", SqlDbType.VarChar).Value = TxtBusinessName.Text
+            cmd_ms.Parameters.Add("@businessowner", SqlDbType.VarChar).Value = TxtBusinessOwner.Text
+            cmd_ms.Parameters.Add("@businessaddress", SqlDbType.VarChar).Value = TxtBusinessAddress.Text
+            cmd_ms.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
+            cmd_ms.Parameters.Add("@user_update", SqlDbType.VarChar).Value = useraccountid.Text
+            cmd_ms.Parameters.Add("@Expirationdate", SqlDbType.DateTime).Value = YearEnd
+            cmd_ms.ExecuteNonQuery()
+            Con_ms.Close()
+            MsgBox("Annual Inspection Already Signed", vbOKOnly & vbInformation, "Annual Inspection Online")
+            PrintInspectionRecord.Show()
+
+        End If
     End Sub
 
-    Private Sub print_Click(sender As Object, e As EventArgs) Handles print.Click
-        PrintInspectionRecord.Show()
-    End Sub
 End Class

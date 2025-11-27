@@ -34,7 +34,7 @@ Public Class Payment
 
         '    Con_ms.Close()
         'Catch ex As Exception
-        '    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        'MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         'End Try
 
     End Sub

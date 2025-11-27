@@ -22,50 +22,38 @@ Partial Class PrintInspectionRecord
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.B_print = New System.Windows.Forms.Button()
         Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
         Me.Print_InspectionRecord1 = New WindowsApplication1.Print_InspectionRecord()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(186, 28)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(99, 23)
-        Me.Button2.TabIndex = 6
-        Me.Button2.Text = "Close"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'B_print
-        '
-        Me.B_print.Location = New System.Drawing.Point(81, 28)
-        Me.B_print.Name = "B_print"
-        Me.B_print.Size = New System.Drawing.Size(99, 23)
-        Me.B_print.TabIndex = 5
-        Me.B_print.Text = "&Print Record"
-        Me.B_print.UseVisualStyleBackColor = True
         '
         'CrystalReportViewer1
         '
-        Me.CrystalReportViewer1.ActiveViewIndex = 0
+        Me.CrystalReportViewer1.ActiveViewIndex = -1
         Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
         Me.CrystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CrystalReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
-        Me.CrystalReportViewer1.ReportSource = Me.Print_InspectionRecord1
         Me.CrystalReportViewer1.Size = New System.Drawing.Size(941, 531)
         Me.CrystalReportViewer1.TabIndex = 4
         Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(73, 28)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(84, 23)
+        Me.Button1.TabIndex = 6
+        Me.Button1.Text = "&Close"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'PrintInspectionRecord
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(941, 531)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.B_print)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.CrystalReportViewer1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "PrintInspectionRecord"
@@ -75,8 +63,7 @@ Partial Class PrintInspectionRecord
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents B_print As System.Windows.Forms.Button
     Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
     Friend WithEvents Print_InspectionRecord1 As WindowsApplication1.Print_InspectionRecord
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

@@ -297,18 +297,6 @@
     <Compile Include="b2report.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InspectionRecord.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InspectionRecord.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="InspectionRecord1.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InspectionRecord.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="InspectorDashBoard.Designer.vb">
       <DependentUpon>InspectorDashBoard.vb</DependentUpon>
     </Compile>
@@ -533,10 +521,6 @@
   <ItemGroup>
     <EmbeddedResource Include="b2report.resx">
       <DependentUpon>b2report.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="InspectionRecord.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>InspectionRecord1.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="InspectorDashBoard.resx">
       <DependentUpon>InspectorDashBoard.vb</DependentUpon>

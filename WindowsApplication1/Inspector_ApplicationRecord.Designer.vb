@@ -84,7 +84,6 @@ Partial Class Inspector_ApplicationRecord
         Me.panel_Approved = New System.Windows.Forms.Panel()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.print = New System.Windows.Forms.Button()
         Me.panel_denied = New System.Windows.Forms.Panel()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
@@ -782,7 +781,6 @@ Partial Class Inspector_ApplicationRecord
         '
         Me.Panel2.BackColor = System.Drawing.Color.White
         Me.Panel2.Controls.Add(Me.panel_Approved)
-        Me.Panel2.Controls.Add(Me.print)
         Me.Panel2.Controls.Add(Me.panel_denied)
         Me.Panel2.Controls.Add(Me.Panel_pending)
         Me.Panel2.Controls.Add(Me.Panel_ReUpload)
@@ -826,19 +824,6 @@ Partial Class Inspector_ApplicationRecord
         Me.PictureBox4.Size = New System.Drawing.Size(32, 26)
         Me.PictureBox4.TabIndex = 106
         Me.PictureBox4.TabStop = False
-        '
-        'print
-        '
-        Me.print.BackColor = System.Drawing.Color.FromArgb(CType(CType(6, Byte), Integer), CType(CType(176, Byte), Integer), CType(CType(238, Byte), Integer))
-        Me.print.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.print.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.print.ForeColor = System.Drawing.Color.White
-        Me.print.Location = New System.Drawing.Point(454, 163)
-        Me.print.Name = "print"
-        Me.print.Size = New System.Drawing.Size(166, 31)
-        Me.print.TabIndex = 116
-        Me.print.Text = "Print"
-        Me.print.UseVisualStyleBackColor = False
         '
         'panel_denied
         '
@@ -1041,5 +1026,4 @@ Partial Class Inspector_ApplicationRecord
     Friend WithEvents Label10 As Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Public WithEvents TxtAmount As System.Windows.Forms.TextBox
-    Friend WithEvents print As System.Windows.Forms.Button
 End Class
