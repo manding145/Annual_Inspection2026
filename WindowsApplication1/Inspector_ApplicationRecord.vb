@@ -103,7 +103,7 @@ Public Class Inspector_ApplicationRecord
                 conn1 = "INSERT INTO ONLINE.email_outbox (userid, accountno, Remarks, email, Subject, fullname, referencecode, datesend, assessment_path) " _
                    & "VALUES (@userid, @TxtAccountNo,  @Remarks, '" & txt_email.Text & "', 'Annual Inspection Assessment' ,@fullname, @TxtRefenceNo, @Date, @assessment_path)"
                 cmd_ms1 = New SqlCommand(conn1, Con_ms1)
-                cmd_ms1.Parameters.Add("@TxtAccountNo", SqlDbType.VarChar).Value = TxtAccountNo.Text & "_" & TxtBusinessName.Text
+                cmd_ms1.Parameters.Add("@TxtAccountNo", SqlDbType.VarChar).Value = TxtAccountNo.Text & "_" & TxtBldg_permit.Text
                 cmd_ms1.Parameters.Add("@fullname", SqlDbType.VarChar).Value = fullname.Text
                 cmd_ms1.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
                 cmd_ms1.Parameters.Add("@TxtRefenceNo", SqlDbType.VarChar).Value = TxtRefenceNo.Text
@@ -203,8 +203,8 @@ Public Class Inspector_ApplicationRecord
             cmd_ms = New SqlCommand(conn, Con_ms)
             cmd_ms.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
             cmd_ms.Parameters.Add("@accountno", SqlDbType.VarChar).Value = TxtAccountNo.Text
-            cmd_ms.Parameters.Add("@businessname", SqlDbType.VarChar).Value = TxtBusinessName.Text
-            cmd_ms.Parameters.Add("@businessowner", SqlDbType.VarChar).Value = TxtBusinessOwner.Text
+            cmd_ms.Parameters.Add("@businessname", SqlDbType.VarChar).Value = TxtBldg_permit.Text
+            cmd_ms.Parameters.Add("@businessowner", SqlDbType.VarChar).Value = TxtOccupancyPermit.Text
             cmd_ms.Parameters.Add("@businessaddress", SqlDbType.VarChar).Value = TxtBusinessAddress.Text
             cmd_ms.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
             cmd_ms.Parameters.Add("@user_update", SqlDbType.VarChar).Value = useraccountid.Text

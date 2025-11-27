@@ -35,19 +35,23 @@ Public Class InspectorDashBoard
                         .lbl_AccountNo.Text = rdr_ms("accountNo").ToString
                         .lbl_BusinessName.Text = rdr_ms("bussName").ToString
                         .TxtAccountNo.Text = rdr_ms("accountNo").ToString
-                        .TxtBusinessName.Text = rdr_ms("bussName").ToString
                         .txtBuildingAge.Text = rdr_ms("bldg_age").ToString
                         .TxtBusinessAddress.Text = rdr_ms("bussAddress").ToString
-                        .TxtBusinessOwner.Text = rdr_ms("ownerName").ToString
+
+                        .TxtBldg_permit.Text = rdr_ms("BldgPermit_No").ToString
+                        .TxtBldg_date.Text = rdr_ms("bldgPermit_IssuedDate").ToString
+                        .TxtOccupancyPermit.Text = rdr_ms("OccupPermit_No").ToString
+                        .TxtOccupancy_date.Text = rdr_ms("occuPermit_IssuedDate").ToString
+
                         .txt_applicationno.Text = rdr_ms("id").ToString
                         .txt_email.Text = rdr_ms("Email").ToString
                         .txt_contactno.Text = rdr_ms("ContactNo").ToString
                         .fullname.Text = rdr_ms("Firstname").ToString() + " " + rdr_ms("Middlename").ToString() + " " + rdr_ms("Lastname").ToString()
                         .useraccountid.Text = rdr_ms("userid").ToString()
                         .txt_remarks.Text = rdr_ms("remarks").ToString
+                        .LblBusinessOwner.Text = rdr_ms("ownerName").ToString
 
                         .Grid_attachments.Rows.Clear()
-
                         'attachments
                         conn_ms2 = "SELECT * FROM ONLINE.cho_attachment_m where Type = 'INS'"
                         Con_ms2 = New SqlConnection(mcs)
