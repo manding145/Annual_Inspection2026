@@ -22,9 +22,9 @@ Partial Class Inspector_ApplicationRecord
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Inspector_ApplicationRecord))
         Me.lbl_AccountNo = New System.Windows.Forms.Label()
         Me.lbl_BusinessName = New System.Windows.Forms.Label()
@@ -50,7 +50,6 @@ Partial Class Inspector_ApplicationRecord
         Me.B_assessAttach = New System.Windows.Forms.Button()
         Me.TxtBusinessAddress = New System.Windows.Forms.TextBox()
         Me.assessment_file = New System.Windows.Forms.TextBox()
-        Me.useraccountid = New System.Windows.Forms.TextBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.fullname = New System.Windows.Forms.TextBox()
         Me.Label20 = New System.Windows.Forms.Label()
@@ -70,6 +69,7 @@ Partial Class Inspector_ApplicationRecord
         Me.BtnRenew = New System.Windows.Forms.Button()
         Me.BtnEditRecord = New System.Windows.Forms.Button()
         Me.BtnSearchRecord = New System.Windows.Forms.Button()
+        Me.useraccountid = New System.Windows.Forms.TextBox()
         Me.Tab = New System.Windows.Forms.TabControl()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -83,21 +83,17 @@ Partial Class Inspector_ApplicationRecord
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.panel_Approved = New System.Windows.Forms.Panel()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.print = New System.Windows.Forms.Button()
         Me.panel_denied = New System.Windows.Forms.Panel()
         Me.Label26 = New System.Windows.Forms.Label()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Panel_pending = New System.Windows.Forms.Panel()
         Me.status_label = New System.Windows.Forms.Label()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel_ReUpload = New System.Windows.Forms.Panel()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
         Me.Age.SuspendLayout()
         Me.cmbAttachment.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -110,12 +106,12 @@ Partial Class Inspector_ApplicationRecord
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.panel_Approved.SuspendLayout()
-        Me.panel_denied.SuspendLayout()
-        Me.Panel_pending.SuspendLayout()
-        Me.Panel_ReUpload.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panel_denied.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel_pending.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel_ReUpload.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -215,27 +211,27 @@ Partial Class Inspector_ApplicationRecord
         Me.Grid_attachments.AllowUserToDeleteRows = False
         Me.Grid_attachments.BackgroundColor = System.Drawing.Color.White
         Me.Grid_attachments.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Grid_attachments.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Grid_attachments.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.Grid_attachments.ColumnHeadersHeight = 25
         Me.Grid_attachments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.Grid_attachments.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column4, Me.Column6, Me.Column5})
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle9.Format = "N2"
-        DataGridViewCellStyle9.NullValue = "0.00"
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Grid_attachments.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.Format = "N2"
+        DataGridViewCellStyle3.NullValue = "0.00"
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Grid_attachments.DefaultCellStyle = DataGridViewCellStyle3
         Me.Grid_attachments.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke
         Me.Grid_attachments.Location = New System.Drawing.Point(11, 17)
         Me.Grid_attachments.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
@@ -261,8 +257,8 @@ Partial Class Inspector_ApplicationRecord
         '
         'Column5
         '
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column5.HeaderText = "ACTION"
         Me.Column5.Name = "Column5"
         Me.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
@@ -273,17 +269,12 @@ Partial Class Inspector_ApplicationRecord
         Me.TabPage1.Controls.Add(Me.Label10)
         Me.TabPage1.Controls.Add(Me.Label12)
         Me.TabPage1.Controls.Add(Me.Label9)
-        Me.TabPage1.Controls.Add(Me.TextBox8)
         Me.TabPage1.Controls.Add(Me.TxtAmount)
-        Me.TabPage1.Controls.Add(Me.TextBox7)
         Me.TabPage1.Controls.Add(Me.txtBuildingAge)
-        Me.TabPage1.Controls.Add(Me.TextBox6)
         Me.TabPage1.Controls.Add(Me.TxtBusinessOwner)
-        Me.TabPage1.Controls.Add(Me.TextBox5)
         Me.TabPage1.Controls.Add(Me.TxtBusinessName)
         Me.TabPage1.Controls.Add(Me.Label2)
         Me.TabPage1.Controls.Add(Me.B_assessAttach)
-        Me.TabPage1.Controls.Add(Me.TextBox4)
         Me.TabPage1.Controls.Add(Me.TxtBusinessAddress)
         Me.TabPage1.Controls.Add(Me.assessment_file)
         Me.TabPage1.Controls.Add(Me.GroupBox3)
@@ -431,18 +422,6 @@ Partial Class Inspector_ApplicationRecord
         Me.assessment_file.Name = "assessment_file"
         Me.assessment_file.Size = New System.Drawing.Size(330, 26)
         Me.assessment_file.TabIndex = 191
-        '
-        'useraccountid
-        '
-        Me.useraccountid.BackColor = System.Drawing.Color.AliceBlue
-        Me.useraccountid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.useraccountid.Enabled = False
-        Me.useraccountid.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.useraccountid.Location = New System.Drawing.Point(698, 161)
-        Me.useraccountid.Name = "useraccountid"
-        Me.useraccountid.Size = New System.Drawing.Size(110, 22)
-        Me.useraccountid.TabIndex = 186
-        Me.useraccountid.Visible = False
         '
         'GroupBox3
         '
@@ -663,6 +642,18 @@ Partial Class Inspector_ApplicationRecord
         Me.BtnSearchRecord.UseVisualStyleBackColor = False
         Me.BtnSearchRecord.Visible = False
         '
+        'useraccountid
+        '
+        Me.useraccountid.BackColor = System.Drawing.Color.AliceBlue
+        Me.useraccountid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.useraccountid.Enabled = False
+        Me.useraccountid.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.useraccountid.Location = New System.Drawing.Point(698, 161)
+        Me.useraccountid.Name = "useraccountid"
+        Me.useraccountid.Size = New System.Drawing.Size(110, 22)
+        Me.useraccountid.TabIndex = 186
+        Me.useraccountid.Visible = False
+        '
         'Tab
         '
         Me.Tab.Controls.Add(Me.TabPage1)
@@ -791,6 +782,7 @@ Partial Class Inspector_ApplicationRecord
         '
         Me.Panel2.BackColor = System.Drawing.Color.White
         Me.Panel2.Controls.Add(Me.panel_Approved)
+        Me.Panel2.Controls.Add(Me.print)
         Me.Panel2.Controls.Add(Me.panel_denied)
         Me.Panel2.Controls.Add(Me.Panel_pending)
         Me.Panel2.Controls.Add(Me.Panel_ReUpload)
@@ -826,6 +818,28 @@ Partial Class Inspector_ApplicationRecord
         Me.Label11.TabIndex = 108
         Me.Label11.Text = "APPROVED"
         '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = Global.WindowsApplication1.My.Resources.Resources.check
+        Me.PictureBox4.Location = New System.Drawing.Point(3, 4)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(32, 26)
+        Me.PictureBox4.TabIndex = 106
+        Me.PictureBox4.TabStop = False
+        '
+        'print
+        '
+        Me.print.BackColor = System.Drawing.Color.FromArgb(CType(CType(6, Byte), Integer), CType(CType(176, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.print.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.print.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.print.ForeColor = System.Drawing.Color.White
+        Me.print.Location = New System.Drawing.Point(454, 163)
+        Me.print.Name = "print"
+        Me.print.Size = New System.Drawing.Size(166, 31)
+        Me.print.TabIndex = 116
+        Me.print.Text = "Print"
+        Me.print.UseVisualStyleBackColor = False
+        '
         'panel_denied
         '
         Me.panel_denied.Controls.Add(Me.Label26)
@@ -846,6 +860,15 @@ Partial Class Inspector_ApplicationRecord
         Me.Label26.Size = New System.Drawing.Size(59, 15)
         Me.Label26.TabIndex = 107
         Me.Label26.Text = "DENIED"
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = Global.WindowsApplication1.My.Resources.Resources.no_entry
+        Me.PictureBox3.Location = New System.Drawing.Point(6, 4)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(32, 26)
+        Me.PictureBox3.TabIndex = 106
+        Me.PictureBox3.TabStop = False
         '
         'Panel_pending
         '
@@ -868,6 +891,15 @@ Partial Class Inspector_ApplicationRecord
         Me.status_label.TabIndex = 107
         Me.status_label.Text = "PENDING"
         '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.WindowsApplication1.My.Resources.Resources.pending__1_
+        Me.PictureBox2.Location = New System.Drawing.Point(9, 5)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(26, 21)
+        Me.PictureBox2.TabIndex = 106
+        Me.PictureBox2.TabStop = False
+        '
         'Panel_ReUpload
         '
         Me.Panel_ReUpload.Controls.Add(Me.Label8)
@@ -889,33 +921,6 @@ Partial Class Inspector_ApplicationRecord
         Me.Label8.TabIndex = 107
         Me.Label8.Text = "RE-UPLOAD"
         '
-        'PictureBox4
-        '
-        Me.PictureBox4.Image = Global.WindowsApplication1.My.Resources.Resources.check
-        Me.PictureBox4.Location = New System.Drawing.Point(3, 4)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(32, 26)
-        Me.PictureBox4.TabIndex = 106
-        Me.PictureBox4.TabStop = False
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.Image = Global.WindowsApplication1.My.Resources.Resources.no_entry
-        Me.PictureBox3.Location = New System.Drawing.Point(6, 4)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(32, 26)
-        Me.PictureBox3.TabIndex = 106
-        Me.PictureBox3.TabStop = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.WindowsApplication1.My.Resources.Resources.pending__1_
-        Me.PictureBox2.Location = New System.Drawing.Point(9, 5)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(26, 21)
-        Me.PictureBox2.TabIndex = 106
-        Me.PictureBox2.TabStop = False
-        '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.WindowsApplication1.My.Resources.Resources.pending
@@ -925,70 +930,6 @@ Partial Class Inspector_ApplicationRecord
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 106
         Me.PictureBox1.TabStop = False
-        '
-        'TextBox4
-        '
-        Me.TextBox4.BackColor = System.Drawing.Color.AliceBlue
-        Me.TextBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox4.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox4.Enabled = False
-        Me.TextBox4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(106, 134)
-        Me.TextBox4.Multiline = True
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(246, 26)
-        Me.TextBox4.TabIndex = 191
-        '
-        'TextBox5
-        '
-        Me.TextBox5.BackColor = System.Drawing.Color.AliceBlue
-        Me.TextBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox5.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox5.Enabled = False
-        Me.TextBox5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(106, 69)
-        Me.TextBox5.Multiline = True
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(246, 26)
-        Me.TextBox5.TabIndex = 195
-        '
-        'TextBox6
-        '
-        Me.TextBox6.BackColor = System.Drawing.Color.AliceBlue
-        Me.TextBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox6.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox6.Enabled = False
-        Me.TextBox6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(106, 102)
-        Me.TextBox6.Multiline = True
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(246, 26)
-        Me.TextBox6.TabIndex = 196
-        '
-        'TextBox7
-        '
-        Me.TextBox7.BackColor = System.Drawing.Color.AliceBlue
-        Me.TextBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox7.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox7.Enabled = False
-        Me.TextBox7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox7.Location = New System.Drawing.Point(106, 166)
-        Me.TextBox7.Multiline = True
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(246, 26)
-        Me.TextBox7.TabIndex = 197
-        '
-        'TextBox8
-        '
-        Me.TextBox8.BackColor = System.Drawing.Color.AliceBlue
-        Me.TextBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox8.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TextBox8.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox8.Location = New System.Drawing.Point(106, 198)
-        Me.TextBox8.Multiline = True
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(246, 26)
-        Me.TextBox8.TabIndex = 197
         '
         'Inspector_ApplicationRecord
         '
@@ -1020,15 +961,15 @@ Partial Class Inspector_ApplicationRecord
         Me.Panel2.PerformLayout()
         Me.panel_Approved.ResumeLayout(False)
         Me.panel_Approved.PerformLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panel_denied.ResumeLayout(False)
         Me.panel_denied.PerformLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel_pending.ResumeLayout(False)
         Me.Panel_pending.PerformLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel_ReUpload.ResumeLayout(False)
         Me.Panel_ReUpload.PerformLayout()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -1100,9 +1041,5 @@ Partial Class Inspector_ApplicationRecord
     Friend WithEvents Label10 As Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Public WithEvents TxtAmount As System.Windows.Forms.TextBox
-    Public WithEvents TextBox8 As System.Windows.Forms.TextBox
-    Public WithEvents TextBox7 As System.Windows.Forms.TextBox
-    Public WithEvents TextBox6 As System.Windows.Forms.TextBox
-    Public WithEvents TextBox5 As System.Windows.Forms.TextBox
-    Public WithEvents TextBox4 As System.Windows.Forms.TextBox
+    Friend WithEvents print As System.Windows.Forms.Button
 End Class

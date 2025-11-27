@@ -55,8 +55,6 @@ Public Class IssuedPermit
     End Sub
 
 
-    End Sub
-
   
 
     Private Sub ORlink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)

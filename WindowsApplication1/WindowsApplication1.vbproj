@@ -303,6 +303,12 @@
       <DependentUpon>InspectionRecord.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="InspectionRecord1.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InspectionRecord.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="InspectorDashBoard.Designer.vb">
       <DependentUpon>InspectorDashBoard.vb</DependentUpon>
     </Compile>
@@ -402,6 +408,12 @@
     </Compile>
     <Compile Include="PaymentDashboard.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print_InspectionRecord.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Print_InspectionRecord.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="ReUpload.Designer.vb">
       <DependentUpon>ReUpload.vb</DependentUpon>
@@ -524,7 +536,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InspectionRecord.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>InspectionRecord.vb</LastGenOutput>
+      <LastGenOutput>InspectionRecord1.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="InspectorDashBoard.resx">
       <DependentUpon>InspectorDashBoard.vb</DependentUpon>
@@ -573,6 +585,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PaymentDashboard.resx">
       <DependentUpon>PaymentDashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print_InspectionRecord.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Print_InspectionRecord.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ReUpload.resx">
       <DependentUpon>ReUpload.vb</DependentUpon>

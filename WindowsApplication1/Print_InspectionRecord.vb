@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class InspectionRecord
+Public Class Print_InspectionRecord
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class InspectionRecord
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "InspectionRecord.rpt"
+            Return "Print_InspectionRecord.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class InspectionRecord
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "WindowsApplication1.InspectionRecord.rpt"
+            Return "WindowsApplication1.Print_InspectionRecord.rpt"
         End Get
         Set
             'Do nothing
@@ -94,7 +94,7 @@ Public Class InspectionRecord
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedInspectionRecord
+Public Class CachedPrint_InspectionRecord
     Inherits Component
     Implements ICachedReport
     
@@ -136,7 +136,7 @@ Public Class CachedInspectionRecord
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As InspectionRecord = New InspectionRecord()
+        Dim rpt As Print_InspectionRecord = New Print_InspectionRecord()
         rpt.Site = Me.Site
         Return rpt
     End Function

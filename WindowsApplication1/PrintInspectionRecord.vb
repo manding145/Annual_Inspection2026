@@ -13,120 +13,94 @@ Public Class PrintInspectionRecord
     End Sub
 
     Private Sub GetReport()
+        Try
 
+    
         Dim inspector_ApplicationRecord As Inspector_ApplicationRecord = CType(Application.OpenForms("Inspector_ApplicationRecord"), Inspector_ApplicationRecord)
 
-        rpt.Load(Application.StartupPath & "\InspectionRecord.rpt")
-        Dim pfields As New ParameterFields
+            rpt.Load(Application.StartupPath & "\InspectionRecord.rpt")
+
+            'Dim pfields As New ParameterFields
 
 
-      
-        'Dim TxtBusinessName As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtBusinessName")
-        'Dim TxtAccountNo As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtAccountNo")
-        'Dim TxtBarangayName As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtBarangayName")
-        'Dim TxtBusinessAddress As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtBusinessAddress")
-        'Dim TxtContact As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtContact")
-        'Dim TxtNumberofEmployees As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtNumberofEmployees")
-        'Dim TxtTaxPayer As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtTaxPayer")
-        'Dim TxtOwnerAddress As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtOwnerAddress")
-        'Dim TxtNatureBusiness As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtNatureBusiness")
-        'Dim TxtBusinessLine As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtBusinessLine")
-        'Dim TxtOR As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtOR")
-        'Dim TxtAmount As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtAmount")
-        'Dim TxtDatePaid As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtDatePaid")
-        'Dim txt_Date_issued As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_Date_issued")
-        'Dim txt_date_expiry As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_date_expiry")
-        'Dim txt_permit_no As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_permit_no")
-        'Dim txt_permit_year As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_permit_year")
-        'Dim txt_signatory_position As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_signatory_position")
-        'Dim txt_licenseinspector As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_licenseinspector")
-        'Dim txt_signatories As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_signatories")
-        'Dim txt_year1 As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_year1")
-        'Dim txtBusinessID As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txtBusinessID")
-        'Dim txt_businessname1 As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_businessname1")
-        'Dim txt_businessaddress1 As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_businessaddress1")
-        'Dim txt_businessnature1 As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_businessnature1")
-        'Dim txt_owner1 As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_owner1")
-        'Dim txt_owneraddress1 As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_owneraddress1")
-        'Dim txt_permitno1 As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_permitno1")
-        'Dim txt_remarks1 As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_remarks1")
-        'Dim txt_contact1 As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_contact1")
-        'Dim txt_barangay1 As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_barangay1")
-        '' Dim txt_ownernumber As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_ownernumber")
-        'Dim date_issued1 As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("date_issued1")
-        'Dim txt_accountno1 As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_accountno1")
-        ''Dim txt_dateissued1 As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_dateissued1")
-        'Dim txt_paidamount1 As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_paidamount1")
-        'Dim txt_ownernumber1 As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_ownernumber1")
-        'Dim txt_expirydate1 As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_expirydate1")
-        'Dim txt_datepaid1 As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_datepaid1")
-        'Dim txt_businessid1 As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_businessid1")
-        'Dim txt_ornumber1 As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txt_ornumber1")
-        'Dim txtnature As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("txtnature")
+        Dim TxtAccountNo As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtAccountNo")
+        Dim TxtBusinessName As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtBusinessName")
+        Dim TxtBuildingOwner As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtBuildingOwner")
+        Dim TxtBusinessAddress As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtBusinessAddress")
+        Dim TxtContact As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtContactNo")
+        Dim TxtNoStorey As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtNoStorey")
+        Dim TxtBuildingPermit As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtBuildingPermit")
+        Dim TxtBldg_date As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtBldg_date")
+        Dim TxtOccupancyPermit As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtOccupancyPermit")
+        Dim TxtOccupancy_date As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtOccupancy_date")
 
+        Dim TxtOR_date As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtOR_date")
+        Dim TxtOR_no As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtOR_no")
+        Dim TxtAmount As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtAmount")
+        Dim TxtOR_remarks As CrystalDecisions.CrystalReports.Engine.TextObject = rpt.ReportDefinition.Sections(3).ReportObjects("TxtOR_remarks")
 
-        With MayorsPermitControl
+        With inspector_ApplicationRecord
 
-            'Dim NUMBERKO As Integer
-            'NUMBERKO = .txt_permitNumber.Text
-            'txt_businessid1.Text = .mBIN
-            'txtBusinessID.Text = .mBIN
-            'txt_permit_no.Text = Format(NUMBERKO, "00000")
-            'txt_permit_year.Text = .myear
-            'txt_year1.Text = .myear
-            'TxtAccountNo.Text = .txt_AccountNo.Text
-            'TxtBusinessName.Text = .txt_tradename.Text
-            'TxtBarangayName.Text = .mBarangayName
-            'TxtBusinessAddress.Text = .mBusinessAddress
-            'TxtContact.Text = .mPhone
-            'TxtNumberofEmployees.Text = .mEmployees
-            'TxtTaxPayer.Text = .mOwnerName
-            'TxtOwnerAddress.Text = .mowneraddress
-            'TxtNatureBusiness.Text = .mBusinessNatureDescription
-            'TxtBusinessLine.Text = .mBusinessLineDescription
-            'txtnature.Text = .mBusinessLineDescription
-            'TxtOR.Text = .txt_ORNumber.Text
-            'TxtAmount.Text = .txt_AmountPaid.Text
-            'TxtDatePaid.Text = .txt_datepayment.Text
-            'txt_Date_issued.Text = Format(Date.Now, "MM/dd/yyyy")
-            'txt_date_expiry.Text = "12/31/" & Now.Year
-            'txt_licenseinspector.Text = lblfname1
-            'txt_signatories.Text = .cmb_signatories.Text
-            'txt_signatory_position.Text = .txt_position.Text
-            'txt_businessname1.Text = .mBusinessname
-            'txt_businessaddress1.Text = .mBusinessAddress
-            'txt_businessnature1.Text = .mBusinessNatureDescription
-            'txt_owner1.Text = .mOwnerName
-            'txt_owneraddress1.Text = .mowneraddress
-            'txt_permitno1.Text = Format(NUMBERKO, "00000")
-            'txt_remarks1.Text = .txt_remarks.Text
-            'txt_contact1.Text = .mPhone
-            'txt_barangay1.Text = .mBarangayName
+                TxtAccountNo.Text = .txt_applicationno.Text
+                Con_ms = New SqlConnection(mcs)
+                Con_ms.Open()
+                conn = "SELECT * FROM ONLINE.annual_inspection_application WHERE id = '" & TxtAccountNo.Text & "' "
+                cmd_ms = New SqlCommand(conn, Con_ms)
+                rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
+                If rdr_ms.Read() Then
 
-            'txt_ornumber1.Text = .mORNumber
-            'date_issued1.Text = Format(Date.Now, "MM/dd/yyyy")
-            'txt_accountno1.Text = .txt_AccountNo.Text
+                    TxtBusinessName.Text = rdr_ms("bussName")
+                    TxtBuildingOwner.Text = rdr_ms("ownerName")
+                    TxtBusinessAddress.Text = rdr_ms("bussAddress")
 
-            'txt_paidamount1.Text = .txt_AmountPaid.Text
-            'txt_ownernumber1.Text = .mPhone
-            'txt_expirydate1.Text = "12/31/" & Now.Year
-            'txt_datepaid1.Text = .txt_datepayment.Text
+                    TxtNoStorey.Text = rdr_ms("noStorey")
+                    TxtBuildingPermit.Text = rdr_ms("BldgPermit_No")
+                    TxtBldg_date.Text = rdr_ms("BldgPermit_IssuedDate")
+                    TxtOccupancyPermit.Text = rdr_ms("OccupPermit_No")
+                    TxtOccupancy_date.Text = rdr_ms("occuPermit_IssuedDate")
 
+                    If Not IsDBNull(rdr_ms("OR_No")) AndAlso rdr_ms("OR_No").ToString <> "" Then
+
+                        TxtOR_no.Text = rdr_ms("OR_No")
+                        TxtAmount.Text = rdr_ms("payment_amount")
+                        TxtOR_remarks.Text = rdr_ms("OR_remarks")
+
+                        If Not IsDBNull(rdr_ms("paid_date")) Then
+                            TxtOR_date.Text = Format(CDate(rdr_ms("paid_date")), "yyyy-MM-dd")
+                        End If
+
+                    End If
+
+                    Con_ms1 = New SqlConnection(mcs)
+                    Con_ms1.Open()
+                    conn1 = "SELECT * FROM ONLINE.Sysmngr WHERE userId = '" & .useraccountid.Text & "' "
+                    cmd_ms1 = New SqlCommand(conn1, Con_ms1)
+                    rdr_ms1 = cmd_ms1.ExecuteReader(CommandBehavior.CloseConnection)
+                    If rdr_ms1.Read() Then
+                        TxtContact.Text = rdr_ms1("ContactNo")
+                    End If
+                    Con_ms1.Close()
+                End If
 
         End With
-        rpt.SetDatabaseLogon("usera2", "passa2")
-        CrystalReportViewer1.ReportSource = rpt
-        CrystalReportViewer1.ParameterFieldInfo = pfields
-        CrystalReportViewer1.Show()
 
+            'rpt.SetDatabaseLogon("sa", "@dm1n1str@t0r")
+            CrystalReportViewer1.ReportSource = rpt
+            'CrystalReportViewer1.ParameterFieldInfo = pfields
+            CrystalReportViewer1.Show()
 
-
-
-
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Con_ms1.Close()
+            Con_ms.Close()
+        End Try
+        Con_ms1.Close()
+        Con_ms.Close()
     End Sub
 
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub B_print_Click(sender As Object, e As EventArgs) Handles B_print.Click
         Call GetReport()
     End Sub
+
+
 End Class

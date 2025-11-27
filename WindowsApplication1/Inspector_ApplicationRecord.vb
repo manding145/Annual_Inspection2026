@@ -100,9 +100,9 @@ Public Class Inspector_ApplicationRecord
 
                 Con_ms1 = New SqlConnection(mcs)
                 Con_ms1.Open()
-                conn = "INSERT INTO ONLINE.email_outbox (userid, accountno, Remarks, email, Subject, fullname, referencecode, datesend, assessment_path) " _
+                conn1 = "INSERT INTO ONLINE.email_outbox (userid, accountno, Remarks, email, Subject, fullname, referencecode, datesend, assessment_path) " _
                    & "VALUES (@userid, @TxtAccountNo,  @Remarks, '" & txt_email.Text & "', 'Annual Inspection Assessment' ,@fullname, @TxtRefenceNo, @Date, @assessment_path)"
-                cmd_ms1 = New SqlCommand(conn, Con_ms1)
+                cmd_ms1 = New SqlCommand(conn1, Con_ms1)
                 cmd_ms1.Parameters.Add("@TxtAccountNo", SqlDbType.VarChar).Value = TxtAccountNo.Text & "_" & TxtBusinessName.Text
                 cmd_ms1.Parameters.Add("@fullname", SqlDbType.VarChar).Value = fullname.Text
                 cmd_ms1.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
@@ -173,7 +173,7 @@ Public Class Inspector_ApplicationRecord
     End Sub
 
 
-    Private Sub TxtAmount_LostFocus(sender As Object, e As EventArgs) Handles TxtAmount.LostFocus, TextBox8.LostFocus
+    Private Sub TxtAmount_LostFocus(sender As Object, e As EventArgs) Handles TxtAmount.LostFocus
         TxtAmount.Text = Val(TxtAmount.Text).ToString("N2")
     End Sub
 
@@ -206,5 +206,9 @@ Public Class Inspector_ApplicationRecord
         Con_ms.Close()
 
         MsgBox("Annual Inspection Already Signed", vbOKOnly & vbInformation, "Annual Inspection Online")
+    End Sub
+
+    Private Sub print_Click(sender As Object, e As EventArgs) Handles print.Click
+        PrintInspectionRecord.Show()
     End Sub
 End Class

@@ -15,27 +15,6 @@ Module Connection
     Public folder_directory = "ANNUAL_INSPECTION_APPLICATION\"
 
 
-
-
-    'mysql string
-    'Public Con As MySqlConnection
-    'Public cmd As MySqlCommand
-    'Public rdr As MySqlDataReader = Nothing
-    'Public adp As MySqlDataAdapter
-    'Public sbuldr As MySqlCommandBuilder
-
-    'Public Con2 As MySqlConnection
-    'Public cmd2 As MySqlCommand
-    'Public rdr2 As MySqlDataReader = Nothing
-    'Public adp2 As MySqlDataAdapter
-    'Public sbuldr2 As MySqlCommandBuilder
-
-    'Public Con6 As MySqlConnection
-    'Public cmd6 As MySqlCommand
-    'Public rdr6 As MySqlDataReader = Nothing
-    'Public adp6 As MySqlDataAdapter
-    'Public sbuldr6 As MySqlCommandBuilder
-
     Public conn, conn2, PhoneNumber As String
     Public type_transaction As Integer
 
