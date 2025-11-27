@@ -75,10 +75,7 @@ Public Class IssuedPermit
         End Try
     End Sub
 
-    Private Sub B_Signed_Click(sender As Object, e As EventArgs)
-
-
-    End Sub
+    
 
     Private Sub B_Issued_Click(sender As Object, e As EventArgs) Handles B_Issued.Click
 
@@ -171,8 +168,8 @@ Public Class IssuedPermit
             cmd_ms.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
             cmd_ms.ExecuteNonQuery()
             Con_ms.Close()
-
             MsgBox("Annual Inspection Signed successfully", vbOKOnly & vbInformation, "Annual Inspection Online")
+            PrintInspectionRecord.Show()
 
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -197,5 +194,17 @@ Public Class IssuedPermit
         End If
 
     End Sub
+    Private Sub B_Signed_Click(sender As Object, e As EventArgs) Handles B_Signed.Click
 
+        Con_ms1 = New SqlConnection(mcs)
+        Con_ms1.Open()
+        conn_ms1 = "UPDATE ONLINE.annual_inspection_application SET app_status = 'SD', Signed_date = @Date where id='" & TxtApplicationID.Text & "'"
+        cmd_ms1 = New SqlCommand(conn_ms1, Con_ms1)
+        cmd_ms1.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
+        cmd_ms1.ExecuteNonQuery()
+        Con_ms1.Close()
+        MsgBox("Annual Inspection Already Signed", vbOKOnly & vbInformation, "Annual Inspection Online")
+
+
+    End Sub
 End Class
