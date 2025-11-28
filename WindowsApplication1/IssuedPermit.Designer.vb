@@ -35,7 +35,15 @@ Partial Class IssuedPermit
         Me.TxtAccountNo = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.useraccountid = New System.Windows.Forms.TextBox()
-        Me.typeofapplication = New System.Windows.Forms.Panel()
+        Me.label32 = New System.Windows.Forms.Panel()
+        Me.TxtOccupancy_date = New System.Windows.Forms.TextBox()
+        Me.TxtOccupancyPermit = New System.Windows.Forms.TextBox()
+        Me.TxtBldg_date = New System.Windows.Forms.TextBox()
+        Me.TxtBldg_permit = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.TxtNoStorey = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.Lbl_Upload = New System.Windows.Forms.Label()
         Me.B_IssuedAttach = New System.Windows.Forms.Button()
         Me.Issued_file = New System.Windows.Forms.TextBox()
@@ -49,7 +57,7 @@ Partial Class IssuedPermit
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtBuildingAge = New System.Windows.Forms.TextBox()
-        Me.TxtBusinessAddress = New System.Windows.Forms.TextBox()
+        Me.TxtBuildingAddress = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TxtOwnerName = New System.Windows.Forms.TextBox()
@@ -57,10 +65,13 @@ Partial Class IssuedPermit
         Me.TxtApplicationID = New System.Windows.Forms.TextBox()
         Me.B_Issued = New System.Windows.Forms.Button()
         Me.AxAcroPDF2 = New AxAcroPDFLib.AxAcroPDF()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         CType(Me.AxAcroPDF1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.typeofapplication.SuspendLayout()
+        Me.label32.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.AxAcroPDF2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'referencono
@@ -70,18 +81,18 @@ Partial Class IssuedPermit
         Me.referencono.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.referencono.Enabled = False
         Me.referencono.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.referencono.Location = New System.Drawing.Point(22, 43)
+        Me.referencono.Location = New System.Drawing.Point(37, 69)
         Me.referencono.Multiline = True
         Me.referencono.Name = "referencono"
         Me.referencono.ReadOnly = True
-        Me.referencono.Size = New System.Drawing.Size(687, 31)
+        Me.referencono.Size = New System.Drawing.Size(620, 31)
         Me.referencono.TabIndex = 157
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(22, 24)
+        Me.Label1.Location = New System.Drawing.Point(37, 50)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(90, 13)
         Me.Label1.TabIndex = 158
@@ -103,9 +114,9 @@ Partial Class IssuedPermit
         Me.BtnSearchRecord.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnSearchRecord.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSearchRecord.ForeColor = System.Drawing.Color.White
-        Me.BtnSearchRecord.Location = New System.Drawing.Point(776, 46)
+        Me.BtnSearchRecord.Location = New System.Drawing.Point(685, 72)
         Me.BtnSearchRecord.Name = "BtnSearchRecord"
-        Me.BtnSearchRecord.Size = New System.Drawing.Size(184, 31)
+        Me.BtnSearchRecord.Size = New System.Drawing.Size(166, 31)
         Me.BtnSearchRecord.TabIndex = 156
         Me.BtnSearchRecord.Text = "Search &Record"
         Me.BtnSearchRecord.UseVisualStyleBackColor = False
@@ -117,9 +128,9 @@ Partial Class IssuedPermit
         Me.UploadScannedReceipt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.UploadScannedReceipt.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UploadScannedReceipt.ForeColor = System.Drawing.Color.White
-        Me.UploadScannedReceipt.Location = New System.Drawing.Point(776, 9)
+        Me.UploadScannedReceipt.Location = New System.Drawing.Point(685, 35)
         Me.UploadScannedReceipt.Name = "UploadScannedReceipt"
-        Me.UploadScannedReceipt.Size = New System.Drawing.Size(184, 31)
+        Me.UploadScannedReceipt.Size = New System.Drawing.Size(166, 31)
         Me.UploadScannedReceipt.TabIndex = 171
         Me.UploadScannedReceipt.Text = "&Upload Scanned Receipt"
         Me.UploadScannedReceipt.UseVisualStyleBackColor = False
@@ -131,12 +142,12 @@ Partial Class IssuedPermit
         Me.TxtBusinessName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtBusinessName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtBusinessName.Enabled = False
-        Me.TxtBusinessName.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtBusinessName.Location = New System.Drawing.Point(14, 150)
+        Me.TxtBusinessName.Font = New System.Drawing.Font("Segoe UI", 8.0!)
+        Me.TxtBusinessName.Location = New System.Drawing.Point(14, 170)
         Me.TxtBusinessName.Multiline = True
         Me.TxtBusinessName.Name = "TxtBusinessName"
         Me.TxtBusinessName.ReadOnly = True
-        Me.TxtBusinessName.Size = New System.Drawing.Size(570, 26)
+        Me.TxtBusinessName.Size = New System.Drawing.Size(462, 22)
         Me.TxtBusinessName.TabIndex = 162
         '
         'TxtAmountPaid
@@ -157,7 +168,7 @@ Partial Class IssuedPermit
         Me.B_SentNotification.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.B_SentNotification.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.B_SentNotification.ForeColor = System.Drawing.Color.White
-        Me.B_SentNotification.Location = New System.Drawing.Point(13, 278)
+        Me.B_SentNotification.Location = New System.Drawing.Point(12, 371)
         Me.B_SentNotification.Name = "B_SentNotification"
         Me.B_SentNotification.Size = New System.Drawing.Size(241, 32)
         Me.B_SentNotification.TabIndex = 172
@@ -167,7 +178,7 @@ Partial Class IssuedPermit
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(13, 45)
+        Me.Label9.Location = New System.Drawing.Point(13, 31)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(64, 13)
         Me.Label9.TabIndex = 174
@@ -179,18 +190,18 @@ Partial Class IssuedPermit
         Me.TxtAccountNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtAccountNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtAccountNo.Enabled = False
-        Me.TxtAccountNo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtAccountNo.Location = New System.Drawing.Point(14, 61)
+        Me.TxtAccountNo.Font = New System.Drawing.Font("Segoe UI", 8.0!)
+        Me.TxtAccountNo.Location = New System.Drawing.Point(14, 47)
         Me.TxtAccountNo.Multiline = True
         Me.TxtAccountNo.Name = "TxtAccountNo"
         Me.TxtAccountNo.ReadOnly = True
-        Me.TxtAccountNo.Size = New System.Drawing.Size(437, 26)
+        Me.TxtAccountNo.Size = New System.Drawing.Size(243, 22)
         Me.TxtAccountNo.TabIndex = 175
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(13, 90)
+        Me.Label2.Location = New System.Drawing.Point(13, 113)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(72, 13)
         Me.Label2.TabIndex = 174
@@ -201,47 +212,149 @@ Partial Class IssuedPermit
         Me.useraccountid.BackColor = System.Drawing.Color.AliceBlue
         Me.useraccountid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.useraccountid.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.useraccountid.Location = New System.Drawing.Point(717, 47)
+        Me.useraccountid.Location = New System.Drawing.Point(578, 50)
         Me.useraccountid.Name = "useraccountid"
         Me.useraccountid.Size = New System.Drawing.Size(197, 22)
         Me.useraccountid.TabIndex = 187
         Me.useraccountid.Visible = False
         '
-        'typeofapplication
+        'label32
         '
-        Me.typeofapplication.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.typeofapplication.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.typeofapplication.Controls.Add(Me.Lbl_Upload)
-        Me.typeofapplication.Controls.Add(Me.B_IssuedAttach)
-        Me.typeofapplication.Controls.Add(Me.Issued_file)
-        Me.typeofapplication.Controls.Add(Me.B_Signed)
-        Me.typeofapplication.Controls.Add(Me.GroupBox3)
-        Me.typeofapplication.Controls.Add(Me.Label6)
-        Me.typeofapplication.Controls.Add(Me.txtBuildingAge)
-        Me.typeofapplication.Controls.Add(Me.TxtBusinessAddress)
-        Me.typeofapplication.Controls.Add(Me.Label7)
-        Me.typeofapplication.Controls.Add(Me.Label8)
-        Me.typeofapplication.Controls.Add(Me.TxtOwnerName)
-        Me.typeofapplication.Controls.Add(Me.useraccountid)
-        Me.typeofapplication.Controls.Add(Me.Type_App)
-        Me.typeofapplication.Controls.Add(Me.TxtApplicationID)
-        Me.typeofapplication.Controls.Add(Me.Label2)
-        Me.typeofapplication.Controls.Add(Me.TxtAccountNo)
-        Me.typeofapplication.Controls.Add(Me.Label9)
-        Me.typeofapplication.Controls.Add(Me.B_Issued)
-        Me.typeofapplication.Controls.Add(Me.B_SentNotification)
-        Me.typeofapplication.Controls.Add(Me.TxtAmountPaid)
-        Me.typeofapplication.Controls.Add(Me.TxtBusinessName)
-        Me.typeofapplication.Location = New System.Drawing.Point(22, 98)
-        Me.typeofapplication.Name = "typeofapplication"
-        Me.typeofapplication.Size = New System.Drawing.Size(947, 376)
-        Me.typeofapplication.TabIndex = 159
+        Me.label32.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.label32.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.label32.Controls.Add(Me.TxtOccupancy_date)
+        Me.label32.Controls.Add(Me.TxtOccupancyPermit)
+        Me.label32.Controls.Add(Me.TxtBldg_date)
+        Me.label32.Controls.Add(Me.TxtBldg_permit)
+        Me.label32.Controls.Add(Me.Label10)
+        Me.label32.Controls.Add(Me.Label11)
+        Me.label32.Controls.Add(Me.TxtNoStorey)
+        Me.label32.Controls.Add(Me.Label3)
+        Me.label32.Controls.Add(Me.Lbl_Upload)
+        Me.label32.Controls.Add(Me.B_IssuedAttach)
+        Me.label32.Controls.Add(Me.Issued_file)
+        Me.label32.Controls.Add(Me.B_Signed)
+        Me.label32.Controls.Add(Me.GroupBox3)
+        Me.label32.Controls.Add(Me.Label6)
+        Me.label32.Controls.Add(Me.txtBuildingAge)
+        Me.label32.Controls.Add(Me.TxtBuildingAddress)
+        Me.label32.Controls.Add(Me.Label7)
+        Me.label32.Controls.Add(Me.Label8)
+        Me.label32.Controls.Add(Me.TxtOwnerName)
+        Me.label32.Controls.Add(Me.useraccountid)
+        Me.label32.Controls.Add(Me.Type_App)
+        Me.label32.Controls.Add(Me.TxtApplicationID)
+        Me.label32.Controls.Add(Me.Label2)
+        Me.label32.Controls.Add(Me.TxtAccountNo)
+        Me.label32.Controls.Add(Me.Label9)
+        Me.label32.Controls.Add(Me.B_Issued)
+        Me.label32.Controls.Add(Me.B_SentNotification)
+        Me.label32.Controls.Add(Me.TxtAmountPaid)
+        Me.label32.Controls.Add(Me.TxtBusinessName)
+        Me.label32.Location = New System.Drawing.Point(37, 109)
+        Me.label32.Name = "label32"
+        Me.label32.Size = New System.Drawing.Size(815, 447)
+        Me.label32.TabIndex = 159
+        '
+        'TxtOccupancy_date
+        '
+        Me.TxtOccupancy_date.BackColor = System.Drawing.Color.AliceBlue
+        Me.TxtOccupancy_date.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtOccupancy_date.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtOccupancy_date.Enabled = False
+        Me.TxtOccupancy_date.Font = New System.Drawing.Font("Segoe UI", 8.0!)
+        Me.TxtOccupancy_date.Location = New System.Drawing.Point(263, 253)
+        Me.TxtOccupancy_date.Multiline = True
+        Me.TxtOccupancy_date.Name = "TxtOccupancy_date"
+        Me.TxtOccupancy_date.Size = New System.Drawing.Size(213, 22)
+        Me.TxtOccupancy_date.TabIndex = 216
+        '
+        'TxtOccupancyPermit
+        '
+        Me.TxtOccupancyPermit.BackColor = System.Drawing.Color.AliceBlue
+        Me.TxtOccupancyPermit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtOccupancyPermit.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtOccupancyPermit.Enabled = False
+        Me.TxtOccupancyPermit.Font = New System.Drawing.Font("Segoe UI", 8.0!)
+        Me.TxtOccupancyPermit.Location = New System.Drawing.Point(14, 253)
+        Me.TxtOccupancyPermit.Multiline = True
+        Me.TxtOccupancyPermit.Name = "TxtOccupancyPermit"
+        Me.TxtOccupancyPermit.Size = New System.Drawing.Size(243, 22)
+        Me.TxtOccupancyPermit.TabIndex = 217
+        '
+        'TxtBldg_date
+        '
+        Me.TxtBldg_date.BackColor = System.Drawing.Color.AliceBlue
+        Me.TxtBldg_date.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtBldg_date.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtBldg_date.Enabled = False
+        Me.TxtBldg_date.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtBldg_date.Location = New System.Drawing.Point(263, 211)
+        Me.TxtBldg_date.Multiline = True
+        Me.TxtBldg_date.Name = "TxtBldg_date"
+        Me.TxtBldg_date.Size = New System.Drawing.Size(213, 22)
+        Me.TxtBldg_date.TabIndex = 214
+        '
+        'TxtBldg_permit
+        '
+        Me.TxtBldg_permit.BackColor = System.Drawing.Color.AliceBlue
+        Me.TxtBldg_permit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtBldg_permit.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtBldg_permit.Enabled = False
+        Me.TxtBldg_permit.Font = New System.Drawing.Font("Segoe UI", 8.0!)
+        Me.TxtBldg_permit.Location = New System.Drawing.Point(14, 211)
+        Me.TxtBldg_permit.Multiline = True
+        Me.TxtBldg_permit.Name = "TxtBldg_permit"
+        Me.TxtBldg_permit.Size = New System.Drawing.Size(243, 22)
+        Me.TxtBldg_permit.TabIndex = 215
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(13, 237)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(119, 13)
+        Me.Label10.TabIndex = 213
+        Me.Label10.Text = "Occupancy Permit No."
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(13, 195)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(106, 13)
+        Me.Label11.TabIndex = 212
+        Me.Label11.Text = "Building Permit No."
+        '
+        'TxtNoStorey
+        '
+        Me.TxtNoStorey.BackColor = System.Drawing.Color.AliceBlue
+        Me.TxtNoStorey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtNoStorey.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtNoStorey.Enabled = False
+        Me.TxtNoStorey.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtNoStorey.Location = New System.Drawing.Point(14, 335)
+        Me.TxtNoStorey.Name = "TxtNoStorey"
+        Me.TxtNoStorey.Size = New System.Drawing.Size(243, 22)
+        Me.TxtNoStorey.TabIndex = 210
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(13, 319)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(60, 13)
+        Me.Label3.TabIndex = 211
+        Me.Label3.Text = "Storey No:"
         '
         'Lbl_Upload
         '
         Me.Lbl_Upload.AutoSize = True
         Me.Lbl_Upload.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Lbl_Upload.Location = New System.Drawing.Point(13, 273)
+        Me.Lbl_Upload.Location = New System.Drawing.Point(13, 359)
         Me.Lbl_Upload.Name = "Lbl_Upload"
         Me.Lbl_Upload.Size = New System.Drawing.Size(139, 13)
         Me.Lbl_Upload.TabIndex = 209
@@ -250,9 +363,9 @@ Partial Class IssuedPermit
         'B_IssuedAttach
         '
         Me.B_IssuedAttach.Enabled = False
-        Me.B_IssuedAttach.Location = New System.Drawing.Point(511, 294)
+        Me.B_IssuedAttach.Location = New System.Drawing.Point(234, 375)
         Me.B_IssuedAttach.Name = "B_IssuedAttach"
-        Me.B_IssuedAttach.Size = New System.Drawing.Size(62, 26)
+        Me.B_IssuedAttach.Size = New System.Drawing.Size(62, 22)
         Me.B_IssuedAttach.TabIndex = 208
         Me.B_IssuedAttach.Text = "Upload"
         Me.B_IssuedAttach.UseVisualStyleBackColor = True
@@ -263,11 +376,11 @@ Partial Class IssuedPermit
         Me.Issued_file.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Issued_file.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Issued_file.Enabled = False
-        Me.Issued_file.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Issued_file.Location = New System.Drawing.Point(14, 294)
+        Me.Issued_file.Font = New System.Drawing.Font("Segoe UI", 8.0!)
+        Me.Issued_file.Location = New System.Drawing.Point(14, 375)
         Me.Issued_file.Multiline = True
         Me.Issued_file.Name = "Issued_file"
-        Me.Issued_file.Size = New System.Drawing.Size(509, 26)
+        Me.Issued_file.Size = New System.Drawing.Size(282, 22)
         Me.Issued_file.TabIndex = 207
         '
         'B_Signed
@@ -276,7 +389,7 @@ Partial Class IssuedPermit
         Me.B_Signed.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.B_Signed.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.B_Signed.ForeColor = System.Drawing.Color.White
-        Me.B_Signed.Location = New System.Drawing.Point(13, 278)
+        Me.B_Signed.Location = New System.Drawing.Point(13, 371)
         Me.B_Signed.Name = "B_Signed"
         Me.B_Signed.Size = New System.Drawing.Size(240, 32)
         Me.B_Signed.TabIndex = 206
@@ -291,7 +404,7 @@ Partial Class IssuedPermit
         Me.GroupBox3.Controls.Add(Me.Label4)
         Me.GroupBox3.Controls.Add(Me.txt_contactno)
         Me.GroupBox3.Controls.Add(Me.Label5)
-        Me.GroupBox3.Location = New System.Drawing.Point(608, 235)
+        Me.GroupBox3.Location = New System.Drawing.Point(477, 309)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(319, 126)
         Me.GroupBox3.TabIndex = 205
@@ -312,7 +425,7 @@ Partial Class IssuedPermit
         '
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(11, 23)
+        Me.Label20.Location = New System.Drawing.Point(46, 21)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(57, 13)
         Me.Label20.TabIndex = 184
@@ -332,7 +445,7 @@ Partial Class IssuedPermit
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(11, 54)
+        Me.Label4.Location = New System.Drawing.Point(66, 59)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(37, 13)
         Me.Label4.TabIndex = 180
@@ -363,7 +476,7 @@ Partial Class IssuedPermit
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(17, 224)
+        Me.Label6.Location = New System.Drawing.Point(13, 278)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(76, 13)
         Me.Label6.TabIndex = 204
@@ -375,41 +488,41 @@ Partial Class IssuedPermit
         Me.txtBuildingAge.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtBuildingAge.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtBuildingAge.Enabled = False
-        Me.txtBuildingAge.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBuildingAge.Location = New System.Drawing.Point(14, 240)
+        Me.txtBuildingAge.Font = New System.Drawing.Font("Segoe UI", 8.0!)
+        Me.txtBuildingAge.Location = New System.Drawing.Point(14, 294)
         Me.txtBuildingAge.Multiline = True
         Me.txtBuildingAge.Name = "txtBuildingAge"
-        Me.txtBuildingAge.Size = New System.Drawing.Size(570, 26)
+        Me.txtBuildingAge.Size = New System.Drawing.Size(243, 22)
         Me.txtBuildingAge.TabIndex = 203
         '
-        'TxtBusinessAddress
+        'TxtBuildingAddress
         '
-        Me.TxtBusinessAddress.BackColor = System.Drawing.Color.AliceBlue
-        Me.TxtBusinessAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtBusinessAddress.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TxtBusinessAddress.Enabled = False
-        Me.TxtBusinessAddress.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtBusinessAddress.Location = New System.Drawing.Point(14, 195)
-        Me.TxtBusinessAddress.Multiline = True
-        Me.TxtBusinessAddress.Name = "TxtBusinessAddress"
-        Me.TxtBusinessAddress.Size = New System.Drawing.Size(570, 26)
-        Me.TxtBusinessAddress.TabIndex = 201
+        Me.TxtBuildingAddress.BackColor = System.Drawing.Color.AliceBlue
+        Me.TxtBuildingAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtBuildingAddress.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtBuildingAddress.Enabled = False
+        Me.TxtBuildingAddress.Font = New System.Drawing.Font("Segoe UI", 8.0!)
+        Me.TxtBuildingAddress.Location = New System.Drawing.Point(14, 88)
+        Me.TxtBuildingAddress.Multiline = True
+        Me.TxtBuildingAddress.Name = "TxtBuildingAddress"
+        Me.TxtBuildingAddress.Size = New System.Drawing.Size(462, 22)
+        Me.TxtBuildingAddress.TabIndex = 201
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(12, 179)
+        Me.Label7.Location = New System.Drawing.Point(13, 72)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(98, 13)
+        Me.Label7.Size = New System.Drawing.Size(97, 13)
         Me.Label7.TabIndex = 199
-        Me.Label7.Text = "Business Address:"
+        Me.Label7.Text = "Building Address:"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(11, 134)
+        Me.Label8.Location = New System.Drawing.Point(13, 154)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(86, 13)
         Me.Label8.TabIndex = 200
@@ -419,18 +532,18 @@ Partial Class IssuedPermit
         '
         Me.TxtOwnerName.BackColor = System.Drawing.Color.AliceBlue
         Me.TxtOwnerName.Enabled = False
-        Me.TxtOwnerName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.TxtOwnerName.Location = New System.Drawing.Point(14, 106)
+        Me.TxtOwnerName.Font = New System.Drawing.Font("Segoe UI", 8.0!)
+        Me.TxtOwnerName.Location = New System.Drawing.Point(14, 129)
         Me.TxtOwnerName.Multiline = True
         Me.TxtOwnerName.Name = "TxtOwnerName"
-        Me.TxtOwnerName.Size = New System.Drawing.Size(437, 26)
+        Me.TxtOwnerName.Size = New System.Drawing.Size(462, 22)
         Me.TxtOwnerName.TabIndex = 188
         '
         'Type_App
         '
         Me.Type_App.AutoSize = True
         Me.Type_App.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Type_App.Location = New System.Drawing.Point(19, 14)
+        Me.Type_App.Location = New System.Drawing.Point(17, 9)
         Me.Type_App.Name = "Type_App"
         Me.Type_App.Size = New System.Drawing.Size(145, 18)
         Me.Type_App.TabIndex = 174
@@ -443,7 +556,7 @@ Partial Class IssuedPermit
         Me.TxtApplicationID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtApplicationID.Enabled = False
         Me.TxtApplicationID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtApplicationID.Location = New System.Drawing.Point(672, 15)
+        Me.TxtApplicationID.Location = New System.Drawing.Point(533, 18)
         Me.TxtApplicationID.Multiline = True
         Me.TxtApplicationID.Name = "TxtApplicationID"
         Me.TxtApplicationID.ReadOnly = True
@@ -457,7 +570,7 @@ Partial Class IssuedPermit
         Me.B_Issued.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.B_Issued.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.B_Issued.ForeColor = System.Drawing.Color.White
-        Me.B_Issued.Location = New System.Drawing.Point(14, 329)
+        Me.B_Issued.Location = New System.Drawing.Point(13, 403)
         Me.B_Issued.Name = "B_Issued"
         Me.B_Issued.Size = New System.Drawing.Size(240, 32)
         Me.B_Issued.TabIndex = 172
@@ -474,28 +587,57 @@ Partial Class IssuedPermit
         Me.AxAcroPDF2.TabIndex = 210
         Me.AxAcroPDF2.Visible = False
         '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.IndianRed
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.ForeColor = System.Drawing.Color.White
+        Me.Button3.Location = New System.Drawing.Point(845, 2)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(32, 28)
+        Me.Button3.TabIndex = 77
+        Me.Button3.Text = "X"
+        Me.Button3.UseVisualStyleBackColor = False
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(6, Byte), Integer), CType(CType(176, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Button3)
+        Me.Panel1.Location = New System.Drawing.Point(-1, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(952, 32)
+        Me.Panel1.TabIndex = 211
+        '
         'IssuedPermit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(991, 494)
+        Me.CausesValidation = False
+        Me.ClientSize = New System.Drawing.Size(878, 583)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.AxAcroPDF2)
         Me.Controls.Add(Me.AxAcroPDF1)
-        Me.Controls.Add(Me.typeofapplication)
+        Me.Controls.Add(Me.label32)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.referencono)
         Me.Controls.Add(Me.BtnSearchRecord)
         Me.Controls.Add(Me.UploadScannedReceipt)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "IssuedPermit"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Issuance Permit"
         CType(Me.AxAcroPDF1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.typeofapplication.ResumeLayout(False)
-        Me.typeofapplication.PerformLayout()
+        Me.label32.ResumeLayout(False)
+        Me.label32.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         CType(Me.AxAcroPDF2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -512,14 +654,14 @@ Partial Class IssuedPermit
     Public WithEvents TxtAccountNo As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents useraccountid As System.Windows.Forms.TextBox
-    Friend WithEvents typeofapplication As System.Windows.Forms.Panel
+    Friend WithEvents label32 As System.Windows.Forms.Panel
     Public WithEvents TxtApplicationID As System.Windows.Forms.TextBox
     Friend WithEvents TxtOwnerName As System.Windows.Forms.TextBox
     Friend WithEvents Type_App As System.Windows.Forms.Label
     Public WithEvents B_Issued As System.Windows.Forms.Button
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Public WithEvents txtBuildingAge As System.Windows.Forms.TextBox
-    Public WithEvents TxtBusinessAddress As System.Windows.Forms.TextBox
+    Public WithEvents TxtBuildingAddress As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
@@ -534,4 +676,14 @@ Partial Class IssuedPermit
     Friend WithEvents B_IssuedAttach As System.Windows.Forms.Button
     Public WithEvents Issued_file As System.Windows.Forms.TextBox
     Friend WithEvents AxAcroPDF2 As AxAcroPDFLib.AxAcroPDF
+    Friend WithEvents TxtNoStorey As System.Windows.Forms.TextBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Public WithEvents TxtOccupancy_date As System.Windows.Forms.TextBox
+    Public WithEvents TxtOccupancyPermit As System.Windows.Forms.TextBox
+    Public WithEvents TxtBldg_date As System.Windows.Forms.TextBox
+    Public WithEvents TxtBldg_permit As System.Windows.Forms.TextBox
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
 End Class

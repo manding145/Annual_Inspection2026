@@ -111,21 +111,39 @@ Public Class InspectionPermit_DashBoard
                 If rdr_ms.Read = True Then
 
                     Dim NewMDIChild As New IssuedPermit()
+                    'NewMDIchild.mdiparent = me
                     NewMDIChild.Show()
 
 
                     Dim IssuedPermit As IssuedPermit = CType(Application.OpenForms("IssuedPermit"), IssuedPermit)
                     With IssuedPermit
 
+                        .Type_App.Text = rdr_ms("app_type").ToString
+
                         .TxtApplicationID.Text = rdr_ms("id").ToString
                         .TxtAccountNo.Text = rdr_ms("accountNo").ToString
                         .referencono.Text = rdr_ms("refno").ToString
                         .TxtBusinessName.Text = rdr_ms("bussName").ToString
                         .TxtOwnerName.Text = rdr_ms("ownerName").ToString
+                        .TxtNoStorey.Text = rdr_ms("noStorey").ToString
                         .useraccountid.Text = rdr_ms("UserID").ToString
                         .txtBuildingAge.Text = rdr_ms("bldg_age").ToString
-                        .TxtBusinessAddress.Text = rdr_ms("bussAddress").ToString
-                        .Type_App.Text = rdr_ms("app_type").ToString
+                        .TxtBuildingAddress.Text = rdr_ms("bussAddress").ToString
+
+                        .TxtBldg_permit.Text = rdr_ms("BldgPermit_No").ToString
+                        If Not IsDBNull(rdr_ms("bldgPermit_IssuedDate")) Then
+                            .TxtBldg_date.Text = Format(rdr_ms("bldgPermit_IssuedDate"), "MM-dd-yyyy")
+                        Else
+                            .TxtBldg_date.Text = ""
+                        End If
+
+                        .TxtOccupancyPermit.Text = rdr_ms("OccupPermit_No").ToString
+                        If Not IsDBNull(rdr_ms("occuPermit_IssuedDate")) Then
+                            .TxtOccupancy_date.Text = Format(rdr_ms("occuPermit_IssuedDate"), "MM-dd-yyyy")
+                        Else
+                            .TxtOccupancy_date.Text = ""
+                        End If
+
                         .fullname.Text = rdr_ms("fullname").ToString
                         .txt_email.Text = rdr_ms("email").ToString
                         .txt_contactno.Text = rdr_ms("ContactNo").ToString

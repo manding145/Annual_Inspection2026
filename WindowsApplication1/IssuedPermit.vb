@@ -4,7 +4,6 @@ Imports System.IO
 
 Public Class IssuedPermit
 
-
     Private Sub BtnSearchRecord_Click(sender As Object, e As EventArgs) Handles BtnSearchRecord.Click
 
 
@@ -53,9 +52,6 @@ Public Class IssuedPermit
             End Try
         End If
     End Sub
-
-
-  
 
     Private Sub ORlink_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
 
@@ -170,7 +166,7 @@ Public Class IssuedPermit
             Con_ms.Close()
             MsgBox("Annual Inspection Signed successfully", vbOKOnly & vbInformation, "Annual Inspection Online")
             PrintInspectionRecord.Show()
-
+            Me.Close()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Con_ms.Close()
@@ -204,7 +200,11 @@ Public Class IssuedPermit
         cmd_ms1.ExecuteNonQuery()
         Con_ms1.Close()
         MsgBox("Annual Inspection Already Signed", vbOKOnly & vbInformation, "Annual Inspection Online")
+        Me.Close()
+    End Sub
 
-
+   
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Me.Close()
     End Sub
 End Class

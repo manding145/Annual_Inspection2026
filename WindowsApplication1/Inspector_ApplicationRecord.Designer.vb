@@ -22,9 +22,9 @@ Partial Class Inspector_ApplicationRecord
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Inspector_ApplicationRecord))
         Me.lbl_AccountNo = New System.Windows.Forms.Label()
         Me.lbl_BusinessName = New System.Windows.Forms.Label()
@@ -44,7 +44,9 @@ Partial Class Inspector_ApplicationRecord
         Me.Label9 = New System.Windows.Forms.Label()
         Me.TxtAmount = New System.Windows.Forms.TextBox()
         Me.txtBuildingAge = New System.Windows.Forms.TextBox()
+        Me.TxtOccupancy_date = New System.Windows.Forms.TextBox()
         Me.TxtOccupancyPermit = New System.Windows.Forms.TextBox()
+        Me.TxtBldg_date = New System.Windows.Forms.TextBox()
         Me.TxtBldg_permit = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.B_assessAttach = New System.Windows.Forms.Button()
@@ -59,16 +61,12 @@ Partial Class Inspector_ApplicationRecord
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TxtRefenceNo = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
-        Me.TxtAccountNo = New System.Windows.Forms.TextBox()
+        Me.Txt2Storey = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.txt_applicationno = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.txt_applicationno = New System.Windows.Forms.TextBox()
         Me.Label22 = New System.Windows.Forms.Label()
-        Me.BtnCancel = New System.Windows.Forms.Button()
-        Me.BtnRenew = New System.Windows.Forms.Button()
-        Me.BtnEditRecord = New System.Windows.Forms.Button()
-        Me.BtnSearchRecord = New System.Windows.Forms.Button()
         Me.useraccountid = New System.Windows.Forms.TextBox()
         Me.Tab = New System.Windows.Forms.TabControl()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -93,8 +91,6 @@ Partial Class Inspector_ApplicationRecord
         Me.Panel_ReUpload = New System.Windows.Forms.Panel()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.TxtBldg_date = New System.Windows.Forms.TextBox()
-        Me.TxtOccupancy_date = New System.Windows.Forms.TextBox()
         Me.LblBusinessOwner = New System.Windows.Forms.Label()
         Me.Age.SuspendLayout()
         Me.cmbAttachment.SuspendLayout()
@@ -123,7 +119,7 @@ Partial Class Inspector_ApplicationRecord
         Me.lbl_AccountNo.BackColor = System.Drawing.Color.White
         Me.lbl_AccountNo.Font = New System.Drawing.Font("Segoe UI", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_AccountNo.ForeColor = System.Drawing.Color.Black
-        Me.lbl_AccountNo.Location = New System.Drawing.Point(52, 90)
+        Me.lbl_AccountNo.Location = New System.Drawing.Point(56, 93)
         Me.lbl_AccountNo.Name = "lbl_AccountNo"
         Me.lbl_AccountNo.Size = New System.Drawing.Size(191, 37)
         Me.lbl_AccountNo.TabIndex = 161
@@ -135,7 +131,7 @@ Partial Class Inspector_ApplicationRecord
         Me.lbl_BusinessName.BackColor = System.Drawing.Color.White
         Me.lbl_BusinessName.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_BusinessName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(6, Byte), Integer), CType(CType(176, Byte), Integer), CType(CType(238, Byte), Integer))
-        Me.lbl_BusinessName.Location = New System.Drawing.Point(56, 134)
+        Me.lbl_BusinessName.Location = New System.Drawing.Point(60, 137)
         Me.lbl_BusinessName.Name = "lbl_BusinessName"
         Me.lbl_BusinessName.Size = New System.Drawing.Size(119, 19)
         Me.lbl_BusinessName.TabIndex = 160
@@ -213,27 +209,27 @@ Partial Class Inspector_ApplicationRecord
         Me.Grid_attachments.AllowUserToDeleteRows = False
         Me.Grid_attachments.BackgroundColor = System.Drawing.Color.White
         Me.Grid_attachments.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Grid_attachments.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Grid_attachments.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.Grid_attachments.ColumnHeadersHeight = 25
         Me.Grid_attachments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.Grid_attachments.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column4, Me.Column6, Me.Column5})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.Format = "N2"
-        DataGridViewCellStyle3.NullValue = "0.00"
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Grid_attachments.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle6.Format = "N2"
+        DataGridViewCellStyle6.NullValue = "0.00"
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Grid_attachments.DefaultCellStyle = DataGridViewCellStyle6
         Me.Grid_attachments.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke
         Me.Grid_attachments.Location = New System.Drawing.Point(11, 17)
         Me.Grid_attachments.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
@@ -259,8 +255,8 @@ Partial Class Inspector_ApplicationRecord
         '
         'Column5
         '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle5
         Me.Column5.HeaderText = "ACTION"
         Me.Column5.Name = "Column5"
         Me.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
@@ -284,17 +280,13 @@ Partial Class Inspector_ApplicationRecord
         Me.TabPage1.Controls.Add(Me.GroupBox3)
         Me.TabPage1.Controls.Add(Me.TxtRefenceNo)
         Me.TabPage1.Controls.Add(Me.Label18)
-        Me.TabPage1.Controls.Add(Me.TxtAccountNo)
+        Me.TabPage1.Controls.Add(Me.Txt2Storey)
         Me.TabPage1.Controls.Add(Me.Label6)
         Me.TabPage1.Controls.Add(Me.Label3)
         Me.TabPage1.Controls.Add(Me.Label1)
-        Me.TabPage1.Controls.Add(Me.BtnCancel)
-        Me.TabPage1.Controls.Add(Me.BtnRenew)
-        Me.TabPage1.Controls.Add(Me.BtnEditRecord)
-        Me.TabPage1.Controls.Add(Me.BtnSearchRecord)
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Size = New System.Drawing.Size(748, 299)
+        Me.TabPage1.Size = New System.Drawing.Size(781, 299)
         Me.TabPage1.TabIndex = 3
         Me.TabPage1.Text = "APPLICATION RECORD"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -303,7 +295,7 @@ Partial Class Inspector_ApplicationRecord
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(21, 220)
+        Me.Label10.Location = New System.Drawing.Point(36, 220)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(157, 13)
         Me.Label10.TabIndex = 199
@@ -313,7 +305,7 @@ Partial Class Inspector_ApplicationRecord
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(48, 187)
+        Me.Label12.Location = New System.Drawing.Point(65, 189)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(51, 13)
         Me.Label12.TabIndex = 198
@@ -323,7 +315,7 @@ Partial Class Inspector_ApplicationRecord
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(24, 158)
+        Me.Label9.Location = New System.Drawing.Point(44, 158)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(76, 13)
         Me.Label9.TabIndex = 198
@@ -335,7 +327,7 @@ Partial Class Inspector_ApplicationRecord
         Me.TxtAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtAmount.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtAmount.Font = New System.Drawing.Font("Segoe UI", 8.0!)
-        Me.TxtAmount.Location = New System.Drawing.Point(106, 181)
+        Me.TxtAmount.Location = New System.Drawing.Point(124, 184)
         Me.TxtAmount.Multiline = True
         Me.TxtAmount.Name = "TxtAmount"
         Me.TxtAmount.Size = New System.Drawing.Size(243, 22)
@@ -348,11 +340,24 @@ Partial Class Inspector_ApplicationRecord
         Me.txtBuildingAge.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtBuildingAge.Enabled = False
         Me.txtBuildingAge.Font = New System.Drawing.Font("Segoe UI", 8.0!)
-        Me.txtBuildingAge.Location = New System.Drawing.Point(106, 153)
+        Me.txtBuildingAge.Location = New System.Drawing.Point(124, 156)
         Me.txtBuildingAge.Multiline = True
         Me.txtBuildingAge.Name = "txtBuildingAge"
         Me.txtBuildingAge.Size = New System.Drawing.Size(243, 22)
         Me.txtBuildingAge.TabIndex = 197
+        '
+        'TxtOccupancy_date
+        '
+        Me.TxtOccupancy_date.BackColor = System.Drawing.Color.AliceBlue
+        Me.TxtOccupancy_date.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtOccupancy_date.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtOccupancy_date.Enabled = False
+        Me.TxtOccupancy_date.Font = New System.Drawing.Font("Segoe UI", 8.0!)
+        Me.TxtOccupancy_date.Location = New System.Drawing.Point(373, 129)
+        Me.TxtOccupancy_date.Multiline = True
+        Me.TxtOccupancy_date.Name = "TxtOccupancy_date"
+        Me.TxtOccupancy_date.Size = New System.Drawing.Size(185, 22)
+        Me.TxtOccupancy_date.TabIndex = 196
         '
         'TxtOccupancyPermit
         '
@@ -361,11 +366,24 @@ Partial Class Inspector_ApplicationRecord
         Me.TxtOccupancyPermit.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtOccupancyPermit.Enabled = False
         Me.TxtOccupancyPermit.Font = New System.Drawing.Font("Segoe UI", 8.0!)
-        Me.TxtOccupancyPermit.Location = New System.Drawing.Point(106, 124)
+        Me.TxtOccupancyPermit.Location = New System.Drawing.Point(124, 129)
         Me.TxtOccupancyPermit.Multiline = True
         Me.TxtOccupancyPermit.Name = "TxtOccupancyPermit"
         Me.TxtOccupancyPermit.Size = New System.Drawing.Size(243, 22)
         Me.TxtOccupancyPermit.TabIndex = 196
+        '
+        'TxtBldg_date
+        '
+        Me.TxtBldg_date.BackColor = System.Drawing.Color.AliceBlue
+        Me.TxtBldg_date.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtBldg_date.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtBldg_date.Enabled = False
+        Me.TxtBldg_date.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtBldg_date.Location = New System.Drawing.Point(373, 102)
+        Me.TxtBldg_date.Multiline = True
+        Me.TxtBldg_date.Name = "TxtBldg_date"
+        Me.TxtBldg_date.Size = New System.Drawing.Size(185, 22)
+        Me.TxtBldg_date.TabIndex = 195
         '
         'TxtBldg_permit
         '
@@ -374,7 +392,7 @@ Partial Class Inspector_ApplicationRecord
         Me.TxtBldg_permit.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtBldg_permit.Enabled = False
         Me.TxtBldg_permit.Font = New System.Drawing.Font("Segoe UI", 8.0!)
-        Me.TxtBldg_permit.Location = New System.Drawing.Point(106, 96)
+        Me.TxtBldg_permit.Location = New System.Drawing.Point(124, 101)
         Me.TxtBldg_permit.Multiline = True
         Me.TxtBldg_permit.Name = "TxtBldg_permit"
         Me.TxtBldg_permit.Size = New System.Drawing.Size(243, 22)
@@ -384,15 +402,15 @@ Partial Class Inspector_ApplicationRecord
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(6, 129)
+        Me.Label2.Location = New System.Drawing.Point(3, 134)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(92, 13)
+        Me.Label2.Size = New System.Drawing.Size(119, 13)
         Me.Label2.TabIndex = 194
-        Me.Label2.Text = "Business Owner:"
+        Me.Label2.Text = "Occupancy Permit No."
         '
         'B_assessAttach
         '
-        Me.B_assessAttach.Location = New System.Drawing.Point(290, 241)
+        Me.B_assessAttach.Location = New System.Drawing.Point(305, 241)
         Me.B_assessAttach.Name = "B_assessAttach"
         Me.B_assessAttach.Size = New System.Drawing.Size(62, 26)
         Me.B_assessAttach.TabIndex = 192
@@ -406,10 +424,10 @@ Partial Class Inspector_ApplicationRecord
         Me.TxtBusinessAddress.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtBusinessAddress.Enabled = False
         Me.TxtBusinessAddress.Font = New System.Drawing.Font("Segoe UI", 8.0!)
-        Me.TxtBusinessAddress.Location = New System.Drawing.Point(106, 70)
+        Me.TxtBusinessAddress.Location = New System.Drawing.Point(124, 73)
         Me.TxtBusinessAddress.Multiline = True
         Me.TxtBusinessAddress.Name = "TxtBusinessAddress"
-        Me.TxtBusinessAddress.Size = New System.Drawing.Size(243, 22)
+        Me.TxtBusinessAddress.Size = New System.Drawing.Size(434, 22)
         Me.TxtBusinessAddress.TabIndex = 191
         '
         'assessment_file
@@ -419,7 +437,7 @@ Partial Class Inspector_ApplicationRecord
         Me.assessment_file.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.assessment_file.Enabled = False
         Me.assessment_file.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.assessment_file.Location = New System.Drawing.Point(22, 241)
+        Me.assessment_file.Location = New System.Drawing.Point(37, 241)
         Me.assessment_file.Multiline = True
         Me.assessment_file.Name = "assessment_file"
         Me.assessment_file.Size = New System.Drawing.Size(330, 26)
@@ -433,7 +451,7 @@ Partial Class Inspector_ApplicationRecord
         Me.GroupBox3.Controls.Add(Me.Label4)
         Me.GroupBox3.Controls.Add(Me.txt_contactno)
         Me.GroupBox3.Controls.Add(Me.Label5)
-        Me.GroupBox3.Location = New System.Drawing.Point(365, 157)
+        Me.GroupBox3.Location = New System.Drawing.Point(373, 158)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(371, 126)
         Me.GroupBox3.TabIndex = 190
@@ -508,7 +526,7 @@ Partial Class Inspector_ApplicationRecord
         Me.TxtRefenceNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtRefenceNo.Enabled = False
         Me.TxtRefenceNo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtRefenceNo.Location = New System.Drawing.Point(106, 13)
+        Me.TxtRefenceNo.Location = New System.Drawing.Point(124, 16)
         Me.TxtRefenceNo.Name = "TxtRefenceNo"
         Me.TxtRefenceNo.Size = New System.Drawing.Size(154, 22)
         Me.TxtRefenceNo.TabIndex = 188
@@ -517,33 +535,53 @@ Partial Class Inspector_ApplicationRecord
         '
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(21, 15)
+        Me.Label18.Location = New System.Drawing.Point(39, 21)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(79, 13)
         Me.Label18.TabIndex = 189
         Me.Label18.Text = "Reference No:"
         '
-        'TxtAccountNo
+        'Txt2Storey
         '
-        Me.TxtAccountNo.BackColor = System.Drawing.Color.AliceBlue
-        Me.TxtAccountNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtAccountNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TxtAccountNo.Enabled = False
-        Me.TxtAccountNo.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtAccountNo.Location = New System.Drawing.Point(106, 42)
-        Me.TxtAccountNo.Name = "TxtAccountNo"
-        Me.TxtAccountNo.Size = New System.Drawing.Size(243, 22)
-        Me.TxtAccountNo.TabIndex = 174
+        Me.Txt2Storey.BackColor = System.Drawing.Color.AliceBlue
+        Me.Txt2Storey.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Txt2Storey.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Txt2Storey.Enabled = False
+        Me.Txt2Storey.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt2Storey.Location = New System.Drawing.Point(124, 45)
+        Me.Txt2Storey.Name = "Txt2Storey"
+        Me.Txt2Storey.Size = New System.Drawing.Size(243, 22)
+        Me.Txt2Storey.TabIndex = 174
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(1, 76)
+        Me.Label6.Location = New System.Drawing.Point(18, 79)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(98, 13)
         Me.Label6.TabIndex = 177
         Me.Label6.Text = "Business Address:"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(14, 106)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(106, 13)
+        Me.Label3.TabIndex = 177
+        Me.Label3.Text = "Building Permit No."
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(60, 47)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(60, 13)
+        Me.Label1.TabIndex = 175
+        Me.Label1.Text = "Storey No:"
         '
         'txt_applicationno
         '
@@ -552,97 +590,20 @@ Partial Class Inspector_ApplicationRecord
         Me.txt_applicationno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txt_applicationno.Enabled = False
         Me.txt_applicationno.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txt_applicationno.Location = New System.Drawing.Point(691, 168)
+        Me.txt_applicationno.Location = New System.Drawing.Point(685, 169)
         Me.txt_applicationno.Name = "txt_applicationno"
         Me.txt_applicationno.Size = New System.Drawing.Size(110, 22)
         Me.txt_applicationno.TabIndex = 172
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(12, 101)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(86, 13)
-        Me.Label3.TabIndex = 177
-        Me.Label3.Text = "Business Name:"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(38, 45)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(60, 13)
-        Me.Label1.TabIndex = 175
-        Me.Label1.Text = "Storey No:"
         '
         'Label22
         '
         Me.Label22.AutoSize = True
         Me.Label22.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(598, 174)
+        Me.Label22.Location = New System.Drawing.Point(592, 175)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(87, 13)
         Me.Label22.TabIndex = 173
         Me.Label22.Text = "Application No:"
-        '
-        'BtnCancel
-        '
-        Me.BtnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(6, Byte), Integer), CType(CType(176, Byte), Integer), CType(CType(238, Byte), Integer))
-        Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCancel.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCancel.ForeColor = System.Drawing.Color.White
-        Me.BtnCancel.Location = New System.Drawing.Point(768, 141)
-        Me.BtnCancel.Name = "BtnCancel"
-        Me.BtnCancel.Size = New System.Drawing.Size(140, 31)
-        Me.BtnCancel.TabIndex = 76
-        Me.BtnCancel.Text = "&Cancel"
-        Me.BtnCancel.UseVisualStyleBackColor = False
-        Me.BtnCancel.Visible = False
-        '
-        'BtnRenew
-        '
-        Me.BtnRenew.BackColor = System.Drawing.Color.FromArgb(CType(CType(6, Byte), Integer), CType(CType(176, Byte), Integer), CType(CType(238, Byte), Integer))
-        Me.BtnRenew.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnRenew.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnRenew.ForeColor = System.Drawing.Color.White
-        Me.BtnRenew.Location = New System.Drawing.Point(768, 104)
-        Me.BtnRenew.Name = "BtnRenew"
-        Me.BtnRenew.Size = New System.Drawing.Size(140, 31)
-        Me.BtnRenew.TabIndex = 75
-        Me.BtnRenew.Text = "&Renew"
-        Me.BtnRenew.UseVisualStyleBackColor = False
-        Me.BtnRenew.Visible = False
-        '
-        'BtnEditRecord
-        '
-        Me.BtnEditRecord.BackColor = System.Drawing.Color.FromArgb(CType(CType(6, Byte), Integer), CType(CType(176, Byte), Integer), CType(CType(238, Byte), Integer))
-        Me.BtnEditRecord.Enabled = False
-        Me.BtnEditRecord.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnEditRecord.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnEditRecord.ForeColor = System.Drawing.Color.White
-        Me.BtnEditRecord.Location = New System.Drawing.Point(768, 61)
-        Me.BtnEditRecord.Name = "BtnEditRecord"
-        Me.BtnEditRecord.Size = New System.Drawing.Size(140, 31)
-        Me.BtnEditRecord.TabIndex = 74
-        Me.BtnEditRecord.Text = "&Edit"
-        Me.BtnEditRecord.UseVisualStyleBackColor = False
-        Me.BtnEditRecord.Visible = False
-        '
-        'BtnSearchRecord
-        '
-        Me.BtnSearchRecord.BackColor = System.Drawing.Color.FromArgb(CType(CType(6, Byte), Integer), CType(CType(176, Byte), Integer), CType(CType(238, Byte), Integer))
-        Me.BtnSearchRecord.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnSearchRecord.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSearchRecord.ForeColor = System.Drawing.Color.White
-        Me.BtnSearchRecord.Location = New System.Drawing.Point(768, 24)
-        Me.BtnSearchRecord.Name = "BtnSearchRecord"
-        Me.BtnSearchRecord.Size = New System.Drawing.Size(140, 31)
-        Me.BtnSearchRecord.TabIndex = 73
-        Me.BtnSearchRecord.Text = "&Search"
-        Me.BtnSearchRecord.UseVisualStyleBackColor = False
-        Me.BtnSearchRecord.Visible = False
         '
         'useraccountid
         '
@@ -650,7 +611,7 @@ Partial Class Inspector_ApplicationRecord
         Me.useraccountid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.useraccountid.Enabled = False
         Me.useraccountid.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.useraccountid.Location = New System.Drawing.Point(468, 166)
+        Me.useraccountid.Location = New System.Drawing.Point(462, 168)
         Me.useraccountid.Name = "useraccountid"
         Me.useraccountid.Size = New System.Drawing.Size(110, 22)
         Me.useraccountid.TabIndex = 186
@@ -662,11 +623,11 @@ Partial Class Inspector_ApplicationRecord
         Me.Tab.Controls.Add(Me.cmbAttachment)
         Me.Tab.Controls.Add(Me.Age)
         Me.Tab.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Tab.Location = New System.Drawing.Point(52, 190)
+        Me.Tab.Location = New System.Drawing.Point(17, 190)
         Me.Tab.Multiline = True
         Me.Tab.Name = "Tab"
         Me.Tab.SelectedIndex = 0
-        Me.Tab.Size = New System.Drawing.Size(756, 325)
+        Me.Tab.Size = New System.Drawing.Size(789, 325)
         Me.Tab.TabIndex = 162
         '
         'Panel1
@@ -677,7 +638,7 @@ Partial Class Inspector_ApplicationRecord
         Me.Panel1.Controls.Add(Me.AxAcroPDF2)
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(829, 32)
+        Me.Panel1.Size = New System.Drawing.Size(846, 32)
         Me.Panel1.TabIndex = 163
         '
         'Button3
@@ -687,7 +648,7 @@ Partial Class Inspector_ApplicationRecord
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.Color.White
-        Me.Button3.Location = New System.Drawing.Point(796, 2)
+        Me.Button3.Location = New System.Drawing.Point(781, 2)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(32, 28)
         Me.Button3.TabIndex = 77
@@ -722,7 +683,7 @@ Partial Class Inspector_ApplicationRecord
         Me.GroupBox1.Controls.Add(Me.B_Signing)
         Me.GroupBox1.Controls.Add(Me.B_Reupload)
         Me.GroupBox1.Controls.Add(Me.BtnAddNewRecord)
-        Me.GroupBox1.Location = New System.Drawing.Point(421, 49)
+        Me.GroupBox1.Location = New System.Drawing.Point(415, 54)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(387, 108)
         Me.GroupBox1.TabIndex = 164
@@ -796,16 +757,16 @@ Partial Class Inspector_ApplicationRecord
         Me.Panel2.Controls.Add(Me.useraccountid)
         Me.Panel2.Controls.Add(Me.txt_applicationno)
         Me.Panel2.Controls.Add(Me.Label22)
-        Me.Panel2.Location = New System.Drawing.Point(37, 33)
+        Me.Panel2.Location = New System.Drawing.Point(22, 29)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(829, 532)
+        Me.Panel2.Size = New System.Drawing.Size(816, 532)
         Me.Panel2.TabIndex = 165
         '
         'panel_Approved
         '
         Me.panel_Approved.Controls.Add(Me.Label11)
         Me.panel_Approved.Controls.Add(Me.PictureBox4)
-        Me.panel_Approved.Location = New System.Drawing.Point(60, 51)
+        Me.panel_Approved.Location = New System.Drawing.Point(64, 54)
         Me.panel_Approved.Name = "panel_Approved"
         Me.panel_Approved.Size = New System.Drawing.Size(132, 33)
         Me.panel_Approved.TabIndex = 168
@@ -835,7 +796,7 @@ Partial Class Inspector_ApplicationRecord
         '
         Me.panel_denied.Controls.Add(Me.Label26)
         Me.panel_denied.Controls.Add(Me.PictureBox3)
-        Me.panel_denied.Location = New System.Drawing.Point(57, 51)
+        Me.panel_denied.Location = New System.Drawing.Point(61, 54)
         Me.panel_denied.Name = "panel_denied"
         Me.panel_denied.Size = New System.Drawing.Size(132, 33)
         Me.panel_denied.TabIndex = 167
@@ -865,7 +826,7 @@ Partial Class Inspector_ApplicationRecord
         '
         Me.Panel_pending.Controls.Add(Me.status_label)
         Me.Panel_pending.Controls.Add(Me.PictureBox2)
-        Me.Panel_pending.Location = New System.Drawing.Point(56, 51)
+        Me.Panel_pending.Location = New System.Drawing.Point(60, 54)
         Me.Panel_pending.Name = "Panel_pending"
         Me.Panel_pending.Size = New System.Drawing.Size(132, 33)
         Me.Panel_pending.TabIndex = 165
@@ -895,7 +856,7 @@ Partial Class Inspector_ApplicationRecord
         '
         Me.Panel_ReUpload.Controls.Add(Me.Label8)
         Me.Panel_ReUpload.Controls.Add(Me.PictureBox1)
-        Me.Panel_ReUpload.Location = New System.Drawing.Point(60, 51)
+        Me.Panel_ReUpload.Location = New System.Drawing.Point(64, 54)
         Me.Panel_ReUpload.Name = "Panel_ReUpload"
         Me.Panel_ReUpload.Size = New System.Drawing.Size(132, 33)
         Me.Panel_ReUpload.TabIndex = 165
@@ -922,39 +883,13 @@ Partial Class Inspector_ApplicationRecord
         Me.PictureBox1.TabIndex = 106
         Me.PictureBox1.TabStop = False
         '
-        'TxtBldg_date
-        '
-        Me.TxtBldg_date.BackColor = System.Drawing.Color.AliceBlue
-        Me.TxtBldg_date.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtBldg_date.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TxtBldg_date.Enabled = False
-        Me.TxtBldg_date.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtBldg_date.Location = New System.Drawing.Point(355, 97)
-        Me.TxtBldg_date.Multiline = True
-        Me.TxtBldg_date.Name = "TxtBldg_date"
-        Me.TxtBldg_date.Size = New System.Drawing.Size(167, 22)
-        Me.TxtBldg_date.TabIndex = 195
-        '
-        'TxtOccupancy_date
-        '
-        Me.TxtOccupancy_date.BackColor = System.Drawing.Color.AliceBlue
-        Me.TxtOccupancy_date.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtOccupancy_date.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.TxtOccupancy_date.Enabled = False
-        Me.TxtOccupancy_date.Font = New System.Drawing.Font("Segoe UI", 8.0!)
-        Me.TxtOccupancy_date.Location = New System.Drawing.Point(355, 124)
-        Me.TxtOccupancy_date.Multiline = True
-        Me.TxtOccupancy_date.Name = "TxtOccupancy_date"
-        Me.TxtOccupancy_date.Size = New System.Drawing.Size(167, 22)
-        Me.TxtOccupancy_date.TabIndex = 196
-        '
         'LblBusinessOwner
         '
         Me.LblBusinessOwner.AutoSize = True
         Me.LblBusinessOwner.BackColor = System.Drawing.Color.White
         Me.LblBusinessOwner.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblBusinessOwner.ForeColor = System.Drawing.Color.FromArgb(CType(CType(6, Byte), Integer), CType(CType(176, Byte), Integer), CType(CType(238, Byte), Integer))
-        Me.LblBusinessOwner.Location = New System.Drawing.Point(59, 161)
+        Me.LblBusinessOwner.Location = New System.Drawing.Point(59, 163)
         Me.LblBusinessOwner.Name = "LblBusinessOwner"
         Me.LblBusinessOwner.Size = New System.Drawing.Size(130, 19)
         Me.LblBusinessOwner.TabIndex = 160
@@ -965,7 +900,7 @@ Partial Class Inspector_ApplicationRecord
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(910, 593)
+        Me.ClientSize = New System.Drawing.Size(863, 578)
         Me.Controls.Add(Me.Panel2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1013,16 +948,12 @@ Partial Class Inspector_ApplicationRecord
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents txt_contactno As System.Windows.Forms.TextBox
     Friend WithEvents txt_email As System.Windows.Forms.TextBox
-    Friend WithEvents TxtAccountNo As System.Windows.Forms.TextBox
+    Friend WithEvents Txt2Storey As System.Windows.Forms.TextBox
     Friend WithEvents txt_applicationno As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label22 As System.Windows.Forms.Label
-    Friend WithEvents BtnCancel As System.Windows.Forms.Button
-    Friend WithEvents BtnRenew As System.Windows.Forms.Button
-    Friend WithEvents BtnEditRecord As System.Windows.Forms.Button
-    Friend WithEvents BtnSearchRecord As System.Windows.Forms.Button
     Friend WithEvents Tab As System.Windows.Forms.TabControl
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox

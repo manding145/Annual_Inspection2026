@@ -30,11 +30,11 @@ Public Class Inspector_ApplicationRecord
         Dim extension = System.IO.Path.GetExtension(link_string)
 
         If (extension = ".pdf") Then
-            ViewAttachments_webcontrol.Text = Grid_attachments.Item(1, Grid_attachments.CurrentRow.Index).Value + " Attachments of " + TxtAccountNo.Text
+            ViewAttachments_webcontrol.Text = Grid_attachments.Item(1, Grid_attachments.CurrentRow.Index).Value + " Attachments of " + Txt2Storey.Text
             ViewAttachments_webcontrol.AxAcroPDF1.src = link_string
             ViewAttachments_webcontrol.ShowDialog()
         Else
-            ViewAttachmentsPictureBox.Text = Grid_attachments.Item(1, Grid_attachments.CurrentRow.Index).Value + " Attachments of " + TxtAccountNo.Text
+            ViewAttachmentsPictureBox.Text = Grid_attachments.Item(1, Grid_attachments.CurrentRow.Index).Value + " Attachments of " + Txt2Storey.Text
             ViewAttachmentsPictureBox.PictureBox1.Image = Image.FromFile(link_string)
             ViewAttachmentsPictureBox.ShowDialog()
 
@@ -44,7 +44,7 @@ Public Class Inspector_ApplicationRecord
 
     Private Sub BtnAddNewRecord_Click_1(sender As Object, e As EventArgs) Handles BtnAddNewRecord.Click
 
-     
+
 
         If String.IsNullOrWhiteSpace(assessment_file.Text) Then
             MsgBox("Please attach Assessment", vbOKOnly & vbCritical, "Annual Inspection Online")
@@ -80,7 +80,13 @@ Public Class Inspector_ApplicationRecord
                 filePath = ""
             Else
 
-                File.Copy(sourcePath2, filePath, True)
+                If File.Exists(filePath) Then
+
+                    File.Copy(sourcePath2, filePath, True)
+                Else
+                    '
+                    File.Copy(sourcePath2, filePath)
+                End If
             End If
 
             Dim Inspector_ApplicationRecord As Inspector_ApplicationRecord = CType(Application.OpenForms("Inspector_ApplicationRecord"), Inspector_ApplicationRecord)
@@ -103,7 +109,7 @@ Public Class Inspector_ApplicationRecord
                 conn1 = "INSERT INTO ONLINE.email_outbox (userid, accountno, Remarks, email, Subject, fullname, referencecode, datesend, assessment_path) " _
                    & "VALUES (@userid, @TxtAccountNo,  @Remarks, '" & txt_email.Text & "', 'Annual Inspection Assessment' ,@fullname, @TxtRefenceNo, @Date, @assessment_path)"
                 cmd_ms1 = New SqlCommand(conn1, Con_ms1)
-                cmd_ms1.Parameters.Add("@TxtAccountNo", SqlDbType.VarChar).Value = TxtAccountNo.Text & "_" & TxtBldg_permit.Text
+                cmd_ms1.Parameters.Add("@TxtAccountNo", SqlDbType.VarChar).Value = Txt2Storey.Text & "_" & TxtBldg_permit.Text
                 cmd_ms1.Parameters.Add("@fullname", SqlDbType.VarChar).Value = fullname.Text
                 cmd_ms1.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
                 cmd_ms1.Parameters.Add("@TxtRefenceNo", SqlDbType.VarChar).Value = TxtRefenceNo.Text
@@ -112,17 +118,16 @@ Public Class Inspector_ApplicationRecord
                 cmd_ms1.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
                 cmd_ms1.ExecuteNonQuery()
 
-
                 MsgBox("Annual Inspection Application successfully Verified", vbOKOnly & vbInformation, "Annual Inspection Online")
                 Con_ms1.Close()
-
+                Me.Close()
 
             Catch ex As Exception
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Con_ms.Close()
                 Con_ms1.Close()
             End Try
-            Me.Close()
+
         Else
 
             Exit Sub
@@ -202,7 +207,7 @@ Public Class Inspector_ApplicationRecord
                & "VALUES (@userid, @accountno, @businessname, @businessowner ,@businessaddress, 'BUSINESS', 'U', @Date, 'ISSUANCE', @user_update, @Expirationdate)"
             cmd_ms = New SqlCommand(conn, Con_ms)
             cmd_ms.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
-            cmd_ms.Parameters.Add("@accountno", SqlDbType.VarChar).Value = TxtAccountNo.Text
+            cmd_ms.Parameters.Add("@accountno", SqlDbType.VarChar).Value = Txt2Storey.Text
             cmd_ms.Parameters.Add("@businessname", SqlDbType.VarChar).Value = TxtBldg_permit.Text
             cmd_ms.Parameters.Add("@businessowner", SqlDbType.VarChar).Value = TxtOccupancyPermit.Text
             cmd_ms.Parameters.Add("@businessaddress", SqlDbType.VarChar).Value = TxtBusinessAddress.Text

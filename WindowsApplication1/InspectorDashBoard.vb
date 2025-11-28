@@ -34,14 +34,22 @@ Public Class InspectorDashBoard
                         .TxtRefenceNo.Text = rdr_ms("refno").ToString
                         .lbl_AccountNo.Text = rdr_ms("accountNo").ToString
                         .lbl_BusinessName.Text = rdr_ms("bussName").ToString
-                        .TxtAccountNo.Text = rdr_ms("accountNo").ToString
+                        .Txt2Storey.Text = rdr_ms("noStorey").ToString
                         .txtBuildingAge.Text = rdr_ms("bldg_age").ToString
                         .TxtBusinessAddress.Text = rdr_ms("bussAddress").ToString
-
                         .TxtBldg_permit.Text = rdr_ms("BldgPermit_No").ToString
-                        .TxtBldg_date.Text = rdr_ms("bldgPermit_IssuedDate").ToString
+                        If Not IsDBNull(rdr_ms("bldgPermit_IssuedDate")) Then
+                            .TxtBldg_date.Text = Format(rdr_ms("bldgPermit_IssuedDate"), "MM-dd-yyyy")
+                        Else
+                            .TxtBldg_date.Text = ""
+                        End If
+
                         .TxtOccupancyPermit.Text = rdr_ms("OccupPermit_No").ToString
-                        .TxtOccupancy_date.Text = rdr_ms("occuPermit_IssuedDate").ToString
+                        If Not IsDBNull(rdr_ms("occuPermit_IssuedDate")) Then
+                            .TxtOccupancy_date.Text = Format(rdr_ms("occuPermit_IssuedDate"), "MM-dd-yyyy")
+                        Else
+                            .TxtOccupancy_date.Text = ""
+                        End If
 
                         .txt_applicationno.Text = rdr_ms("id").ToString
                         .txt_email.Text = rdr_ms("Email").ToString
@@ -91,7 +99,7 @@ Public Class InspectorDashBoard
                             .B_assessAttach.Enabled = False
                             .B_Reupload.Enabled = False
                             .TxtBusinessAddress.Enabled = False
-                            .TxtAccountNo.Enabled = False
+                            .Txt2Storey.Enabled = False
                             .TxtAmount.Enabled = False
 
                             .TxtAmount.Text = rdr_ms("payment_amount").ToString()
