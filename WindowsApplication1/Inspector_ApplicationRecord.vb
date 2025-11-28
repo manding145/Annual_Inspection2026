@@ -80,13 +80,13 @@ Public Class Inspector_ApplicationRecord
                 filePath = ""
             Else
 
-                If File.Exists(filePath) Then
+                'If File.Exists(filePath) Then
 
-                    File.Copy(sourcePath2, filePath, True)
-                Else
-                    '
-                    File.Copy(sourcePath2, filePath)
-                End If
+                '    File.Copy(sourcePath2, filePath, True)
+                'Else
+                '    '
+                '    File.Copy(sourcePath2, filePath)
+                'End If
             End If
 
             Dim Inspector_ApplicationRecord As Inspector_ApplicationRecord = CType(Application.OpenForms("Inspector_ApplicationRecord"), Inspector_ApplicationRecord)
@@ -195,9 +195,10 @@ Public Class Inspector_ApplicationRecord
 
             Con_ms1 = New SqlConnection(mcs)
             Con_ms1.Open()
-            conn_ms1 = "UPDATE ONLINE.annual_inspection_application SET app_status = 'S', Signed_date = @Date where id='" & txt_applicationno.Text & "'"
+            conn_ms1 = "UPDATE ONLINE.annual_inspection_application SET app_status = 'S', AdminUserID = @Admin, Signed_date = @Date where id='" & txt_applicationno.Text & "'"
             cmd_ms1 = New SqlCommand(conn_ms1, Con_ms1)
             cmd_ms1.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
+            cmd_ms1.Parameters.Add("@Admin", SqlDbType.VarChar).Value = userid
             cmd_ms1.ExecuteNonQuery()
             Con_ms1.Close()
 
@@ -222,4 +223,9 @@ Public Class Inspector_ApplicationRecord
         End If
     End Sub
 
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        PrintInspectionRecord.Show()
+    End Sub
+
+ 
 End Class

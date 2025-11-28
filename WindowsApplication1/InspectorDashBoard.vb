@@ -11,9 +11,9 @@ Public Class InspectorDashBoard
         If e.ColumnIndex = 6 Then
             Try
 
-                conn = "SELECT * FROM ONLINE.annual_inspection_application AS cpa " &
-                          "INNER JOIN ONLINE.SysMngr AS sm ON cpa.UserID = sm.UserID " &
-                          "WHERE cpa.id = '" & DataGrid.Item(0, DataGrid.CurrentRow.Index).Value & "'"
+                conn = "SELECT * FROM ONLINE.annual_inspection_application AS ais " &
+                          "INNER JOIN ONLINE.SysMngr AS sm ON ais.UserID = sm.UserID " &
+                          "WHERE ais.id = '" & DataGrid.Item(0, DataGrid.CurrentRow.Index).Value & "'"
                 Con_ms = New SqlConnection(mcs)
                 Con_ms.Open()
                 cmd_ms = New SqlCommand(conn, Con_ms)
@@ -57,7 +57,7 @@ Public Class InspectorDashBoard
                         .fullname.Text = rdr_ms("Firstname").ToString() + " " + rdr_ms("Middlename").ToString() + " " + rdr_ms("Lastname").ToString()
                         .useraccountid.Text = rdr_ms("userid").ToString()
                         .txt_remarks.Text = rdr_ms("remarks").ToString
-                        .LblBusinessOwner.Text = rdr_ms("ownerName").ToString
+                        .LblBuildingOwner.Text = rdr_ms("ownerName").ToString
 
                         .Grid_attachments.Rows.Clear()
                         'attachments

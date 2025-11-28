@@ -110,9 +110,17 @@ Public Class InspectionPermit_DashBoard
                 rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
                 If rdr_ms.Read = True Then
 
-                    Dim NewMDIChild As New IssuedPermit()
-                    'NewMDIchild.mdiparent = me
-                    NewMDIChild.Show()
+
+                    Dim f As New IssuedPermit()
+                    f.MdiParent = Nothing
+                    f.StartPosition = FormStartPosition.Manual
+
+                    Dim wa As Rectangle = Screen.PrimaryScreen.WorkingArea
+                    Dim x As Integer = wa.Left + (wa.Width - f.Width + 200) \ 2
+                    Dim y As Integer = wa.Top + (wa.Height - f.Height + 50) \ 2
+
+                    f.Location = New Point(x, y)
+                    f.Show()
 
 
                     Dim IssuedPermit As IssuedPermit = CType(Application.OpenForms("IssuedPermit"), IssuedPermit)
@@ -160,6 +168,11 @@ Public Class InspectionPermit_DashBoard
                             .Issued_file.Visible = False
                             .Lbl_Upload.Visible = False
 
+                            If Not String.IsNullOrEmpty("file_or") Then
+                                .Or_link.Location = New Point(260, 300)
+                                .Or_link.Visible = True
+                            End If
+
                         ElseIf rdr_ms("app_status") = "S" Then
 
                             .B_Issued.Visible = False
@@ -169,29 +182,38 @@ Public Class InspectionPermit_DashBoard
                             .Issued_file.Visible = False
                             .Lbl_Upload.Visible = False
 
-                        ElseIf rdr_ms("app_status") = "SD" Then
+                            If Not String.IsNullOrEmpty("file_or") Then
+                                .Or_link.Location = New Point(260, 300)
+                                .Or_link.Visible = True
+                            End If
 
-                            .B_SentNotification.Visible = False
-                            .B_Signed.Visible = False
-                            .B_IssuedAttach.Enabled = True
-                            .Issued_file.Visible = True
+                            ElseIf rdr_ms("app_status") = "SD" Then
+
+                                .B_SentNotification.Visible = False
+                                .B_Signed.Visible = False
+                                .B_IssuedAttach.Enabled = True
+                                .Issued_file.Visible = True
                             .B_Issued.Visible = True
 
-                        ElseIf rdr_ms("app_status") = "I" Then
+                            If Not String.IsNullOrEmpty("file_or") Then
+                                .Or_link.Location = New Point(260, 300)
+                                .Or_link.Visible = True
+                            End If
 
-                            .B_Issued.Enabled = False
-                            .B_SentNotification.Enabled = False
-                            .B_Signed.Enabled = False
+                            ElseIf rdr_ms("app_status") = "I" Then
 
-                            .B_Issued.Visible = False
-                            .B_SentNotification.Visible = False
-                            .B_Signed.Visible = False
-                            .B_Issued.Enabled = False
+                                .B_Issued.Enabled = False
+                                .B_SentNotification.Enabled = False
+                                .B_Signed.Enabled = False
 
+                                .B_Issued.Visible = False
+                                .B_SentNotification.Visible = False
+                                .B_Signed.Visible = False
+                            .B_Issued.Visible = True
+                            .Or_link.Visible = True
+                            .Issued_file.Text = rdr_ms("file_certificate").ToString()
 
-                            .Issued_file.Text = rdr_ms("file_clearance").ToString()
-
-                            If Not String.IsNullOrEmpty("file_clearance") Then
+                            If Not String.IsNullOrEmpty("file_certificate") Then
                                 If System.IO.File.Exists(folderpath) Then
                                     .AxAcroPDF2.src = "file:///" & folderpath.Replace("\", "/")
                                 Else
@@ -202,7 +224,8 @@ Public Class InspectionPermit_DashBoard
                             End If
 
 
-                        End If
+                            End If
+
                     End With
                 End If
 
@@ -389,6 +412,8 @@ Public Class InspectionPermit_DashBoard
         rdr_ms.Close()
         Con_ms.Close()
     End Sub
+
+
 
    
 End Class
