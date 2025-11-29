@@ -163,13 +163,6 @@ Public Class MainMenu
         LogIn.Show()
     End Sub
 
-    Private Sub RecordsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RecordsToolStripMenuItem.Click
-
-    End Sub
-
-    Private Sub msBusinessRecord_Click(sender As Object, e As EventArgs) Handles msBusinessRecord.Click
-
-    End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs)
 
@@ -267,10 +260,6 @@ Public Class MainMenu
             MsgBox("Please close your current form to continue.", vbOKOnly & vbExclamation, "Annual Inspection Online")
         End If
 
-
-
-
-
     End Sub
 
     Private Sub B2NoOfAssessedPaidBusinessesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles B2NoOfAssessedPaidBusinessesToolStripMenuItem.Click
@@ -278,8 +267,6 @@ Public Class MainMenu
     End Sub
 
     Private Sub PictureBox4_Click(sender As Object, e As EventArgs) Handles PictureBox4.Click
-        Me.Close()
+        Application.Exit()
     End Sub
-
-    
 End Class

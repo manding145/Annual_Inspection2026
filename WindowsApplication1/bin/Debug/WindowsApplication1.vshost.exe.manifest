@@ -676,14 +676,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WindowsApplication1.exe" size="8444928">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WindowsApplication1.exe" size="8446464">
       <assemblyIdentity name="WindowsApplication1" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>39wcxdfAvOaHrgl4dWnYw1tbVWkuC6v2yGkbeIeKk9w=</dsig:DigestValue>
+        <dsig:DigestValue>yWiCKaNDNO9jw4Kn8eacT7PKIIQvFxeh+vegcrJ96JY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

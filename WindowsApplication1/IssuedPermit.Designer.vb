@@ -570,11 +570,11 @@ Partial Class IssuedPermit
         Me.TxtApplicationID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtApplicationID.Enabled = False
         Me.TxtApplicationID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtApplicationID.Location = New System.Drawing.Point(533, 18)
+        Me.TxtApplicationID.Location = New System.Drawing.Point(533, 22)
         Me.TxtApplicationID.Multiline = True
         Me.TxtApplicationID.Name = "TxtApplicationID"
         Me.TxtApplicationID.ReadOnly = True
-        Me.TxtApplicationID.Size = New System.Drawing.Size(242, 26)
+        Me.TxtApplicationID.Size = New System.Drawing.Size(242, 22)
         Me.TxtApplicationID.TabIndex = 175
         Me.TxtApplicationID.Visible = False
         '
