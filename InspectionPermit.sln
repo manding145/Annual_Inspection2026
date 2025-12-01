@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WindowsApplication1", "WindowsApplication1\WindowsApplication1.vbproj", "{9989B9BB-CF0A-418F-8AFE-7B6ACE1B1D43}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Annual Inspection 2026", "Annual Inspection 2026\Annual Inspection 2026.vdproj", "{6FFC86E5-5043-497F-B479-C7C887F84F06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|Any CPU = CD_ROM|Any CPU
@@ -54,6 +56,21 @@ Global
 		{9989B9BB-CF0A-418F-8AFE-7B6ACE1B1D43}.SingleImage|x64.Build.0 = Release|x64
 		{9989B9BB-CF0A-418F-8AFE-7B6ACE1B1D43}.SingleImage|x86.ActiveCfg = Release|x86
 		{9989B9BB-CF0A-418F-8AFE-7B6ACE1B1D43}.SingleImage|x86.Build.0 = Release|x86
+		{6FFC86E5-5043-497F-B479-C7C887F84F06}.CD_ROM|Any CPU.ActiveCfg = Release
+		{6FFC86E5-5043-497F-B479-C7C887F84F06}.CD_ROM|x64.ActiveCfg = Release
+		{6FFC86E5-5043-497F-B479-C7C887F84F06}.CD_ROM|x86.ActiveCfg = Release
+		{6FFC86E5-5043-497F-B479-C7C887F84F06}.Debug|Any CPU.ActiveCfg = Debug
+		{6FFC86E5-5043-497F-B479-C7C887F84F06}.Debug|x64.ActiveCfg = Debug
+		{6FFC86E5-5043-497F-B479-C7C887F84F06}.Debug|x86.ActiveCfg = Debug
+		{6FFC86E5-5043-497F-B479-C7C887F84F06}.DVD-5|Any CPU.ActiveCfg = Debug
+		{6FFC86E5-5043-497F-B479-C7C887F84F06}.DVD-5|x64.ActiveCfg = Debug
+		{6FFC86E5-5043-497F-B479-C7C887F84F06}.DVD-5|x86.ActiveCfg = Debug
+		{6FFC86E5-5043-497F-B479-C7C887F84F06}.Release|Any CPU.ActiveCfg = Release
+		{6FFC86E5-5043-497F-B479-C7C887F84F06}.Release|x64.ActiveCfg = Release
+		{6FFC86E5-5043-497F-B479-C7C887F84F06}.Release|x86.ActiveCfg = Release
+		{6FFC86E5-5043-497F-B479-C7C887F84F06}.SingleImage|Any CPU.ActiveCfg = Release
+		{6FFC86E5-5043-497F-B479-C7C887F84F06}.SingleImage|x64.ActiveCfg = Release
+		{6FFC86E5-5043-497F-B479-C7C887F84F06}.SingleImage|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

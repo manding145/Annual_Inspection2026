@@ -330,7 +330,6 @@ C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\bin\De
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\bin\Debug\Interop.WMPLib.dll
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\bin\Debug\AxInterop.AcroPDFLib.dll
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\bin\Debug\AxInterop.WMPLib.dll
-C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.vbprojResolveAssemblyReference.cache
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\Interop.AcroPDFLib.dll
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\Interop.WMPLib.dll
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\AxInterop.AcroPDFLib.dll
