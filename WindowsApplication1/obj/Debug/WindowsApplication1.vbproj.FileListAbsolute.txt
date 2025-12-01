@@ -350,12 +350,15 @@ C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\De
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.IssuedPermit.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.ORviewer.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.Payment.resources
+C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.InspectionPermit_DashBoard.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.PaymentDashboard.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.ReUpload.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.PendingToPrint.resources
+C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.PrintInspectionRecord.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.Print_mayorsbusinesspermit.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.ReportB1.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.Form3.resources
+C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.SearchPermitRecord.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.SearchApplicationRecord.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.SearchMayorsPermit.resources
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.SearchWalkInBussinessPermit.resources
@@ -371,6 +374,3 @@ C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\De
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.exe
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.xml
 C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.pdb
-C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.InspectionPermit_DashBoard.resources
-C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.SearchPermitRecord.resources
-C:\Users\ADMIN\Documents\GitHub\Annual_Inspection2026\WindowsApplication1\obj\Debug\WindowsApplication1.PrintInspectionRecord.resources

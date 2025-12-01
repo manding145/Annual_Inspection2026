@@ -128,14 +128,13 @@ Public Class IssuedPermit
 
 
             MsgBox("Annual Inspection Issued successfully", vbOKOnly & vbInformation, "Annual Inspection Online")
-            Me.Close()
+
 
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Con_ms.Close()
         End Try
-
-
+        Me.Close()
     End Sub
 
     
@@ -193,7 +192,7 @@ Public Class IssuedPermit
 
                 MsgBox("Annual Inspection Signed successfully", vbOKOnly & vbInformation, "Annual Inspection Online")
                 PrintInspectionRecord.Show()
-                Me.Close()
+
             Catch ex As Exception
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Con_ms.Close()
@@ -204,6 +203,7 @@ Public Class IssuedPermit
         Con_ms.Close()
         Con_ms1.Close()
         Con_ms2.Close()
+        Me.Close()
     End Sub
 
     Private Sub B_IssuedAttach_Click(sender As Object, e As EventArgs) Handles B_IssuedAttach.Click
@@ -262,4 +262,6 @@ Public Class IssuedPermit
     Private Sub Print_Record_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles Print_Record.LinkClicked
         PrintInspectionRecord.Show()
     End Sub
+
+   
 End Class

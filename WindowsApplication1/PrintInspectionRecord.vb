@@ -138,11 +138,24 @@ Public Class PrintInspectionRecord
                     TxtBuildingOwner.Text = rdr_ms3("ownerName")
                     TxtBusinessAddress.Text = rdr_ms3("bussAddress")
                     TxtNoStorey.Text = rdr_ms3("noStorey")
-                    TxtBuildingPermit.Text = rdr_ms3("BldgPermit_No")
-                    TxtBldg_date.Text = Format(rdr_ms3("BldgPermit_IssuedDate"), "yyyy-MM-dd")
-                    TxtOccupancyPermit.Text = rdr_ms3("OccupPermit_No")
-                    TxtOccupancy_date.Text = Format(rdr_ms3("occuPermit_IssuedDate"), "yyyy-MM-dd")
                     TxtInspector.Text = rdr_ms3("Fullname")
+
+                    TxtBuildingPermit.Text = If(IsDBNull(rdr_ms3("BldgPermit_No")), "", rdr_ms3("BldgPermit_No").ToString)
+
+                    If IsDBNull(rdr_ms3("BldgPermit_IssuedDate")) Then
+                        TxtBldg_date.Text = ""
+                    Else
+                        TxtBldg_date.Text = Format(CDate(rdr_ms3("BldgPermit_IssuedDate")), "yyyy-MM-dd")
+                    End If
+
+                    TxtOccupancyPermit.Text = If(IsDBNull(rdr_ms3("OccupPermit_No")), "", rdr_ms3("OccupPermit_No").ToString)
+                    If IsDBNull(rdr_ms3("occuPermit_IssuedDate")) Then
+                        TxtOccupancy_date.Text = ""
+                    Else
+                        TxtOccupancy_date.Text = Format(CDate(rdr_ms3("occuPermit_IssuedDate")), "yyyy-MM-dd")
+                    End If
+
+
 
                     If Not IsDBNull(rdr_ms3("OR_No")) AndAlso rdr_ms3("OR_No").ToString <> "" Then
 

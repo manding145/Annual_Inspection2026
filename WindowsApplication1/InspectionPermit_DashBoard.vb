@@ -195,22 +195,23 @@ Public Class InspectionPermit_DashBoard
                                 .Issued_file.Visible = True
                             .B_Issued.Visible = True
 
-                            If Not String.IsNullOrEmpty("file_or") Then
-                                .Or_link.Location = New Point(260, 300)
-                                .Or_link.Visible = True
-                            End If
+                            .Or_link.Visible = True
 
-                            ElseIf rdr_ms("app_status") = "I" Then
 
-                                .B_Issued.Enabled = False
-                                .B_SentNotification.Enabled = False
-                                .B_Signed.Enabled = False
+                        ElseIf rdr_ms("app_status") = "I" Then
 
-                                .B_Issued.Visible = False
-                                .B_SentNotification.Visible = False
-                                .B_Signed.Visible = False
+                            .B_Issued.Enabled = False
+                            .B_SentNotification.Enabled = False
+                            .B_Signed.Enabled = False
+
+
+
+                            .B_Issued.Visible = False
+                            .B_SentNotification.Visible = False
+                            .B_Signed.Visible = False
                             .B_Issued.Visible = True
                             .Or_link.Visible = True
+
                             .Issued_file.Text = rdr_ms("file_certificate").ToString()
 
                             If Not String.IsNullOrEmpty("file_certificate") Then
@@ -224,7 +225,7 @@ Public Class InspectionPermit_DashBoard
                             End If
 
 
-                            End If
+                        End If
 
                     End With
                 End If
@@ -414,6 +415,27 @@ Public Class InspectionPermit_DashBoard
     End Sub
 
 
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Try
 
-   
+            Con_ms = New SqlConnection(mcs)
+            Con_ms.Open()
+            conn_ms = "DELETE from ONLINE.annual_inspection_application WHERE refno='" & DataGrid.Item(1, DataGrid.CurrentRow.Index).Value & "'"
+            cmd_ms = New SqlCommand(conn_ms, Con_ms)
+            cmd_ms.ExecuteNonQuery()
+            Con_ms.Close()
+
+            Con_ms = New SqlConnection(mcs)
+            Con_ms.Open()
+            conn_ms = "DELETE from ONLINE.constr_permit_application WHERE app_id='" & DataGrid.Item(0, DataGrid.CurrentRow.Index).Value & "'"
+            cmd_ms = New SqlCommand(conn_ms, Con_ms)
+            cmd_ms.ExecuteNonQuery()
+            Con_ms.Close()
+
+            MsgBox("This application record is sucessfully deleted!")
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+    End Sub
 End Class
