@@ -37,7 +37,6 @@ Partial Class Payment
         Me.Label9 = New System.Windows.Forms.Label()
         Me.TxtAccountNo = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.tax_amount = New System.Windows.Forms.TextBox()
         Me.AxAcroPDF2 = New AxAcroPDFLib.AxAcroPDF()
@@ -45,6 +44,8 @@ Partial Class Payment
         Me.Button1 = New System.Windows.Forms.Button()
         Me.ORattachment = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Txt_remarks = New System.Windows.Forms.TextBox()
         Me.useraccountid = New System.Windows.Forms.TextBox()
         Me.typeofapplication = New System.Windows.Forms.Panel()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
@@ -57,8 +58,6 @@ Partial Class Payment
         Me.TxtOwnerName = New System.Windows.Forms.TextBox()
         Me.Type_App = New System.Windows.Forms.Label()
         Me.TxtApplicationID = New System.Windows.Forms.TextBox()
-        Me.Txt_remarks = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.AxAcroPDF1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AxAcroPDF2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -227,15 +226,6 @@ Partial Class Payment
         Me.Label2.TabIndex = 174
         Me.Label2.Text = "Owner Name:"
         '
-        'GroupBox1
-        '
-        Me.GroupBox1.Location = New System.Drawing.Point(275, 41)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(259, 89)
-        Me.GroupBox1.TabIndex = 182
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Assessment Details"
-        '
         'Label10
         '
         Me.Label10.AutoSize = True
@@ -318,6 +308,27 @@ Partial Class Payment
         Me.Label8.TabIndex = 176
         Me.Label8.Text = "Official Receipt Attachment"
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(12, 114)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(49, 13)
+        Me.Label4.TabIndex = 170
+        Me.Label4.Text = "Remarks"
+        '
+        'Txt_remarks
+        '
+        Me.Txt_remarks.BackColor = System.Drawing.SystemColors.Window
+        Me.Txt_remarks.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Txt_remarks.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Txt_remarks.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_remarks.Location = New System.Drawing.Point(13, 129)
+        Me.Txt_remarks.Multiline = True
+        Me.Txt_remarks.Name = "Txt_remarks"
+        Me.Txt_remarks.Size = New System.Drawing.Size(472, 49)
+        Me.Txt_remarks.TabIndex = 168
+        '
         'useraccountid
         '
         Me.useraccountid.BackColor = System.Drawing.Color.AliceBlue
@@ -338,7 +349,6 @@ Partial Class Payment
         Me.typeofapplication.Controls.Add(Me.TxtOwnerName)
         Me.typeofapplication.Controls.Add(Me.useraccountid)
         Me.typeofapplication.Controls.Add(Me.GroupBox2)
-        Me.typeofapplication.Controls.Add(Me.GroupBox1)
         Me.typeofapplication.Controls.Add(Me.Type_App)
         Me.typeofapplication.Controls.Add(Me.Label2)
         Me.typeofapplication.Controls.Add(Me.TxtAccountNo)
@@ -360,7 +370,7 @@ Partial Class Payment
         Me.GroupBox3.Controls.Add(Me.Label6)
         Me.GroupBox3.Controls.Add(Me.txt_contactno)
         Me.GroupBox3.Controls.Add(Me.Label11)
-        Me.GroupBox3.Location = New System.Drawing.Point(540, 245)
+        Me.GroupBox3.Location = New System.Drawing.Point(540, 272)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(319, 126)
         Me.GroupBox3.TabIndex = 191
@@ -464,27 +474,6 @@ Partial Class Payment
         Me.TxtApplicationID.TabIndex = 175
         Me.TxtApplicationID.Visible = False
         '
-        'Txt_remarks
-        '
-        Me.Txt_remarks.BackColor = System.Drawing.SystemColors.Window
-        Me.Txt_remarks.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Txt_remarks.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Txt_remarks.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_remarks.Location = New System.Drawing.Point(13, 129)
-        Me.Txt_remarks.Multiline = True
-        Me.Txt_remarks.Name = "Txt_remarks"
-        Me.Txt_remarks.Size = New System.Drawing.Size(472, 49)
-        Me.Txt_remarks.TabIndex = 168
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(12, 114)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(49, 13)
-        Me.Label4.TabIndex = 170
-        Me.Label4.Text = "Remarks"
-        '
         'Payment
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -527,7 +516,6 @@ Partial Class Payment
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Public WithEvents TxtAccountNo As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Public WithEvents tax_amount As System.Windows.Forms.TextBox
     Friend WithEvents AxAcroPDF2 As AxAcroPDFLib.AxAcroPDF

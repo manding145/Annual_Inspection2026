@@ -257,6 +257,7 @@ Partial Class IssuedPermit
         Me.Print_Record.TabIndex = 219
         Me.Print_Record.TabStop = True
         Me.Print_Record.Text = "Print Record"
+        Me.Print_Record.Visible = False
         '
         'Or_link
         '

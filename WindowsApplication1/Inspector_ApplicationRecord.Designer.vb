@@ -22,9 +22,9 @@ Partial Class Inspector_ApplicationRecord
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Inspector_ApplicationRecord))
         Me.lbl_AccountNo = New System.Windows.Forms.Label()
         Me.lbl_BusinessName = New System.Windows.Forms.Label()
@@ -73,7 +73,6 @@ Partial Class Inspector_ApplicationRecord
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.AxAcroPDF2 = New AxAcroPDFLib.AxAcroPDF()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnDeny = New System.Windows.Forms.Button()
         Me.B_Signing = New System.Windows.Forms.Button()
@@ -93,6 +92,7 @@ Partial Class Inspector_ApplicationRecord
         Me.Label8 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.LblBuildingOwner = New System.Windows.Forms.Label()
+        Me.AxAcroPDF2 = New AxAcroPDFLib.AxAcroPDF()
         Me.Age.SuspendLayout()
         Me.cmbAttachment.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -101,7 +101,6 @@ Partial Class Inspector_ApplicationRecord
         Me.GroupBox3.SuspendLayout()
         Me.Tab.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        CType(Me.AxAcroPDF2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.panel_Approved.SuspendLayout()
@@ -112,6 +111,7 @@ Partial Class Inspector_ApplicationRecord
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel_ReUpload.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AxAcroPDF2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lbl_AccountNo
@@ -210,27 +210,27 @@ Partial Class Inspector_ApplicationRecord
         Me.Grid_attachments.AllowUserToDeleteRows = False
         Me.Grid_attachments.BackgroundColor = System.Drawing.Color.White
         Me.Grid_attachments.BorderStyle = System.Windows.Forms.BorderStyle.None
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Grid_attachments.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Grid_attachments.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.Grid_attachments.ColumnHeadersHeight = 25
         Me.Grid_attachments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.Grid_attachments.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column4, Me.Column6, Me.Column5})
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle9.Format = "N2"
-        DataGridViewCellStyle9.NullValue = "0.00"
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.Grid_attachments.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.Format = "N2"
+        DataGridViewCellStyle3.NullValue = "0.00"
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Grid_attachments.DefaultCellStyle = DataGridViewCellStyle3
         Me.Grid_attachments.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke
         Me.Grid_attachments.Location = New System.Drawing.Point(11, 17)
         Me.Grid_attachments.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
@@ -256,8 +256,8 @@ Partial Class Inspector_ApplicationRecord
         '
         'Column5
         '
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Column5.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column5.HeaderText = "ACTION"
         Me.Column5.Name = "Column5"
         Me.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
@@ -305,6 +305,7 @@ Partial Class Inspector_ApplicationRecord
         Me.LinkLabel1.TabIndex = 200
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "Print Record"
+        Me.LinkLabel1.Visible = False
         '
         'Label10
         '
@@ -681,16 +682,6 @@ Partial Class Inspector_ApplicationRecord
         Me.Label7.TabIndex = 2
         Me.Label7.Text = "Application Record"
         '
-        'AxAcroPDF2
-        '
-        Me.AxAcroPDF2.Enabled = True
-        Me.AxAcroPDF2.Location = New System.Drawing.Point(223, -53)
-        Me.AxAcroPDF2.Name = "AxAcroPDF2"
-        Me.AxAcroPDF2.OcxState = CType(resources.GetObject("AxAcroPDF2.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxAcroPDF2.Size = New System.Drawing.Size(192, 192)
-        Me.AxAcroPDF2.TabIndex = 193
-        Me.AxAcroPDF2.Visible = False
-        '
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.White
@@ -908,6 +899,16 @@ Partial Class Inspector_ApplicationRecord
         Me.LblBuildingOwner.TabIndex = 160
         Me.LblBuildingOwner.Text = "BUSINESS OWNER"
         '
+        'AxAcroPDF2
+        '
+        Me.AxAcroPDF2.Enabled = True
+        Me.AxAcroPDF2.Location = New System.Drawing.Point(223, -53)
+        Me.AxAcroPDF2.Name = "AxAcroPDF2"
+        Me.AxAcroPDF2.OcxState = CType(resources.GetObject("AxAcroPDF2.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.AxAcroPDF2.Size = New System.Drawing.Size(192, 192)
+        Me.AxAcroPDF2.TabIndex = 193
+        Me.AxAcroPDF2.Visible = False
+        '
         'Inspector_ApplicationRecord
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -932,7 +933,6 @@ Partial Class Inspector_ApplicationRecord
         Me.Tab.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.AxAcroPDF2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
@@ -948,6 +948,7 @@ Partial Class Inspector_ApplicationRecord
         Me.Panel_ReUpload.ResumeLayout(False)
         Me.Panel_ReUpload.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AxAcroPDF2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

@@ -38,6 +38,7 @@ Public Class InspectorDashBoard
                         .txtBuildingAge.Text = rdr_ms("bldg_age").ToString
                         .TxtBusinessAddress.Text = rdr_ms("bussAddress").ToString
                         .TxtBldg_permit.Text = rdr_ms("BldgPermit_No").ToString
+
                         If Not IsDBNull(rdr_ms("bldgPermit_IssuedDate")) Then
                             .TxtBldg_date.Text = Format(rdr_ms("bldgPermit_IssuedDate"), "MM-dd-yyyy")
                         Else
@@ -92,9 +93,12 @@ Public Class InspectorDashBoard
                             .Panel_pending.Visible = False
                             .panel_Approved.Visible = True
                             .panel_denied.Visible = False
-                            .BtnAddNewRecord.Enabled = False
                             .btnDeny.Visible = False
                             .B_Signing.Visible = False
+                            .LinkLabel1.Visible = True
+
+
+                            .BtnAddNewRecord.Enabled = False
                             .assessment_file.Enabled = False
                             .B_assessAttach.Enabled = False
                             .B_Reupload.Enabled = False
@@ -135,6 +139,7 @@ Public Class InspectorDashBoard
                             .BtnAddNewRecord.Enabled = False
                             .btnDeny.Visible = False
                             .B_Signing.Enabled = False
+
 
                         End If
 

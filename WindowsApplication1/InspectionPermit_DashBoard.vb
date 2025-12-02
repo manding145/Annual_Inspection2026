@@ -101,7 +101,6 @@ Public Class InspectionPermit_DashBoard
                 conn = "SELECT * " & _
                        "FROM ONLINE.annual_inspection_application AS ais " & _
                        "INNER JOIN ONLINE.SysMngr AS sm ON ais.userId = sm.UserID " & _
-                       "INNER JOIN ONLINE.email_outbox AS EO ON ais.userId = EO.userid " & _
                        "WHERE ais.id = '" & DataGrid.Item(0, DataGrid.CurrentRow.Index).Value & "'"
 
                 Con_ms = New SqlConnection(mcs)
@@ -152,7 +151,7 @@ Public Class InspectionPermit_DashBoard
                             .TxtOccupancy_date.Text = ""
                         End If
 
-                        .fullname.Text = rdr_ms("fullname").ToString
+                        .fullname.Text = rdr_ms("Firstname").ToString() + " " + rdr_ms("Middlename").ToString() + " " + rdr_ms("Lastname").ToString()
                         .txt_email.Text = rdr_ms("email").ToString
                         .txt_contactno.Text = rdr_ms("ContactNo").ToString
 
@@ -168,6 +167,7 @@ Public Class InspectionPermit_DashBoard
                             .Issued_file.Visible = False
                             .Lbl_Upload.Visible = False
 
+
                             If Not String.IsNullOrEmpty("file_or") Then
                                 .Or_link.Location = New Point(260, 300)
                                 .Or_link.Visible = True
@@ -181,22 +181,22 @@ Public Class InspectionPermit_DashBoard
                             .B_IssuedAttach.Visible = False
                             .Issued_file.Visible = False
                             .Lbl_Upload.Visible = False
+                            .Print_Record.Visible = True
 
                             If Not String.IsNullOrEmpty("file_or") Then
                                 .Or_link.Location = New Point(260, 300)
                                 .Or_link.Visible = True
                             End If
 
-                            ElseIf rdr_ms("app_status") = "SD" Then
+                        ElseIf rdr_ms("app_status") = "SD" Then
 
-                                .B_SentNotification.Visible = False
-                                .B_Signed.Visible = False
-                                .B_IssuedAttach.Enabled = True
-                                .Issued_file.Visible = True
+                            .B_SentNotification.Visible = False
+                            .B_Signed.Visible = False
+                            .B_IssuedAttach.Enabled = True
+                            .Issued_file.Visible = True
                             .B_Issued.Visible = True
-
+                            .Print_Record.Visible = True
                             .Or_link.Visible = True
-
 
                         ElseIf rdr_ms("app_status") = "I" Then
 
@@ -204,13 +204,12 @@ Public Class InspectionPermit_DashBoard
                             .B_SentNotification.Enabled = False
                             .B_Signed.Enabled = False
 
-
-
                             .B_Issued.Visible = False
                             .B_SentNotification.Visible = False
                             .B_Signed.Visible = False
                             .B_Issued.Visible = True
                             .Or_link.Visible = True
+                            .Print_Record.Visible = True
 
                             .Issued_file.Text = rdr_ms("file_certificate").ToString()
 
@@ -224,12 +223,10 @@ Public Class InspectionPermit_DashBoard
                                 MessageBox.Show("No file path found in the database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             End If
 
-
                         End If
 
                     End With
                 End If
-
                 Con_ms.Close()
 
 

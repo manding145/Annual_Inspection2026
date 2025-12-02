@@ -73,11 +73,9 @@ Public Class PaymentDashboard
 
             Try
 
-                conn = "SELECT * " & _
-                       "FROM ONLINE.annual_inspection_application AS ias " & _
-                       "INNER JOIN ONLINE.SysMngr AS sm ON ias.userId = sm.UserID " & _
-                       "INNER JOIN ONLINE.email_outbox AS EO ON ias.userId = EO.userid " & _
-                       "WHERE ias.id = '" & DataGrid.Item(0, DataGrid.CurrentRow.Index).Value & "'"
+                conn = "SELECT * FROM ONLINE.annual_inspection_application AS ais " &
+                          "INNER JOIN ONLINE.SysMngr AS sm ON ais.UserID = sm.UserID " &
+                          "WHERE ais.id = '" & DataGrid.Item(0, DataGrid.CurrentRow.Index).Value & "'"
 
                 Con_ms = New SqlConnection(mcs)
                 Con_ms.Open()
@@ -102,7 +100,7 @@ Public Class PaymentDashboard
                         .txt_email.Text = rdr_ms("email").ToString
 
                         .Type_App.Text = rdr_ms("app_type").ToString
-                        .fullname.Text = rdr_ms("fullname").ToString
+                        .fullname.Text = rdr_ms("Firstname").ToString & " " & rdr_ms("Middlename").ToString & " " & rdr_ms("Lastname").ToString
                         .txt_contactno.Text = rdr_ms("ContactNo").ToString
 
                         Dim folderpath = link_prefix & folder_directory & .referencono.Text & "\" & .referencono.Text & "_OR.pdf"

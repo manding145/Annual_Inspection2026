@@ -351,10 +351,10 @@ Partial Class InspectionPermit_DashBoard
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.Location = New System.Drawing.Point(534, 417)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(305, 26)
+        Me.Label11.Size = New System.Drawing.Size(309, 26)
         Me.Label11.TabIndex = 136
-        Me.Label11.Text = "*Status - PAID forPAID, S for Signing, SD for Signed" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                I for Issue" & _
-    "d"
+        Me.Label11.Text = "*Status - PAID for PAID, S for Signing, SD for Signed" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                I for Issu" & _
+    "ed"
         Me.Label11.Visible = False
         '
         'PictureBox8
