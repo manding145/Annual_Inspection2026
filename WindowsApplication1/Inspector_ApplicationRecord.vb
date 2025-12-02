@@ -80,13 +80,13 @@ Public Class Inspector_ApplicationRecord
                 filePath = ""
             Else
 
-                'If File.Exists(filePath) Then
+                If File.Exists(filePath) Then
 
-                '    File.Copy(sourcePath2, filePath, True)
-                'Else
-                '    '
-                '    File.Copy(sourcePath2, filePath)
-                'End If
+                    File.Copy(sourcePath2, filePath, True)
+                Else
+                    '
+                    File.Copy(sourcePath2, filePath)
+                End If
             End If
 
             Dim Inspector_ApplicationRecord As Inspector_ApplicationRecord = CType(Application.OpenForms("Inspector_ApplicationRecord"), Inspector_ApplicationRecord)
@@ -102,7 +102,7 @@ Public Class Inspector_ApplicationRecord
                 cmd_ms.Parameters.Add("@amount", SqlDbType.VarChar).Value = TxtAmount.Text
                 cmd_ms.ExecuteNonQuery()
                 Con_ms.Close()
-                FormStatus = False
+
 
                 Con_ms1 = New SqlConnection(mcs)
                 Con_ms1.Open()
@@ -120,6 +120,7 @@ Public Class Inspector_ApplicationRecord
 
                 MsgBox("Annual Inspection Application successfully Verified", vbOKOnly & vbInformation, "Annual Inspection Online")
                 Con_ms1.Close()
+                FormStatus = False
                 Me.Close()
 
             Catch ex As Exception

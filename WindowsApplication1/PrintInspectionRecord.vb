@@ -12,7 +12,7 @@ Public Class PrintInspectionRecord
         Me.Close()
     End Sub
 
-    Private Sub GetReport()
+    Private Sub ApplicationRecord_Print()
 
         Try
             Dim inspector_ApplicationRecord As Inspector_ApplicationRecord = CType(Application.OpenForms("Inspector_ApplicationRecord"), Inspector_ApplicationRecord)
@@ -42,9 +42,8 @@ Public Class PrintInspectionRecord
 
                 Con_ms3 = New SqlConnection(mcs)
                 Con_ms3.Open()
-                conn_ms3 = "SELECT * FROM ONLINE.annual_inspection_application as ais " &
-                       "INNER JOIN ONLINE.constr_Sysmngr AS sm ON ais.adminUserID = sm.adminUserID " &
-                        "WHERE ais.id = '" & .txt_applicationno.Text & "' "
+                conn_ms3 = "SELECT * FROM ONLINE.annual_inspection_application " &
+                        "WHERE id = '" & .txt_applicationno.Text & "' "
                 cmd_ms3 = New SqlCommand(conn_ms3, Con_ms3)
                 rdr_ms3 = cmd_ms3.ExecuteReader(CommandBehavior.CloseConnection)
                 If rdr_ms3.Read() Then
@@ -54,11 +53,21 @@ Public Class PrintInspectionRecord
                     TxtBuildingOwner.Text = rdr_ms3("ownerName")
                     TxtBusinessAddress.Text = rdr_ms3("bussAddress")
                     TxtNoStorey.Text = rdr_ms3("noStorey")
-                    TxtBuildingPermit.Text = rdr_ms3("BldgPermit_No")
-                    TxtBldg_date.Text = Format(rdr_ms3("BldgPermit_IssuedDate"), "yyyy-MM-dd")
-                    TxtOccupancyPermit.Text = rdr_ms3("OccupPermit_No")
-                    TxtOccupancy_date.Text = Format(rdr_ms3("occuPermit_IssuedDate"), "yyyy-MM-dd")
-                    TxtInspector.Text = rdr_ms3("Fullname")
+
+
+                    TxtBuildingPermit.Text = If(IsDBNull(rdr_ms3("BldgPermit_No")), "", rdr_ms3("BldgPermit_No").ToString)
+                    If IsDBNull(rdr_ms3("BldgPermit_IssuedDate")) Then
+                        TxtBldg_date.Text = ""
+                    Else
+                        TxtBldg_date.Text = Format(CDate(rdr_ms3("BldgPermit_IssuedDate")), "yyyy-MM-dd")
+                    End If
+                    TxtOccupancyPermit.Text = If(IsDBNull(rdr_ms3("OccupPermit_No")), "", rdr_ms3("OccupPermit_No").ToString)
+                    If IsDBNull(rdr_ms3("occuPermit_IssuedDate")) Then
+                        TxtOccupancy_date.Text = ""
+                    Else
+                        TxtOccupancy_date.Text = Format(CDate(rdr_ms3("occuPermit_IssuedDate")), "yyyy-MM-dd")
+                    End If
+
 
                     If Not IsDBNull(rdr_ms3("OR_No")) AndAlso rdr_ms3("OR_No").ToString <> "" Then
 
@@ -98,7 +107,7 @@ Public Class PrintInspectionRecord
         Con_ms3.Close()
     End Sub
 
-    Private Sub GetReport2()
+    Private Sub IssuedPermit_Print()
 
         Try
             Dim issuedPermit As IssuedPermit = CType(Application.OpenForms("IssuedPermit"), IssuedPermit)
@@ -138,23 +147,20 @@ Public Class PrintInspectionRecord
                     TxtBuildingOwner.Text = rdr_ms3("ownerName")
                     TxtBusinessAddress.Text = rdr_ms3("bussAddress")
                     TxtNoStorey.Text = rdr_ms3("noStorey")
-                    TxtInspector.Text = rdr_ms3("Fullname")
+                    TxtInspector.Text = If(IsDBNull(rdr_ms3("Fullname")), "", rdr_ms3("Fullname").ToString)
 
                     TxtBuildingPermit.Text = If(IsDBNull(rdr_ms3("BldgPermit_No")), "", rdr_ms3("BldgPermit_No").ToString)
-
                     If IsDBNull(rdr_ms3("BldgPermit_IssuedDate")) Then
                         TxtBldg_date.Text = ""
                     Else
                         TxtBldg_date.Text = Format(CDate(rdr_ms3("BldgPermit_IssuedDate")), "yyyy-MM-dd")
                     End If
-
                     TxtOccupancyPermit.Text = If(IsDBNull(rdr_ms3("OccupPermit_No")), "", rdr_ms3("OccupPermit_No").ToString)
                     If IsDBNull(rdr_ms3("occuPermit_IssuedDate")) Then
                         TxtOccupancy_date.Text = ""
                     Else
                         TxtOccupancy_date.Text = Format(CDate(rdr_ms3("occuPermit_IssuedDate")), "yyyy-MM-dd")
                     End If
-
 
 
                     If Not IsDBNull(rdr_ms3("OR_No")) AndAlso rdr_ms3("OR_No").ToString <> "" Then
@@ -201,10 +207,11 @@ Public Class PrintInspectionRecord
 
         If inspector_ApplicationRecord IsNot Nothing AndAlso
            Not String.IsNullOrWhiteSpace(inspector_ApplicationRecord.txt_applicationno.Text) Then
-            GetReport()
+            ApplicationRecord_Print()
+
         ElseIf issuedPermit IsNot Nothing AndAlso
                Not String.IsNullOrWhiteSpace(issuedPermit.TxtApplicationID.Text) Then
-            GetReport2()
+            IssuedPermit_Print()
         End If
     End Sub
 
