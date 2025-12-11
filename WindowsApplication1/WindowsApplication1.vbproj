@@ -407,6 +407,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Print_InspectionRecord.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Print_InspectionRecord2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Print_InspectionRecord.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ReUpload.Designer.vb">
@@ -578,7 +583,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Print_InspectionRecord.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Print_InspectionRecord1.vb</LastGenOutput>
+      <LastGenOutput>Print_InspectionRecord2.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ReUpload.resx">
       <DependentUpon>ReUpload.vb</DependentUpon>

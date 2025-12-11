@@ -4,37 +4,6 @@ Imports System.IO
 
 Public Class IssuedPermit
 
-    Private Sub BtnSearchRecord_Click(sender As Object, e As EventArgs) Handles BtnSearchRecord.Click
-
-
-        'Try
-        '    InspectorDashBoard.DataGrid.Rows.Clear()
-        '    conn = "SELECT ONLINE.business_application_tbl.applicationID as applicationID , ONLINE.business_application_tbl.accountno AS act, ONLINE.business_record_hdr.b_name as bname, ONLINE.business_assessment_dtl.Total_amt as amt " _
-        '    & "FROM " _
-        '    & "ONLINE.business_application_tbl INNER JOIN ONLINE.business_assessment_dtl ON ONLINE.business_assessment_dtl.applicationID= ONLINE.business_application_tbl.applicationID INNER JOIN ONLINE.business_applicationstatus_dtl ON ONLINE.business_applicationstatus_dtl.ApplicationID = ONLINE.business_application_tbl.applicationID INNER JOIN ONLINE.business_record_hdr ON ONLINE.business_record_hdr.recordID =  ONLINE.business_application_tbl.recordID " & _
-        '    "where ONLINE.business_application_tbl.accountno LIKE '%" & referencono.Text & "' and YEAR(ONLINE.business_application_tbl.application_date)='" & Date.Now.Year & "' AND ONLINE.business_applicationstatus_dtl.payment_status='P'"
-        '    Con_ms = New SqlConnection(mcs)
-        '    Con_ms.Open()
-        '    cmd_ms = New SqlCommand(conn, Con_ms)
-        '    rdr_ms = cmd_ms.ExecuteReader(CommandBehavior.CloseConnection)
-        '    If rdr_ms.Read = True Then
-
-        '        TxtBusinessName.Text = rdr_ms("bname").ToString
-        '        'TotalAssessmentAmount.Text = rdr_ms("amt").ToString
-        '        TxtAccountNo.Text = rdr_ms("id").ToString
-
-        '    Else
-
-        '        MsgBox("Business Record Not Found!")
-        '    End If
-
-
-        '    Con_ms.Close()
-        'Catch ex As Exception
-        '    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        'End Try
-    End Sub
-
     Private Sub UploadScannedReceipt_Click(sender As Object, e As EventArgs) Handles UploadScannedReceipt.Click
 
         Dim openFileDialog As New OpenFileDialog()
@@ -80,56 +49,60 @@ Public Class IssuedPermit
             MsgBox("Please attach your Issuance", vbOKOnly & vbCritical, "Annual Inspection Online")
             Exit Sub
         End If
-
-
-        Dim rawPath2 As String = AxAcroPDF2.src
-        Dim sourcePath2 As String = rawPath2.Replace("file://", "").Trim()
-
-        Dim folderpath = link_prefix & folder_directory & referencono.Text & "\"
-        Dim filename = referencono.Text & "_Certificate.pdf"
-        Dim filePath As String = Path.Combine(folderpath, filename)
-
-        If Not Directory.Exists(folderpath) Then
-            Directory.CreateDirectory(folderpath)
-        End If
-
-        If String.IsNullOrWhiteSpace(sourcePath2) OrElse Not File.Exists(sourcePath2) Then
-            filePath = ""
-        Else
-
-            File.Copy(sourcePath2, filePath, True)
-        End If
-
         Try
-            Con_ms1 = New SqlConnection(mcs)
-            Con_ms1.Open()
-            conn_ms1 = "UPDATE ONLINE.annual_inspection_application SET app_status = 'I', issuance_date = @issuance_date, file_certificate = @file_certificate where id='" & TxtApplicationID.Text & "'"
-            cmd_ms1 = New SqlCommand(conn_ms1, Con_ms1)
-            cmd_ms1.Parameters.Add("@issuance_date", SqlDbType.DateTime).Value = DateAndTime.Now()
-            cmd_ms1.Parameters.Add("@file_certificate", SqlDbType.VarChar).Value = filename
-            cmd_ms1.ExecuteNonQuery()
-            Con_ms1.Close()
 
+            Dim rawPath2 As String = AxAcroPDF2.src
+            Dim sourcePath2 As String = rawPath2.Replace("file://", "").Trim()
 
-            Con_ms = New SqlConnection(mcs)
-            Con_ms.Open()
-            conn = "INSERT INTO ONLINE.email_outbox (userid, accountno, email, Subject, fullname, referencecode, datesend, assessment_path) " _
-               & "VALUES (@userid, @accountno, @txt_email, 'Annual Inspection Issuance' ,@fullname, @referencono, @Date, @assessment_path)"
-            cmd_ms = New SqlCommand(conn, Con_ms)
-            cmd_ms.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
-            cmd_ms.Parameters.Add("@accountno", SqlDbType.VarChar).Value = TxtAccountNo.Text & "-" & TxtBusinessName.Text
-            cmd_ms.Parameters.Add("@txt_email", SqlDbType.VarChar).Value = txt_email.Text
-            cmd_ms.Parameters.Add("@fullname", SqlDbType.VarChar).Value = fullname.Text
-            cmd_ms.Parameters.Add("@referencono", SqlDbType.VarChar).Value = referencono.Text
-            cmd_ms.Parameters.Add("@assessment_path", SqlDbType.VarChar).Value = filePath
-            cmd_ms.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
-            cmd_ms.ExecuteNonQuery()
-            Con_ms.Close()
+            Dim folderpath = link_prefix & folder_directory & referencono.Text & "\"
+            Dim filename = referencono.Text & "_Certificate.pdf"
+            Dim filePath As String = Path.Combine(folderpath, filename)
+            Dim ask As DialogResult
 
+            ask = MessageBox.Show("Are you sure this is CERTIFICATE?",
+                                 "Annual Inspection Online",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question)
 
-            MsgBox("Annual Inspection Issued successfully", vbOKOnly & vbInformation, "Annual Inspection Online")
+            If ask = DialogResult.Yes Then
 
+                If Not Directory.Exists(folderpath) Then
+                    Directory.CreateDirectory(folderpath)
+                End If
 
+                If String.IsNullOrWhiteSpace(sourcePath2) OrElse Not File.Exists(sourcePath2) Then
+                    filePath = ""
+                Else
+
+                    File.Copy(sourcePath2, filePath, True)
+                End If
+
+                Con_ms1 = New SqlConnection(mcs)
+                Con_ms1.Open()
+                conn_ms1 = "UPDATE ONLINE.annual_inspection_application SET app_status = 'I', issuance_date = @issuance_date, file_certificate = @file_certificate where id='" & TxtApplicationID.Text & "'"
+                cmd_ms1 = New SqlCommand(conn_ms1, Con_ms1)
+                cmd_ms1.Parameters.Add("@issuance_date", SqlDbType.DateTime).Value = DateAndTime.Now()
+                cmd_ms1.Parameters.Add("@file_certificate", SqlDbType.VarChar).Value = filename
+                cmd_ms1.ExecuteNonQuery()
+                Con_ms1.Close()
+
+                Con_ms = New SqlConnection(mcs)
+                Con_ms.Open()
+                conn = "INSERT INTO ONLINE.email_outbox (userid, accountno, email, Subject, fullname, referencecode, datesend, assessment_path) " _
+                   & "VALUES (@userid, @accountno, @txt_email, 'Annual Inspection Issuance' ,@fullname, @referencono, @Date, @assessment_path)"
+                cmd_ms = New SqlCommand(conn, Con_ms)
+                cmd_ms.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
+                cmd_ms.Parameters.Add("@accountno", SqlDbType.VarChar).Value = TxtAccountNo.Text & "-" & TxtBusinessName.Text
+                cmd_ms.Parameters.Add("@txt_email", SqlDbType.VarChar).Value = txt_email.Text
+                cmd_ms.Parameters.Add("@fullname", SqlDbType.VarChar).Value = fullname.Text
+                cmd_ms.Parameters.Add("@referencono", SqlDbType.VarChar).Value = referencono.Text
+                cmd_ms.Parameters.Add("@assessment_path", SqlDbType.VarChar).Value = filePath
+                cmd_ms.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
+                cmd_ms.ExecuteNonQuery()
+                Con_ms.Close()
+                MsgBox("Annual Inspection Issued successfully", vbOKOnly & vbInformation, "Annual Inspection Online")
+
+            End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Con_ms.Close()
@@ -140,7 +113,9 @@ Public Class IssuedPermit
     
 
     Private Sub B_SentNotification_Click(sender As Object, e As EventArgs) Handles B_SentNotification.Click
+
         Dim ask As DialogResult
+
         ask = MessageBox.Show("Are you going to notify the applicant to signing?",
                              "Annual Inspection Online",
                              MessageBoxButtons.YesNo,
@@ -154,7 +129,7 @@ Public Class IssuedPermit
                 conn_ms1 = "UPDATE ONLINE.annual_inspection_application SET app_status = 'S', AdminUserID = @Admin, Signed_date = @Date where id='" & TxtApplicationID.Text & "'"
                 cmd_ms1 = New SqlCommand(conn_ms1, Con_ms1)
                 cmd_ms1.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
-                cmd_ms1.Parameters.Add("@Admin", SqlDbType.VarChar).Value = userid
+                cmd_ms1.Parameters.Add("@Admin", SqlDbType.VarChar).Value = AdminUserID
                 cmd_ms1.ExecuteNonQuery()
                 Con_ms1.Close()
 
@@ -190,6 +165,7 @@ Public Class IssuedPermit
                 cmd_ms.ExecuteNonQuery()
                 Con_ms.Close()
 
+                InspectionPermit_DashBoard.PictureBox2_Click(sender, e)
                 MsgBox("Annual Inspection Signed successfully", vbOKOnly & vbInformation, "Annual Inspection Online")
                 PrintInspectionRecord.Show()
 
@@ -233,9 +209,10 @@ Public Class IssuedPermit
         Con_ms1.Close()
         MsgBox("Annual Inspection Already Signed", vbOKOnly & vbInformation, "Annual Inspection Online")
         Me.Close()
+
     End Sub
 
-   
+
     Private Sub Button3_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
@@ -258,10 +235,9 @@ Public Class IssuedPermit
         End Try
     End Sub
 
-  
+
     Private Sub Print_Record_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles Print_Record.LinkClicked
         PrintInspectionRecord.Show()
     End Sub
 
-   
 End Class

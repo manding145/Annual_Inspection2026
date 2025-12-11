@@ -7,7 +7,7 @@ Module Connection
     Public appointmentID_search, recordid_search As Integer
     Public namefile, myemail, mypassword, link_prefix, lblfname1, lbluserrole1 As String
     Public FormStatus As Boolean
-    Public username, password, userfullname, userid1, userid, Userlevel, TypeCard As String
+    Public username, password, userfullname, userid1, AdminUserID, Userlevel, TypeCard As String
     Public formid As Integer
 
     Public link_UnifiedForm, link_BrgyClearance, link_OldPermit, link_OldPlate, link_Fire, link_OldITR, link_MarketClearance

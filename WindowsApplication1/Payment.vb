@@ -61,9 +61,14 @@ Public Class Payment
 
         Try
 
-            If ORattachment.Text = "" Then
+            If ORattachment.Text = "".Trim Then
 
                 MsgBox(" No Offiecial Receipt file uploaded")
+                Exit Sub
+            End If
+
+            If String.IsNullOrWhiteSpace(TxtTransaction.Text) Or TxtTransaction.Text = "0" Or TxtTransaction.Text = " " Then
+                MsgBox("Please input the Official Receipt Number", vbOKOnly & vbCritical, "Annual Inspection Online")
                 Exit Sub
             End If
 
@@ -74,50 +79,61 @@ Public Class Payment
             Dim filename = referencono.Text & "_OR.pdf"
             Dim filePath = Path.Combine(folderpath, filename)
 
-            If Not Directory.Exists(folderpath) Then
-                Directory.CreateDirectory(folderpath)
+            Dim ask As DialogResult
+
+
+            ask = MessageBox.Show("Are you sure this is Exact Official Receipt NO. " & TxtTransaction.Text & "?",
+                                  "Annual Inspection Online",
+                                  MessageBoxButtons.YesNo,
+                                  MessageBoxIcon.Question)
+
+
+            If ask = DialogResult.Yes Then
+
+                If Not Directory.Exists(folderpath) Then
+                    Directory.CreateDirectory(folderpath)
+                End If
+
+                If String.IsNullOrWhiteSpace(sourcePath2) OrElse Not File.Exists(sourcePath2) Then
+
+                    filePath = ""
+                Else
+
+                    File.Copy(sourcePath2, filePath, True)
+                End If
+
+                Con_ms1 = New SqlConnection(mcs)
+                Con_ms1.Open()
+                conn_ms1 = "UPDATE ONLINE.annual_inspection_application SET app_status = 'PAID', file_or = @file_or, OR_No = @OR_No, paid_date = @date, OR_remarks = @TxtOR_Remarks where id='" & TxtApplicationID.Text & "'"
+                cmd_ms1 = New SqlCommand(conn_ms1, Con_ms1)
+                cmd_ms1.Parameters.Add("@date", SqlDbType.DateTime).Value = DateAndTime.Now()
+                cmd_ms1.Parameters.Add("@file_or", SqlDbType.VarChar).Value = filename
+                cmd_ms1.Parameters.Add("@OR_No", SqlDbType.VarChar).Value = TxtTransaction.Text
+                cmd_ms1.Parameters.Add("@TxtOR_Remarks", SqlDbType.VarChar).Value = Txt_remarks.Text
+                cmd_ms1.ExecuteNonQuery()
+                Con_ms1.Close()
+
+                Con_ms = New SqlConnection(mcs)
+                Con_ms.Open()
+                conn = "INSERT INTO ONLINE.email_outbox (userid, accountno, email, Subject, fullname, referencecode, datesend, officialreceipt_path) " _
+                   & "VALUES (@userid, @TxtAccountNo, '" & txt_email.Text & "', 'Annual Inspection Payment' ,@fullanme, '" & referencono.Text & "', @Date, @filePath)"
+                cmd_ms = New SqlCommand(conn, Con_ms)
+                cmd_ms.Parameters.Add("@TxtAccountNo", SqlDbType.VarChar).Value = TxtAccountNo.Text & "_" & TxtBusinessName.Text
+                cmd_ms.Parameters.Add("@fullanme", SqlDbType.VarChar).Value = fullname.Text
+                cmd_ms.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
+                cmd_ms.Parameters.Add("@filePath", SqlDbType.VarChar).Value = filePath
+                cmd_ms.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
+
+
+                cmd_ms.ExecuteNonQuery()
+                Con_ms.Close()
+
+
+                Me.Close()
+
+
             End If
-
-
-            If String.IsNullOrWhiteSpace(sourcePath2) OrElse Not File.Exists(sourcePath2) Then
-
-                filePath = ""
-            Else
-
-                File.Copy(sourcePath2, filePath, True)
-            End If
-
-
-            Con_ms1 = New SqlConnection(mcs)
-            Con_ms1.Open()
-            conn_ms1 = "UPDATE ONLINE.annual_inspection_application SET app_status = 'PAID', file_or = @file_or, OR_No = @OR_No, paid_date = @date, OR_remarks = @TxtOR_Remarks where id='" & TxtApplicationID.Text & "'"
-            cmd_ms1 = New SqlCommand(conn_ms1, Con_ms1)
-            cmd_ms1.Parameters.Add("@date", SqlDbType.DateTime).Value = DateAndTime.Now()
-            cmd_ms1.Parameters.Add("@file_or", SqlDbType.VarChar).Value = filename
-            cmd_ms1.Parameters.Add("@OR_No", SqlDbType.VarChar).Value = TxtTransaction.Text
-            cmd_ms1.Parameters.Add("@TxtOR_Remarks", SqlDbType.VarChar).Value = Txt_remarks.Text
-            cmd_ms1.ExecuteNonQuery()
-            Con_ms1.Close()
-
-
-            Con_ms = New SqlConnection(mcs)
-            Con_ms.Open()
-            conn = "INSERT INTO ONLINE.email_outbox (userid, accountno, email, Subject, fullname, referencecode, datesend, officialreceipt_path) " _
-               & "VALUES (@userid, @TxtAccountNo, '" & txt_email.Text & "', 'Annual Inspection Payment' ,@fullanme, '" & referencono.Text & "', @Date, @filePath)"
-            cmd_ms = New SqlCommand(conn, Con_ms)
-            cmd_ms.Parameters.Add("@TxtAccountNo", SqlDbType.VarChar).Value = TxtAccountNo.Text & "_" & TxtBusinessName.Text
-            cmd_ms.Parameters.Add("@fullanme", SqlDbType.VarChar).Value = fullname.Text
-            cmd_ms.Parameters.Add("@userid", SqlDbType.VarChar).Value = useraccountid.Text
-            cmd_ms.Parameters.Add("@filePath", SqlDbType.VarChar).Value = filePath
-            cmd_ms.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
-
-
-            cmd_ms.ExecuteNonQuery()
-            Con_ms.Close()
-
-
-            Me.Close()
-
+            
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Con_ms.Close()
@@ -164,8 +180,9 @@ Public Class Payment
 
     End Sub
 
-    Private Sub AxAcroPDF2_Enter(sender As Object, e As EventArgs) Handles AxAcroPDF2.Enter
+
+
+    Private Sub typeofapplication_Paint(sender As Object, e As PaintEventArgs) Handles typeofapplication.Paint
 
     End Sub
-
 End Class

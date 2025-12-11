@@ -131,11 +131,13 @@ Public Class InspectionPermit_DashBoard
                         .TxtAccountNo.Text = rdr_ms("accountNo").ToString
                         .referencono.Text = rdr_ms("refno").ToString
                         .TxtBusinessName.Text = rdr_ms("bussName").ToString
-                        .TxtOwnerName.Text = rdr_ms("ownerName").ToString
+                        .Txt_BusinessOwner.Text = rdr_ms("ownerName").ToString
+                        .TxtBuildingOwnerName.Text = rdr_ms("bldgOwnerName").ToString
+                        .TxtBuildingAddress.Text = rdr_ms("bussAddress").ToString
                         .TxtNoStorey.Text = rdr_ms("noStorey").ToString
                         .useraccountid.Text = rdr_ms("UserID").ToString
                         .txtBuildingAge.Text = rdr_ms("bldg_age").ToString
-                        .TxtBuildingAddress.Text = rdr_ms("bussAddress").ToString
+
 
                         .TxtBldg_permit.Text = rdr_ms("BldgPermit_No").ToString
                         If Not IsDBNull(rdr_ms("bldgPermit_IssuedDate")) Then
@@ -369,7 +371,7 @@ Public Class InspectionPermit_DashBoard
         lblCount.Text = DataGrid.RowCount
     End Sub
 
-    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
+    Public Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
 
         DataGrid.Rows.Clear()
 
@@ -390,7 +392,7 @@ Public Class InspectionPermit_DashBoard
     End Sub
 
  
-    Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
+    Public Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
 
 
         DataGrid.Rows.Clear()

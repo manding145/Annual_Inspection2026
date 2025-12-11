@@ -35,8 +35,10 @@ Public Class InspectorDashBoard
                         .lbl_AccountNo.Text = rdr_ms("accountNo").ToString
                         .lbl_BusinessName.Text = rdr_ms("bussName").ToString
                         .Txt2Storey.Text = rdr_ms("noStorey").ToString
+                        .LblBusinessOwner.Text = rdr_ms("ownerName").ToString
+                        .Txt_BuildingOwner.Text = rdr_ms("bldgOwnerName").ToString
                         .txtBuildingAge.Text = rdr_ms("bldg_age").ToString
-                        .TxtBusinessAddress.Text = rdr_ms("bussAddress").ToString
+                        .TxtBuildingAddress.Text = rdr_ms("bussAddress").ToString
                         .TxtBldg_permit.Text = rdr_ms("BldgPermit_No").ToString
 
                         If Not IsDBNull(rdr_ms("bldgPermit_IssuedDate")) Then
@@ -58,7 +60,7 @@ Public Class InspectorDashBoard
                         .fullname.Text = rdr_ms("Firstname").ToString() + " " + rdr_ms("Middlename").ToString() + " " + rdr_ms("Lastname").ToString()
                         .useraccountid.Text = rdr_ms("userid").ToString()
                         .txt_remarks.Text = rdr_ms("remarks").ToString
-                        .LblBuildingOwner.Text = rdr_ms("ownerName").ToString
+                        .LblBusinessOwner.Text = rdr_ms("ownerName").ToString
 
                         .Grid_attachments.Rows.Clear()
                         'attachments
@@ -102,7 +104,7 @@ Public Class InspectorDashBoard
                             .assessment_file.Enabled = False
                             .B_assessAttach.Enabled = False
                             .B_Reupload.Enabled = False
-                            .TxtBusinessAddress.Enabled = False
+                            .TxtBuildingAddress.Enabled = False
                             .Txt2Storey.Enabled = False
                             .TxtAmount.Enabled = False
 
@@ -139,7 +141,9 @@ Public Class InspectorDashBoard
                             .BtnAddNewRecord.Enabled = False
                             .btnDeny.Visible = False
                             .B_Signing.Enabled = False
-
+                            .B_Reupload.Enabled = False
+                            .TxtAmount.Enabled = False
+                            .B_assessAttach.Enabled = False
 
                         End If
 
@@ -578,4 +582,7 @@ Public Class InspectorDashBoard
     End Sub
 
   
+    Private Sub InspectorDashBoard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

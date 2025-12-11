@@ -88,7 +88,7 @@ Public Class LogIn
                     Dim mm As New MainMenu
                     mm.lbluserrole.Text = Userlevel
 
-                    userid = rdr_ms("AdminUserID")
+                    AdminUserID = rdr_ms("AdminUserID")
                     MainMenu.lbluserrole.Text = Userlevel
                     Con_ms.Close()
                     Me.Hide()
@@ -166,7 +166,7 @@ Public Class LogIn
                 Dim mm As New MainMenu
                 mm.lbluserrole.Text = Userlevel
 
-                userid = rdr_ms1("AdminUserID")
+                AdminUserID = rdr_ms1("AdminUserID")
                 Con_ms1.Close()
                 Me.Hide()
                 Splash.ShowDialog()

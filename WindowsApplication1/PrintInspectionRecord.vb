@@ -42,8 +42,9 @@ Public Class PrintInspectionRecord
 
                 Con_ms3 = New SqlConnection(mcs)
                 Con_ms3.Open()
-                conn_ms3 = "SELECT * FROM ONLINE.annual_inspection_application " &
-                        "WHERE id = '" & .txt_applicationno.Text & "' "
+                conn_ms3 = "SELECT * FROM ONLINE.annual_inspection_application AS ais " &
+                        "LEFT JOIN ONLINE.constr_Sysmngr AS sms ON ais.adminUserID = sms.adminUserID " &
+                        "WHERE ais.id = '" & .txt_applicationno.Text & "' "
                 cmd_ms3 = New SqlCommand(conn_ms3, Con_ms3)
                 rdr_ms3 = cmd_ms3.ExecuteReader(CommandBehavior.CloseConnection)
                 If rdr_ms3.Read() Then
@@ -53,7 +54,7 @@ Public Class PrintInspectionRecord
                     TxtBuildingOwner.Text = rdr_ms3("ownerName")
                     TxtBusinessAddress.Text = rdr_ms3("bussAddress")
                     TxtNoStorey.Text = rdr_ms3("noStorey")
-
+                    TxtInspector.Text = If(IsDBNull(rdr_ms3("Fullname")), "", rdr_ms3("Fullname").ToString)
 
                     TxtBuildingPermit.Text = If(IsDBNull(rdr_ms3("BldgPermit_No")), "", rdr_ms3("BldgPermit_No").ToString)
                     If IsDBNull(rdr_ms3("BldgPermit_IssuedDate")) Then
@@ -67,7 +68,6 @@ Public Class PrintInspectionRecord
                     Else
                         TxtOccupancy_date.Text = Format(CDate(rdr_ms3("occuPermit_IssuedDate")), "yyyy-MM-dd")
                     End If
-
 
                     If Not IsDBNull(rdr_ms3("OR_No")) AndAlso rdr_ms3("OR_No").ToString <> "" Then
 
@@ -136,7 +136,7 @@ Public Class PrintInspectionRecord
                 Con_ms3 = New SqlConnection(mcs)
                 Con_ms3.Open()
                 conn_ms3 = "SELECT * FROM ONLINE.annual_inspection_application as ais " &
-                       "INNER JOIN ONLINE.constr_Sysmngr AS sm ON ais.adminUserID = sm.adminUserID " &
+                       "LEFT JOIN ONLINE.constr_Sysmngr AS sm ON ais.adminUserID = sm.adminUserID " &
                         "WHERE ais.id = '" & .TxtApplicationID.Text & "' "
                 cmd_ms3 = New SqlCommand(conn_ms3, Con_ms3)
                 rdr_ms3 = cmd_ms3.ExecuteReader(CommandBehavior.CloseConnection)

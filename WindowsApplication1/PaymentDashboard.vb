@@ -94,8 +94,10 @@ Public Class PaymentDashboard
                         .TxtAccountNo.Text = rdr_ms("accountNo").ToString
                         .referencono.Text = rdr_ms("refno").ToString
                         .TxtBusinessName.Text = rdr_ms("bussName").ToString
+                        .Txt_BuildingOwner.Text = rdr_ms("bldgOwnerName").ToString
+                        .Txt_BuildingAddress.Text = rdr_ms("bussAddress").ToString
                         .tax_amount.Text = rdr_ms("payment_amount").ToString
-                        .TxtOwnerName.Text = rdr_ms("ownerName").ToString
+                        .Txt_BusinessOwnerName.Text = rdr_ms("ownerName").ToString
                         .useraccountid.Text = rdr_ms("UserID").ToString
                         .txt_email.Text = rdr_ms("email").ToString
 

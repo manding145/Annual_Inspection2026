@@ -55,9 +55,13 @@ Partial Class Payment
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txt_contactno = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.TxtOwnerName = New System.Windows.Forms.TextBox()
+        Me.Txt_BuildingOwner = New System.Windows.Forms.TextBox()
+        Me.Txt_BusinessOwnerName = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.Type_App = New System.Windows.Forms.Label()
         Me.TxtApplicationID = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Txt_BuildingAddress = New System.Windows.Forms.TextBox()
         CType(Me.AxAcroPDF1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AxAcroPDF2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -130,7 +134,7 @@ Partial Class Payment
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(13, 117)
+        Me.Label3.Location = New System.Drawing.Point(13, 106)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(83, 13)
         Me.Label3.TabIndex = 161
@@ -143,11 +147,11 @@ Partial Class Payment
         Me.TxtBusinessName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtBusinessName.Enabled = False
         Me.TxtBusinessName.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtBusinessName.Location = New System.Drawing.Point(16, 137)
+        Me.TxtBusinessName.Location = New System.Drawing.Point(16, 121)
         Me.TxtBusinessName.Multiline = True
         Me.TxtBusinessName.Name = "TxtBusinessName"
         Me.TxtBusinessName.ReadOnly = True
-        Me.TxtBusinessName.Size = New System.Drawing.Size(476, 26)
+        Me.TxtBusinessName.Size = New System.Drawing.Size(490, 23)
         Me.TxtBusinessName.TabIndex = 162
         '
         'Label5
@@ -166,16 +170,16 @@ Partial Class Payment
         Me.TxtTransaction.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtTransaction.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtTransaction.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtTransaction.Location = New System.Drawing.Point(14, 84)
+        Me.TxtTransaction.Location = New System.Drawing.Point(13, 74)
         Me.TxtTransaction.Multiline = True
         Me.TxtTransaction.Name = "TxtTransaction"
-        Me.TxtTransaction.Size = New System.Drawing.Size(242, 27)
+        Me.TxtTransaction.Size = New System.Drawing.Size(242, 23)
         Me.TxtTransaction.TabIndex = 168
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(10, 69)
+        Me.Label7.Location = New System.Drawing.Point(12, 59)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(99, 13)
         Me.Label7.TabIndex = 170
@@ -187,7 +191,7 @@ Partial Class Payment
         Me.SaveNow.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SaveNow.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SaveNow.ForeColor = System.Drawing.Color.White
-        Me.SaveNow.Location = New System.Drawing.Point(11, 366)
+        Me.SaveNow.Location = New System.Drawing.Point(11, 375)
         Me.SaveNow.Name = "SaveNow"
         Me.SaveNow.Size = New System.Drawing.Size(194, 32)
         Me.SaveNow.TabIndex = 172
@@ -197,7 +201,7 @@ Partial Class Payment
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(15, 28)
+        Me.Label9.Location = New System.Drawing.Point(15, 26)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(67, 13)
         Me.Label9.TabIndex = 174
@@ -210,26 +214,26 @@ Partial Class Payment
         Me.TxtAccountNo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtAccountNo.Enabled = False
         Me.TxtAccountNo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtAccountNo.Location = New System.Drawing.Point(16, 42)
+        Me.TxtAccountNo.Location = New System.Drawing.Point(16, 41)
         Me.TxtAccountNo.Multiline = True
         Me.TxtAccountNo.Name = "TxtAccountNo"
         Me.TxtAccountNo.ReadOnly = True
-        Me.TxtAccountNo.Size = New System.Drawing.Size(242, 26)
+        Me.TxtAccountNo.Size = New System.Drawing.Size(242, 23)
         Me.TxtAccountNo.TabIndex = 175
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(15, 74)
+        Me.Label2.Location = New System.Drawing.Point(15, 66)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(72, 13)
+        Me.Label2.Size = New System.Drawing.Size(117, 13)
         Me.Label2.TabIndex = 174
-        Me.Label2.Text = "Owner Name:"
+        Me.Label2.Text = "Business Owner Name:"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(269, 69)
+        Me.Label10.Location = New System.Drawing.Point(261, 59)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(123, 13)
         Me.Label10.TabIndex = 176
@@ -242,11 +246,11 @@ Partial Class Payment
         Me.tax_amount.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.tax_amount.Enabled = False
         Me.tax_amount.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tax_amount.Location = New System.Drawing.Point(273, 85)
+        Me.tax_amount.Location = New System.Drawing.Point(261, 74)
         Me.tax_amount.Multiline = True
         Me.tax_amount.Name = "tax_amount"
         Me.tax_amount.ReadOnly = True
-        Me.tax_amount.Size = New System.Drawing.Size(212, 26)
+        Me.tax_amount.Size = New System.Drawing.Size(234, 23)
         Me.tax_amount.TabIndex = 177
         Me.tax_amount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -270,16 +274,16 @@ Partial Class Payment
         Me.GroupBox2.Controls.Add(Me.Txt_remarks)
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.TxtTransaction)
-        Me.GroupBox2.Location = New System.Drawing.Point(11, 169)
+        Me.GroupBox2.Location = New System.Drawing.Point(11, 199)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(523, 191)
+        Me.GroupBox2.Size = New System.Drawing.Size(509, 170)
         Me.GroupBox2.TabIndex = 183
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Payment Details"
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(428, 38)
+        Me.Button1.Location = New System.Drawing.Point(428, 33)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(57, 25)
         Me.Button1.TabIndex = 182
@@ -293,16 +297,16 @@ Partial Class Payment
         Me.ORattachment.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.ORattachment.Enabled = False
         Me.ORattachment.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ORattachment.Location = New System.Drawing.Point(13, 38)
+        Me.ORattachment.Location = New System.Drawing.Point(13, 34)
         Me.ORattachment.Multiline = True
         Me.ORattachment.Name = "ORattachment"
-        Me.ORattachment.Size = New System.Drawing.Size(472, 25)
+        Me.ORattachment.Size = New System.Drawing.Size(472, 23)
         Me.ORattachment.TabIndex = 177
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(12, 22)
+        Me.Label8.Location = New System.Drawing.Point(12, 18)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(136, 13)
         Me.Label8.TabIndex = 176
@@ -311,7 +315,7 @@ Partial Class Payment
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(12, 114)
+        Me.Label4.Location = New System.Drawing.Point(12, 104)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(49, 13)
         Me.Label4.TabIndex = 170
@@ -323,10 +327,10 @@ Partial Class Payment
         Me.Txt_remarks.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Txt_remarks.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Txt_remarks.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txt_remarks.Location = New System.Drawing.Point(13, 129)
+        Me.Txt_remarks.Location = New System.Drawing.Point(13, 120)
         Me.Txt_remarks.Multiline = True
         Me.Txt_remarks.Name = "Txt_remarks"
-        Me.Txt_remarks.Size = New System.Drawing.Size(472, 49)
+        Me.Txt_remarks.Size = New System.Drawing.Size(482, 37)
         Me.Txt_remarks.TabIndex = 168
         '
         'useraccountid
@@ -346,18 +350,22 @@ Partial Class Payment
         Me.typeofapplication.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.typeofapplication.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.typeofapplication.Controls.Add(Me.GroupBox3)
-        Me.typeofapplication.Controls.Add(Me.TxtOwnerName)
+        Me.typeofapplication.Controls.Add(Me.Txt_BuildingOwner)
+        Me.typeofapplication.Controls.Add(Me.Txt_BusinessOwnerName)
         Me.typeofapplication.Controls.Add(Me.useraccountid)
         Me.typeofapplication.Controls.Add(Me.GroupBox2)
+        Me.typeofapplication.Controls.Add(Me.Label12)
         Me.typeofapplication.Controls.Add(Me.Type_App)
         Me.typeofapplication.Controls.Add(Me.Label2)
         Me.typeofapplication.Controls.Add(Me.TxtAccountNo)
         Me.typeofapplication.Controls.Add(Me.Label9)
         Me.typeofapplication.Controls.Add(Me.SaveNow)
         Me.typeofapplication.Controls.Add(Me.Label5)
+        Me.typeofapplication.Controls.Add(Me.Txt_BuildingAddress)
+        Me.typeofapplication.Controls.Add(Me.Label13)
         Me.typeofapplication.Controls.Add(Me.TxtBusinessName)
         Me.typeofapplication.Controls.Add(Me.Label3)
-        Me.typeofapplication.Location = New System.Drawing.Point(15, 81)
+        Me.typeofapplication.Location = New System.Drawing.Point(15, 82)
         Me.typeofapplication.Name = "typeofapplication"
         Me.typeofapplication.Size = New System.Drawing.Size(876, 418)
         Me.typeofapplication.TabIndex = 159
@@ -438,22 +446,42 @@ Partial Class Payment
         Me.Label11.TabIndex = 182
         Me.Label11.Text = "Contact Number:"
         '
-        'TxtOwnerName
+        'Txt_BuildingOwner
         '
-        Me.TxtOwnerName.BackColor = System.Drawing.Color.AliceBlue
-        Me.TxtOwnerName.Enabled = False
-        Me.TxtOwnerName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.TxtOwnerName.Location = New System.Drawing.Point(16, 88)
-        Me.TxtOwnerName.Multiline = True
-        Me.TxtOwnerName.Name = "TxtOwnerName"
-        Me.TxtOwnerName.Size = New System.Drawing.Size(242, 26)
-        Me.TxtOwnerName.TabIndex = 188
+        Me.Txt_BuildingOwner.BackColor = System.Drawing.Color.AliceBlue
+        Me.Txt_BuildingOwner.Enabled = False
+        Me.Txt_BuildingOwner.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Txt_BuildingOwner.Location = New System.Drawing.Point(264, 81)
+        Me.Txt_BuildingOwner.Multiline = True
+        Me.Txt_BuildingOwner.Name = "Txt_BuildingOwner"
+        Me.Txt_BuildingOwner.Size = New System.Drawing.Size(242, 23)
+        Me.Txt_BuildingOwner.TabIndex = 188
+        '
+        'Txt_BusinessOwnerName
+        '
+        Me.Txt_BusinessOwnerName.BackColor = System.Drawing.Color.AliceBlue
+        Me.Txt_BusinessOwnerName.Enabled = False
+        Me.Txt_BusinessOwnerName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Txt_BusinessOwnerName.Location = New System.Drawing.Point(16, 81)
+        Me.Txt_BusinessOwnerName.Multiline = True
+        Me.Txt_BusinessOwnerName.Name = "Txt_BusinessOwnerName"
+        Me.Txt_BusinessOwnerName.Size = New System.Drawing.Size(242, 23)
+        Me.Txt_BusinessOwnerName.TabIndex = 188
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(263, 66)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(112, 13)
+        Me.Label12.TabIndex = 174
+        Me.Label12.Text = "Building Owner Name:"
         '
         'Type_App
         '
         Me.Type_App.AutoSize = True
         Me.Type_App.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold)
-        Me.Type_App.Location = New System.Drawing.Point(19, 8)
+        Me.Type_App.Location = New System.Drawing.Point(18, 6)
         Me.Type_App.Name = "Type_App"
         Me.Type_App.Size = New System.Drawing.Size(145, 18)
         Me.Type_App.TabIndex = 174
@@ -466,13 +494,36 @@ Partial Class Payment
         Me.TxtApplicationID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtApplicationID.Enabled = False
         Me.TxtApplicationID.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtApplicationID.Location = New System.Drawing.Point(859, 42)
+        Me.TxtApplicationID.Location = New System.Drawing.Point(889, 42)
         Me.TxtApplicationID.Multiline = True
         Me.TxtApplicationID.Name = "TxtApplicationID"
         Me.TxtApplicationID.ReadOnly = True
         Me.TxtApplicationID.Size = New System.Drawing.Size(242, 26)
         Me.TxtApplicationID.TabIndex = 175
         Me.TxtApplicationID.Visible = False
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(15, 146)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(88, 13)
+        Me.Label13.TabIndex = 161
+        Me.Label13.Text = "Building Address:"
+        '
+        'Txt_BuildingAddress
+        '
+        Me.Txt_BuildingAddress.BackColor = System.Drawing.Color.AliceBlue
+        Me.Txt_BuildingAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Txt_BuildingAddress.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Txt_BuildingAddress.Enabled = False
+        Me.Txt_BuildingAddress.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Txt_BuildingAddress.Location = New System.Drawing.Point(18, 161)
+        Me.Txt_BuildingAddress.Multiline = True
+        Me.Txt_BuildingAddress.Name = "Txt_BuildingAddress"
+        Me.Txt_BuildingAddress.ReadOnly = True
+        Me.Txt_BuildingAddress.Size = New System.Drawing.Size(488, 23)
+        Me.Txt_BuildingAddress.TabIndex = 162
         '
         'Payment
         '
@@ -526,7 +577,7 @@ Partial Class Payment
     Friend WithEvents useraccountid As System.Windows.Forms.TextBox
     Friend WithEvents typeofapplication As System.Windows.Forms.Panel
     Public WithEvents TxtApplicationID As System.Windows.Forms.TextBox
-    Friend WithEvents TxtOwnerName As System.Windows.Forms.TextBox
+    Friend WithEvents Txt_BusinessOwnerName As System.Windows.Forms.TextBox
     Friend WithEvents Type_App As System.Windows.Forms.Label
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents fullname As System.Windows.Forms.TextBox
@@ -537,4 +588,8 @@ Partial Class Payment
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Public WithEvents Txt_remarks As System.Windows.Forms.TextBox
+    Friend WithEvents Txt_BuildingOwner As System.Windows.Forms.TextBox
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Public WithEvents Txt_BuildingAddress As System.Windows.Forms.TextBox
+    Friend WithEvents Label13 As System.Windows.Forms.Label
 End Class

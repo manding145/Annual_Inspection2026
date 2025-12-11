@@ -44,8 +44,6 @@ Public Class Inspector_ApplicationRecord
 
     Private Sub BtnAddNewRecord_Click_1(sender As Object, e As EventArgs) Handles BtnAddNewRecord.Click
 
-
-
         If String.IsNullOrWhiteSpace(assessment_file.Text) Then
             MsgBox("Please attach Assessment", vbOKOnly & vbCritical, "Annual Inspection Online")
             Exit Sub
@@ -199,7 +197,7 @@ Public Class Inspector_ApplicationRecord
             conn_ms1 = "UPDATE ONLINE.annual_inspection_application SET app_status = 'S', AdminUserID = @Admin, Signed_date = @Date where id='" & txt_applicationno.Text & "'"
             cmd_ms1 = New SqlCommand(conn_ms1, Con_ms1)
             cmd_ms1.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
-            cmd_ms1.Parameters.Add("@Admin", SqlDbType.VarChar).Value = userid
+            cmd_ms1.Parameters.Add("@Admin", SqlDbType.VarChar).Value = AdminUserID
             cmd_ms1.ExecuteNonQuery()
             Con_ms1.Close()
 
@@ -212,7 +210,7 @@ Public Class Inspector_ApplicationRecord
             cmd_ms.Parameters.Add("@accountno", SqlDbType.VarChar).Value = Txt2Storey.Text
             cmd_ms.Parameters.Add("@businessname", SqlDbType.VarChar).Value = TxtBldg_permit.Text
             cmd_ms.Parameters.Add("@businessowner", SqlDbType.VarChar).Value = TxtOccupancyPermit.Text
-            cmd_ms.Parameters.Add("@businessaddress", SqlDbType.VarChar).Value = TxtBusinessAddress.Text
+            cmd_ms.Parameters.Add("@businessaddress", SqlDbType.VarChar).Value = TxtBuildingAddress.Text
             cmd_ms.Parameters.Add("@Date", SqlDbType.DateTime).Value = DateAndTime.Now()
             cmd_ms.Parameters.Add("@user_update", SqlDbType.VarChar).Value = useraccountid.Text
             cmd_ms.Parameters.Add("@Expirationdate", SqlDbType.DateTime).Value = YearEnd
